@@ -49,3 +49,8 @@ The first viewport is a retail hero inside the same world; the watt chart left t
 - The browser guess names only what the user agent can tell ("a Mac", "an iPhone", "an Android phone", "a Windows laptop"); tapping a family-only guess opens the device row in view with "Tap it to pick which one." The suggestion ring is a hairline ink border, no inset; green stays for pressed and fit. The guess line hides once a family is picked and a repeat tap never closes it. The family row may wrap at 1024.
 - Before the catalog arrives the skeleton slide, the empty chip rows, the guess line and the payoff subtitle reserve their heights, so the catalog's arrival moves the tiles by at most 6px at 390, 820 and 1440.
 - aria-live sits on the payoff subtitle, not the tile grid; a hovered current dot keeps its green; the first slide's art shows the GaN 100W charger, the 3-in-1 cable and the MagSafe power bank its copy names.
+
+
+## Update 2026-10-11 (adapt)
+
+Hover states guarded by `(hover: hover)`; 44px chips, pager buttons and dots on coarse pointers; a landscape-phone layout (one header row, the compact slide, h1 in the first 342px); a 300px slide on short desktop windows; safe-area padding with `viewport-fit=cover`; promo photos lazy after slide 1. Verified at 320, 390 portrait, 750×342 landscape, 768 portrait tablet, 820, 1024, 1366×620, 1440 and 1920.

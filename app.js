@@ -85,10 +85,10 @@
 
   /* ---------- Promo: three offers computed from the catalog ---------- */
 
-  function fig(p) {
+  function fig(p, lazy) { // slides past the first load their photos lazily
     var photo = (p.images || [])[0];
     return '<span class="promo__fig"><svg aria-hidden="true"><use href="#' + A.figFor(p) + '"/></svg>' +
-      (photo ? '<img src="' + esc(photo) + '" alt="" decoding="async" onerror="this.remove()">' : '') + '</span>';
+      (photo ? '<img src="' + esc(photo) + '" alt="" decoding="async"' + (lazy ? ' loading="lazy"' : '') + ' onerror="this.remove()">' : '') + '</span>';
   }
   function slides() {
     var all = products(), syn = '\u00a0<span class="syn">synthetic</span>'; // the tag stays with the last word
@@ -114,7 +114,7 @@
       return '<article class="promo__slide" role="group" aria-roledescription="slide" aria-label="' + (i + 1) + ' of ' + list.length + '">' +
         '<div class="promo__text"><h2 class="promo__title">' + esc(s.title) + '</h2><p class="promo__offer">' + s.offer + '</p>' +
         '<a class="btn" href="' + s.href + '">' + esc(s.cta) + '</a></div>' +
-        '<div class="promo__art" aria-hidden="true">' + s.art.map(fig).join('') + '</div></article>';
+        '<div class="promo__art" aria-hidden="true">' + s.art.map(function (p) { return fig(p, i > 0); }).join('') + '</div></article>';
     }).join('');
     $('#promo-dots').innerHTML = list.map(function (s, i) {
       return '<button type="button" class="promo__dot" data-promo-go="' + i + '" aria-label="Slide ' + (i + 1) + ' of ' + list.length + ': ' + esc(s.title) + '" aria-current="' + (i === 0) + '"></button>';

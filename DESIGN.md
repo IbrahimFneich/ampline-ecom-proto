@@ -650,3 +650,12 @@ The single dark block. Sleep-black ground, sleep-ink text, dim links whose under
 - **Don't** fabricate product photography or borrow real brand logos; drawn line-art figures stand in until real photography exists.
 - **Don't** use emoji or glyph characters as icons; every icon is an inline stroke SVG.
 - **Don't** introduce a second typeface; Readex Pro carries display, body and figures, and the platform monospace stack is reserved for code inside notices.
+
+## Responsive contexts (recorded 2026-10-11)
+
+- **Hover is a pointer's affordance.** Every interactive hover state (chips, tiles, category cards, buttons, pager, dots, the guess link, row arrows, cart controls) lives under `@media (hover: hover)`, so a tap on a touch screen never leaves a control in its hover look.
+- **Touch targets.** On coarse pointers the family, device and fit chips are 44px tall, the pager buttons and dots 44px squares (the dot's drawn pill stays 8 or 26px), and the guess link gains vertical padding.
+- **A phone on its side** (height ≤ 480px, landscape): the header collapses to one 60px row with the search inline, the promo slide takes the compact phone layout (text beside a 120px square well staging two figures, the pager beneath) and the hero padding tightens, so the thesis heading enters the first screen at 342px tall.
+- **A short desktop window** (≥ 1024px wide, ≤ 700px tall): the slide's minimum height drops to 300px.
+- **Safe areas.** The page wrapper pads by the larger of the gutter and the device's safe-area inset; home declares `viewport-fit=cover`.
+- **Images.** Promo photos on slides after the first load lazily; tile photos are lazy already.

@@ -91,7 +91,7 @@ h1, h2, h3 {
 p { margin: 0; }
 svg { display: block; }
 
-.wrap { max-width: 1200px; margin-inline: auto; padding-inline: var(--gutter); }
+.wrap { max-width: 1200px; margin-inline: auto; padding-inline: max(var(--gutter), env(safe-area-inset-left)) max(var(--gutter), env(safe-area-inset-right)); }
 
 .vh {
   position: absolute;
@@ -143,7 +143,6 @@ svg { display: block; }
   font-weight: 500;
   transition: background 0.2s, color 0.2s;
 }
-.bar__nav a:hover { background: var(--screen); color: var(--ink); }
 .bar__nav a[aria-current] { color: var(--ink); font-weight: 600; }
 
 .cart {
@@ -159,7 +158,6 @@ svg { display: block; }
   font-weight: 600;
   transition: border-color 0.2s;
 }
-.cart:hover { border-color: var(--ink); }
 .cart svg { width: 20px; height: 20px; }
 .cart__n {
   min-width: 22px;
@@ -225,11 +223,9 @@ svg { display: block; }
 .line__qty output { min-width: 26px; text-align: center; font-weight: 600; }
 .qty { width: 30px; height: 30px; border-radius: 50%; border: 0; background: none; color: var(--ink); display: grid; place-items: center; }
 .qty svg { width: 16px; height: 16px; }
-.qty:hover { background: var(--off-soft); }
 .line__total { grid-area: total; justify-self: end; font-weight: 600; }
 .line__rm { grid-area: rm; justify-self: end; width: 30px; height: 30px; border-radius: 50%; border: 0; background: none; color: var(--ink-2); display: grid; place-items: center; }
 .line__rm svg { width: 16px; height: 16px; }
-.line__rm:hover { background: var(--off-soft); color: var(--ink); }
 .drawer__foot { display: grid; gap: 10px; padding: 12px 20px calc(16px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); }
 .drawer__sub { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 600; color: var(--ink); }
 .drawer__sub b { font-size: 1.25rem; }
@@ -276,11 +272,9 @@ svg { display: block; }
   transition: transform 0.25s var(--ease), background 0.2s, color 0.2s;
 }
 .btn svg { width: 18px; height: 18px; }
-.btn:hover { background: #1c2129; }
 .btn:active { transform: scale(0.98); }
 .btn:disabled { background: var(--track); color: var(--ink-2); cursor: not-allowed; }
 .btn--added { background: var(--green); color: var(--ink); }
-.btn--added:hover { background: var(--green); }
 
 .tag {
   display: inline-flex;
@@ -342,7 +336,6 @@ svg { display: block; }
   background: var(--track);
   transition: background 0.2s;
 }
-.chip:hover { border-color: var(--ink); }
 .chip[aria-pressed="true"] { background: var(--ink); color: var(--ground); border-color: var(--ink); }
 .chip[aria-pressed="true"]::before { background: var(--green); }
 .chip.is-suggested { border-color: var(--ink); border-style: dashed; } /* a suggestion is a dashed hairline ring, unlike a hovered chip's solid one; green means pressed or fit */
@@ -442,7 +435,6 @@ svg { display: block; }
   animation: rise 0.5s var(--ease) both;
   animation-delay: calc(var(--i, 0) * 40ms);
 }
-.tile:hover { border-color: var(--ink); transform: translateY(-2px); }
 .tile__fig {
   display: block;
   aspect-ratio: 1;
@@ -451,7 +443,6 @@ svg { display: block; }
   color: var(--ink);
   padding: 12%;
   transition: background 0.2s; position: relative; }
-.tile__fig:hover { background: var(--off-soft); }
 .tile__fig svg { width: 100%; height: 100%; }
 .tile__photo { position: absolute; inset: 12%; width: 76%; height: 76%; object-fit: contain; mix-blend-mode: multiply; }
 .tile__fig:has(.tile__photo) > svg { visibility: hidden; } /* the drawing yields to a photo that loaded; a missing file removes its img and the drawing returns */ /* a photo sits in the same grey well as a drawing; multiply drops a white studio background into the well */
@@ -607,7 +598,6 @@ svg { display: block; }
 .toolbar__tools { display: flex; gap: 8px; align-items: center; order: -1; width: 100%; }
 .toolbar__tools .select { flex: 1; min-width: 0; }
 .btn--ghost { background: var(--screen); color: var(--ink); border: 1px solid var(--line); }
-.btn--ghost:hover { background: var(--screen); border-color: var(--ink); }
 .filters-btn { height: 40px; padding: 0 14px; }
 .filters-n {
   min-width: 20px;
@@ -636,7 +626,6 @@ svg { display: block; }
   width: 100%;
   text-overflow: ellipsis;
 }
-.select select:hover { border-color: var(--ink); }
 .select svg { position: absolute; inset-inline-end: 12px; width: 16px; height: 16px; pointer-events: none; color: var(--ink-2); transform: rotate(90deg); }
 
 /* Filter sheet (phone) and rail (desktop): one dialog, two renderings */
@@ -664,7 +653,6 @@ svg { display: block; }
 .sheet__head h2 { font-size: 1.25rem; }
 .iconbtn { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: var(--screen); display: grid; place-items: center; }
 .iconbtn svg { width: 18px; height: 18px; }
-.iconbtn:hover { border-color: var(--ink); }
 .rail__groups { overflow: auto; min-height: 0; padding: 4px 20px 12px; }
 .sheet__foot { display: flex; gap: 8px; padding: 12px 20px calc(12px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); }
 .sheet__foot .btn { flex: 1; }
@@ -733,7 +721,6 @@ input:checked + .chip::before { background: var(--green); }
   transition: border-color 0.15s;
 }
 .applied__chip svg { width: 14px; height: 14px; color: var(--ink-2); }
-.applied__chip:hover { border-color: var(--ink); }
 .applied__end { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
 .applied__clear {
   border: 0;
@@ -824,13 +811,11 @@ svg text { font-family: var(--font); }
 .gallery__arrow--prev { inset-inline-start: 10px; }
 .gallery__arrow--prev svg { transform: rotate(180deg); }
 .gallery__arrow--next { inset-inline-end: 10px; }
-.gallery__arrow:hover { border-color: var(--ink); }
 .gallery__thumbs { display: flex; gap: 8px; }
 .thumb { flex: 1; display: grid; grid-template-rows: 1fr auto; gap: 4px; justify-items: center; padding: 6px 4px 8px; border-radius: var(--r-s); border: 1px solid var(--line); background: var(--screen); color: var(--ink); font-size: 0.8rem; font-weight: 600; transition: border-color 0.15s; }
 .thumb span { display: flex; align-items: center; min-height: 2.3em; line-height: 1.15; text-align: center; }
 .thumb svg { width: 100%; aspect-ratio: 4 / 3; height: auto; }
 .thumb img { width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: contain; border-radius: 6px; background: #fff; }
-.thumb:hover { border-color: var(--ink); }
 .thumb[aria-current="true"] { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
 .gallery__note { font-size: 0.8rem; color: var(--ink-2); }
 
@@ -968,7 +953,6 @@ body.has-buybar { padding-bottom: 72px; }
 .rowwrap { position: relative; }
 .rowbtn { display: none; position: absolute; top: 96px; z-index: 2; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: var(--screen); color: var(--ink); place-items: center; box-shadow: var(--shadow); }
 .rowbtn svg { width: 18px; height: 18px; }
-.rowbtn:hover { border-color: var(--ink); }
 .rowbtn--prev { inset-inline-start: -20px; }
 .rowbtn--prev svg { transform: rotate(180deg); }
 .rowbtn--next { inset-inline-end: -20px; }
@@ -993,7 +977,6 @@ body.has-buybar { padding-bottom: 72px; }
   min-width: 0;
   transition: border-color 0.2s, transform 0.3s var(--ease);
 }
-a.cat:hover { border-color: var(--ink); transform: translateY(-2px); }
 .cat__icon { grid-row: span 2; width: 40px; height: 40px; border-radius: 12px; background: var(--off-soft); display: grid; place-items: center; color: var(--ink); }
 .cat__icon svg { width: 22px; height: 22px; }
 .cat__text { display: grid; gap: 2px; min-width: 0; }
@@ -1085,15 +1068,12 @@ a.cat .cat__count { color: var(--ink); }
 .promo__btn { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: var(--screen); color: var(--ink); display: grid; place-items: center; cursor: pointer; transition: border-color 0.15s; }
 .promo__btn svg { width: 16px; height: 16px; }
 .promo__btn:first-child svg { transform: rotate(180deg); }
-.promo__btn:hover { border-color: var(--ink); }
 .promo__btn[aria-disabled="true"] { opacity: 0.4; cursor: default; }
 .promo__dots { display: flex; gap: 6px; }
 .promo__dot { width: 24px; height: 24px; border-radius: 50%; border: 0; background: none; display: grid; place-items: center; cursor: pointer; padding: 0; }
 .promo__dot::before { content: ""; width: 8px; height: 8px; border-radius: var(--pill); background: var(--off); transition: background-color 0.2s; } /* the pill grows without a layout transition */
 .promo__dot[aria-current="true"] { width: auto; padding-inline: 2px; }
 .promo__dot[aria-current="true"]::before { width: 26px; background: var(--green); } /* the current slide is the one filled pill, as a charging bar */
-.promo__dot:hover::before { background: var(--ink); }
-.promo__dot[aria-current="true"]:hover::before { background: var(--green); }
 
 /* Before the catalog arrives the bar and the payoff head reserve their lines, so the page does not jump when they fill. */
 .pickbar .families:empty { min-height: 178px; } /* four chip rows at phone width */
@@ -1105,7 +1085,6 @@ a.cat .cat__count { color: var(--ink); }
 .pickbar h1 { font-size: clamp(1.75rem, 1.2rem + 1.6vw, 2.75rem); font-weight: 700; line-height: 1.1; }
 .pickbar .guess { margin-top: 0; }
 .guess__pick { font: inherit; font-weight: 600; color: var(--ink); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--green); }
-.guess__pick:hover { text-decoration-thickness: 2px; }
 .pickbar .devchips { margin-top: 2px; }
 
 .payoff { display: grid; gap: 14px; padding-top: 8px; }
@@ -1150,6 +1129,66 @@ a.cat .cat__count { color: var(--ink); }
   .pickbar { padding: 16px 22px 18px; gap: 10px; }
   .pickbar .families:empty { min-height: 44px; }
   .pickbar__head { gap: 4px 16px; }
+}
+
+/* Hover is a pointer's affordance: these states apply only where a device can hover, so a tap never leaves a chip or tile stuck in its hover look. */
+@media (hover: hover) {
+  .cart:hover { border-color: var(--ink); }
+  .btn:hover { background: #1c2129; }
+  .btn--added:hover { background: var(--green); }
+  .chip:hover { border-color: var(--ink); }
+  .tile:hover { border-color: var(--ink); transform: translateY(-2px); }
+  .tile__fig:hover { background: var(--off-soft); }
+  .btn--ghost:hover { background: var(--screen); border-color: var(--ink); }
+  .iconbtn:hover { border-color: var(--ink); }
+  .applied__chip:hover { border-color: var(--ink); }
+  .gallery__arrow:hover { border-color: var(--ink); }
+  .thumb:hover { border-color: var(--ink); }
+  .rowbtn:hover { border-color: var(--ink); }
+  a.cat:hover { border-color: var(--ink); transform: translateY(-2px); }
+  .promo__btn:hover { border-color: var(--ink); }
+  .promo__dot:hover::before { background: var(--ink); }
+  .promo__dot[aria-current="true"]:hover::before { background: var(--green); }
+  .guess__pick:hover { text-decoration-thickness: 2px; }
+  .select select:hover { border-color: var(--ink); }
+  .bar__nav a:hover { background: var(--screen); color: var(--ink); }
+  .qty:hover { background: var(--off-soft); }
+  .line__rm:hover { background: var(--off-soft); color: var(--ink); }
+}
+
+/* Touch: 44px targets on the controls a thumb lands on. */
+@media (pointer: coarse) {
+  .families .chip, .devchips .chip, #fit-chips .chip { height: 44px; }
+  .promo__btn { width: 44px; height: 44px; }
+  .promo__dot { width: 44px; height: 44px; }
+  .promo__dot[aria-current="true"] { width: auto; padding-inline: 12px; }
+  .guess__pick { padding-block: 8px; }
+}
+
+/* A phone on its side: one header row, a compact slide, the thesis in the first screen. */
+@media (max-height: 480px) and (orientation: landscape) {
+  html { scroll-padding-top: 72px; }
+  .bar__in:has(.bar__search) { height: 60px; min-height: 60px; padding-block: 0; flex-wrap: nowrap; }
+  .bar__in:has(.bar__search) .brand, .bar__in:has(.bar__search) .cart { margin-bottom: 0; }
+  .bar__search { order: 0; flex: 0 1 260px; margin: 0 0 0 8px; }
+  .hero { padding-block: 10px 32px; }
+  .promo__slide { grid-template-columns: minmax(0, 1fr) 120px; column-gap: 12px; min-height: 0; padding: 14px 16px 44px 0; align-items: stretch; }
+  .promo__art { width: 120px; min-height: 120px; border-radius: var(--r-s); }
+  .promo__fig:nth-child(1) { width: 82%; height: auto; left: 4%; top: 50%; bottom: auto; transform: translateY(-72%); }
+  .promo__fig:nth-child(2) { width: 54%; height: auto; right: 4%; top: 50%; bottom: auto; transform: translateY(2%); }
+  .promo__fig:nth-child(3) { display: none; }
+  /* The square well has room for two figures, so a drawings slide stages a pair here too. */
+  .promo__slide:not(:has(img)) .promo__fig:nth-child(1) { width: 82%; left: 4%; top: 50%; bottom: auto; transform: translateY(-72%); }
+  .promo__slide:not(:has(img)) .promo__fig:nth-child(2) { width: 54%; left: auto; right: 4%; top: 50%; bottom: auto; transform: translateY(2%); }
+  .promo__slide:not(:has(img)) .promo__fig:nth-child(3) { display: none; }
+  .promo__text { align-content: center; padding: 0 0 0 18px; }
+  .promo__pager { right: auto; width: auto; bottom: 6px; padding-inline: 18px; }
+  .pickbar__head { min-height: 0; }
+}
+
+/* A short desktop window keeps the slide to 300px so the picker still enters the first screen. */
+@media (min-width: 1024px) and (max-height: 700px) {
+  .promo__slide { min-height: 300px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
