@@ -1,0 +1,135 @@
+{
+  "site": "ugreen",
+  "url": "https://www.ugreen.com/",
+  "capturedAt": "2026-10-10T19:29:33.104Z",
+  "home": {
+    "title": "UGREEN Official Site",
+    "lang": "en",
+    "dir": "ltr",
+    "h1": "",
+    "nav": [
+      "NAS",
+      "UGREEN NASync DH2300",
+      "UGREEN NASync DH4300 Plus",
+      "UGREEN NASync DXP2800",
+      "UGREEN NASync DXP2800 GT",
+      "UGREEN NASync DXP4800 Plus",
+      "UGREEN NASync DXP6800 Pro",
+      "UGREEN NASync DXP8800 Plus",
+      "UGREEN NASync DXP4800",
+      "UGREEN NASync DXP4800 GT",
+      "UGREEN NASync DXP480T Plus",
+      "Charging",
+      "UGREEN Uno Charger 100W",
+      "View All",
+      "Data & Accessories",
+      "About",
+      "Support",
+      "Community",
+      "Electronics Store",
+      "NAS Store",
+      "Power Bank",
+      "Charger",
+      "USB-C Hub",
+      "UGREEN Flash Sale",
+      "What is NAS"
+    ],
+    "fonts": {
+      "body": "Metropolis, Menlo, Consolas, Monaco, \"Liberation Mono\", \"Lucida Console\", monospace, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
+      "h1": null,
+      "button": "\"Open Sans\", sans-serif"
+    },
+    "colors": {
+      "bodyBg": "rgb(255, 255, 255)",
+      "headerBg": "rgba(255, 255, 255, 0)",
+      "headerColor": "rgba(0, 0, 0, 0.81)",
+      "buttonBg": "rgb(0, 0, 0)",
+      "buttonColor": "rgb(255, 255, 255)",
+      "buttonRadius": "2px",
+      "buttonText": "التحويل"
+    },
+    "priceCount": 1,
+    "priceSamples": [
+      "$50"
+    ],
+    "productLinkCount": 54,
+    "firstProductLinks": [
+      "https://ai.ugreen.com/products/ugreen-nasync-dh2300-nas-storage?utm_source=website&utm_medium=nav&utm_campaign=nav_product",
+      "https://ai.ugreen.com/products/ugreen-nasync-dh4300-plus-nas-storage?utm_source=website&utm_medium=nav&utm_campaign=nav_product",
+      "https://ai.ugreen.com/products/ugreen-nasync-dxp2800-nas-storage?utm_source=website&utm_medium=nav&utm_campaign=nav_product",
+      "https://ai.ugreen.com/products/ugreen-nasync-dxp2800-gt-2-bay-nas-storage?utm_source=website&utm_medium=nav&utm_campaign=nav_product",
+      "https://ai.ugreen.com/products/ugreen-nasync-dxp4800-plus-nas-storage?utm_source=website&utm_medium=nav&utm_campaign=nav_product"
+    ],
+    "hasSearch": true,
+    "pageHeight": 8677,
+    "generator": null,
+    "shopify": true
+  },
+  "pdpUrl": "https://us.ugreen.com/products/ugreen-uno-100w-usb-c-gan-charger-4-ports",
+  "pdp": {
+    "title": "UGREEN Uno USB C GaN Charger 100W 4-Port | UGREEN US",
+    "lang": "en",
+    "dir": "ltr",
+    "h1": "UGREEN Uno 100W 4-Port Charger",
+    "nav": [
+      "🔥Big Deal Days",
+      "UGREEN x Honkai",
+      "Products",
+      "View All",
+      "Docking Stations",
+      "USB Hubs",
+      "Chargers",
+      "High-Power Charging",
+      "Wireless Chargers",
+      "Car Chargers",
+      "USB-C Cables",
+      "Lightning Cables",
+      "Ethernet Cables",
+      "Adapter Cables",
+      "Finder Trackers",
+      "Hard Drive Enclosures",
+      "Bluetooth Adapters",
+      "USB Switches",
+      "Card Readers",
+      "UGREEN Series",
+      "UGREEN MagFlow Series",
+      "UGREEN Nexode Pro",
+      "UGREEN Thunderbolt™ 5 Docks",
+      "Shop by Device",
+      "iPhone Chargers"
+    ],
+    "fonts": {
+      "body": "Metropolis, sans-serif",
+      "h1": "Metropolis, sans-serif",
+      "button": "Metropolis"
+    },
+    "colors": {
+      "bodyBg": "rgb(255, 255, 255)",
+      "headerBg": "rgba(0, 0, 0, 0)",
+      "headerColor": "rgba(0, 0, 0, 0.81)",
+      "buttonBg": "rgb(255, 255, 255)",
+      "buttonColor": "rgb(0, 150, 50)",
+      "buttonRadius": "8px",
+      "buttonText": "Add to Cart Added"
+    },
+    "priceCount": 7,
+    "priceSamples": [
+      "$79.99",
+      "$39.99",
+      "$49.99",
+      "$59.99"
+    ],
+    "productLinkCount": 63,
+    "firstProductLinks": [
+      "https://us.ugreen.com/products/ugreen-uno-100w-usb-c-gan-charger-4-ports#MainContent",
+      "https://us.ugreen.com/products/revodok-maxidok-17-in-1-thunderbolt-5-docking-station-8tb-dual-6k-8k-display",
+      "https://us.ugreen.com/products/revodok-maxidok-10-in-1-thunderbolt-5-docking-station-gigabit-ethernet-dual-6k-8k-display",
+      "https://us.ugreen.com/products/ugreen-mac-mini-m4-8tb-dock",
+      "https://us.ugreen.com/products/ugreen-mac-mini-m4-4k-docking-station"
+    ],
+    "hasSearch": true,
+    "pageHeight": 9773,
+    "generator": null,
+    "shopify": true
+  }
+}

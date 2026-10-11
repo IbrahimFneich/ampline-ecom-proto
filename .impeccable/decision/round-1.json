@@ -1,0 +1,233 @@
+{
+  "title": "Choose the visual world for the Ampline home page",
+  "question": "The roll assigned The Generator Timetable. Keep it, take an alternate, or re-roll.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "The Generator Timetable",
+      "kicker": "THE ROLL",
+      "lineage": "the neighbourhood generator (moteur) hours sheet pinned in every Lebanese lobby",
+      "thesis": "The device picker is the schedule: find your row, read the watts.",
+      "palette": [
+        "#FFE94F",
+        "#111111",
+        "#1A3FBF",
+        "#D1232A"
+      ],
+      "materials": [
+        "copier-yellow A4",
+        "black toner",
+        "ballpoint circle",
+        "red date stamp",
+        "packing tape"
+      ],
+      "viewport": "A posted notice: one-line headline, then a ruled device-by-category grid where every cell is the most watts that category delivers to that device, from the catalog. Tap your row and a ballpoint circle draws around it; the price-list sheet below re-sorts to what fits.",
+      "risk": "The power-cut reference can read grim, or too local for a non-Lebanese client. The yellow sheet must stay clerical and calm, never hazard tape.",
+      "raised": [
+        {
+          "from": "challenger-zine",
+          "raise": "Napkin-line: the picked row's circle draws on and a line traces down to its matches, so cause and result stay connected."
+        },
+        {
+          "from": "challenger-crane",
+          "raise": "Uncut sheet: the whole page is one continuous notice; no modal, every state lives in the URL hash and is recoverable."
+        },
+        {
+          "from": "challenger-ribbon",
+          "raise": "Ledger honesty: spec-stated watts in solid toner, derived figures hairline, synthetic prices stamped as such."
+        }
+      ]
+    },
+    {
+      "id": "model-pick",
+      "label": "The Spec Plate",
+      "kicker": "MY PICK",
+      "lineage": "the input/output label etched on the back of every charger",
+      "thesis": "The store as the label you squint at, set at poster scale.",
+      "palette": [
+        "#F2F2EF",
+        "#1C1C1C",
+        "#8A8A86",
+        "#E8552B"
+      ],
+      "materials": [
+        "anodised aluminium",
+        "laser-etched text",
+        "embossed marks"
+      ],
+      "viewport": "A giant plate: product name, then the OUTPUT table per port at poster scale; the device picker sits as the plate's compatibility line and rewrites the table.",
+      "risk": "The most familiar landing for this category's honesty angle. Etched grey plates are where many runs land, and it can read cold and mono-label editorial."
+    },
+    {
+      "id": "challenger-nixie",
+      "label": "Nixie Laboratory Counter",
+      "verdict": "competitive",
+      "lineage": "stacked glowing digits in glass tubes on a blackened steel panel",
+      "thesis": "Watts as plasma digits: pick a device and the tube banks re-count.",
+      "palette": [
+        "#FF7A1A",
+        "#101214",
+        "#3A3D42",
+        "#C9CCD1"
+      ],
+      "materials": [
+        "glass envelopes",
+        "blackened steel chassis",
+        "anode mesh"
+      ],
+      "viewport": "Each product owns a tube bank showing its max port output; the device picker re-settles every bank with a cross-fade.",
+      "case": "Fuses well: quantities become the interface and the watt figure is the largest thing on every card. Loses identification, a Beirut shopper has never met a nixie, and lands on the dark-plus-neon register.",
+      "risk": "Reads retro-instrument novelty when the chassis takes over the page.",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-nixie-laboratory-counter-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/signals-instruments-nixie-laboratory-counter.webp"
+    },
+    {
+      "id": "challenger-livery",
+      "label": "Endurance Livery Garage",
+      "verdict": "competitive",
+      "lineage": "Gulf and Martini stripe systems, number roundels, sponsor patchwork",
+      "thesis": "Every product wears its wattage as the race number in a roundel.",
+      "palette": [
+        "#7FB2E5",
+        "#F28C28",
+        "#FFFFFF",
+        "#1B2E6B"
+      ],
+      "materials": [
+        "gloss bodywork",
+        "stripe system",
+        "white number roundel"
+      ],
+      "viewport": "Category stripes run as the spine; products sit as roundels with the watt figure as the number; the device picker lights the roundels that fit.",
+      "case": "Fuses well: one heavy figure reads before any word and stripes make categories wayfinding. Identification is weaker than a Lebanon-native form and Gulf blue-and-orange is somebody else's identity.",
+      "risk": "Costume risk: a borrowed livery reads as a tribute, not a store.",
+      "hero": "https://impeccable.style/worlds/cards/pop-culture-shelf-endurance-livery-garage-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/pop-culture-shelf-endurance-livery-garage.webp"
+    },
+    {
+      "id": "challenger-signboard",
+      "label": "Signboard Canyon at Midnight",
+      "verdict": "competitive",
+      "lineage": "stacked floor-by-floor lit signs reflected in a wet street",
+      "thesis": "Categories stack as lit floors of one building; stock is the sign's light.",
+      "palette": [
+        "#0B0C0F",
+        "#F2F2F2",
+        "#E8262B",
+        "#FF5C1A"
+      ],
+      "materials": [
+        "backlit panel",
+        "wet-asphalt reflection",
+        "neon tube"
+      ],
+      "viewport": "A vertical spine of signs, ground floor loudest; in stock is lit, low stock dims, out of stock goes dark; the picker lights the floors that fit.",
+      "case": "Fuses as the electronics street at night, which a Beirut shopper knows. Stock as illumination is clear, but the device-to-watts mechanism has no home in a signboard, and the dark ground is the category's opposite rut.",
+      "risk": "Dark with neon is the predictable opposite of the category default.",
+      "hero": "https://impeccable.style/worlds/cards/vernacular-ephemera-signboard-canyon-midnight-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/vernacular-ephemera-signboard-canyon-midnight.webp"
+    },
+    {
+      "id": "challenger-zine",
+      "label": "Hand-Drawn Zine Explainer",
+      "verdict": "declined",
+      "lineage": "marker lettering, doodle arrows and mascots on cream paper",
+      "thesis": "The store explained the way a friend sketches it on a napkin.",
+      "palette": [
+        "#F6EFD8",
+        "#1A1A1A",
+        "#FFE14D",
+        "#FF7AB6",
+        "#2FC4B2"
+      ],
+      "materials": [
+        "marker ink",
+        "highlighter swipes",
+        "cream paper"
+      ],
+      "viewport": "A marker headline over a doodled device-to-charger diagram, arrows drawing on as you scroll.",
+      "case": "A shopper replacing a dead charger is not here to be taught, and marker lettering undercuts price and cart.",
+      "kept": "Draw-on connective motion from the pick to its result.",
+      "risk": "Reads as a tutorial, not a shop.",
+      "hero": "https://impeccable.style/worlds/cards/hand-drawn-zine-explainer-hero.webp"
+    },
+    {
+      "id": "challenger-crane",
+      "label": "Orizuru Crane Sequence",
+      "verdict": "declined",
+      "lineage": "one uncut vermilion sheet folded through thirty-two steps",
+      "thesis": "One sheet, every state still carrying every earlier crease.",
+      "palette": [
+        "#D8362A",
+        "#F4E9DF",
+        "#C9A227",
+        "#1A1A1A"
+      ],
+      "materials": [
+        "vermilion washi",
+        "crease lines",
+        "sumi ink"
+      ],
+      "viewport": "A centred square diagram and a strict numbered margin column of steps.",
+      "case": "Thirty-two folds is a lesson, not a storefront; nothing in the catalog is a sequence.",
+      "kept": "One uncut sheet: no modal, every state recoverable.",
+      "risk": "A craft metaphor with no commercial surface.",
+      "hero": "https://impeccable.style/worlds/cards/paper-folds-pleats-deployable-orizuru-crane-sequence-hero.webp"
+    },
+    {
+      "id": "challenger-ribbon",
+      "label": "Provenance Ribbon",
+      "verdict": "declined",
+      "lineage": "one continuous red silk custody line across archival buff",
+      "thesis": "Known passages in solid type, inferred ones in hairline.",
+      "palette": [
+        "#E9E1CC",
+        "#B3202A",
+        "#8E8E8E",
+        "#1E1E1E"
+      ],
+      "materials": [
+        "archival buff",
+        "red silk ribbon",
+        "fading dealer stamps"
+      ],
+      "viewport": "A single ribbon-led column with dated small caps at every fold.",
+      "case": "Museum custody is nobody's charging scene, and a timeline cannot carry a shelf.",
+      "kept": "Known figures in solid type, inferred ones hairline, synthetic ones marked.",
+      "risk": "Reads as an archive, not a shop.",
+      "hero": "https://impeccable.style/worlds/cards/exhibition-museum-curation-provenance-ribbon-hero.webp"
+    }
+  ],
+  "reroll": {
+    "registers": [
+      "safer",
+      "bolder"
+    ]
+  },
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "What the eight reference stores ship, executed impeccably.",
+    "palette": [
+      "#FFFFFF",
+      "#111111",
+      "#00BEFA"
+    ],
+    "materials": [
+      "white ground",
+      "product photography",
+      "black pill buttons"
+    ],
+    "viewport": "A full-bleed hero with a Shop Now pill, a category icon row, then a best-sellers card carousel with strike-through prices.",
+    "risk": "Indistinguishable from the competition by design, and it needs the product photography the project does not have yet."
+  },
+  "steer": true,
+  "seed": {
+    "key": "cbeaa407",
+    "scope": "direction",
+    "mode": "persuade",
+    "reroll": 0,
+    "register": null,
+    "log": "seed-cbeaa407.log"
+  }
+}

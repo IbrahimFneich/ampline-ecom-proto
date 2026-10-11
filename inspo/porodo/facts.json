@@ -1,0 +1,63 @@
+{
+  "site": "porodo",
+  "url": "https://www.porodo.net/",
+  "capturedAt": "2026-10-10T19:21:49.702Z",
+  "home": {
+    "title": "Porodo | Choose the Best!",
+    "lang": "en-US",
+    "dir": "ltr",
+    "h1": "",
+    "nav": [
+      "Products",
+      "Porodo Brands",
+      "Porodo Blue",
+      "Soundtec",
+      "Porodo Lifestyle",
+      "Porodo Gaming",
+      "Become Distributor",
+      "Support",
+      "Order Status",
+      "Shipping & Returns",
+      "About Us",
+      "Contact Us",
+      "Warranty",
+      "User Manuals",
+      "Blogs",
+      "0",
+      "AR",
+      "EN",
+      "Sign in",
+      "Cable, Charger, Adapter",
+      "Keyboard & Mouse",
+      "Earbuds & Headphone",
+      "Holders & Stand",
+      "Microphone",
+      "Home Appliance"
+    ],
+    "fonts": {
+      "body": "\"DM sans\"",
+      "h1": "\"DM sans\"",
+      "button": "\"DM sans\""
+    },
+    "colors": {
+      "bodyBg": "rgb(255, 255, 255)",
+      "headerBg": "rgba(0, 0, 0, 0)",
+      "headerColor": "rgb(33, 37, 41)",
+      "buttonBg": "rgb(254, 80, 0)",
+      "buttonColor": "rgb(255, 255, 255)",
+      "buttonRadius": "6px",
+      "buttonText": "Skip to Content"
+    },
+    "priceCount": 0,
+    "priceSamples": [],
+    "productLinkCount": 1,
+    "firstProductLinks": [
+      "https://www.facebook.com/p/Porodo-Global-100090991969734/"
+    ],
+    "hasSearch": true,
+    "pageHeight": 900,
+    "generator": "Odoo",
+    "shopify": false
+  },
+  "pdpNote": "Cloudflare bot challenge blocks deeper pages under Playwright; product page to be captured with a real Chrome session"
+}

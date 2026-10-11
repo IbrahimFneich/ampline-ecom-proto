@@ -1,0 +1,102 @@
+{
+  "site": "baseus",
+  "url": "https://www.baseus.com/",
+  "capturedAt": "2026-10-10T19:28:04.866Z",
+  "home": {
+    "title": "Baseus Official | Practical. Reliable. Base on User.",
+    "lang": "en",
+    "dir": "ltr",
+    "h1": "Baseus US",
+    "nav": [
+      "Skip to main content",
+      "Fall Sale🔥",
+      "Dark Cherry Series",
+      "Products",
+      "Support",
+      "Explore"
+    ],
+    "fonts": {
+      "body": "\"DM Sans\", sans-serif",
+      "h1": "\"DM Sans\", sans-serif",
+      "button": "\"DM Sans\", sans-serif"
+    },
+    "colors": {
+      "bodyBg": "rgb(255, 255, 255)",
+      "headerBg": "rgb(255, 255, 255)",
+      "headerColor": "rgb(51, 51, 51)",
+      "buttonBg": "rgb(40, 40, 40)",
+      "buttonColor": "rgb(255, 255, 255)",
+      "buttonRadius": "30px",
+      "buttonText": "Start shopping"
+    },
+    "priceCount": 1,
+    "priceSamples": [
+      "$299"
+    ],
+    "productLinkCount": 8,
+    "firstProductLinks": [
+      "https://www.baseus.com/products/bowie-mc2-open-ear-true-wireless-earbuds",
+      "https://www.baseus.com/products/picogo-ah22-digital-display-fast-charger-3c-100w",
+      "https://www.baseus.com/products/picogo-am52-qi2-2-magnetic-power-bank-10000mah-45w",
+      "https://www.baseus.com/products/picogo-air-am71-3c-magnetic-power-bank-5000mah-22-5w",
+      "https://www.baseus.com/products/security-x1-pro-outdoor-dual-camera"
+    ],
+    "hasSearch": true,
+    "pageHeight": 900,
+    "generator": null,
+    "shopify": true
+  },
+  "pdpUrl": "https://www.baseus.com/products/picogo-ah22-digital-display-fast-charger-3c-100w",
+  "pdp": {
+    "title": "Baseus PicoGo Pro AH22 Digital Display Fast Charger 3C 100W",
+    "lang": "en",
+    "dir": "ltr",
+    "h1": "Baseus PicoGo Pro AH22 Digital Display Fast Charger 3C 100W",
+    "nav": [
+      "Skip to main content",
+      "Fall Sale🔥",
+      "Dark Cherry Series",
+      "Products",
+      "Support",
+      "Explore",
+      "Home"
+    ],
+    "fonts": {
+      "body": "\"DM Sans\", sans-serif",
+      "h1": "\"DM Sans\", sans-serif",
+      "button": "\"DM Sans\", sans-serif"
+    },
+    "colors": {
+      "bodyBg": "rgba(0, 0, 0, 0)",
+      "headerBg": "rgb(255, 255, 255)",
+      "headerColor": "rgb(51, 51, 51)",
+      "buttonBg": "rgb(40, 40, 40)",
+      "buttonColor": "rgb(255, 255, 255)",
+      "buttonRadius": "30px",
+      "buttonText": "Start shopping"
+    },
+    "priceCount": 19,
+    "priceSamples": [
+      "$299",
+      "$59.99",
+      "$69.99",
+      "$89.99",
+      "$20",
+      "$15.99",
+      "$19.99",
+      "$139.99"
+    ],
+    "productLinkCount": 17,
+    "firstProductLinks": [
+      "https://www.baseus.com/products/picogo-ah22-digital-display-fast-charger-3c-100w#main",
+      "https://www.baseus.com/products/picogo-ah22-digital-display-fast-charger-3c-100w#MainContent",
+      "https://www.baseus.com/products/picogo-am52-qi2-2-magnetic-power-bank-with-cable-10000mah-45w-dark-cherry-edition?variant=43717867241549",
+      "https://www.facebook.com/sharer.php?u=https://www.baseus.com/products/picogo-ah22-digital-display-fast-charger-3c-100w",
+      "https://pinterest.com/pin/create/button/?url=https://www.baseus.com/products/picogo-ah22-digital-display-fast-charger-3c-100w&media=https://www.baseus.com/cdn/shop/files/Baseus_PicoGo_AH22_Digital_Display_Fast_Charger_3C_100W_Dark_Cherry_1_800x.jpg?v=1787627987&description=Smarter%20Protection%20Smart%20Charging%20Mode%20Gentle%20Mode%20Turbo%20Mode%20Active%20Battery%20Care%205-Layer%20Advanced%20Cooler..."
+    ],
+    "hasSearch": true,
+    "pageHeight": 900,
+    "generator": null,
+    "shopify": true
+  }
+}

@@ -1,0 +1,3721 @@
+{
+  "_meta": {
+    "brand": "Ampline",
+    "brand_note": "PLACEHOLDER working name, rename later with a find-and-replace",
+    "currency": "USD",
+    "prices_note": "SYNTHETIC prices and ratings, authored 2026-10-10 for the prototype; replace before any real use",
+    "images_note": "assets/products/<slug>-<n>.jpg|png; every path listed here exists on disk (tools/sync-images.py), a product with no file lists none and draws line art",
+    "type_note": "type added 2026-10-11 for the category filter (chargers: wall, desktop, travel)",
+    "brands_note": "Third-party product names are used as a retailer lists them; prices, ratings and availability are synthetic.",
+    "devices_note": "devices[].max_charge_w is the peak charge rate the device accepts as commonly published; indicative, verify per model. devices[].aliases are the compat strings the Ampline SKUs use, so every existing compat entry maps to device ids; new accessories list device ids in compat directly.",
+    "compat_unmapped": [
+      "Any car with a 12V socket",
+      "Shavers and small AC devices"
+    ],
+    "facets_note": "Category facets name spec labels to filter on; Brand and Price resolve to the product's brand and price fields.",
+    "compat_models_note": "Model-specific cases and folios carry an empty compat: the devices list is coarse (families such as 'iPhone 15 or newer'), so their fit is stated only in the Fits spec row and they never appear under a device chip."
+  },
+  "categories": [
+    {
+      "slug": "chargers",
+      "name": "Chargers",
+      "blurb": "GaN wall, desktop and travel chargers from 20W to 100W",
+      "group": "Power",
+      "facets": [
+        "Type",
+        "Max output",
+        "Ports",
+        "Price"
+      ]
+    },
+    {
+      "slug": "cables",
+      "name": "Cables",
+      "blurb": "Braided USB-C, Lightning and 3-in-1",
+      "group": "Accessories",
+      "facets": [
+        "Type",
+        "Power",
+        "Length",
+        "Price"
+      ]
+    },
+    {
+      "slug": "power-banks",
+      "name": "Power Banks",
+      "blurb": "Magnetic pocket packs to 65W laptop batteries",
+      "group": "Power",
+      "facets": [
+        "Type",
+        "Capacity",
+        "Output",
+        "Price"
+      ]
+    },
+    {
+      "slug": "hubs",
+      "name": "Hubs & Docks",
+      "blurb": "USB-C hubs with 4K HDMI and pass-through charging",
+      "group": "Accessories",
+      "facets": [
+        "Type",
+        "Ports",
+        "Price"
+      ]
+    },
+    {
+      "slug": "car",
+      "name": "Car",
+      "blurb": "Fast charging on the road",
+      "group": "Accessories",
+      "facets": [
+        "Type",
+        "Output",
+        "Price"
+      ]
+    },
+    {
+      "slug": "wireless",
+      "name": "Wireless",
+      "blurb": "Stands and pads for phone, watch and earbuds",
+      "group": "Power",
+      "facets": [
+        "Type",
+        "Phone",
+        "Price"
+      ]
+    },
+    {
+      "slug": "phones",
+      "name": "Phones",
+      "blurb": "iPhone, Galaxy and Pixel, unlocked",
+      "group": "Devices",
+      "facets": [
+        "Brand",
+        "Storage",
+        "Screen",
+        "Price"
+      ]
+    },
+    {
+      "slug": "laptops",
+      "name": "Laptops",
+      "blurb": "MacBook, ThinkPad, IdeaPad and Galaxy Book",
+      "group": "Devices",
+      "facets": [
+        "Brand",
+        "Processor",
+        "Memory",
+        "Screen",
+        "Price"
+      ]
+    },
+    {
+      "slug": "tablets",
+      "name": "Tablets",
+      "blurb": "iPad and Galaxy Tab, Wi-Fi models",
+      "group": "Devices",
+      "facets": [
+        "Brand",
+        "Storage",
+        "Screen",
+        "Price"
+      ]
+    },
+    {
+      "slug": "audio",
+      "name": "Audio",
+      "blurb": "Headphones, earbuds and speakers",
+      "group": "Devices",
+      "facets": [
+        "Brand",
+        "Type",
+        "Noise cancelling",
+        "Price"
+      ]
+    },
+    {
+      "slug": "wearables",
+      "name": "Wearables",
+      "blurb": "Smartwatches and fitness bands",
+      "group": "Devices",
+      "facets": [
+        "Brand",
+        "Type",
+        "Battery",
+        "Price"
+      ]
+    },
+    {
+      "slug": "gaming",
+      "name": "Gaming",
+      "blurb": "Consoles, controllers, headsets and mice",
+      "group": "Devices",
+      "facets": [
+        "Brand",
+        "Type",
+        "Storage",
+        "Price"
+      ]
+    },
+    {
+      "slug": "networking",
+      "name": "Networking",
+      "blurb": "Routers, mesh systems, extenders and 4G hotspots",
+      "group": "Devices",
+      "facets": [
+        "Brand",
+        "Wi-Fi standard",
+        "Coverage",
+        "Price"
+      ]
+    },
+    {
+      "slug": "smart-home",
+      "name": "Smart Home",
+      "blurb": "Plugs, bulbs, cameras and speakers",
+      "group": "Devices",
+      "facets": [
+        "Brand",
+        "Type",
+        "Connectivity",
+        "Price"
+      ]
+    },
+    {
+      "slug": "cases-and-mounts",
+      "name": "Cases & Mounts",
+      "blurb": "Cases, folios, car mounts and stands",
+      "group": "Accessories",
+      "facets": [
+        "Brand",
+        "Type",
+        "Fits",
+        "Price"
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "AMP-GAN-65",
+      "slug": "gan-65w-3-port-charger",
+      "name": "GaN 65W 3-Port Charger",
+      "category": "chargers",
+      "type": "wall",
+      "price": 39.99,
+      "compare_at": 49.99,
+      "short": "Charges a laptop, a phone and earbuds from one plug the size of a matchbox.",
+      "specs": [
+        {
+          "label": "Max output",
+          "value": "65W (single port)"
+        },
+        {
+          "label": "Ports",
+          "value": "2x USB-C PD 3.0, 1x USB-A"
+        },
+        {
+          "label": "Split output",
+          "value": "45W + 20W, or 30W + 20W + 15W"
+        },
+        {
+          "label": "Plug",
+          "value": "Foldable UK / EU / US (region variants)"
+        },
+        {
+          "label": "Size",
+          "value": "52 x 48 x 30 mm, 112 g"
+        }
+      ],
+      "compat": [
+        "MacBook Air",
+        "iPad Pro",
+        "iPhone 15 and later",
+        "Galaxy S series",
+        "Steam Deck"
+      ],
+      "in_box": [
+        "GaN 65W charger",
+        "Quick guide"
+      ],
+      "badges": [
+        "Best seller",
+        "GaN"
+      ],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.7,
+        "count": 312
+      },
+      "images": []
+    },
+    {
+      "id": "AMP-GAN-100D",
+      "slug": "gan-100w-desktop-charger",
+      "name": "GaN 100W Desktop Charger",
+      "category": "chargers",
+      "type": "desktop",
+      "price": 69.99,
+      "compare_at": null,
+      "short": "One desk brick for the laptop, the tablet and two phones, with a 1.5 m lead.",
+      "specs": [
+        {
+          "label": "Max output",
+          "value": "100W (single port)"
+        },
+        {
+          "label": "Ports",
+          "value": "3x USB-C PD 3.1, 1x USB-A"
+        },
+        {
+          "label": "Split output",
+          "value": "65W + 30W, or 45W + 30W + 20W + 5W"
+        },
+        {
+          "label": "Cable",
+          "value": "1.5 m detachable AC lead"
+        },
+        {
+          "label": "Size",
+          "value": "98 x 68 x 28 mm, 265 g"
+        }
+      ],
+      "compat": [
+        "MacBook Pro 16",
+        "Dell XPS",
+        "iPad Pro",
+        "iPhone",
+        "Pixel"
+      ],
+      "in_box": [
+        "GaN 100W desktop charger",
+        "AC lead 1.5 m",
+        "Quick guide"
+      ],
+      "badges": [
+        "New",
+        "GaN"
+      ],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.8,
+        "count": 97
+      },
+      "images": []
+    },
+    {
+      "id": "AMP-NANO-20",
+      "slug": "nano-20w-usb-c-charger",
+      "name": "Nano 20W USB-C Charger",
+      "category": "chargers",
+      "type": "wall",
+      "price": 14.99,
+      "compare_at": null,
+      "short": "The small one for the bedside and the bag. Phone to 50% in about 30 minutes.",
+      "specs": [
+        {
+          "label": "Max output",
+          "value": "20W"
+        },
+        {
+          "label": "Ports",
+          "value": "1x USB-C PD 3.0"
+        },
+        {
+          "label": "Plug",
+          "value": "Fixed UK / EU / US (region variants)"
+        },
+        {
+          "label": "Size",
+          "value": "30 x 30 x 32 mm, 38 g"
+        }
+      ],
+      "compat": [
+        "iPhone 12 and later",
+        "Galaxy A and S series",
+        "AirPods",
+        "Apple Watch"
+      ],
+      "in_box": [
+        "Nano 20W charger"
+      ],
+      "badges": [],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.6,
+        "count": 1024
+      },
+      "images": []
+    },
+    {
+      "id": "AMP-TRV-65",
+      "slug": "universal-travel-adapter-65w",
+      "name": "Universal Travel Adapter 65W",
+      "category": "chargers",
+      "type": "travel",
+      "price": 34.99,
+      "compare_at": null,
+      "short": "UK, EU, US and AU plugs in one slide-out body, with 65W GaN charging built in.",
+      "specs": [
+        {
+          "label": "Regions",
+          "value": "UK, EU, US, AU (200+ countries)"
+        },
+        {
+          "label": "Output",
+          "value": "65W USB-C + 2x USB-A, plus AC pass-through"
+        },
+        {
+          "label": "Safety",
+          "value": "10A fuse, child shutters"
+        },
+        {
+          "label": "Weight",
+          "value": "220 g"
+        }
+      ],
+      "compat": [
+        "Laptops",
+        "Phones",
+        "Shavers and small AC devices"
+      ],
+      "in_box": [
+        "Travel adapter",
+        "Spare fuse",
+        "Pouch"
+      ],
+      "badges": [
+        "Travel"
+      ],
+      "stock": "out_of_stock",
+      "rating": {
+        "value": 4.3,
+        "count": 84
+      },
+      "images": []
+    },
+    {
+      "id": "AMP-CBL-C100-2M",
+      "slug": "usb-c-100w-braided-cable-2m",
+      "name": "USB-C to USB-C 100W Braided Cable, 2 m",
+      "category": "cables",
+      "type": "usb-c",
+      "price": 12.99,
+      "compare_at": 15.99,
+      "short": "Laptop-grade power and 480 Mbps data in a nylon braid rated for 30,000 bends.",
+      "specs": [
+        {
+          "label": "Power",
+          "value": "100W (5A) with E-marker"
+        },
+        {
+          "label": "Data",
+          "value": "USB 2.0, 480 Mbps"
+        },
+        {
+          "label": "Length",
+          "value": "2 m (also 1 m)"
+        },
+        {
+          "label": "Jacket",
+          "value": "Double-braided nylon, aluminium shells"
+        },
+        {
+          "label": "Bend rating",
+          "value": "30,000 cycles"
+        }
+      ],
+      "compat": [
+        "Any USB-C laptop, tablet or phone"
+      ],
+      "in_box": [
+        "Cable",
+        "Velcro strap"
+      ],
+      "badges": [
+        "Best seller"
+      ],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.8,
+        "count": 2210
+      },
+      "images": []
+    },
+    {
+      "id": "AMP-CBL-CL-1M",
+      "slug": "usb-c-to-lightning-mfi-cable-1m",
+      "name": "USB-C to Lightning Cable (MFi), 1 m",
+      "category": "cables",
+      "type": "lightning",
+      "price": 16.99,
+      "compare_at": null,
+      "short": "Apple-certified fast charge for iPhone and AirPods, with the braid that survives the car door.",
+      "specs": [
+        {
+          "label": "Certification",
+          "value": "MFi"
+        },
+        {
+          "label": "Power",
+          "value": "Up to 27W PD"
+        },
+        {
+          "label": "Data",
+          "value": "480 Mbps"
+        },
+        {
+          "label": "Length",
+          "value": "1 m (also 2 m)"
+        },
+        {
+          "label": "Jacket",
+          "value": "Braided nylon"
+        }
+      ],
+      "compat": [
+        "iPhone 8 to iPhone 14",
+        "AirPods with Lightning case",
+        "iPad 9th gen"
+      ],
+      "in_box": [
+        "Cable"
+      ],
+      "badges": [
+        "MFi"
+      ],
+      "stock": "low_stock",
+      "rating": {
+        "value": 4.7,
+        "count": 640
+      },
+      "images": []
+    },
+    {
+      "id": "AMP-CBL-3IN1",
+      "slug": "3-in-1-100w-cable",
+      "name": "3-in-1 100W Cable",
+      "category": "cables",
+      "type": "3-in-1",
+      "price": 19.99,
+      "compare_at": null,
+      "short": "USB-C, Lightning and micro-USB on one lead, so the travel pouch carries one cable.",
+      "specs": [
+        {
+          "label": "Tips",
+          "value": "USB-C 100W, Lightning 27W, micro-USB 18W"
+        },
+        {
+          "label": "Length",
+          "value": "1.2 m"
+        },
+        {
+          "label": "Simultaneous",
+          "value": "Up to 3 devices, power shared"
+        },
+        {
+          "label": "Jacket",
+          "value": "Braided nylon"
+        }
+      ],
+      "compat": [
+        "Mixed households and travel kits"
+      ],
+      "in_box": [
+        "Cable",
+        "Velcro strap"
+      ],
+      "badges": [],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.4,
+        "count": 188
+      },
+      "images": []
+    },
+    {
+      "id": "AMP-PB-MAG10",
+      "slug": "magnetic-10000mah-power-bank",
+      "name": "Magnetic 10,000 mAh Power Bank",
+      "category": "power-banks",
+      "type": "magnetic",
+      "price": 44.99,
+      "compare_at": 54.99,
+      "short": "Snaps to the back of the phone, charges wirelessly at 15W, and the kickstand folds out for video.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "10,000 mAh / 38.5 Wh"
+        },
+        {
+          "label": "Wireless",
+          "value": "15W magnetic (Qi2)"
+        },
+        {
+          "label": "Wired",
+          "value": "USB-C 20W in / out"
+        },
+        {
+          "label": "Extras",
+          "value": "Fold-out stand, battery LED ring"
+        },
+        {
+          "label": "Weight",
+          "value": "198 g"
+        }
+      ],
+      "compat": [
+        "iPhone 12 and later",
+        "MagSafe-case Android phones"
+      ],
+      "in_box": [
+        "Power bank",
+        "USB-C cable 0.3 m",
+        "Quick guide"
+      ],
+      "badges": [
+        "New",
+        "Qi2"
+      ],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.5,
+        "count": 421
+      },
+      "images": []
+    },
+    {
+      "id": "AMP-PB-20K65",
+      "slug": "20000mah-65w-laptop-power-bank",
+      "name": "20,000 mAh 65W Laptop Power Bank",
+      "category": "power-banks",
+      "type": "laptop",
+      "price": 59.99,
+      "compare_at": null,
+      "short": "A full extra MacBook Air charge, with a screen that shows watts in and out.",
+      "specs": [
+        {
+          "label": "Capacity",
+          "value": "20,000 mAh / 74 Wh (flight-safe)"
+        },
+        {
+          "label": "Output",
+          "value": "65W USB-C, 22.5W USB-A"
+        },
+        {
+          "label": "Input",
+          "value": "65W USB-C, full recharge in 1.5 h"
+        },
+        {
+          "label": "Display",
+          "value": "Live wattage and percentage"
+        },
+        {
+          "label": "Weight",
+          "value": "430 g"
+        }
+      ],
+      "compat": [
+        "MacBook Air",
+        "iPad Pro",
+        "Nintendo Switch",
+        "Any USB-C phone"
+      ],
+      "in_box": [
+        "Power bank",
+        "USB-C 100W cable 0.5 m",
+        "Pouch"
+      ],
+      "badges": [
+        "Best seller"
+      ],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.7,
+        "count": 538
+      },
+      "images": []
+    },
+    {
+      "id": "AMP-HUB-7",
+      "slug": "7-in-1-usb-c-hub",
+      "name": "7-in-1 USB-C Hub",
+      "category": "hubs",
+      "type": "hub",
+      "price": 49.99,
+      "compare_at": null,
+      "short": "4K HDMI, two USB-A, SD and microSD, and 100W pass-through on one aluminium bar.",
+      "specs": [
+        {
+          "label": "Video",
+          "value": "HDMI 4K @ 60Hz"
+        },
+        {
+          "label": "USB",
+          "value": "2x USB-A 3.0, 1x USB-C data 5 Gbps"
+        },
+        {
+          "label": "Cards",
+          "value": "SD + microSD (UHS-I)"
+        },
+        {
+          "label": "Power",
+          "value": "100W USB-C pass-through (85W to host)"
+        },
+        {
+          "label": "Body",
+          "value": "Aluminium, 12 cm, 0.2 m tether"
+        }
+      ],
+      "compat": [
+        "MacBook",
+        "iPad Pro / Air (USB-C)",
+        "Windows USB-C laptops",
+        "Steam Deck"
+      ],
+      "in_box": [
+        "Hub",
+        "Quick guide"
+      ],
+      "badges": [],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.6,
+        "count": 276
+      },
+      "images": []
+    },
+    {
+      "id": "AMP-CAR-45",
+      "slug": "45w-dual-port-car-charger",
+      "name": "45W Dual-Port Car Charger",
+      "category": "car",
+      "type": "car",
+      "price": 21.99,
+      "compare_at": null,
+      "short": "Two fast ports from the 12V socket, flush enough to leave in.",
+      "specs": [
+        {
+          "label": "Output",
+          "value": "USB-C 30W + USB-A 15W (45W total)"
+        },
+        {
+          "label": "Input",
+          "value": "12 to 24V"
+        },
+        {
+          "label": "Body",
+          "value": "Zinc alloy, LED ring"
+        },
+        {
+          "label": "Size",
+          "value": "28 mm diameter, 55 mm long"
+        }
+      ],
+      "compat": [
+        "Any car with a 12V socket",
+        "iPhone",
+        "Android"
+      ],
+      "in_box": [
+        "Car charger"
+      ],
+      "badges": [],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.5,
+        "count": 362
+      },
+      "images": []
+    },
+    {
+      "id": "AMP-WL-3IN1",
+      "slug": "3-in-1-wireless-charging-stand",
+      "name": "3-in-1 Wireless Charging Stand",
+      "category": "wireless",
+      "type": "stand",
+      "price": 54.99,
+      "compare_at": 64.99,
+      "short": "Phone, watch and earbuds charge overnight on one stand, phone upright for StandBy.",
+      "specs": [
+        {
+          "label": "Phone",
+          "value": "15W magnetic (Qi2), tilts 0 to 60 degrees"
+        },
+        {
+          "label": "Watch",
+          "value": "5W fast charge puck"
+        },
+        {
+          "label": "Earbuds",
+          "value": "5W pad"
+        },
+        {
+          "label": "Power",
+          "value": "USB-C in, 30W adapter included"
+        }
+      ],
+      "compat": [
+        "iPhone 12 and later",
+        "Apple Watch",
+        "AirPods",
+        "Galaxy phones (no magnet)"
+      ],
+      "in_box": [
+        "Stand",
+        "30W adapter",
+        "USB-C cable 1 m"
+      ],
+      "badges": [
+        "Bundle"
+      ],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.6,
+        "count": 149
+      },
+      "images": []
+    },
+    {
+      "id": "APL-IP16-128",
+      "slug": "apple-iphone-16-128gb",
+      "name": "Apple iPhone 16, 128 GB",
+      "brand": "Apple",
+      "category": "phones",
+      "price": 1099,
+      "compare_at": null,
+      "short": "6.1-inch OLED, A18 chip, USB-C, 48 MP main camera.",
+      "specs": [
+        {
+          "label": "Storage",
+          "value": "128 GB"
+        },
+        {
+          "label": "Screen",
+          "value": "6.1-inch OLED, 60 Hz"
+        },
+        {
+          "label": "Chip",
+          "value": "A18"
+        },
+        {
+          "label": "Camera",
+          "value": "48 MP main, 12 MP ultrawide"
+        },
+        {
+          "label": "Battery",
+          "value": "3,561 mAh"
+        },
+        {
+          "label": "Charging",
+          "value": "USB-C wired, MagSafe wireless"
+        },
+        {
+          "label": "Weight",
+          "value": "170 g"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Black",
+          "White",
+          "Pink",
+          "Teal",
+          "Ultramarine"
+        ],
+        "storage": [
+          "128 GB",
+          "256 GB",
+          "512 GB"
+        ]
+      },
+      "device": "iphone-15",
+      "in_box": [
+        "iPhone 16",
+        "USB-C to USB-C cable",
+        "Documentation"
+      ],
+      "badges": [
+        "New"
+      ],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.8,
+        "count": 212
+      },
+      "images": [
+        "assets/products/apple-iphone-16-128gb-1.png"
+      ]
+    },
+    {
+      "id": "APL-IP15-128",
+      "slug": "apple-iphone-15-128gb",
+      "name": "Apple iPhone 15, 128 GB",
+      "brand": "Apple",
+      "category": "phones",
+      "price": 899,
+      "compare_at": 999,
+      "short": "6.1-inch OLED, A16 Bionic, USB-C, 48 MP main camera.",
+      "specs": [
+        {
+          "label": "Storage",
+          "value": "128 GB"
+        },
+        {
+          "label": "Screen",
+          "value": "6.1-inch OLED, 60 Hz"
+        },
+        {
+          "label": "Chip",
+          "value": "A16 Bionic"
+        },
+        {
+          "label": "Camera",
+          "value": "48 MP main, 12 MP ultrawide"
+        },
+        {
+          "label": "Battery",
+          "value": "3,349 mAh"
+        },
+        {
+          "label": "Charging",
+          "value": "USB-C wired, MagSafe wireless"
+        },
+        {
+          "label": "Weight",
+          "value": "171 g"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Black",
+          "Blue",
+          "Green",
+          "Yellow",
+          "Pink"
+        ],
+        "storage": [
+          "128 GB",
+          "256 GB"
+        ]
+      },
+      "device": "iphone-15",
+      "in_box": [
+        "iPhone 15",
+        "USB-C to USB-C cable",
+        "Documentation"
+      ],
+      "badges": [],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.7,
+        "count": 388
+      },
+      "images": [
+        "assets/products/apple-iphone-15-128gb-1.png"
+      ]
+    },
+    {
+      "id": "SAM-S25-256",
+      "slug": "samsung-galaxy-s25-256gb",
+      "name": "Samsung Galaxy S25, 256 GB",
+      "brand": "Samsung",
+      "category": "phones",
+      "price": 949,
+      "compare_at": null,
+      "short": "6.2-inch AMOLED 120 Hz, Snapdragon 8 Elite, 50 MP main camera.",
+      "specs": [
+        {
+          "label": "Storage",
+          "value": "256 GB"
+        },
+        {
+          "label": "Screen",
+          "value": "6.2-inch AMOLED, 120 Hz"
+        },
+        {
+          "label": "Chip",
+          "value": "Snapdragon 8 Elite for Galaxy"
+        },
+        {
+          "label": "Camera",
+          "value": "50 MP main, 12 MP ultrawide, 10 MP telephoto"
+        },
+        {
+          "label": "Battery",
+          "value": "4,000 mAh"
+        },
+        {
+          "label": "Charging",
+          "value": "USB-C 25W wired, 15W wireless"
+        },
+        {
+          "label": "Weight",
+          "value": "162 g"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Navy",
+          "Icy Blue",
+          "Mint",
+          "Silver Shadow"
+        ],
+        "storage": [
+          "256 GB",
+          "512 GB"
+        ]
+      },
+      "device": "galaxy-s",
+      "in_box": [
+        "Galaxy S25",
+        "USB-C to USB-C cable",
+        "Ejection pin"
+      ],
+      "badges": [
+        "Best seller"
+      ],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.7,
+        "count": 296
+      },
+      "images": [
+        "assets/products/samsung-galaxy-s25-256gb-1.png"
+      ]
+    },
+    {
+      "id": "SAM-S25U-512",
+      "slug": "samsung-galaxy-s25-ultra-512gb",
+      "name": "Samsung Galaxy S25 Ultra, 512 GB",
+      "brand": "Samsung",
+      "category": "phones",
+      "price": 1399,
+      "compare_at": null,
+      "short": "6.9-inch AMOLED 120 Hz, S Pen, 200 MP main camera, titanium frame.",
+      "specs": [
+        {
+          "label": "Storage",
+          "value": "512 GB"
+        },
+        {
+          "label": "Screen",
+          "value": "6.9-inch AMOLED, 120 Hz"
+        },
+        {
+          "label": "Chip",
+          "value": "Snapdragon 8 Elite for Galaxy"
+        },
+        {
+          "label": "Camera",
+          "value": "200 MP main, 50 MP ultrawide, 2 telephoto"
+        },
+        {
+          "label": "Battery",
+          "value": "5,000 mAh"
+        },
+        {
+          "label": "Charging",
+          "value": "USB-C 45W wired, 15W wireless"
+        },
+        {
+          "label": "Weight",
+          "value": "218 g"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Titanium Silverblue",
+          "Titanium Black",
+          "Titanium Grey"
+        ],
+        "storage": [
+          "256 GB",
+          "512 GB",
+          "1 TB"
+        ]
+      },
+      "device": "galaxy-s",
+      "in_box": [
+        "Galaxy S25 Ultra",
+        "S Pen",
+        "USB-C to USB-C cable",
+        "Ejection pin"
+      ],
+      "badges": [
+        "New"
+      ],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.8,
+        "count": 141
+      },
+      "images": [
+        "assets/products/samsung-galaxy-s25-ultra-512gb-1.png"
+      ]
+    },
+    {
+      "id": "SAM-A56-128",
+      "slug": "samsung-galaxy-a56-128gb",
+      "name": "Samsung Galaxy A56, 128 GB",
+      "brand": "Samsung",
+      "category": "phones",
+      "price": 469,
+      "compare_at": null,
+      "short": "6.7-inch AMOLED 120 Hz, Exynos 1580, 5,000 mAh battery.",
+      "specs": [
+        {
+          "label": "Storage",
+          "value": "128 GB"
+        },
+        {
+          "label": "Screen",
+          "value": "6.7-inch AMOLED, 120 Hz"
+        },
+        {
+          "label": "Chip",
+          "value": "Exynos 1580"
+        },
+        {
+          "label": "Camera",
+          "value": "50 MP main, 12 MP ultrawide, 5 MP macro"
+        },
+        {
+          "label": "Battery",
+          "value": "5,000 mAh"
+        },
+        {
+          "label": "Charging",
+          "value": "USB-C 45W wired"
+        },
+        {
+          "label": "Weight",
+          "value": "198 g"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Awesome Graphite",
+          "Awesome Olive",
+          "Awesome Lightgrey",
+          "Awesome Pink"
+        ],
+        "storage": [
+          "128 GB",
+          "256 GB"
+        ]
+      },
+      "device": "galaxy-a",
+      "in_box": [
+        "Galaxy A56",
+        "USB-C to USB-C cable",
+        "Ejection pin"
+      ],
+      "badges": [],
+      "stock": "low_stock",
+      "rating": {
+        "value": 4.5,
+        "count": 174
+      },
+      "images": [
+        "assets/products/samsung-galaxy-a56-128gb-1.png"
+      ]
+    },
+    {
+      "id": "GOO-PIX9-128",
+      "slug": "google-pixel-9-128gb",
+      "name": "Google Pixel 9, 128 GB",
+      "brand": "Google",
+      "category": "phones",
+      "price": 849,
+      "compare_at": null,
+      "short": "6.3-inch OLED 120 Hz, Tensor G4, 50 MP main camera, 7 years of updates.",
+      "specs": [
+        {
+          "label": "Storage",
+          "value": "128 GB"
+        },
+        {
+          "label": "Screen",
+          "value": "6.3-inch OLED, 120 Hz"
+        },
+        {
+          "label": "Chip",
+          "value": "Google Tensor G4"
+        },
+        {
+          "label": "Camera",
+          "value": "50 MP main, 48 MP ultrawide"
+        },
+        {
+          "label": "Battery",
+          "value": "4,700 mAh"
+        },
+        {
+          "label": "Charging",
+          "value": "USB-C 27W wired, 15W wireless"
+        },
+        {
+          "label": "Weight",
+          "value": "198 g"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Obsidian",
+          "Porcelain",
+          "Wintergreen",
+          "Peony"
+        ],
+        "storage": [
+          "128 GB",
+          "256 GB"
+        ]
+      },
+      "device": "pixel",
+      "in_box": [
+        "Pixel 9",
+        "USB-C to USB-C cable",
+        "USB-C to USB-A adapter"
+      ],
+      "badges": [],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.6,
+        "count": 163
+      },
+      "images": [
+        "assets/products/google-pixel-9-128gb-1.png"
+      ]
+    },
+    {
+      "id": "APL-MBA13-M3",
+      "slug": "apple-macbook-air-13-m3",
+      "name": "Apple MacBook Air 13-inch (M3), 8 GB, 256 GB",
+      "brand": "Apple",
+      "category": "laptops",
+      "price": 1249,
+      "compare_at": null,
+      "short": "13.6-inch Liquid Retina, Apple M3, fanless, MagSafe 3 and two Thunderbolt ports.",
+      "specs": [
+        {
+          "label": "Processor",
+          "value": "Apple M3, 8-core CPU"
+        },
+        {
+          "label": "Memory",
+          "value": "8 GB"
+        },
+        {
+          "label": "Storage",
+          "value": "256 GB SSD"
+        },
+        {
+          "label": "Screen",
+          "value": "13.6-inch Liquid Retina, 2560 x 1664"
+        },
+        {
+          "label": "Ports",
+          "value": "2x Thunderbolt / USB 4, MagSafe 3, 3.5 mm"
+        },
+        {
+          "label": "Battery",
+          "value": "52.6 Wh"
+        },
+        {
+          "label": "Charging",
+          "value": "MagSafe 3 or USB-C, 30W adapter in box"
+        },
+        {
+          "label": "Weight",
+          "value": "1.24 kg"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Midnight",
+          "Starlight",
+          "Silver",
+          "Space Grey"
+        ],
+        "storage": [
+          "256 GB",
+          "512 GB"
+        ]
+      },
+      "device": "macbook-air",
+      "in_box": [
+        "MacBook Air",
+        "30W USB-C power adapter",
+        "USB-C to MagSafe 3 cable"
+      ],
+      "badges": [
+        "Best seller"
+      ],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.9,
+        "count": 201
+      },
+      "images": [
+        "assets/products/apple-macbook-air-13-m3-1.png"
+      ]
+    },
+    {
+      "id": "APL-MBP16-M4PRO",
+      "slug": "apple-macbook-pro-16-m4-pro",
+      "name": "Apple MacBook Pro 16-inch (M4 Pro), 24 GB, 512 GB",
+      "brand": "Apple",
+      "category": "laptops",
+      "price": 2799,
+      "compare_at": null,
+      "short": "16.2-inch Liquid Retina XDR, M4 Pro, three Thunderbolt 5 ports, HDMI and SD slot.",
+      "specs": [
+        {
+          "label": "Processor",
+          "value": "Apple M4 Pro, 14-core CPU"
+        },
+        {
+          "label": "Memory",
+          "value": "24 GB"
+        },
+        {
+          "label": "Storage",
+          "value": "512 GB SSD"
+        },
+        {
+          "label": "Screen",
+          "value": "16.2-inch Liquid Retina XDR, 120 Hz"
+        },
+        {
+          "label": "Ports",
+          "value": "3x Thunderbolt 5, HDMI, SDXC, MagSafe 3, 3.5 mm"
+        },
+        {
+          "label": "Battery",
+          "value": "100 Wh"
+        },
+        {
+          "label": "Charging",
+          "value": "MagSafe 3, 140W adapter in box"
+        },
+        {
+          "label": "Weight",
+          "value": "2.14 kg"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Space Black",
+          "Silver"
+        ],
+        "storage": [
+          "512 GB",
+          "1 TB",
+          "2 TB"
+        ]
+      },
+      "device": "macbook-pro",
+      "in_box": [
+        "MacBook Pro",
+        "140W USB-C power adapter",
+        "USB-C to MagSafe 3 cable"
+      ],
+      "badges": [],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.9,
+        "count": 88
+      },
+      "images": [
+        "assets/products/apple-macbook-pro-16-m4-pro-1.png"
+      ]
+    },
+    {
+      "id": "LEN-IPS5-15",
+      "slug": "lenovo-ideapad-slim-5-15",
+      "name": "Lenovo IdeaPad Slim 5 15-inch, Ryzen 7, 16 GB, 512 GB",
+      "brand": "Lenovo",
+      "category": "laptops",
+      "price": 779,
+      "compare_at": 849,
+      "short": "15.3-inch IPS, AMD Ryzen 7 8845HS, 16 GB RAM, backlit keyboard.",
+      "specs": [
+        {
+          "label": "Processor",
+          "value": "AMD Ryzen 7 8845HS"
+        },
+        {
+          "label": "Memory",
+          "value": "16 GB LPDDR5x"
+        },
+        {
+          "label": "Storage",
+          "value": "512 GB SSD"
+        },
+        {
+          "label": "Screen",
+          "value": "15.3-inch IPS, 1920 x 1200"
+        },
+        {
+          "label": "Ports",
+          "value": "2x USB-C, 2x USB-A, HDMI, SD, 3.5 mm"
+        },
+        {
+          "label": "Battery",
+          "value": "57 Wh"
+        },
+        {
+          "label": "Charging",
+          "value": "USB-C, 65W adapter in box"
+        },
+        {
+          "label": "Weight",
+          "value": "1.58 kg"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Cloud Grey",
+          "Abyss Blue"
+        ],
+        "storage": [
+          "512 GB",
+          "1 TB"
+        ]
+      },
+      "device": "windows-laptop",
+      "in_box": [
+        "IdeaPad Slim 5",
+        "65W USB-C adapter"
+      ],
+      "badges": [],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.5,
+        "count": 119
+      },
+      "images": [
+        "assets/products/lenovo-ideapad-slim-5-15-1.png"
+      ]
+    },
+    {
+      "id": "LEN-TPX1C-G12",
+      "slug": "lenovo-thinkpad-x1-carbon-gen-12",
+      "name": "Lenovo ThinkPad X1 Carbon Gen 12, Core Ultra 7, 16 GB, 512 GB",
+      "brand": "Lenovo",
+      "category": "laptops",
+      "price": 1749,
+      "compare_at": null,
+      "short": "14-inch WUXGA, Intel Core Ultra 7 155U, 1.09 kg carbon-fibre chassis.",
+      "specs": [
+        {
+          "label": "Processor",
+          "value": "Intel Core Ultra 7 155U"
+        },
+        {
+          "label": "Memory",
+          "value": "16 GB LPDDR5x"
+        },
+        {
+          "label": "Storage",
+          "value": "512 GB SSD"
+        },
+        {
+          "label": "Screen",
+          "value": "14-inch IPS, 1920 x 1200"
+        },
+        {
+          "label": "Ports",
+          "value": "2x Thunderbolt 4, 2x USB-A, HDMI, 3.5 mm"
+        },
+        {
+          "label": "Battery",
+          "value": "57 Wh"
+        },
+        {
+          "label": "Charging",
+          "value": "USB-C, 65W adapter in box"
+        },
+        {
+          "label": "Weight",
+          "value": "1.09 kg"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Black"
+        ],
+        "storage": [
+          "512 GB",
+          "1 TB"
+        ]
+      },
+      "device": "windows-laptop",
+      "in_box": [
+        "ThinkPad X1 Carbon",
+        "65W USB-C adapter"
+      ],
+      "badges": [],
+      "stock": "low_stock",
+      "rating": {
+        "value": 4.7,
+        "count": 64
+      },
+      "images": [
+        "assets/products/lenovo-thinkpad-x1-carbon-gen-12-1.png"
+      ]
+    },
+    {
+      "id": "SAM-GB4-15",
+      "slug": "samsung-galaxy-book4-15",
+      "name": "Samsung Galaxy Book4 15.6-inch, Core 5, 16 GB, 512 GB",
+      "brand": "Samsung",
+      "category": "laptops",
+      "price": 929,
+      "compare_at": null,
+      "short": "15.6-inch FHD, Intel Core 5 120U, 16 GB RAM, fingerprint reader.",
+      "specs": [
+        {
+          "label": "Processor",
+          "value": "Intel Core 5 120U"
+        },
+        {
+          "label": "Memory",
+          "value": "16 GB"
+        },
+        {
+          "label": "Storage",
+          "value": "512 GB SSD"
+        },
+        {
+          "label": "Screen",
+          "value": "15.6-inch LED, 1920 x 1080"
+        },
+        {
+          "label": "Ports",
+          "value": "2x USB-C, 2x USB-A, HDMI, microSD, 3.5 mm"
+        },
+        {
+          "label": "Battery",
+          "value": "54 Wh"
+        },
+        {
+          "label": "Charging",
+          "value": "USB-C, 65W adapter in box"
+        },
+        {
+          "label": "Weight",
+          "value": "1.55 kg"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Grey",
+          "Silver"
+        ],
+        "storage": [
+          "512 GB"
+        ]
+      },
+      "device": "windows-laptop",
+      "in_box": [
+        "Galaxy Book4",
+        "65W USB-C adapter"
+      ],
+      "badges": [],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.4,
+        "count": 52
+      },
+      "images": [
+        "assets/products/samsung-galaxy-book4-15-1.png"
+      ]
+    },
+    {
+      "id": "APL-IPAD10-64",
+      "slug": "apple-ipad-10th-gen-64gb",
+      "name": "Apple iPad (10th generation), 64 GB, Wi-Fi",
+      "brand": "Apple",
+      "category": "tablets",
+      "price": 429,
+      "compare_at": null,
+      "short": "10.9-inch Liquid Retina, A14 Bionic, USB-C, landscape front camera.",
+      "specs": [
+        {
+          "label": "Storage",
+          "value": "64 GB"
+        },
+        {
+          "label": "Screen",
+          "value": "10.9-inch Liquid Retina, 2360 x 1640"
+        },
+        {
+          "label": "Chip",
+          "value": "A14 Bionic"
+        },
+        {
+          "label": "Camera",
+          "value": "12 MP rear, 12 MP front"
+        },
+        {
+          "label": "Battery",
+          "value": "28.6 Wh"
+        },
+        {
+          "label": "Charging",
+          "value": "USB-C, 20W adapter in box"
+        },
+        {
+          "label": "Weight",
+          "value": "477 g"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Blue",
+          "Pink",
+          "Yellow",
+          "Silver"
+        ],
+        "storage": [
+          "64 GB",
+          "256 GB"
+        ]
+      },
+      "device": "ipad",
+      "in_box": [
+        "iPad",
+        "20W USB-C power adapter",
+        "USB-C charge cable"
+      ],
+      "badges": [],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.7,
+        "count": 233
+      },
+      "images": [
+        "assets/products/apple-ipad-10th-gen-64gb-1.png"
+      ]
+    },
+    {
+      "id": "APL-IPADAIR11-128",
+      "slug": "apple-ipad-air-11-m2-128gb",
+      "name": "Apple iPad Air 11-inch (M2), 128 GB, Wi-Fi",
+      "brand": "Apple",
+      "category": "tablets",
+      "price": 679,
+      "compare_at": null,
+      "short": "11-inch Liquid Retina, Apple M2, Apple Pencil Pro support.",
+      "specs": [
+        {
+          "label": "Storage",
+          "value": "128 GB"
+        },
+        {
+          "label": "Screen",
+          "value": "11-inch Liquid Retina, 2360 x 1640"
+        },
+        {
+          "label": "Chip",
+          "value": "Apple M2"
+        },
+        {
+          "label": "Camera",
+          "value": "12 MP rear, 12 MP front"
+        },
+        {
+          "label": "Battery",
+          "value": "28.9 Wh"
+        },
+        {
+          "label": "Charging",
+          "value": "USB-C, 20W adapter in box"
+        },
+        {
+          "label": "Weight",
+          "value": "462 g"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Space Grey",
+          "Starlight",
+          "Blue",
+          "Purple"
+        ],
+        "storage": [
+          "128 GB",
+          "256 GB",
+          "512 GB"
+        ]
+      },
+      "device": "ipad-air",
+      "in_box": [
+        "iPad Air",
+        "20W USB-C power adapter",
+        "USB-C charge cable"
+      ],
+      "badges": [
+        "Best seller"
+      ],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.8,
+        "count": 157
+      },
+      "images": [
+        "assets/products/apple-ipad-air-11-m2-128gb-1.png"
+      ]
+    },
+    {
+      "id": "APL-IPADPRO11-256",
+      "slug": "apple-ipad-pro-11-m4-256gb",
+      "name": "Apple iPad Pro 11-inch (M4), 256 GB, Wi-Fi",
+      "brand": "Apple",
+      "category": "tablets",
+      "price": 1149,
+      "compare_at": null,
+      "short": "11-inch Ultra Retina XDR OLED, Apple M4, 5.3 mm thin, Thunderbolt port.",
+      "specs": [
+        {
+          "label": "Storage",
+          "value": "256 GB"
+        },
+        {
+          "label": "Screen",
+          "value": "11-inch Ultra Retina XDR, 120 Hz"
+        },
+        {
+          "label": "Chip",
+          "value": "Apple M4"
+        },
+        {
+          "label": "Camera",
+          "value": "12 MP rear, 12 MP front"
+        },
+        {
+          "label": "Battery",
+          "value": "31.3 Wh"
+        },
+        {
+          "label": "Charging",
+          "value": "USB-C / Thunderbolt, 20W adapter in box"
+        },
+        {
+          "label": "Weight",
+          "value": "444 g"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Space Black",
+          "Silver"
+        ],
+        "storage": [
+          "256 GB",
+          "512 GB",
+          "1 TB"
+        ]
+      },
+      "device": "ipad-pro",
+      "in_box": [
+        "iPad Pro",
+        "20W USB-C power adapter",
+        "USB-C charge cable"
+      ],
+      "badges": [
+        "New"
+      ],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.8,
+        "count": 91
+      },
+      "images": [
+        "assets/products/apple-ipad-pro-11-m4-256gb-1.png"
+      ]
+    },
+    {
+      "id": "SAM-TABS9FE-128",
+      "slug": "samsung-galaxy-tab-s9-fe-128gb",
+      "name": "Samsung Galaxy Tab S9 FE, 128 GB, Wi-Fi",
+      "brand": "Samsung",
+      "category": "tablets",
+      "price": 479,
+      "compare_at": null,
+      "short": "10.9-inch LCD 90 Hz, Exynos 1380, S Pen in the box, IP68.",
+      "specs": [
+        {
+          "label": "Storage",
+          "value": "128 GB"
+        },
+        {
+          "label": "Screen",
+          "value": "10.9-inch LCD, 90 Hz"
+        },
+        {
+          "label": "Chip",
+          "value": "Exynos 1380"
+        },
+        {
+          "label": "Camera",
+          "value": "8 MP rear, 12 MP front"
+        },
+        {
+          "label": "Battery",
+          "value": "8,000 mAh"
+        },
+        {
+          "label": "Charging",
+          "value": "USB-C 45W"
+        },
+        {
+          "label": "Weight",
+          "value": "523 g"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Grey",
+          "Mint",
+          "Lavender",
+          "Silver"
+        ],
+        "storage": [
+          "128 GB",
+          "256 GB"
+        ]
+      },
+      "device": "galaxy-tab",
+      "in_box": [
+        "Galaxy Tab S9 FE",
+        "S Pen",
+        "USB-C to USB-C cable"
+      ],
+      "badges": [],
+      "stock": "out_of_stock",
+      "rating": {
+        "value": 4.5,
+        "count": 77
+      },
+      "images": [
+        "assets/products/samsung-galaxy-tab-s9-fe-128gb-1.png"
+      ]
+    },
+    {
+      "id": "SAM-TABA9P-64",
+      "slug": "samsung-galaxy-tab-a9-plus-64gb",
+      "name": "Samsung Galaxy Tab A9+, 64 GB, Wi-Fi",
+      "brand": "Samsung",
+      "category": "tablets",
+      "price": 239,
+      "compare_at": null,
+      "short": "11-inch LCD 90 Hz, Snapdragon 695, quad speakers.",
+      "specs": [
+        {
+          "label": "Storage",
+          "value": "64 GB"
+        },
+        {
+          "label": "Screen",
+          "value": "11-inch LCD, 90 Hz"
+        },
+        {
+          "label": "Chip",
+          "value": "Snapdragon 695"
+        },
+        {
+          "label": "Camera",
+          "value": "8 MP rear, 5 MP front"
+        },
+        {
+          "label": "Battery",
+          "value": "7,040 mAh"
+        },
+        {
+          "label": "Charging",
+          "value": "USB-C 15W"
+        },
+        {
+          "label": "Weight",
+          "value": "480 g"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Graphite",
+          "Silver",
+          "Navy"
+        ],
+        "storage": [
+          "64 GB",
+          "128 GB"
+        ]
+      },
+      "device": "galaxy-tab",
+      "in_box": [
+        "Galaxy Tab A9+",
+        "USB-C to USB-C cable"
+      ],
+      "badges": [],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.4,
+        "count": 142
+      },
+      "images": [
+        "assets/products/samsung-galaxy-tab-a9-plus-64gb-1.png"
+      ]
+    },
+    {
+      "id": "SON-WH1000XM5",
+      "slug": "sony-wh-1000xm5",
+      "name": "Sony WH-1000XM5 Wireless Headphones",
+      "brand": "Sony",
+      "category": "audio",
+      "price": 379,
+      "compare_at": 429,
+      "short": "Over-ear, adaptive noise cancelling, 30-hour battery, multipoint Bluetooth.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Over-ear headphones"
+        },
+        {
+          "label": "Noise cancelling",
+          "value": "Yes, adaptive"
+        },
+        {
+          "label": "Battery",
+          "value": "Up to 30 h with NC"
+        },
+        {
+          "label": "Connectivity",
+          "value": "Bluetooth 5.2, 3.5 mm"
+        },
+        {
+          "label": "Charging",
+          "value": "USB-C"
+        },
+        {
+          "label": "Weight",
+          "value": "250 g"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Black",
+          "Silver",
+          "Midnight Blue"
+        ]
+      },
+      "in_box": [
+        "Headphones",
+        "Carry case",
+        "USB-C cable",
+        "3.5 mm cable"
+      ],
+      "badges": [
+        "Best seller"
+      ],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.7,
+        "count": 418
+      },
+      "images": [
+        "assets/products/sony-wh-1000xm5-1.jpg"
+      ]
+    },
+    {
+      "id": "SON-WF1000XM5",
+      "slug": "sony-wf-1000xm5",
+      "name": "Sony WF-1000XM5 Wireless Earbuds",
+      "brand": "Sony",
+      "category": "audio",
+      "price": 299,
+      "compare_at": null,
+      "short": "In-ear, noise cancelling, 8-hour battery, four sizes of foam tips.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "In-ear earbuds"
+        },
+        {
+          "label": "Noise cancelling",
+          "value": "Yes"
+        },
+        {
+          "label": "Battery",
+          "value": "Up to 8 h, 24 h with case"
+        },
+        {
+          "label": "Connectivity",
+          "value": "Bluetooth 5.3"
+        },
+        {
+          "label": "Charging",
+          "value": "USB-C, Qi wireless"
+        },
+        {
+          "label": "Weight",
+          "value": "5.9 g per bud"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Black",
+          "Silver"
+        ]
+      },
+      "in_box": [
+        "Earbuds",
+        "Charging case",
+        "USB-C cable",
+        "Foam tips, 4 sizes"
+      ],
+      "badges": [],
+      "stock": "low_stock",
+      "rating": {
+        "value": 4.5,
+        "count": 206
+      },
+      "images": [
+        "assets/products/sony-wf-1000xm5-1.jpg"
+      ]
+    },
+    {
+      "id": "APL-APP2-USBC",
+      "slug": "apple-airpods-pro-2-usb-c",
+      "name": "Apple AirPods Pro (2nd generation) with USB-C",
+      "brand": "Apple",
+      "category": "audio",
+      "price": 269,
+      "compare_at": null,
+      "short": "In-ear, active noise cancelling, adaptive audio, MagSafe charging case.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "In-ear earbuds"
+        },
+        {
+          "label": "Noise cancelling",
+          "value": "Yes, active"
+        },
+        {
+          "label": "Battery",
+          "value": "Up to 6 h, 30 h with case"
+        },
+        {
+          "label": "Connectivity",
+          "value": "Bluetooth 5.3"
+        },
+        {
+          "label": "Charging",
+          "value": "USB-C, MagSafe, Qi"
+        },
+        {
+          "label": "Weight",
+          "value": "5.3 g per bud"
+        }
+      ],
+      "variants": {
+        "color": [
+          "White"
+        ]
+      },
+      "device": "airpods",
+      "in_box": [
+        "AirPods Pro",
+        "MagSafe charging case (USB-C)",
+        "Silicone tips, 4 sizes",
+        "USB-C cable"
+      ],
+      "badges": [
+        "Best seller"
+      ],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.8,
+        "count": 502
+      },
+      "images": [
+        "assets/products/apple-airpods-pro-2-usb-c-1.png"
+      ]
+    },
+    {
+      "id": "SAM-BUDS3",
+      "slug": "samsung-galaxy-buds3",
+      "name": "Samsung Galaxy Buds3",
+      "brand": "Samsung",
+      "category": "audio",
+      "price": 159,
+      "compare_at": null,
+      "short": "Open-type earbuds with blade controls, 6-hour battery, IP57.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "In-ear earbuds"
+        },
+        {
+          "label": "Noise cancelling",
+          "value": "Yes"
+        },
+        {
+          "label": "Battery",
+          "value": "Up to 6 h, 30 h with case"
+        },
+        {
+          "label": "Connectivity",
+          "value": "Bluetooth 5.4"
+        },
+        {
+          "label": "Charging",
+          "value": "USB-C, Qi wireless"
+        },
+        {
+          "label": "Weight",
+          "value": "4.7 g per bud"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Silver",
+          "White"
+        ]
+      },
+      "in_box": [
+        "Earbuds",
+        "Charging case",
+        "USB-C cable"
+      ],
+      "badges": [],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.3,
+        "count": 98
+      },
+      "images": [
+        "assets/products/samsung-galaxy-buds3-1.png"
+      ]
+    },
+    {
+      "id": "SON-SRSXB100",
+      "slug": "sony-srs-xb100",
+      "name": "Sony SRS-XB100 Portable Speaker",
+      "brand": "Sony",
+      "category": "audio",
+      "price": 64,
+      "compare_at": null,
+      "short": "Palm-size speaker, 16-hour battery, IP67, strap included.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Portable speaker"
+        },
+        {
+          "label": "Noise cancelling",
+          "value": "No"
+        },
+        {
+          "label": "Battery",
+          "value": "Up to 16 h"
+        },
+        {
+          "label": "Connectivity",
+          "value": "Bluetooth 5.3"
+        },
+        {
+          "label": "Charging",
+          "value": "USB-C"
+        },
+        {
+          "label": "Weight",
+          "value": "274 g"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Black",
+          "Blue",
+          "Orange",
+          "Light Grey"
+        ]
+      },
+      "in_box": [
+        "Speaker",
+        "Strap",
+        "USB-C cable"
+      ],
+      "badges": [],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.6,
+        "count": 311
+      },
+      "images": [
+        "assets/products/sony-srs-xb100-1.jpg"
+      ]
+    },
+    {
+      "id": "APL-AW10-42",
+      "slug": "apple-watch-series-10-42mm",
+      "name": "Apple Watch Series 10, 42 mm, GPS",
+      "brand": "Apple",
+      "category": "wearables",
+      "price": 459,
+      "compare_at": null,
+      "short": "42 mm aluminium case, always-on OLED, ECG and sleep apnea notifications.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Smartwatch"
+        },
+        {
+          "label": "Battery",
+          "value": "Up to 18 h"
+        },
+        {
+          "label": "Screen",
+          "value": "42 mm always-on OLED"
+        },
+        {
+          "label": "Connectivity",
+          "value": "GPS, Bluetooth 5.3, Wi-Fi"
+        },
+        {
+          "label": "Charging",
+          "value": "Magnetic fast charger, USB-C"
+        },
+        {
+          "label": "Water resistance",
+          "value": "50 m"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Jet Black",
+          "Rose Gold",
+          "Silver"
+        ]
+      },
+      "device": "apple-watch",
+      "in_box": [
+        "Apple Watch",
+        "Sport Band",
+        "Magnetic charger to USB-C cable"
+      ],
+      "badges": [
+        "New"
+      ],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.8,
+        "count": 166
+      },
+      "images": [
+        "assets/products/apple-watch-series-10-42mm-1.png"
+      ]
+    },
+    {
+      "id": "APL-AWSE-40",
+      "slug": "apple-watch-se-2nd-gen-40mm",
+      "name": "Apple Watch SE (2nd generation), 40 mm, GPS",
+      "brand": "Apple",
+      "category": "wearables",
+      "price": 269,
+      "compare_at": null,
+      "short": "40 mm aluminium case, crash detection, family setup.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Smartwatch"
+        },
+        {
+          "label": "Battery",
+          "value": "Up to 18 h"
+        },
+        {
+          "label": "Screen",
+          "value": "40 mm Retina OLED"
+        },
+        {
+          "label": "Connectivity",
+          "value": "GPS, Bluetooth 5.3, Wi-Fi"
+        },
+        {
+          "label": "Charging",
+          "value": "Magnetic charger, USB-C"
+        },
+        {
+          "label": "Water resistance",
+          "value": "50 m"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Midnight",
+          "Starlight",
+          "Silver"
+        ]
+      },
+      "device": "apple-watch",
+      "in_box": [
+        "Apple Watch SE",
+        "Sport Band",
+        "Magnetic charger to USB-C cable"
+      ],
+      "badges": [],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.7,
+        "count": 243
+      },
+      "images": [
+        "assets/products/apple-watch-se-2nd-gen-40mm-1.png"
+      ]
+    },
+    {
+      "id": "SAM-GW7-40",
+      "slug": "samsung-galaxy-watch7-40mm",
+      "name": "Samsung Galaxy Watch7, 40 mm, Bluetooth",
+      "brand": "Samsung",
+      "category": "wearables",
+      "price": 319,
+      "compare_at": null,
+      "short": "40 mm aluminium case, Wear OS, sleep and heart-rate tracking.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Smartwatch"
+        },
+        {
+          "label": "Battery",
+          "value": "Up to 40 h"
+        },
+        {
+          "label": "Screen",
+          "value": "40 mm AMOLED"
+        },
+        {
+          "label": "Connectivity",
+          "value": "Bluetooth 5.3, Wi-Fi, GPS"
+        },
+        {
+          "label": "Charging",
+          "value": "Wireless charging puck, USB-C"
+        },
+        {
+          "label": "Water resistance",
+          "value": "5 ATM, IP68"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Green",
+          "Cream"
+        ]
+      },
+      "in_box": [
+        "Galaxy Watch7",
+        "Sport band",
+        "Wireless charger"
+      ],
+      "badges": [],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.5,
+        "count": 131
+      },
+      "images": [
+        "assets/products/samsung-galaxy-watch7-40mm-1.png"
+      ]
+    },
+    {
+      "id": "SAM-GFIT3",
+      "slug": "samsung-galaxy-fit3",
+      "name": "Samsung Galaxy Fit3",
+      "brand": "Samsung",
+      "category": "wearables",
+      "price": 69,
+      "compare_at": null,
+      "short": "1.6-inch AMOLED band, 13-day battery, 100 workout modes.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Fitness band"
+        },
+        {
+          "label": "Battery",
+          "value": "Up to 13 days"
+        },
+        {
+          "label": "Screen",
+          "value": "1.6-inch AMOLED"
+        },
+        {
+          "label": "Connectivity",
+          "value": "Bluetooth 5.3"
+        },
+        {
+          "label": "Charging",
+          "value": "Pogo-pin charger, USB-A"
+        },
+        {
+          "label": "Water resistance",
+          "value": "5 ATM, IP68"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Grey",
+          "Silver",
+          "Pink Gold"
+        ]
+      },
+      "in_box": [
+        "Galaxy Fit3",
+        "Charger"
+      ],
+      "badges": [],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.4,
+        "count": 187
+      },
+      "images": [
+        "assets/products/samsung-galaxy-fit3-1.png"
+      ]
+    },
+    {
+      "id": "GOO-PIXW3-41",
+      "slug": "google-pixel-watch-3-41mm",
+      "name": "Google Pixel Watch 3, 41 mm, Bluetooth",
+      "brand": "Google",
+      "category": "wearables",
+      "price": 379,
+      "compare_at": null,
+      "short": "41 mm Actua display, Fitbit tracking, loss of pulse detection.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Smartwatch"
+        },
+        {
+          "label": "Battery",
+          "value": "Up to 24 h"
+        },
+        {
+          "label": "Screen",
+          "value": "41 mm AMOLED, 2000 nits"
+        },
+        {
+          "label": "Connectivity",
+          "value": "Bluetooth 5.3, Wi-Fi, GPS"
+        },
+        {
+          "label": "Charging",
+          "value": "Charging cradle, USB-C"
+        },
+        {
+          "label": "Water resistance",
+          "value": "5 ATM, IP68"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Matte Black",
+          "Polished Silver",
+          "Champagne Gold"
+        ]
+      },
+      "in_box": [
+        "Pixel Watch 3",
+        "Active band, two sizes",
+        "Charging cable"
+      ],
+      "badges": [],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.5,
+        "count": 74
+      },
+      "images": [
+        "assets/products/google-pixel-watch-3-41mm-1.png"
+      ]
+    },
+    {
+      "id": "SON-PS5-SLIM-1TB",
+      "slug": "sony-playstation-5-slim-1tb",
+      "name": "Sony PlayStation 5 (Slim), 1 TB",
+      "brand": "Sony",
+      "category": "gaming",
+      "price": 579,
+      "compare_at": null,
+      "short": "Disc edition console with 1 TB SSD and one DualSense controller.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Console"
+        },
+        {
+          "label": "Storage",
+          "value": "1 TB SSD"
+        },
+        {
+          "label": "Video output",
+          "value": "4K at 120 Hz, HDMI 2.1"
+        },
+        {
+          "label": "Connectivity",
+          "value": "Wi-Fi 6, Bluetooth 5.1, Gigabit Ethernet"
+        },
+        {
+          "label": "Weight",
+          "value": "3.2 kg"
+        }
+      ],
+      "variants": {
+        "color": [
+          "White"
+        ]
+      },
+      "in_box": [
+        "PS5 console",
+        "DualSense controller",
+        "HDMI cable",
+        "Power cord",
+        "USB cable",
+        "Horizontal stand"
+      ],
+      "badges": [
+        "Best seller"
+      ],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.8,
+        "count": 264
+      },
+      "images": [
+        "assets/products/sony-playstation-5-slim-1tb-1.png"
+      ]
+    },
+    {
+      "id": "SON-DUALSENSE",
+      "slug": "sony-dualsense-wireless-controller",
+      "name": "Sony DualSense Wireless Controller",
+      "brand": "Sony",
+      "category": "gaming",
+      "price": 79,
+      "compare_at": null,
+      "short": "Haptic feedback and adaptive triggers, USB-C charging, built-in microphone.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Controller"
+        },
+        {
+          "label": "Connectivity",
+          "value": "Bluetooth, USB-C"
+        },
+        {
+          "label": "Battery",
+          "value": "Rechargeable, about 12 h"
+        },
+        {
+          "label": "Weight",
+          "value": "280 g"
+        }
+      ],
+      "variants": {
+        "color": [
+          "White",
+          "Midnight Black",
+          "Cosmic Red",
+          "Starlight Blue"
+        ]
+      },
+      "in_box": [
+        "DualSense controller"
+      ],
+      "badges": [],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.6,
+        "count": 347
+      },
+      "images": [
+        "assets/products/sony-dualsense-wireless-controller-1.png"
+      ]
+    },
+    {
+      "id": "NIN-SWITCH-OLED",
+      "slug": "nintendo-switch-oled",
+      "name": "Nintendo Switch OLED Model",
+      "brand": "Nintendo",
+      "category": "gaming",
+      "price": 369,
+      "compare_at": null,
+      "short": "7-inch OLED screen, 64 GB storage, dock with wired LAN port.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Console"
+        },
+        {
+          "label": "Storage",
+          "value": "64 GB"
+        },
+        {
+          "label": "Screen",
+          "value": "7-inch OLED, 720p handheld"
+        },
+        {
+          "label": "Battery",
+          "value": "4.5 to 9 h"
+        },
+        {
+          "label": "Charging",
+          "value": "USB-C, 39W adapter in box"
+        },
+        {
+          "label": "Weight",
+          "value": "420 g with Joy-Con"
+        }
+      ],
+      "variants": {
+        "color": [
+          "White",
+          "Neon Red / Neon Blue"
+        ]
+      },
+      "device": "switch",
+      "in_box": [
+        "Switch OLED console",
+        "Dock",
+        "Joy-Con pair",
+        "Joy-Con grip",
+        "HDMI cable",
+        "AC adapter"
+      ],
+      "badges": [],
+      "stock": "out_of_stock",
+      "rating": {
+        "value": 4.8,
+        "count": 189
+      },
+      "images": [
+        "assets/products/nintendo-switch-oled-1.jpg"
+      ]
+    },
+    {
+      "id": "LOG-G435",
+      "slug": "logitech-g435-lightspeed",
+      "name": "Logitech G435 Lightspeed Wireless Gaming Headset",
+      "brand": "Logitech",
+      "category": "gaming",
+      "price": 84,
+      "compare_at": null,
+      "short": "165 g wireless headset, Lightspeed and Bluetooth, 18-hour battery.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Headset"
+        },
+        {
+          "label": "Connectivity",
+          "value": "Lightspeed 2.4 GHz, Bluetooth"
+        },
+        {
+          "label": "Battery",
+          "value": "Up to 18 h"
+        },
+        {
+          "label": "Charging",
+          "value": "USB-C"
+        },
+        {
+          "label": "Weight",
+          "value": "165 g"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Black and Neon Yellow",
+          "Blue and Raspberry",
+          "Off White and Lilac"
+        ]
+      },
+      "in_box": [
+        "Headset",
+        "USB receiver",
+        "USB-C cable"
+      ],
+      "badges": [],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.4,
+        "count": 156
+      },
+      "images": [
+        "assets/products/logitech-g435-lightspeed-1.png"
+      ]
+    },
+    {
+      "id": "LOG-G502X",
+      "slug": "logitech-g502-x",
+      "name": "Logitech G502 X Wired Gaming Mouse",
+      "brand": "Logitech",
+      "category": "gaming",
+      "price": 84,
+      "compare_at": 99,
+      "short": "HERO 25K sensor, Lightforce hybrid switches, 13 programmable controls.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Mouse"
+        },
+        {
+          "label": "Connectivity",
+          "value": "Wired USB-A"
+        },
+        {
+          "label": "Sensor",
+          "value": "HERO 25K, up to 25,600 DPI"
+        },
+        {
+          "label": "Weight",
+          "value": "89 g"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Black",
+          "White"
+        ]
+      },
+      "in_box": [
+        "Mouse"
+      ],
+      "badges": [],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.6,
+        "count": 221
+      },
+      "images": [
+        "assets/products/logitech-g502-x-1.png"
+      ]
+    },
+    {
+      "id": "TPL-DECO-X50-3",
+      "slug": "tp-link-deco-x50-3-pack",
+      "name": "TP-Link Deco X50 Wi-Fi 6 Mesh System, 3-pack",
+      "brand": "TP-Link",
+      "category": "networking",
+      "price": 299,
+      "compare_at": null,
+      "short": "AX3000 mesh covering up to 600 m², three Gigabit ports per unit.",
+      "specs": [
+        {
+          "label": "Wi-Fi standard",
+          "value": "Wi-Fi 6 (AX3000)"
+        },
+        {
+          "label": "Coverage",
+          "value": "Up to 600 m², 3 units"
+        },
+        {
+          "label": "Ports",
+          "value": "3x Gigabit Ethernet per unit"
+        },
+        {
+          "label": "Devices",
+          "value": "Up to 150"
+        },
+        {
+          "label": "Power supply",
+          "value": "12V adapter per unit"
+        }
+      ],
+      "variants": {
+        "pack": [
+          "1-pack",
+          "2-pack",
+          "3-pack"
+        ]
+      },
+      "in_box": [
+        "3x Deco X50",
+        "3x power adapters",
+        "Ethernet cable"
+      ],
+      "badges": [],
+      "stock": "out_of_stock",
+      "rating": {
+        "value": 4.6,
+        "count": 138
+      },
+      "images": [
+        "assets/products/tp-link-deco-x50-3-pack-1.jpg"
+      ]
+    },
+    {
+      "id": "TPL-ARCHER-AX55",
+      "slug": "tp-link-archer-ax55",
+      "name": "TP-Link Archer AX55 Wi-Fi 6 Router",
+      "brand": "TP-Link",
+      "category": "networking",
+      "price": 109,
+      "compare_at": null,
+      "short": "AX3000 dual-band router with four Gigabit LAN ports and a USB 3.0 port.",
+      "specs": [
+        {
+          "label": "Wi-Fi standard",
+          "value": "Wi-Fi 6 (AX3000)"
+        },
+        {
+          "label": "Coverage",
+          "value": "Up to 200 m²"
+        },
+        {
+          "label": "Ports",
+          "value": "1x Gigabit WAN, 4x Gigabit LAN, USB 3.0"
+        },
+        {
+          "label": "Antennas",
+          "value": "4 external"
+        },
+        {
+          "label": "Power supply",
+          "value": "12V adapter"
+        }
+      ],
+      "in_box": [
+        "Router",
+        "Power adapter",
+        "Ethernet cable"
+      ],
+      "badges": [
+        "Best seller"
+      ],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.5,
+        "count": 276
+      },
+      "images": [
+        "assets/products/tp-link-archer-ax55-1.jpg"
+      ]
+    },
+    {
+      "id": "TPL-ARCHER-BE230",
+      "slug": "tp-link-archer-be230",
+      "name": "TP-Link Archer BE230 Wi-Fi 7 Router",
+      "brand": "TP-Link",
+      "category": "networking",
+      "price": 149,
+      "compare_at": null,
+      "short": "BE3600 dual-band Wi-Fi 7 router with two 2.5 Gbps ports.",
+      "specs": [
+        {
+          "label": "Wi-Fi standard",
+          "value": "Wi-Fi 7 (BE3600)"
+        },
+        {
+          "label": "Coverage",
+          "value": "Up to 220 m²"
+        },
+        {
+          "label": "Ports",
+          "value": "1x 2.5G WAN/LAN, 1x 2.5G LAN, 3x Gigabit LAN, USB 3.0"
+        },
+        {
+          "label": "Antennas",
+          "value": "4 external"
+        },
+        {
+          "label": "Power supply",
+          "value": "12V adapter"
+        }
+      ],
+      "in_box": [
+        "Router",
+        "Power adapter",
+        "Ethernet cable"
+      ],
+      "badges": [
+        "New"
+      ],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.4,
+        "count": 41
+      },
+      "images": [
+        "assets/products/tp-link-archer-be230-1.jpg"
+      ]
+    },
+    {
+      "id": "TPL-RE605X",
+      "slug": "tp-link-re605x",
+      "name": "TP-Link RE605X Wi-Fi 6 Range Extender",
+      "brand": "TP-Link",
+      "category": "networking",
+      "price": 74,
+      "compare_at": null,
+      "short": "AX1800 extender with a Gigabit port, OneMesh with TP-Link routers.",
+      "specs": [
+        {
+          "label": "Wi-Fi standard",
+          "value": "Wi-Fi 6 (AX1800)"
+        },
+        {
+          "label": "Coverage",
+          "value": "Adds up to 150 m²"
+        },
+        {
+          "label": "Ports",
+          "value": "1x Gigabit Ethernet"
+        },
+        {
+          "label": "Antennas",
+          "value": "2 external"
+        },
+        {
+          "label": "Power supply",
+          "value": "Wall plug"
+        }
+      ],
+      "in_box": [
+        "Range extender"
+      ],
+      "badges": [],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.3,
+        "count": 167
+      },
+      "images": [
+        "assets/products/tp-link-re605x-1.jpg"
+      ]
+    },
+    {
+      "id": "TPL-M7350",
+      "slug": "tp-link-m7350-4g-mobile-wifi",
+      "name": "TP-Link M7350 4G LTE Mobile Wi-Fi",
+      "brand": "TP-Link",
+      "category": "networking",
+      "price": 94,
+      "compare_at": null,
+      "short": "Pocket 4G hotspot with a SIM slot, 10 connected devices, 8-hour battery.",
+      "specs": [
+        {
+          "label": "Wi-Fi standard",
+          "value": "Wi-Fi 4 (N300)"
+        },
+        {
+          "label": "Coverage",
+          "value": "Up to 10 devices"
+        },
+        {
+          "label": "Cellular",
+          "value": "4G LTE Cat 4, nano-SIM"
+        },
+        {
+          "label": "Battery",
+          "value": "2,000 mAh, about 8 h"
+        },
+        {
+          "label": "Charging",
+          "value": "Micro-USB"
+        }
+      ],
+      "in_box": [
+        "Mobile Wi-Fi",
+        "Battery",
+        "Micro-USB cable",
+        "SIM adapters"
+      ],
+      "badges": [],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.2,
+        "count": 203
+      },
+      "images": [
+        "assets/products/tp-link-m7350-4g-mobile-wifi-1.jpg"
+      ]
+    },
+    {
+      "id": "TPL-TAPO-P100-2",
+      "slug": "tp-link-tapo-p100-2-pack",
+      "name": "TP-Link Tapo P100 Mini Smart Plug, 2-pack",
+      "brand": "TP-Link",
+      "category": "smart-home",
+      "price": 26,
+      "compare_at": null,
+      "short": "Wi-Fi smart plug with schedules and away mode, works with Alexa and Google Home.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Smart plug"
+        },
+        {
+          "label": "Connectivity",
+          "value": "Wi-Fi 2.4 GHz"
+        },
+        {
+          "label": "Max load",
+          "value": "10 A, 2,300 W"
+        },
+        {
+          "label": "Plug",
+          "value": "UK type G"
+        }
+      ],
+      "variants": {
+        "pack": [
+          "1-pack",
+          "2-pack",
+          "4-pack"
+        ]
+      },
+      "in_box": [
+        "2x Tapo P100",
+        "Quick guide"
+      ],
+      "badges": [
+        "Best seller"
+      ],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.6,
+        "count": 389
+      },
+      "images": [
+        "assets/products/tp-link-tapo-p100-2-pack-1.png"
+      ]
+    },
+    {
+      "id": "TPL-TAPO-C210",
+      "slug": "tp-link-tapo-c210",
+      "name": "TP-Link Tapo C210 Pan/Tilt Home Camera",
+      "brand": "TP-Link",
+      "category": "smart-home",
+      "price": 42,
+      "compare_at": null,
+      "short": "2K indoor camera with pan and tilt, night vision and microSD recording.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Indoor camera"
+        },
+        {
+          "label": "Connectivity",
+          "value": "Wi-Fi 2.4 GHz"
+        },
+        {
+          "label": "Resolution",
+          "value": "2K (2304 x 1296)"
+        },
+        {
+          "label": "Storage",
+          "value": "microSD up to 512 GB"
+        },
+        {
+          "label": "Power supply",
+          "value": "USB adapter in box"
+        }
+      ],
+      "in_box": [
+        "Camera",
+        "Power adapter",
+        "Mounting kit",
+        "Quick guide"
+      ],
+      "badges": [],
+      "stock": "low_stock",
+      "rating": {
+        "value": 4.5,
+        "count": 224
+      },
+      "images": [
+        "assets/products/tp-link-tapo-c210-1.jpg"
+      ]
+    },
+    {
+      "id": "TPL-TAPO-L530E",
+      "slug": "tp-link-tapo-l530e",
+      "name": "TP-Link Tapo L530E Smart Colour Bulb",
+      "brand": "TP-Link",
+      "category": "smart-home",
+      "price": 16,
+      "compare_at": null,
+      "short": "E27 colour-changing bulb, 806 lumens, dimmable, no hub needed.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Smart bulb"
+        },
+        {
+          "label": "Connectivity",
+          "value": "Wi-Fi 2.4 GHz"
+        },
+        {
+          "label": "Brightness",
+          "value": "806 lm, 8.7 W"
+        },
+        {
+          "label": "Fitting",
+          "value": "E27"
+        }
+      ],
+      "variants": {
+        "pack": [
+          "1-pack",
+          "2-pack"
+        ]
+      },
+      "in_box": [
+        "Bulb",
+        "Quick guide"
+      ],
+      "badges": [],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.5,
+        "count": 158
+      },
+      "images": [
+        "assets/products/tp-link-tapo-l530e-1.png"
+      ]
+    },
+    {
+      "id": "GOO-NEST-MINI-2",
+      "slug": "google-nest-mini-2nd-gen",
+      "name": "Google Nest Mini (2nd generation)",
+      "brand": "Google",
+      "category": "smart-home",
+      "price": 54,
+      "compare_at": null,
+      "short": "Compact smart speaker with Google Assistant and a wall-mount slot.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Smart speaker"
+        },
+        {
+          "label": "Connectivity",
+          "value": "Wi-Fi, Bluetooth 5.0"
+        },
+        {
+          "label": "Audio",
+          "value": "40 mm driver"
+        },
+        {
+          "label": "Power supply",
+          "value": "15W adapter in box"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Chalk",
+          "Charcoal",
+          "Coral",
+          "Sky"
+        ]
+      },
+      "in_box": [
+        "Nest Mini",
+        "Power adapter"
+      ],
+      "badges": [],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.4,
+        "count": 276
+      },
+      "images": [
+        "assets/products/google-nest-mini-2nd-gen-1.png"
+      ]
+    },
+    {
+      "id": "APL-HOMEPOD-MINI",
+      "slug": "apple-homepod-mini",
+      "name": "Apple HomePod mini",
+      "brand": "Apple",
+      "category": "smart-home",
+      "price": 109,
+      "compare_at": null,
+      "short": "Smart speaker with Siri, Thread radio and a touch surface.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Smart speaker"
+        },
+        {
+          "label": "Connectivity",
+          "value": "Wi-Fi, Bluetooth 5.0, Thread, Ultra Wideband"
+        },
+        {
+          "label": "Audio",
+          "value": "Full-range driver, two passive radiators"
+        },
+        {
+          "label": "Power supply",
+          "value": "20W USB-C adapter in box"
+        }
+      ],
+      "variants": {
+        "color": [
+          "White",
+          "Midnight",
+          "Blue",
+          "Orange",
+          "Yellow"
+        ]
+      },
+      "in_box": [
+        "HomePod mini",
+        "20W USB-C power adapter"
+      ],
+      "badges": [],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.6,
+        "count": 142
+      },
+      "images": [
+        "assets/products/apple-homepod-mini-1.png"
+      ]
+    },
+    {
+      "id": "APL-CASE-IP16-SIL",
+      "slug": "apple-iphone-16-silicone-case-magsafe",
+      "name": "Apple iPhone 16 Silicone Case with MagSafe",
+      "brand": "Apple",
+      "category": "cases-and-mounts",
+      "price": 54,
+      "compare_at": null,
+      "short": "Silicone case with built-in MagSafe magnets and a soft microfibre lining.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Phone case"
+        },
+        {
+          "label": "Fits",
+          "value": "iPhone 16 only"
+        },
+        {
+          "label": "Material",
+          "value": "Silicone, microfibre lining"
+        },
+        {
+          "label": "MagSafe",
+          "value": "Yes"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Black",
+          "Stone Grey",
+          "Plum",
+          "Ultramarine"
+        ]
+      },
+      "compat": [],
+      "in_box": [
+        "Case"
+      ],
+      "badges": [],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.5,
+        "count": 96
+      },
+      "images": [
+        "assets/products/apple-iphone-16-silicone-case-magsafe-1.png"
+      ]
+    },
+    {
+      "id": "SAM-CASE-S25-CLEAR",
+      "slug": "samsung-galaxy-s25-clear-case",
+      "name": "Samsung Galaxy S25 Clear Case",
+      "brand": "Samsung",
+      "category": "cases-and-mounts",
+      "price": 32,
+      "compare_at": null,
+      "short": "Transparent polycarbonate back with a raised camera lip.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Phone case"
+        },
+        {
+          "label": "Fits",
+          "value": "Galaxy S25 only"
+        },
+        {
+          "label": "Material",
+          "value": "Polycarbonate, TPU edge"
+        },
+        {
+          "label": "MagSafe",
+          "value": "No"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Clear"
+        ]
+      },
+      "compat": [],
+      "in_box": [
+        "Case"
+      ],
+      "badges": [],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.3,
+        "count": 58
+      },
+      "images": [
+        "assets/products/samsung-galaxy-s25-clear-case-1.png"
+      ]
+    },
+    {
+      "id": "AMP-MOUNT-DASH",
+      "slug": "ampline-magnetic-dash-mount",
+      "name": "Ampline Magnetic Dash Mount",
+      "brand": "Ampline",
+      "category": "cases-and-mounts",
+      "price": 19,
+      "compare_at": 24,
+      "short": "Magnetic phone mount for the dashboard or vent, with a metal ring for phones without magnets.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Car mount"
+        },
+        {
+          "label": "Fits",
+          "value": "Phones 5.5 to 7 inches, MagSafe or ring"
+        },
+        {
+          "label": "Mounting",
+          "value": "Adhesive dash pad or vent clip"
+        },
+        {
+          "label": "Material",
+          "value": "Zinc alloy, silicone pad"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Black"
+        ]
+      },
+      "compat": [
+        "iphone-15",
+        "iphone-12-14",
+        "iphone-8-11",
+        "galaxy-s",
+        "galaxy-a",
+        "pixel",
+        "android-phone"
+      ],
+      "in_box": [
+        "Mount",
+        "Dash pad",
+        "Vent clip",
+        "Metal ring",
+        "Alcohol wipe"
+      ],
+      "badges": [
+        "Best seller"
+      ],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.4,
+        "count": 312
+      },
+      "images": []
+    },
+    {
+      "id": "AMP-STAND-LAPTOP",
+      "slug": "ampline-aluminium-laptop-stand",
+      "name": "Ampline Aluminium Laptop Stand",
+      "brand": "Ampline",
+      "category": "cases-and-mounts",
+      "price": 36,
+      "compare_at": null,
+      "short": "Folding aluminium riser with six height steps and silicone pads.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Laptop stand"
+        },
+        {
+          "label": "Fits",
+          "value": "Laptops 11 to 17 inches"
+        },
+        {
+          "label": "Height",
+          "value": "6 steps, 5 to 15 cm"
+        },
+        {
+          "label": "Material",
+          "value": "Aluminium, silicone pads"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Silver",
+          "Space Grey"
+        ]
+      },
+      "compat": [
+        "macbook-air",
+        "macbook-pro",
+        "dell-xps",
+        "windows-laptop"
+      ],
+      "in_box": [
+        "Stand",
+        "Pouch"
+      ],
+      "badges": [],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.6,
+        "count": 204
+      },
+      "images": []
+    },
+    {
+      "id": "APL-FOLIO-IPADAIR11",
+      "slug": "apple-smart-folio-ipad-air-11",
+      "name": "Apple Smart Folio for iPad Air 11-inch (M2)",
+      "brand": "Apple",
+      "category": "cases-and-mounts",
+      "price": 84,
+      "compare_at": null,
+      "short": "Magnetic folio cover that wakes and sleeps the iPad and folds into a stand.",
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Tablet folio"
+        },
+        {
+          "label": "Fits",
+          "value": "iPad Air 11-inch (M2) only"
+        },
+        {
+          "label": "Material",
+          "value": "Polyurethane"
+        },
+        {
+          "label": "MagSafe",
+          "value": "No"
+        }
+      ],
+      "variants": {
+        "color": [
+          "Charcoal Grey",
+          "Light Violet",
+          "Denim",
+          "Sage"
+        ]
+      },
+      "compat": [],
+      "in_box": [
+        "Smart Folio"
+      ],
+      "badges": [],
+      "stock": "in_stock",
+      "rating": {
+        "value": 4.6,
+        "count": 71
+      },
+      "images": [
+        "assets/products/apple-smart-folio-ipad-air-11-1.png"
+      ]
+    }
+  ],
+  "devices": [
+    {
+      "id": "iphone-15",
+      "name": "iPhone 15 or newer",
+      "family": "iphone",
+      "connector": "usb-c",
+      "max_charge_w": 30,
+      "aliases": [
+        "iPhone 15 and later",
+        "iPhone 12 and later",
+        "iPhone",
+        "Any USB-C phone",
+        "Any USB-C laptop, tablet or phone",
+        "Phones",
+        "Mixed households and travel kits"
+      ]
+    },
+    {
+      "id": "iphone-12-14",
+      "name": "iPhone 12 to 14",
+      "family": "iphone",
+      "connector": "lightning",
+      "max_charge_w": 27,
+      "aliases": [
+        "iPhone 12 and later",
+        "iPhone 8 to iPhone 14",
+        "iPhone",
+        "Phones",
+        "Mixed households and travel kits"
+      ]
+    },
+    {
+      "id": "iphone-8-11",
+      "name": "iPhone 8 to 11",
+      "family": "iphone",
+      "connector": "lightning",
+      "max_charge_w": 18,
+      "aliases": [
+        "iPhone 8 to iPhone 14",
+        "iPhone",
+        "Phones",
+        "Mixed households and travel kits"
+      ]
+    },
+    {
+      "id": "galaxy-s",
+      "name": "Samsung Galaxy S",
+      "family": "android",
+      "connector": "usb-c",
+      "max_charge_w": 45,
+      "aliases": [
+        "Galaxy S series",
+        "Galaxy A and S series",
+        "Galaxy phones (no magnet)",
+        "MagSafe-case Android phones",
+        "Android",
+        "Any USB-C phone",
+        "Any USB-C laptop, tablet or phone",
+        "Phones",
+        "Mixed households and travel kits"
+      ]
+    },
+    {
+      "id": "galaxy-a",
+      "name": "Samsung Galaxy A",
+      "family": "android",
+      "connector": "usb-c",
+      "max_charge_w": 25,
+      "aliases": [
+        "Galaxy A and S series",
+        "Galaxy phones (no magnet)",
+        "MagSafe-case Android phones",
+        "Android",
+        "Any USB-C phone",
+        "Any USB-C laptop, tablet or phone",
+        "Phones",
+        "Mixed households and travel kits"
+      ]
+    },
+    {
+      "id": "pixel",
+      "name": "Google Pixel",
+      "family": "android",
+      "connector": "usb-c",
+      "max_charge_w": 30,
+      "aliases": [
+        "Pixel",
+        "MagSafe-case Android phones",
+        "Android",
+        "Any USB-C phone",
+        "Any USB-C laptop, tablet or phone",
+        "Phones",
+        "Mixed households and travel kits"
+      ]
+    },
+    {
+      "id": "android-phone",
+      "name": "Other Android phone",
+      "family": "android",
+      "connector": "usb-c",
+      "max_charge_w": 25,
+      "aliases": [
+        "Android",
+        "MagSafe-case Android phones",
+        "Any USB-C phone",
+        "Any USB-C laptop, tablet or phone",
+        "Phones",
+        "Mixed households and travel kits"
+      ]
+    },
+    {
+      "id": "ipad-pro",
+      "name": "iPad Pro",
+      "family": "ipad",
+      "connector": "usb-c",
+      "max_charge_w": 45,
+      "aliases": [
+        "iPad Pro",
+        "iPad Pro / Air (USB-C)",
+        "Any USB-C laptop, tablet or phone",
+        "Mixed households and travel kits"
+      ]
+    },
+    {
+      "id": "ipad-air",
+      "name": "iPad Air",
+      "family": "ipad",
+      "connector": "usb-c",
+      "max_charge_w": 30,
+      "aliases": [
+        "iPad Pro / Air (USB-C)",
+        "Any USB-C laptop, tablet or phone",
+        "Mixed households and travel kits"
+      ]
+    },
+    {
+      "id": "ipad",
+      "name": "iPad (10th gen and later)",
+      "family": "ipad",
+      "connector": "usb-c",
+      "max_charge_w": 20,
+      "aliases": [
+        "Any USB-C laptop, tablet or phone",
+        "Mixed households and travel kits"
+      ]
+    },
+    {
+      "id": "ipad-9",
+      "name": "iPad (9th gen and earlier)",
+      "family": "ipad",
+      "connector": "lightning",
+      "max_charge_w": 20,
+      "aliases": [
+        "iPad 9th gen",
+        "Mixed households and travel kits"
+      ]
+    },
+    {
+      "id": "galaxy-tab",
+      "name": "Samsung Galaxy Tab",
+      "family": "android",
+      "connector": "usb-c",
+      "max_charge_w": 45,
+      "aliases": [
+        "Any USB-C laptop, tablet or phone",
+        "Mixed households and travel kits"
+      ]
+    },
+    {
+      "id": "macbook-air",
+      "name": "MacBook Air",
+      "family": "mac",
+      "connector": "magsafe",
+      "max_charge_w": 70,
+      "aliases": [
+        "MacBook Air",
+        "MacBook",
+        "Any USB-C laptop, tablet or phone",
+        "Laptops"
+      ]
+    },
+    {
+      "id": "macbook-pro",
+      "name": "MacBook Pro",
+      "family": "mac",
+      "connector": "magsafe",
+      "max_charge_w": 140,
+      "aliases": [
+        "MacBook Pro 16",
+        "MacBook",
+        "Any USB-C laptop, tablet or phone",
+        "Laptops"
+      ]
+    },
+    {
+      "id": "dell-xps",
+      "name": "Dell XPS",
+      "family": "windows-laptop",
+      "connector": "usb-c",
+      "max_charge_w": 130,
+      "aliases": [
+        "Dell XPS",
+        "Windows USB-C laptops",
+        "Any USB-C laptop, tablet or phone",
+        "Laptops"
+      ]
+    },
+    {
+      "id": "windows-laptop",
+      "name": "Other USB-C laptop",
+      "family": "windows-laptop",
+      "connector": "usb-c",
+      "max_charge_w": 65,
+      "aliases": [
+        "Windows USB-C laptops",
+        "Any USB-C laptop, tablet or phone",
+        "Laptops"
+      ]
+    },
+    {
+      "id": "steam-deck",
+      "name": "Steam Deck",
+      "family": "switch-steam-deck",
+      "connector": "usb-c",
+      "max_charge_w": 45,
+      "aliases": [
+        "Steam Deck"
+      ]
+    },
+    {
+      "id": "switch",
+      "name": "Nintendo Switch",
+      "family": "switch-steam-deck",
+      "connector": "usb-c",
+      "max_charge_w": 39,
+      "aliases": [
+        "Nintendo Switch"
+      ]
+    },
+    {
+      "id": "apple-watch",
+      "name": "Apple Watch",
+      "family": "watch-earbuds",
+      "connector": "magsafe",
+      "max_charge_w": 5,
+      "aliases": [
+        "Apple Watch"
+      ]
+    },
+    {
+      "id": "airpods",
+      "name": "AirPods (USB-C case)",
+      "family": "watch-earbuds",
+      "connector": "usb-c",
+      "max_charge_w": 5,
+      "aliases": [
+        "AirPods"
+      ]
+    },
+    {
+      "id": "airpods-lightning",
+      "name": "AirPods (Lightning case)",
+      "family": "watch-earbuds",
+      "connector": "lightning",
+      "max_charge_w": 5,
+      "aliases": [
+        "AirPods",
+        "AirPods with Lightning case"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "site": "bavin",
+  "url": "https://www.bavin.ph/",
+  "capturedAt": "2026-10-10T19:23:40.183Z",
+  "home": {
+    "title": "BAVIN",
+    "lang": "en",
+    "dir": "ltr",
+    "h1": "",
+    "nav": [
+      "Home",
+      "Budget Friendly",
+      "Built-in Cable",
+      "Car Jump Starter & Inflator",
+      "Fast Charging",
+      "Wireless Charging",
+      "Gaming Console",
+      "Laptop Charging",
+      "Solar Powerbank",
+      "All Chargers",
+      "USB / 1A-1.3A Charger",
+      "USB /2A-2.4A Charger",
+      "USB / Multi-Port Charger",
+      "USB / QC3.0 Charger",
+      "Type-C / 20W-33W Charger",
+      "Type-C / 36W-45W Charger",
+      "Wireless Charger",
+      "USB cable",
+      "Type-C Cable",
+      "Extra-Length Cable",
+      "3-in-1 & 4-in-1 Cable",
+      "HDMI Cable",
+      "90 Degree Gaming Cable",
+      "Nylon Braided Cable",
+      "USB Docking Station / HUB"
+    ],
+    "fonts": {
+      "body": "Jost, sans-serif",
+      "h1": "\"DM Sans\", sans-serif",
+      "button": "Jost, sans-serif"
+    },
+    "colors": {
+      "bodyBg": "rgb(244, 244, 244)",
+      "headerBg": "rgba(0, 0, 0, 0)",
+      "headerColor": "rgba(0, 0, 0, 0.75)",
+      "buttonBg": "rgb(83, 83, 83)",
+      "buttonColor": "rgb(253, 253, 253)",
+      "buttonRadius": "7px",
+      "buttonText": "Check out"
+    },
+    "priceCount": 86,
+    "priceSamples": [
+      "₱1,799.00",
+      "₱899.00",
+      "₱1,399.00",
+      "₱649.00",
+      "₱299.00",
+      "₱49.00",
+      "₱2,699.00",
+      "₱1,499.00"
+    ],
+    "productLinkCount": 40,
+    "firstProductLinks": [
+      "https://bavin.ph/products/bavin-q13-series-smart-watch-tempered-glass-screen-protector-scratch-resistant-anti-fingerprint",
+      "https://bavin.ph/products/bavin-bj-transparent-phone-case-magnetic-case-anti-yellowing-fingerprint-shockproof-for-ip18-17-pro",
+      "https://bavin.ph/products/bavin-ip-duo-transparent-ultra-slim-magnetic-phone-case-anti-yellowing-shockproof-phone-cover",
+      "https://bavin.ph/products/bavin-et10-phone-pouch-dual-pocket-dust-resistant-for-power-bank-mobile-accessory-storage-bag",
+      "https://bavin.ph/products/bavin-ps-iphone-duo-transparent-ultrathin-magnetic-phone-case-shockproof-hinge-protection-phone-cover"
+    ],
+    "hasSearch": true,
+    "pageHeight": 9597,
+    "generator": null,
+    "shopify": true
+  },
+  "pdpUrl": "https://bavin.ph/products/bavin-pc2210-240w-fast-charging-type-c-ai-smart-auto-cut-off-adapter-for-laptops-ip-android-phones",
+  "pdp": {
+    "title": "BAVIN PC2210 240W Fast Charging Type-C AI Smart Auto Cut Off Adapter f",
+    "lang": "en",
+    "dir": "ltr",
+    "h1": "BAVIN PC2210 240W Fast Charging Type-C AI Smart Auto Cut Off Adapter for Laptops,iP & Android Phones",
+    "nav": [
+      "Home",
+      "Budget Friendly",
+      "Built-in Cable",
+      "Car Jump Starter & Inflator",
+      "Fast Charging",
+      "Wireless Charging",
+      "Gaming Console",
+      "Laptop Charging",
+      "Solar Powerbank",
+      "All Chargers",
+      "USB / 1A-1.3A Charger",
+      "USB /2A-2.4A Charger",
+      "USB / Multi-Port Charger",
+      "USB / QC3.0 Charger",
+      "Type-C / 20W-33W Charger",
+      "Type-C / 36W-45W Charger",
+      "Wireless Charger",
+      "USB cable",
+      "Type-C Cable",
+      "Extra-Length Cable",
+      "3-in-1 & 4-in-1 Cable",
+      "HDMI Cable",
+      "90 Degree Gaming Cable",
+      "Nylon Braided Cable",
+      "USB Docking Station / HUB"
+    ],
+    "fonts": {
+      "body": "Jost, sans-serif",
+      "h1": "\"DM Sans\", sans-serif",
+      "button": "Jost, sans-serif"
+    },
+    "colors": {
+      "bodyBg": "rgb(244, 244, 244)",
+      "headerBg": "rgba(0, 0, 0, 0)",
+      "headerColor": "rgba(0, 0, 0, 0.75)",
+      "buttonBg": "rgb(83, 83, 83)",
+      "buttonColor": "rgb(253, 253, 253)",
+      "buttonRadius": "7px",
+      "buttonText": "Check out"
+    },
+    "priceCount": 2,
+    "priceSamples": [
+      "₱1,299.00",
+      "₱399.00"
+    ],
+    "productLinkCount": 5,
+    "firstProductLinks": [
+      "https://bavin.ph/products/bavin-pc2210-240w-fast-charging-type-c-ai-smart-auto-cut-off-adapter-for-laptops-ip-android-phones#MainContent",
+      "https://bavin.ph/products/bavin-q13-series-smart-watch-tempered-glass-screen-protector-scratch-resistant-anti-fingerprint",
+      "https://bavin.ph/products/bavin-pc2210-240w-fast-charging-type-c-ai-smart-auto-cut-off-adapter-for-laptops-ip-android-phones#",
+      "https://bavin.ph/products/bavin-pc2210-240w-fast-charging-type-c-ai-smart-auto-cut-off-adapter-for-laptops-ip-android-phones#ProductInfo-template--17580117000344__main",
+      "https://bavin.ph/products/bavin-pc2210-240w-fast-charging-type-c-ai-smart-auto-cut-off-adapter-for-laptops-ip-android-phones"
+    ],
+    "hasSearch": true,
+    "pageHeight": 2542,
+    "generator": null,
+    "shopify": true
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "site": "belkin",
+  "url": "https://www.belkin.com/",
+  "capturedAt": "2026-10-10T19:26:51.179Z",
+  "home": {
+    "title": "iPhone Chargers, Power Banks & Docking Stations | Belkin",
+    "lang": "en",
+    "dir": "ltr",
+    "h1": "iPhone 15, Samsung, iPad, PC & MacBook accessory products",
+    "nav": [
+      "Skip to main content",
+      "Skip to footer content",
+      "Shop now",
+      "Products Products",
+      "Choose Your Device",
+      "iPhone 18",
+      "iPhone 17",
+      "iPhone 16",
+      "iPhone 15",
+      "Samsung S26",
+      "Samsung S25",
+      "Samsung S24",
+      "Google Pixel 11",
+      "Nintendo Switch 2",
+      "Special Offers",
+      "New Arrivals",
+      "Buy with Prime",
+      "Certified Refurbished",
+      "Best Sellers",
+      "Earn Belkin Rewards",
+      "Collections",
+      "Disney",
+      "Best iPhone 17 Accessories",
+      "iPhone 17 Screen Protectors",
+      "Guides"
+    ],
+    "fonts": {
+      "body": "SuisseIntl-Regular, sans-serif",
+      "h1": "SuisseIntl-Medium, sans-serif",
+      "button": "SuisseIntl-Medium, sans-serif"
+    },
+    "colors": {
+      "bodyBg": "rgb(255, 255, 255)",
+      "headerBg": "rgb(255, 255, 255)",
+      "headerColor": "rgb(0, 0, 0)",
+      "buttonBg": "rgba(0, 0, 0, 0)",
+      "buttonColor": "rgb(0, 0, 0)",
+      "buttonRadius": "0px",
+      "buttonText": "United States United States Change region"
+    },
+    "priceCount": 28,
+    "priceSamples": [
+      "$99.99",
+      "$89.99",
+      "$29.99",
+      "$49.99",
+      "$24.99",
+      "$19.99",
+      "$50.99",
+      "$129.99"
+    ],
+    "productLinkCount": 281,
+    "firstProductLinks": [
+      "https://www.belkin.com/products/nintendo-switch-2-accessories/",
+      "https://www.belkin.com/products/disney/",
+      "https://www.belkin.com/products/wireless-chargers/",
+      "https://www.belkin.com/products/wireless-chargers/wireless-charging-stands/",
+      "https://www.belkin.com/products/wireless-chargers/wireless-charging-pads/"
+    ],
+    "hasSearch": false,
+    "pageHeight": 4029,
+    "generator": null,
+    "shopify": false
+  },
+  "pdpUrl": "https://www.belkin.com/p/retractable-gan-wall-charger-67w/WCH022bkBK-MV.html",
+  "pdp": {
+    "title": "Spider-Man 67W Retractable GaN Wall Charger | Belkin",
+    "lang": "en",
+    "dir": "ltr",
+    "h1": "Retractable GaN Wall Charger 67W, Spider-Man: Brand New Day",
+    "nav": [
+      "Skip to main content",
+      "Skip to footer content",
+      "Shop now",
+      "Products Products",
+      "Choose Your Device",
+      "iPhone 18",
+      "iPhone 17",
+      "iPhone 16",
+      "iPhone 15",
+      "Samsung S26",
+      "Samsung S25",
+      "Samsung S24",
+      "Google Pixel 11",
+      "Nintendo Switch 2",
+      "Special Offers",
+      "New Arrivals",
+      "Buy with Prime",
+      "Certified Refurbished",
+      "Best Sellers",
+      "Earn Belkin Rewards",
+      "Collections",
+      "Disney",
+      "Best iPhone 17 Accessories",
+      "iPhone 17 Screen Protectors",
+      "Guides"
+    ],
+    "fonts": {
+      "body": "SuisseIntl-Regular, sans-serif",
+      "h1": "SuisseIntl-SemiBold, sans-serif",
+      "button": "SuisseIntl-Medium, sans-serif"
+    },
+    "colors": {
+      "bodyBg": "rgb(255, 255, 255)",
+      "headerBg": "rgb(255, 255, 255)",
+      "headerColor": "rgb(0, 0, 0)",
+      "buttonBg": "rgba(0, 0, 0, 0)",
+      "buttonColor": "rgb(0, 0, 0)",
+      "buttonRadius": "0px",
+      "buttonText": "United States United States Change region"
+    },
+    "priceCount": 5,
+    "priceSamples": [
+      "$44.99",
+      "$75",
+      "$125",
+      "$2,500",
+      "$2500."
+    ],
+    "productLinkCount": 279,
+    "firstProductLinks": [
+      "https://www.belkin.com/p/retractable-gan-wall-charger-67w/WCH022bkBK-MV.html#site-main",
+      "https://www.belkin.com/p/retractable-gan-wall-charger-67w/WCH022bkBK-MV.html#footercontent",
+      "https://www.belkin.com/p/retractable-gan-wall-charger-67w/WCH022bkBK-MV.html#",
+      "https://www.belkin.com/products/nintendo-switch-2-accessories/",
+      "https://www.belkin.com/products/disney/"
+    ],
+    "hasSearch": false,
+    "pageHeight": 11231,
+    "generator": null,
+    "shopify": false
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "site": "greenlion",
+  "url": "https://www.greenlion.net/",
+  "capturedAt": "2026-10-10T19:22:55.703Z",
+  "home": {
+    "title": "Home | Green Lion",
+    "lang": "en-US",
+    "dir": "ltr",
+    "h1": "Party Life 600 Speaker",
+    "nav": [
+      "Home",
+      "Shop",
+      "Bulk Purchase",
+      "About",
+      "Blogs",
+      "0",
+      "​",
+      "الْعَرَبيّة",
+      "English (US)",
+      "Sign in"
+    ],
+    "fonts": {
+      "body": "Heebo, \"Odoo Unicode Support Noto\", sans-serif",
+      "h1": "Heebo, \"Odoo Unicode Support Noto\", sans-serif",
+      "button": "\"Noto Sans Arabic\", \"Odoo Unicode Support Noto\", sans-serif"
+    },
+    "colors": {
+      "bodyBg": "rgb(255, 255, 255)",
+      "headerBg": "rgba(0, 0, 0, 0)",
+      "headerColor": "rgb(33, 37, 41)",
+      "buttonBg": "rgb(15, 81, 50)",
+      "buttonColor": "rgb(255, 255, 255)",
+      "buttonRadius": "0px",
+      "buttonText": "Skip to Content"
+    },
+    "priceCount": 0,
+    "priceSamples": [],
+    "productLinkCount": 0,
+    "firstProductLinks": [],
+    "hasSearch": true,
+    "pageHeight": 7682,
+    "generator": "Odoo",
+    "shopify": false
+  },
+  "pdpUrl": null
+}

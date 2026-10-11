@@ -1,0 +1,7 @@
+{
+  "files": ["**/*.html"],
+  "exclude": ["inspo/**", ".impeccable/**", "content/**"],
+  "insertBefore": "</body>",
+  "commentSyntax": "html",
+  "cspChecked": true
+}

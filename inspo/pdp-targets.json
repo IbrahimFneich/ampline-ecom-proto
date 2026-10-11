@@ -1,0 +1,29 @@
+{
+  "porodo": {
+    "url": "https://www.porodo.net/shop/category/cable-charger-adapter-116",
+    "note": "Cloudflare challenge under Playwright; capture via real Chrome"
+  },
+  "greenlion": {
+    "url": "https://www.greenlion.net/shop/category/charger-cable-47",
+    "note": "Cloudflare challenge under Playwright; capture via real Chrome"
+  },
+  "powerology": {
+    "url": "https://www.powerology.me/shop/powerology-mondial-70w-gan-iii-universal-travel-charger-black-113001"
+  },
+  "belkin": {
+    "listing": "https://www.belkin.com/products/chargers/gan-chargers/",
+    "pattern": "^/p/[^/]+/[^/]+\\.html$",
+    "keyword": "charg"
+  },
+  "ugreen": {
+    "url": "https://us.ugreen.com/products/ugreen-uno-100w-usb-c-gan-charger-4-ports"
+  },
+  "bavin": {
+    "listing": "https://www.bavin.ph/",
+    "pattern": "^/products/[^/]+$",
+    "keyword": "charg"
+  },
+  "baseus": {
+    "url": "https://www.baseus.com/products/picogo-ah22-digital-display-fast-charger-3c-100w"
+  }
+}

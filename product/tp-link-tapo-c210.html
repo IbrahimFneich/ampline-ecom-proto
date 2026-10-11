@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TP-Link Tapo C210 Pan/Tilt Home Camera — Ampline</title>
+  <meta name="description" content="2K indoor camera with pan and tilt, night vision and microSD recording. Type Indoor camera, Connectivity Wi-Fi 2.4 GHz.">
+  <meta name="theme-color" content="#f4f6f8">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%2712%27 fill=%27%2317b867%27/%3E%3C/svg%3E">
+  <link rel="preload" href="../assets/fonts/readex-pro-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="pdp-page" data-slug="tp-link-tapo-c210" data-base="../">
+<!--
+THESIS: One product, answered for what you own: an accessory says whether it fits and what one port gives; a device shows its own charge ceiling, its colour and storage choices, and the Ampline accessories the catalog lists for it; every page shows the drawings and the box before it asks for the cart.
+OWN-WORLD: The established Charging Lock Screen system, unchanged: daylight ground, Readex Pro, one charging green, pills, hairlines, drawn line art; the gallery is drawn from the catalog in the world's stroke grammar, no photography.
+STORY: Arrive from a listing or home, read the fit line (accessories) or the ceiling (devices) and the price, flick through the drawings, pick the plug, colour or storage the catalog offers, add the cable the box lacks where it applies, add to cart; the specs, the box and the reviews placeholder follow, and a device page ends with the accessories that fit it. The sticky bar keeps the action in reach on the phone.
+FIRST VIEWPORT: Phone: breadcrumb, tags, name, then the head the product earns (the watt glyph and fit line on power products and accessories with an output; the device's own ceiling glyph on a mapped device; neither on the rest), price and rating inside the fold, the drawing gallery below it, and the sticky add-to-cart bar at the foot. Desktop: gallery left and sticky, the head and buy box right with the glyph where it applies, price, the variant chips the catalog offers, button and bundle in view.
+FORM: A surface inside the established world, one scaffold for all 58 SKUs, every product fact, drawing, variant and related row rendered from content/products.json by product.js. Inherits The Charging Lock Screen, seed key cbeaa407 (index.html).
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review and the verdict.
+-->
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- UI icons, 24 grid, 2px stroke -->
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h8.8a1 1 0 0 0 1-.8L20 8H6.5"/><circle cx="9.5" cy="20" r="1.4"/><circle cx="16.5" cy="20" r="1.4"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path fill="currentColor" d="M13 2L4.5 13.5H11L10 22l8.5-11.5H12z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.5 1.2 6.4L12 17.3l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8z"/></symbol>
+    <!-- Category icons -->
+    <symbol id="i-chargers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="9" width="12" height="11" rx="3"/><path d="M9.5 9V5M14.5 9V5"/><path d="M10 16h4"/></symbol>
+    <symbol id="i-cables" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="4" height="4" rx="1"/><rect x="17" y="14" width="4" height="4" rx="1"/><path d="M7 8c6 0 4 8 10 8"/></symbol>
+    <symbol id="i-power-banks" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="16" height="10" rx="3"/><path d="M21 10.5v3"/><path d="M7 10.5v3M10.5 10.5v3"/></symbol>
+    <symbol id="i-hubs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9" width="20" height="6" rx="2"/><path d="M6 12h2M11 12h2M16 12h2"/></symbol>
+    <symbol id="i-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15l1.5-5a2 2 0 0 1 1.9-1.4h7.2a2 2 0 0 1 1.9 1.4L19 15"/><rect x="3" y="15" width="18" height="4" rx="1.5"/><path d="M7 19v1.5M17 19v1.5"/></symbol>
+    <symbol id="i-wireless" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="15" r="2"/><path d="M8.5 11.5a5 5 0 0 1 7 0M5.5 8.5a9.2 9.2 0 0 1 13 0"/></symbol>
+    <!-- Trust icons -->
+    <symbol id="i-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h10v9H3zM13 9h4l3 3v3h-7z"/><circle cx="7" cy="17" r="1.7"/><circle cx="17" cy="17" r="1.7"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 9.5C8 19.2 5 15.5 5 11V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2.5"/><path d="M3 10h18M7 14.5h3"/></symbol>
+    <!-- Product figures, 120 grid, 3px stroke, ports in charging green -->
+    <symbol id="fig-wall" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="32" y="34" width="56" height="60" rx="12"/><path d="M50 34V20M70 34V20" stroke-width="5"/>
+      <rect x="42" y="72" width="12" height="6" rx="2" fill="var(--green)" stroke="none"/><rect x="58" y="72" width="12" height="6" rx="2" fill="var(--green)" stroke="none"/><rect x="74" y="72" width="6" height="6" rx="1.5" fill="var(--green)" stroke="none"/>
+    </symbol>
+    <symbol id="fig-desk" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="18" y="40" width="84" height="40" rx="10"/><path d="M18 60H6v18"/>
+      <rect x="30" y="56" width="12" height="7" rx="2" fill="var(--green)" stroke="none"/><rect x="46" y="56" width="12" height="7" rx="2" fill="var(--green)" stroke="none"/><rect x="62" y="56" width="12" height="7" rx="2" fill="var(--green)" stroke="none"/><rect x="80" y="56" width="8" height="7" rx="1.5" fill="var(--green)" stroke="none"/>
+    </symbol>
+    <symbol id="fig-nano" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="40" y="40" width="40" height="40" rx="11"/><path d="M52 40V26M68 40V26" stroke-width="5"/>
+      <rect x="53" y="66" width="14" height="6" rx="2" fill="var(--green)" stroke="none"/>
+    </symbol>
+    <symbol id="fig-cable-c" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="10" y="22" width="22" height="14" rx="5"/><rect x="88" y="84" width="22" height="14" rx="5"/><path d="M32 29c30 0 26 62 56 62"/>
+      <rect x="4" y="26" width="6" height="6" rx="2" fill="var(--green)" stroke="none"/><rect x="110" y="88" width="6" height="6" rx="2" fill="var(--green)" stroke="none"/>
+    </symbol>
+    <symbol id="fig-cable-l" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="10" y="22" width="22" height="14" rx="5"/><rect x="90" y="86" width="20" height="10" rx="2"/><path d="M32 29c30 0 26 62 58 62"/>
+      <rect x="4" y="26" width="6" height="6" rx="2" fill="var(--green)" stroke="none"/><rect x="110" y="89" width="6" height="4" rx="1" fill="var(--green)" stroke="none"/>
+    </symbol>
+    <symbol id="fig-cable-3" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="8" y="52" width="22" height="14" rx="5"/><rect x="2" y="56" width="6" height="6" rx="2" fill="var(--green)" stroke="none"/>
+      <path d="M30 59h20"/><path d="M50 59c14 0 10-30 24-30h12"/><path d="M50 59h36"/><path d="M50 59c14 0 10 30 24 30h12"/>
+      <rect x="86" y="23" width="20" height="12" rx="4"/><rect x="106" y="26" width="6" height="6" rx="2" fill="var(--green)" stroke="none"/>
+      <rect x="86" y="53" width="20" height="12" rx="3"/><rect x="106" y="56" width="6" height="6" rx="1" fill="var(--green)" stroke="none"/>
+      <rect x="86" y="83" width="20" height="12" rx="2"/><rect x="106" y="86" width="6" height="6" rx="1" fill="var(--green)" stroke="none"/>
+    </symbol>
+    <symbol id="fig-bank-mag" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="30" y="16" width="60" height="88" rx="16"/><circle cx="60" cy="54" r="20"/><circle cx="60" cy="54" r="4" fill="var(--green)" stroke="none"/>
+      <rect x="52" y="90" width="16" height="6" rx="2" fill="var(--green)" stroke="none"/>
+    </symbol>
+    <symbol id="fig-bank-lap" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="20" y="28" width="80" height="64" rx="12"/><rect x="32" y="40" width="30" height="16" rx="4"/><rect x="36" y="46" width="14" height="4" rx="2" fill="var(--green)" stroke="none"/>
+      <rect x="32" y="72" width="14" height="7" rx="2" fill="var(--green)" stroke="none"/><rect x="50" y="72" width="14" height="7" rx="2" fill="var(--green)" stroke="none"/><rect x="68" y="72" width="10" height="7" rx="2" fill="var(--green)" stroke="none"/>
+    </symbol>
+    <symbol id="fig-hub" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="12" y="46" width="96" height="28" rx="9"/><path d="M12 60H4"/>
+      <rect x="22" y="56" width="12" height="8" rx="2" fill="var(--green)" stroke="none"/><rect x="38" y="56" width="12" height="8" rx="2" fill="var(--green)" stroke="none"/><rect x="54" y="56" width="16" height="8" rx="2" fill="var(--green)" stroke="none"/><rect x="74" y="56" width="8" height="8" rx="2" fill="var(--green)" stroke="none"/><rect x="86" y="56" width="12" height="8" rx="2" fill="var(--green)" stroke="none"/>
+    </symbol>
+    <symbol id="fig-car" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="42" y="22" width="36" height="60" rx="10"/><path d="M42 40h36"/><path d="M52 82v10a8 8 0 0 0 16 0V82"/>
+      <rect x="50" y="28" width="9" height="6" rx="2" fill="var(--green)" stroke="none"/><rect x="63" y="28" width="7" height="6" rx="2" fill="var(--green)" stroke="none"/>
+    </symbol>
+    <symbol id="fig-stand" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="22" y="92" width="68" height="10" rx="5"/><path d="M56 92V76"/>
+      <g transform="rotate(-8 56 48)"><rect x="32" y="20" width="48" height="56" rx="12"/><circle cx="56" cy="48" r="12"/></g>
+      <circle cx="56" cy="48" r="3.5" fill="var(--green)" stroke="none"/>
+      <circle cx="104" cy="86" r="7"/><circle cx="104" cy="86" r="2.5" fill="var(--green)" stroke="none"/>
+    </symbol>
+    <symbol id="fig-travel" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="30" y="20" width="60" height="80" rx="12"/><path d="M90 36h14M90 48h14M90 60h14" stroke-width="5"/><path d="M40 34h40"/>
+      <rect x="40" y="78" width="14" height="7" rx="2" fill="var(--green)" stroke="none"/><rect x="58" y="78" width="10" height="7" rx="2" fill="var(--green)" stroke="none"/><rect x="72" y="78" width="10" height="7" rx="2" fill="var(--green)" stroke="none"/>
+    </symbol>
+    <!-- Generic thumb crops for the drawn gallery: ports, size and box; the product thumb uses the tile figure -->
+    <symbol id="thumb-ports" viewBox="0 0 400 300">
+      <g fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><rect x="110" y="56" width="150" height="208" rx="26"/><path d="M152 56V26M218 56V26" stroke-width="10"/></g>
+      <rect x="160" y="108" width="52" height="16" rx="4" fill="var(--green)"/><rect x="160" y="152" width="52" height="16" rx="4" fill="var(--green)"/><rect x="158" y="196" width="56" height="18" rx="3" fill="var(--green)"/>
+      <path d="M222 116h70M222 160h70M224 205h70" fill="none" stroke="var(--ink-2)" stroke-width="5" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="thumb-size" viewBox="0 0 400 300">
+      <g fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><rect x="60" y="80" width="180" height="166" rx="20"/><rect x="280" y="80" width="86" height="166" rx="14"/></g>
+      <path d="M60 44H240M60 34v20M240 34v20" fill="none" stroke="var(--ink-2)" stroke-width="5" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="thumb-box" viewBox="0 0 400 300">
+      <g fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><rect x="40" y="78" width="150" height="170" rx="28"/><path d="M85 78V46M145 78V46" stroke-width="10"/><rect x="236" y="72" width="128" height="176" rx="12"/></g>
+      <rect x="78" y="186" width="74" height="18" rx="4" fill="var(--green)"/>
+      <path d="M262 110h76M262 142h76M262 174h50" fill="none" stroke="var(--ink-2)" stroke-width="5" stroke-linecap="round"/>
+    </symbol>
+  </defs>
+
+  <symbol id="i-phones" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 17.5h2"/></symbol>
+  <symbol id="i-laptops" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="11" rx="2"/><path d="M2 19h20"/></symbol>
+  <symbol id="i-tablets" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2.5"/><path d="M10 18h4"/></symbol>
+  <symbol id="i-audio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="13" width="4" height="7" rx="1.5"/><rect x="17" y="13" width="4" height="7" rx="1.5"/></symbol>
+  <symbol id="i-wearables" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="3"/><path d="M9.5 7V3h5v4M9.5 17v4h5v-4M17 11h1.5"/></symbol>
+  <symbol id="i-gaming" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="10" rx="5"/><path d="M8 11v4M6 13h4M15 12h.01M17.5 14h.01"/></symbol>
+  <symbol id="i-networking" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="13" width="18" height="6" rx="2"/><path d="M7 13V7M17 13V5M7 16h.01M10 16h.01"/></symbol>
+  <symbol id="i-smart-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-5h4v5"/></symbol>
+  <symbol id="i-cases-and-mounts" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="3"/><rect x="9" y="6" width="4" height="4" rx="1"/><circle cx="12" cy="15" r="2"/></symbol>
+  <symbol id="fig-phone" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="36" y="10" width="48" height="100" rx="11"/><rect x="43" y="20" width="34" height="74" rx="3"/><rect x="54" y="104" width="12" height="4" rx="1.5" fill="var(--green)" stroke="none"/></symbol>
+  <symbol id="fig-laptop" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="22" y="24" width="76" height="50" rx="6"/><rect x="28" y="30" width="64" height="38" rx="3"/><rect x="12" y="78" width="96" height="10" rx="5"/><rect x="18" y="81" width="8" height="4" rx="1.5" fill="var(--green)" stroke="none"/></symbol>
+  <symbol id="fig-tablet" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="24" y="14" width="72" height="92" rx="9"/><rect x="31" y="22" width="58" height="76" rx="3"/><rect x="54" y="100" width="12" height="4" rx="1.5" fill="var(--green)" stroke="none"/></symbol>
+  <symbol id="fig-headphones" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M26 74V56a34 34 0 0 1 68 0v18"/><rect x="18" y="66" width="18" height="30" rx="7"/><rect x="84" y="66" width="18" height="30" rx="7"/><rect x="23" y="96" width="8" height="4" rx="1.5" fill="var(--green)" stroke="none"/></symbol>
+  <symbol id="fig-watch" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="34" y="32" width="52" height="56" rx="14"/><rect x="46" y="12" width="28" height="20" rx="4"/><rect x="46" y="88" width="28" height="20" rx="4"/><path d="M86 50v12" stroke-width="5"/><rect x="50" y="56" width="20" height="6" rx="3" fill="var(--green)" stroke="none"/></symbol>
+  <symbol id="fig-controller" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M34 40h52a18 18 0 0 1 18 18l-4 24a10 10 0 0 1-18 4l-8-10H46l-8 10a10 10 0 0 1-18-4l-4-24a18 18 0 0 1 18-18z"/><path d="M38 52v12M32 58h12"/><circle cx="80" cy="54" r="2.5" fill="currentColor"/><circle cx="88" cy="62" r="2.5" fill="currentColor"/><circle cx="72" cy="62" r="2.5" fill="currentColor"/><circle cx="80" cy="70" r="2.5" fill="currentColor"/><rect x="54" y="36" width="12" height="5" rx="2" fill="var(--green)" stroke="none"/></symbol>
+  <symbol id="fig-router" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="14" y="60" width="92" height="30" rx="9"/><path d="M32 60V26M60 60V20M88 60V26" stroke-width="4"/><rect x="24" y="72" width="7" height="7" rx="2" fill="var(--green)" stroke="none"/><rect x="36" y="72" width="7" height="7" rx="2" fill="var(--green)" stroke="none"/><rect x="48" y="72" width="7" height="7" rx="2" fill="var(--green)" stroke="none"/></symbol>
+  <symbol id="fig-plug" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="34" y="34" width="52" height="64" rx="13"/><path d="M48 34V18M72 34V18" stroke-width="5"/><rect x="50" y="56" width="6" height="12" rx="2"/><rect x="64" y="56" width="6" height="12" rx="2"/><circle cx="60" cy="84" r="3" fill="var(--green)" stroke="none"/></symbol>
+  <symbol id="fig-lstand" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 96h76"/><path d="M30 96L62 40h36l-6 56"/><path d="M62 40l-8 56"/><rect x="70" y="86" width="12" height="4" rx="1.5" fill="var(--green)" stroke="none"/></symbol>
+  <symbol id="fig-folio" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="18" width="64" height="84" rx="8"/><path d="M30 18l-16 10v84l16-10"/><path d="M14 56h16"/><rect x="56" y="96" width="12" height="4" rx="1.5" fill="var(--green)" stroke="none"/></symbol>
+  <symbol id="fig-mount" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="40" y="14" width="40" height="66" rx="8"/><circle cx="60" cy="47" r="11"/><circle cx="60" cy="47" r="3" fill="var(--green)" stroke="none"/><path d="M60 80v14"/><path d="M38 106h44a6 6 0 0 0 0-12H38a6 6 0 0 0 0 12z"/></symbol>
+  <symbol id="fig-case" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="36" y="10" width="48" height="100" rx="12"/><rect x="44" y="18" width="16" height="16" rx="5"/><circle cx="60" cy="68" r="14"/><circle cx="60" cy="68" r="3" fill="var(--green)" stroke="none"/></symbol>
+</svg>
+
+<header class="bar">
+  <div class="wrap bar__in">
+    <a class="brand" href="../index.html">Ampline</a>
+    <nav class="bar__nav" aria-label="Groups">
+      <a href="../shop/all.html?group=devices">Devices</a>
+      <a href="../shop/all.html?group=accessories">Accessories</a>
+      <a href="../shop/all.html?group=power">Power</a>
+    </nav>
+    <form class="bar__search" action="../shop/all.html" method="get" role="search">
+      <svg aria-hidden="true"><use href="#i-search"/></svg>
+      <input type="search" name="q" placeholder="Search products" aria-label="Search products" autocomplete="off">
+    </form>
+    <button class="cart" type="button" id="cart-btn" aria-label="Cart, 0 items">
+      <svg aria-hidden="true"><use href="#i-cart"/></svg>
+      <span class="cart__n" id="cart-n" data-n="0">0</span>
+    </button>
+  </div>
+</header>
+
+
+<main class="wrap pdp" id="pdp">
+  <nav class="crumbs pdp__crumbs" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <svg aria-hidden="true"><use href="#i-chevron"/></svg>
+    <span id="crumb-cat">Smart Home</span>
+    <svg aria-hidden="true"><use href="#i-chevron"/></svg>
+    <span aria-current="page" id="crumb-name">TP-Link Tapo C210 Pan/Tilt Home Camera</span>
+  </nav>
+
+  <div class="pdp__head">
+    <div class="chipsrow" id="tags"></div>
+    <h1 id="name">TP-Link Tapo C210 Pan/Tilt Home Camera</h1>
+    <div class="wattglyph" id="wattglyph">
+      <div class="wattglyph__glyph">
+        <div class="glyph glyph--pdp" id="glyph">
+          <div class="glyph__fill" id="fill"></div>
+          <div class="glyph__in"><div class="figure figure--pdp"><span class="figure__n" id="figure-n">0</span><span class="figure__u">W</span></div></div>
+        </div>
+        <div class="scale scale--pdp" aria-hidden="true"><span>0</span><span>50</span><span>100W</span></div>
+      </div>
+      <p class="wattglyph__cap"><b id="watt-cap">Max on one port</b><small>Of 100W, read from the spec sheet</small></p>
+    </div>
+    <p class="fitline" id="fit"></p>
+    <p class="price price--big" id="price"></p>
+    <p class="rating pdp__rating" id="rating"></p>
+    <p class="pdp__short" id="short"></p>
+  </div>
+
+  <section class="gallery" aria-label="Drawings of the product">
+    <div class="gallery__track" id="track"></div>
+    <button type="button" class="gallery__arrow gallery__arrow--prev" data-step="-1" aria-label="Previous drawing"><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+    <button type="button" class="gallery__arrow gallery__arrow--next" data-step="1" aria-label="Next drawing"><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+    <div class="gallery__thumbs" id="thumbs" role="tablist" aria-label="Drawings"></div>
+    <p class="gallery__note">Drawings from the spec sheet; product photography is not in this prototype.</p>
+  </section>
+
+  <div class="buy" id="buy">
+    <div class="variants-wrap" id="variants" hidden></div>
+    <div class="cta" id="cta">
+      <button type="button" class="btn btn--big" data-buy="main">Add to cart</button>
+      <p class="cta__stock" id="stock"></p>
+    </div>
+    <div class="bundle" id="bundle" hidden>
+      <label class="opt bundle__opt">
+        <input type="checkbox" id="bundle-cb">
+        <span class="bundle__fig" id="bundle-fig"></span>
+        <span class="bundle__text"><b>Add the USB-C cable the box lacks</b><small><span id="bundle-name"></span> · <span id="bundle-price"></span> <span class="syn">synthetic</span></small></span>
+      </label>
+      <p class="bundle__total">Total <b id="total"></b> <span class="syn">synthetic</span></p>
+    </div>
+    <ul class="trustlines">
+      <li><svg aria-hidden="true"><use href="#i-truck"/></svg>Delivery <span class="ph">placeholder</span></li>
+      <li><svg aria-hidden="true"><use href="#i-shield"/></svg>Warranty <span class="ph">placeholder</span></li>
+      <li><svg aria-hidden="true"><use href="#i-card"/></svg>Card or cash on delivery <span class="ph">placeholder</span></li>
+    </ul>
+  </div>
+
+  <section class="section pdp__section" id="delivers-section" aria-labelledby="h-delivers">
+    <div class="section__head"><div><h2 id="h-delivers">One plug, shared fairly</h2><p class="section__sub" id="delivers-sub"></p></div></div>
+    <div class="split__scens" id="delivers"></div>
+  </section>
+
+  <section class="section pdp__section" id="fits" aria-labelledby="h-fits">
+    <div class="section__head"><div><h2 id="h-fits">Fits your device?</h2><p class="section__sub" id="fits-sub">Tap yours. A grey chip means the catalog does not list it for this product; the fit line names the entry that matched.</p></div></div>
+    <div class="chips" id="fit-chips"></div>
+    <p class="compat__label">The catalog lists</p>
+    <ul class="compat" id="compat-list"></ul>
+  </section>
+
+  <div class="pdp__pair">
+    <section class="section pdp__section" aria-labelledby="h-specs">
+      <div class="section__head"><div><h2 id="h-specs">Specs</h2></div></div>
+      <table class="specs"><tbody id="specs"></tbody></table>
+    </section>
+    <section class="section pdp__section" aria-labelledby="h-box">
+      <div class="section__head"><div><h2 id="h-box">In the box</h2></div></div>
+      <ul class="box" id="box"></ul>
+      <p class="box__note" id="box-note" hidden>No USB-C cable in the box. <a href="#bundle">Add one above</a>.</p>
+    </section>
+  </div>
+
+  <section class="section pdp__section" id="reviews" aria-labelledby="h-reviews">
+    <div class="section__head"><div><h2 id="h-reviews">Reviews</h2></div></div>
+    <div class="reviews__agg" id="reviews-agg"></div>
+    <div class="ph-box"><p>Customer reviews are not in this prototype. The average and count above are synthetic placeholders from the catalog, not real ratings.</p></div>
+  </section>
+
+  <section class="section pdp__section" id="setup" aria-labelledby="h-setup" hidden>
+    <div class="section__head"><div><h2 id="h-setup">Complete your setup</h2><p class="section__sub" id="setup-sub"></p></div></div>
+    <div id="setup-row"></div>
+  </section>
+</main>
+
+<div class="buybar" id="buybar" hidden>
+  <div class="wrap buybar__in">
+    <div class="buybar__info"><b id="bar-price"></b><span id="bar-name"></span></div>
+    <button type="button" class="btn" data-buy="bar">Add to cart</button>
+  </div>
+</div>
+
+<footer class="sleep">
+  <div class="wrap">
+    <div class="sleep__in">
+      <div>
+        <a class="brand" href="../index.html">Ampline</a>
+        <p class="sleep__note">A prototype tech store for Lebanon. Ampline is a placeholder name; every price, rating and stock state is synthetic, and third-party products are named as a retailer lists them. English edition; an Arabic edition is planned.</p>
+      </div>
+      <div>
+        <h2>Shop</h2>
+        <ul id="foot-cats"></ul>
+      </div>
+      <div>
+        <h2>This page</h2>
+        <ul>
+          <li id="foot-fits"><a href="#fits">Fits your device</a></li>
+          <li id="foot-setup" hidden><a href="#setup">Complete your setup</a></li>
+          <li><a href="#h-specs">Specs</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="sleep__base">
+      <span>© 2026 Ampline, placeholder name</span>
+      <span>English</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../catalog.js"></script>
+<script src="../product.js"></script>
+</body>
+</html>

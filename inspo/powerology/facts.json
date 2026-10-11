@@ -1,0 +1,54 @@
+{
+  "site": "powerology",
+  "url": "https://www.powerology.me/",
+  "capturedAt": "2026-10-10T19:26:05.234Z",
+  "home": {
+    "title": "Powerology | The Power Expert & Consumer Electronics",
+    "lang": "en-US",
+    "dir": "ltr",
+    "h1": "Mondial 70W GaN Travel Charger",
+    "nav": [
+      "Home",
+      "Shop",
+      "Become a Distributor",
+      "About",
+      "Blogs",
+      "AR",
+      "EN",
+      "0",
+      "Sign in"
+    ],
+    "fonts": {
+      "body": "\"Red Hat Text\"",
+      "h1": "\"Red Hat Text\"",
+      "button": "\"Red Hat Text\""
+    },
+    "colors": {
+      "bodyBg": "rgb(255, 255, 255)",
+      "headerBg": "rgba(0, 0, 0, 0)",
+      "headerColor": "rgb(33, 37, 41)",
+      "buttonBg": "rgb(0, 194, 243)",
+      "buttonColor": "rgb(255, 255, 255)",
+      "buttonRadius": "0px",
+      "buttonText": "Skip to Content"
+    },
+    "priceCount": 8,
+    "priceSamples": [
+      "AED\u00a0139.00",
+      "AED\u00a0149.00",
+      "AED\u00a0169.00",
+      "AED\u00a01,999.00",
+      "9904907012382\nAED",
+      "9904907004158\nAED",
+      "9904907004080\nAED",
+      "9904781905350\nAED"
+    ],
+    "productLinkCount": 0,
+    "firstProductLinks": [],
+    "hasSearch": true,
+    "pageHeight": 5179,
+    "generator": "Odoo",
+    "shopify": false
+  },
+  "pdpNote": "Cloudflare bot challenge blocks deeper pages under Playwright; product page to be captured with a real Chrome session"
+}

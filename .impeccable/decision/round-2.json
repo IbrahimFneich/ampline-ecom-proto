@@ -1,0 +1,100 @@
+{
+  "title": "Safer hand: the familiar register for the Ampline home page",
+  "question": "You asked for the familiar end. Three grounded directions from the conventional side, plus the category standard played straight against Anker, Belkin and UGREEN. You pick.",
+  "options": [
+    {
+      "id": "lockscreen",
+      "label": "The Charging Lock Screen",
+      "lineage": "the phone's own charging screen: percentage, battery fill, minutes to 80%",
+      "thesis": "The store speaks the screen the shopper sees when the charger works.",
+      "palette": [
+        "#F4F6F8",
+        "#0B0D10",
+        "#19C37D",
+        "#8A94A3"
+      ],
+      "materials": [
+        "glass screen",
+        "battery fill",
+        "rounded status chips",
+        "soft device silhouette"
+      ],
+      "viewport": "A light screen with one huge figure: pick your device and the fill animates to the max watts the catalog can deliver it, with 'up to 65W' in the charging line; products below are battery-glyph rows with their watt figure filled in.",
+      "risk": "Familiar to the point of invisible, and it can tip into an iOS imitation; the fill has to carry catalog watts, never invented charge times."
+    },
+    {
+      "id": "charging-guide",
+      "label": "The Charging-Guide Diagram",
+      "lineage": "the per-port split slide the category ships in every gallery (45W / 30W / 7.5W)",
+      "thesis": "Every product drawn with a leader line to each port and the watts it gives.",
+      "palette": [
+        "#FFFFFF",
+        "#111318",
+        "#0A5CFF",
+        "#C9CED6"
+      ],
+      "materials": [
+        "leader lines",
+        "wattage callouts",
+        "hairline grid",
+        "flat product line-art"
+      ],
+      "viewport": "A white sheet: your device on the left, leader lines fanning to the products that fit, each line labelled with the port's max output; the split-output table sits under it as the proof.",
+      "risk": "Closest to the canon; it is only distinct through diagram discipline, and leader lines get crowded on a phone."
+    },
+    {
+      "id": "retail-box",
+      "label": "The Retail Box",
+      "lineage": "the charger's own packaging: big watt figure on the front, compatibility icons on the side, what's in the box on the back",
+      "thesis": "Every product shown as the box you pick up in the shop, front, side and back.",
+      "palette": [
+        "#F7F7F5",
+        "#121212",
+        "#0E6B5A",
+        "#D9D9D4"
+      ],
+      "materials": [
+        "matte card",
+        "spot-gloss watt figure",
+        "side-panel icon strip",
+        "fold lines"
+      ],
+      "viewport": "A box front at hero scale with the watt figure and the device picker as its side-panel compatibility strip; picking a device rotates the shelf's boxes to show the side that names it.",
+      "risk": "Reads as packaging mockups if the fold language is faked, and the side-panel icon strip is the category's icon-row habit."
+    }
+  ],
+  "reroll": {
+    "registers": [
+      "safer",
+      "bolder"
+    ]
+  },
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard, against Anker, Belkin and UGREEN",
+    "thesis": "What the three best reference stores ship, at their craft level, with the device picker where Belkin's Choose Your Device menu would sit.",
+    "palette": [
+      "#FFFFFF",
+      "#111111",
+      "#00BEFA",
+      "#F5F5F7"
+    ],
+    "materials": [
+      "white ground",
+      "studio product render",
+      "black pill buttons",
+      "grey card tiles"
+    ],
+    "viewport": "A product-render hero with one line and a Shop Now pill, the device picker as a chip row under it, a category tile row, a best-sellers card shelf with strike-through prices, a trust row, a dark footer.",
+    "risk": "Indistinguishable from the competition by design; it also needs the product photography the project does not have, so renders would be authored line-art."
+  },
+  "steer": true,
+  "seed": {
+    "key": "cbeaa407",
+    "scope": "direction",
+    "mode": "persuade",
+    "reroll": 1,
+    "register": "safer",
+    "log": "seed-cbeaa407.log"
+  }
+}
