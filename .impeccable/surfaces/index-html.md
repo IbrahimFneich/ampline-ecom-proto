@@ -54,3 +54,8 @@ The first viewport is a retail hero inside the same world; the watt chart left t
 ## Update 2026-10-11 (adapt)
 
 Hover states guarded by `(hover: hover)`; 44px chips, pager buttons and dots on coarse pointers; a landscape-phone layout (one header row, the compact slide, h1 in the first 342px); a 300px slide on short desktop windows; safe-area padding with `viewport-fit=cover`; promo photos lazy after slide 1. Verified at 320, 390 portrait, 750×342 landscape, 768 portrait tablet, 820, 1024, 1366×620, 1440 and 1920.
+
+
+## Update 2026-10-11 (animate)
+
+Motion thesis: one authored moment, the answer charging. A mini battery before "Fits <device>" fills from empty to the fitting share of accessories and power products (0.8s house ease) as the tiles rise; the first promo slide's figures settle once on arrival (0.5s, 80ms apart). No scroll reveals, no parallax; reduced motion keeps the states and drops the movement.

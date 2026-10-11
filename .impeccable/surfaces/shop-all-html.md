@@ -23,3 +23,16 @@ Rules the controller follows:
 - Every price and rating stays marked SYNTHETIC; the Price legend carries the synthetic tag.
 
 Open: product photography (tiles use drawn line art per category), delivery/warranty/payment rows remain placeholders.
+
+## Update 2026-10-11 (harden, after the first critique at 25/40)
+
+- The phone sheet clips instead of hiding its overflow: a tap on a Fits chip focuses a visually-hidden radio, and a hidden-overflow dialog scrolled itself by 579px to reach it, leaving the head off screen. Clip cannot be scrolled. Rail chips are 44px on touch screens.
+- A cart change no longer re-renders the grid. shop.js updates only the tile buttons whose state is stale, so the clicked button keeps its "Added" moment and its focus, and a drawer removal flips only that tile back.
+- Tiles for SKUs with a variant choice (colour, storage, plug region, pack) render the pill as a "Choose options" link to the product page carrying the device query, never a blind add; "In cart" shows once any variant is in the cart. Shared tile in catalog.js, so every listing and home row follow.
+- Filters push history entries: Back undoes one filter step and stays on the listing. Scroll restoration is manual; pagehide stores the scroll under the current URL (filters included) and a back_forward or reload navigation restores it, instantly, after the first render.
+- A header search scrolls the toolbar (the count line) to the top under the sticky header, using the page's scroll-padding, and blurs the field under a coarse pointer so the keyboard does not cover the answer.
+- The empty state suggests removing the device only when no other single removal frees results: Devices plus iPhone 16 now says "Removing Devices shows 12 products".
+- Verified at 390 (touch) and 1440: sheet tap, Back through filters, search landing, add without re-render, variant link, empty state, Back-from-product scroll, Escape focus return; node checks pass; the detector reports only the pre-existing toolbar inset finding.
+
+Open for the next rounds: search understanding (harden catalog.js), fit leading the page (layout, distill), tile rhythm and small touch targets (polish).
+

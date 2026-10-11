@@ -643,7 +643,7 @@ svg { display: block; }
   background: var(--screen);
   color: var(--ink);
   box-shadow: var(--shadow);
-  overflow: hidden;
+  overflow: clip; /* clip, not hidden: focusing a visually-hidden radio must never scroll the dialog itself */
 }
 .sheet::backdrop { background: rgba(11, 13, 16, 0.45); }
 .sheet[open] { animation: sheet-up 0.25s var(--ease); }
@@ -1113,9 +1113,10 @@ a.cat .cat__count { color: var(--ink); }
   .promo__fig:nth-child(3) { display: block; height: 40%; right: 24%; bottom: 7%; }
   /* A slide of drawings keeps one stroke: three equal figures in a row, since a scaled drawing scales its line. */
   .promo__slide:not(:has(img)) .promo__fig { width: auto; height: 40%; top: 50%; bottom: auto; transform: translateY(-50%); }
-  .promo__slide:not(:has(img)) .promo__fig:nth-child(1) { left: 6%; }
-  .promo__slide:not(:has(img)) .promo__fig:nth-child(2) { left: 36%; right: auto; }
-  .promo__slide:not(:has(img)) .promo__fig:nth-child(3) { left: 66%; right: auto; }
+  /* The per-figure rules repeat the row's vertical placement, because the phone stack's per-figure tops would otherwise outrank it. */
+  .promo__slide:not(:has(img)) .promo__fig:nth-child(1) { left: 6%; top: 50%; bottom: auto; transform: translateY(-50%); }
+  .promo__slide:not(:has(img)) .promo__fig:nth-child(2) { left: 36%; right: auto; top: 50%; bottom: auto; transform: translateY(-50%); }
+  .promo__slide:not(:has(img)) .promo__fig:nth-child(3) { display: block; left: 66%; right: auto; top: 50%; bottom: auto; transform: translateY(-50%); }
   .promo__text { align-content: center; padding: 28px 32px 64px; }
   .promo__pager { right: auto; width: 50%; bottom: 18px; padding-inline: 32px; }
 }
@@ -1156,9 +1157,19 @@ a.cat .cat__count { color: var(--ink); }
   .line__rm:hover { background: var(--off-soft); color: var(--ink); }
 }
 
+/* ---------- Motion on home ---------- */
+/* The answer charges: a mini battery before "Fits <device>" fills from empty to the share of the store that fits, in the glyph's own 0.8s ease. */
+.payoff__mini { display: inline-block; width: 34px; height: 12px; vertical-align: middle; margin: 0 12px 5px 0; }
+.payoff__mini i { transition: clip-path 0.8s var(--ease); }
+/* The first slide's figures settle once on arrival, one after another, like a lock screen lighting up. The staging transform lives on the figure box, so only its drawing moves. */
+.promo__slide:first-child .promo__fig > * { animation: settle 0.5s var(--ease) both; }
+.promo__slide:first-child .promo__fig:nth-child(2) > * { animation-delay: 80ms; }
+.promo__slide:first-child .promo__fig:nth-child(3) > * { animation-delay: 160ms; }
+@keyframes settle { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
 /* Touch: 44px targets on the controls a thumb lands on. */
 @media (pointer: coarse) {
-  .families .chip, .devchips .chip, #fit-chips .chip { height: 44px; }
+  .families .chip, .devchips .chip, #fit-chips .chip, .rail .chip { height: 44px; }
   .promo__btn { width: 44px; height: 44px; }
   .promo__dot { width: 44px; height: 44px; }
   .promo__dot[aria-current="true"] { width: auto; padding-inline: 12px; }

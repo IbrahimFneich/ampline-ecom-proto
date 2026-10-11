@@ -181,10 +181,14 @@
     h.textContent = 'Fits ' + d.name;
     link.hidden = !n;
     if (!n) { // nothing listed yet: say so and keep the best sellers in view
+      h.innerHTML = '<span class="mini payoff__mini" aria-hidden="true"><i style="--pct:0"></i></span>' + esc('Fits ' + d.name);
       sub.textContent = 'The catalog lists nothing for ' + d.name + ' yet; these are the store\u2019s best sellers.';
       box.innerHTML = tiles(bestSellers());
       return;
     }
+    var pool = products().filter(function (p) { return group(p) !== 'Devices'; }).length; // accessories and power: what "fits" can be drawn from
+    h.innerHTML = '<span class="mini payoff__mini" aria-hidden="true"><i style="--pct:0"></i></span>' + esc('Fits ' + d.name);
+    requestAnimationFrame(function () { var i = h.querySelector('.payoff__mini i'); if (i) i.style.setProperty('--pct', Math.min(1, n / pool)); }); // charges from empty to its share
     var four = fitFour(list), padded = four.length < 4;
     if (padded) hot(products().filter(function (p) { return group(p) !== 'Devices'; }), 12).forEach(function (p) { if (four.length < 4 && four.indexOf(p) < 0) four.push(p); }); // accessory and power best sellers only
     sub.textContent = n + (n === 1 ? ' product' : ' products') + ' the catalog lists for it' + (!d.parent && models.length ? '; name the model above for cases' : '') +

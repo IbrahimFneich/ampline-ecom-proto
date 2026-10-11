@@ -578,7 +578,7 @@
       return '<span class="tag' + (HOT_BADGES.indexOf(b) >= 0 ? ' tag--hot' : '') + '">' + esc(b) + '</span>';
     }).join('');
     var href = productHref(p, base, query);
-    var inCart = cart.has(p.id);
+    var inCart = cart.has(p.id), choose = !!href && !out && variantGroups(p).length > 0; // colour, storage, plug or pack: pick it on the product page
     return '<article class="tile' + (out ? ' tile--out' : '') + '" style="--i:' + i + '">' +
       (href ? '<a class="tile__fig" href="' + href + '" aria-label="' + esc(p.name) + '">' : '<div class="tile__fig">') +
         '<svg aria-hidden="true"><use href="#' + figFor(p) + '"/></svg>' +
@@ -595,9 +595,11 @@
         : '<p class="tile__facts">' + esc(facetLine(p) || (p.specs[0] ? p.specs[0].value : '')) + '</p>') +
       '<div class="price"><b>' + money(p.price) + '</b>' + (p.compare_at ? '<s>' + money(p.compare_at) + '</s>' : '') + '<span class="syn">synthetic</span></div>' +
       '<div class="meta"><span class="stock ' + st[0] + '">' + st[1] + '</span><span class="rating"><svg aria-hidden="true"><use href="#i-star"/></svg>' + p.rating.value.toFixed(1) + ' <span>(' + p.rating.count + ')</span></span></div>' +
-      '<button type="button" class="btn' + (inCart ? ' btn--added' : '') + '" data-add="' + p.id + '"' + (out ? ' disabled' : '') + '>' +
-        (out ? 'Out of stock' : inCart ? '<svg aria-hidden="true"><use href="#i-check"/></svg>In cart' : 'Add to cart') +
-      '</button>' +
+      (choose
+        ? '<a class="btn' + (inCart ? ' btn--added' : '') + '" href="' + href + '" data-choose="' + p.id + '">' + (inCart ? '<svg aria-hidden="true"><use href="#i-check"/></svg>In cart' : 'Choose options') + '</a>'
+        : '<button type="button" class="btn' + (inCart ? ' btn--added' : '') + '" data-add="' + p.id + '"' + (out ? ' disabled' : '') + '>' +
+          (out ? 'Out of stock' : inCart ? '<svg aria-hidden="true"><use href="#i-check"/></svg>In cart' : 'Add to cart') +
+        '</button>') +
     '</article>';
   }
 

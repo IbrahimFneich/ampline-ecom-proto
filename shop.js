@@ -56,8 +56,8 @@
     if (state.f.device) q.set('device', state.f.device);
     state.defs.forEach(function (d) { var ids = state.f.facets[d.label] || []; if (ids.length) q.set(paramOf(d.label), ids.join(',')); });
     if (state.sort !== 'featured') q.set('sort', state.sort);
-    var qs = q.toString();
-    history.replaceState(null, '', location.pathname + (qs ? '?' + qs : ''));
+    var qs = q.toString(), next = location.pathname + (qs ? '?' + qs : '');
+    if (next !== location.pathname + location.search) history.pushState(null, '', next); // Back undoes one filter step
   }
   function sortOptions() {
     var power = state.category ? state.category.group === 'Power' : false;
@@ -145,7 +145,10 @@
       var n = g === 'q' ? state.pool.filter(function (p) { return (!state.f.deal || p.compare_at) && A.passes(p, { device: state.f.device, q: '', facets: state.f.facets }, state.defs, null, cats()); }).length
         : g === 'deal' ? state.pool.filter(function (p) { return A.passes(p, state.f, state.defs, null, cats()); }).length
         : results({ group: g, ids: [] }).length;
-      if (n && (!best || n > best.n)) best = { g: g, n: n };
+      if (!n) return;
+      // The device is the shopper's answer: it is the removal to suggest only when nothing else frees results.
+      if (!best || (best.g === 'device' && g !== 'device')) best = { g: g, n: n };
+      else if (g !== 'device' && n > best.n) best = { g: g, n: n };
     });
     var name = best && (best.g === 'q' ? 'the search' : best.g === 'deal' ? 'On deal' : best.g === 'device' ? device().name
       : (state.f.facets[best.g].length === 1 ? optLabel(best.g, state.f.facets[best.g][0]) : 'the ' + A.legendFor(best.g).toLowerCase() + ' filter'));
@@ -210,10 +213,21 @@
       e.preventDefault();
       state.f.q = searchForm.querySelector('input').value.trim();
       writeUrl(); render();
-      $('#tiles').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (window.matchMedia('(pointer: coarse)').matches) searchForm.querySelector('input').blur(); // the keyboard would cover the answer
+      $('.toolbar').scrollIntoView({ behavior: 'smooth', block: 'start' }); // the count line reads the answer; scroll-padding keeps it under the header
     });
   }
-  document.addEventListener('ampline:cart', render);
+  // A cart change updates only the tile buttons whose state is stale; the clicked button keeps its "Added" moment and its focus.
+  function syncAddButtons() {
+    var check = '<svg aria-hidden="true"><use href="#i-check"/></svg>';
+    document.querySelectorAll('#tiles [data-add], #tiles [data-choose]').forEach(function (b) {
+      var link = b.hasAttribute('data-choose'), has = A.cart.has(b.dataset.add || b.dataset.choose);
+      if (has === b.classList.contains('btn--added')) return;
+      b.classList.toggle('btn--added', has);
+      b.innerHTML = has ? check + 'In cart' : link ? 'Choose options' : 'Add to cart';
+    });
+  }
+  document.addEventListener('ampline:cart', syncAddButtons);
   window.addEventListener('popstate', function () { readUrl(); $('#sort').value = state.sort; render(); });
 
   /* Mobile filter sheet: a native dialog on phones, the static rail from 1024px. */
@@ -229,7 +243,16 @@
   sheet.addEventListener('click', function (e) { if (e.target === sheet) sheet.close(); });
   wide.addEventListener('change', function () { if (wide.matches && sheet.open) sheet.close(); });
 
-  /* Boot */
+  /* Boot. The list renders after the fetch, so the browser's own scroll restore lands short; the page keeps its own. */
+  function scrollKey() { return 'ampline:scroll:' + location.pathname + location.search; } // the URL at the moment of leaving, filters included
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  window.addEventListener('pagehide', function () { try { sessionStorage.setItem(scrollKey(), String(Math.round(window.scrollY))); } catch (e) { /* storage off: no restore */ } });
+  function restoreScroll() {
+    var nav = (performance.getEntriesByType ? performance.getEntriesByType('navigation') : [])[0], y = 0;
+    if (!nav || (nav.type !== 'back_forward' && nav.type !== 'reload')) return;
+    try { y = +sessionStorage.getItem(scrollKey()) || 0; } catch (e) { /* storage off */ }
+    if (y) window.scrollTo({ top: y, behavior: 'instant' }); // a restore is not a journey: no smooth scroll
+  }
 
   A.load(BASE)
     .then(function (data) {
@@ -256,6 +279,7 @@
       $('#foot-cats').innerHTML = A.shopLinks(data.categories, BASE, CAT);
       renderGroups();
       render();
+      restoreScroll();
     })
     .catch(function () {
       $('#tiles').innerHTML = A.loadError();
