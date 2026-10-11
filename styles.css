@@ -477,6 +477,13 @@ svg { display: block; }
 .stock--out::before { background: var(--off); }
 .rating { display: inline-flex; align-items: center; gap: 4px; }
 .rating svg { width: 14px; height: 14px; color: var(--amber); }
+.tile__badge { position: absolute; top: 10px; inset-inline-start: 10px; z-index: 1; font-size: 0.75rem; font-weight: 600; line-height: 1.3; padding: 3px 9px; border-radius: var(--pill); background: var(--screen); border: 1px solid var(--line); color: var(--ink); }
+.tile__badge--hot { background: var(--green-soft); border-color: transparent; color: var(--green-ink); }
+.tile__fit { position: absolute; top: 10px; inset-inline-end: 10px; z-index: 1; display: inline-flex; align-items: center; gap: 4px; font-size: 0.75rem; font-weight: 600; line-height: 1.3; padding: 3px 9px 3px 7px; border-radius: var(--pill); background: var(--ink); color: var(--ground); }
+.tile__fig .tile__fit svg { position: static; inset: auto; width: 12px; height: 12px; color: var(--green); }
+.tile--dim { opacity: 0.38; transition: opacity 0.25s; animation: none; } /* the rise animation's held opacity would otherwise beat the dim */
+.tile__cat { font-size: 0.8rem; color: var(--ink-2); margin-top: -2px; }
+.price .save { font-size: 0.8125rem; font-weight: 600; color: var(--green-ink); }
 .tile--out .tile__fig { opacity: 0.5; }
 .tile .btn { height: 40px; margin-top: 4px; }
 
@@ -487,6 +494,9 @@ svg { display: block; }
 
 @media (max-width: 719px) {
   .watts b { font-size: 1.5rem; }
+  .watts { white-space: normal; flex-wrap: wrap; row-gap: 0; } /* "W through the cable" wraps under its figure on a 143px tile */
+  .watts span { line-height: 1.2; }
+  .tile__fig:has(.tile__fit) .tile__badge { display: none; } /* a 143px well holds one corner mark: the fit answer wins */
   /* Narrow tiles: a two-line price block and a two-line meta box on every tile, so
      figures, mini batteries and prices align across a row; the label keeps its pill width. */
   .tile .price::before { content: ""; flex-basis: 100%; height: 0; order: 2; }
@@ -1046,7 +1056,7 @@ a.cat .cat__count { color: var(--ink); }
   .bar__in { flex-wrap: nowrap; }
   .bar__in:has(.bar__search) { height: 60px; padding-block: 0; }
   .bar__in:has(.bar__search) .brand, .bar__in:has(.bar__search) .cart { margin-bottom: 0; }
-  .bar__search { order: 0; flex: 0 1 320px; margin: 0 0 0 8px; }
+  .bar__search { order: 0; flex: 1 1 320px; max-width: 460px; margin: 0 auto; }
   .cats { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
   .row { gap: 16px; }
   .row .tile { flex-basis: calc((100% - 64px) / 4.4); } /* a fifth tile cuts at the edge, so the row reads as scrollable */
@@ -1057,105 +1067,109 @@ a.cat .cat__count { color: var(--ink); }
 
 /* ---------- Motion preferences ---------- */
 
-/* ---------- Retail hero: promo card, picker bar, payoff tiles, trust row ---------- */
-.hero { padding-block: 16px 48px; }
-.hero__in { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); } /* children shrink below their max-content width on narrow phones */
+/* ---------- Home: announcement bar, hero panel, device picker, category circles, best sellers, trust row ---------- */
+.ann { background: var(--sleep); color: var(--sleep-ink); font-size: 0.8125rem; text-align: center; padding: 8px 16px; display: flex; flex-wrap: wrap; justify-content: center; gap: 2px 10px; }
+.ann b { color: #fff; font-weight: 600; }
+.ann i { font-style: normal; color: var(--sleep-ink-2); }
 
-.promo { position: relative; background: var(--screen); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
-.promo__track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.hero { padding-block: 16px 40px; }
+.hero__in { display: grid; gap: 20px; grid-template-columns: minmax(0, 1fr); } /* children shrink below their max-content width on narrow phones */
+
+/* The hero panel: a light grey field one step below the ground, on the world's hairline, the product render on the right */
+.promo { position: relative; }
+.promo__track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; border-radius: var(--r-xl); background: var(--off-soft); border: 1px solid var(--line); position: relative; }
 .promo__track::-webkit-scrollbar { display: none; }
-.promo__slide { flex: 0 0 100%; min-width: 0; scroll-snap-align: start; display: grid; grid-template-columns: minmax(0, 1fr) 120px; column-gap: 12px; align-items: stretch; padding: 18px 16px 48px 0; }
-/* Phones: the text beside one lead figure in a square well, so the card stays short and the picker enters the fold. */
-.promo__art { position: relative; width: 120px; min-height: 120px; border-radius: var(--r-s); background: var(--ground); color: var(--ink); }
+.promo__slide { flex: 0 0 100%; min-width: 0; scroll-snap-align: start; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 200px; gap: 14px; padding: 24px 20px 18px; }
+.promo__text { display: grid; gap: 12px; justify-items: start; align-content: center; }
+.promo__title { font-size: clamp(1.75rem, 1.1rem + 3.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.03em; text-wrap: balance; font-weight: 700; }
+.promo__title .syn { vertical-align: middle; margin-inline-start: 8px; letter-spacing: 0.04em; }
+.promo__offer { color: var(--ink-2); font-size: 1rem; max-width: 44ch; }
+.promo__offer b { color: var(--ink); font-weight: 600; }
+.promo__ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+.promo__ctas .btn { height: 46px; padding: 0 18px; font-size: 0.9375rem; } /* the pair stacks at 390px, as in the reference's phone capture */
+.promo__art { position: relative; min-height: 180px; }
 .promo__fig { position: absolute; aspect-ratio: 1; }
-/* Staged like the desktop art: the lead figure with the second overlapping its lower right, centred as a pair. */
-.promo__fig:nth-child(1) { width: 82%; left: 4%; top: 50%; transform: translateY(-72%); z-index: 2; }
-.promo__fig:nth-child(2) { width: 54%; right: 4%; top: 50%; transform: translateY(2%); }
-.promo__fig:nth-child(3) { display: none; }
-/* A slide of drawings keeps one stroke on phones too: three equal figures stacked down the well, all three products its copy names. */
-.promo__slide:not(:has(img)) .promo__fig { width: 58%; transform: none; top: auto; }
-.promo__slide:not(:has(img)) .promo__fig:nth-child(1) { left: 6%; top: 5%; }
-.promo__slide:not(:has(img)) .promo__fig:nth-child(2) { right: 6%; top: 36%; }
-.promo__slide:not(:has(img)) .promo__fig:nth-child(3) { display: block; left: 6%; bottom: 5%; }
 .promo__fig svg { width: 100%; height: 100%; }
 .promo__fig img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
 .promo__fig:has(img) > svg { visibility: hidden; }
-.promo__text { display: grid; gap: 10px; justify-items: start; align-content: center; padding: 0 0 0 18px; }
-.promo__title { font-size: clamp(1.75rem, 1.2rem + 2.4vw, 2.75rem); line-height: 1.05; letter-spacing: -0.02em; text-wrap: balance; }
-.promo__offer { color: var(--ink-2); font-size: 1rem; max-width: 40ch; }
-.promo__offer b { color: var(--ink); font-weight: 600; }
-.promo__text .btn { margin-top: 6px; }
-/* Before the catalog arrives the card holds its shape: one skeleton slide with the same text block and art well. */
+/* One photo fills the art box, centred; a slide of drawings puts three figures in a row, one stroke weight each */
+.promo__slide:has(img) .promo__fig:nth-child(1) { height: 100%; width: auto; left: 50%; top: 0; transform: translateX(-50%); }
+.promo__slide:has(img) .promo__fig:nth-child(n+2) { display: none; }
+.promo__slide:not(:has(img)) .promo__fig { width: 28%; height: auto; top: 50%; transform: translateY(-50%); }
+.promo__slide:not(:has(img)) .promo__fig:nth-child(1) { left: 2%; }
+.promo__slide:not(:has(img)) .promo__fig:nth-child(2) { left: 50%; transform: translate(-50%, -50%); }
+.promo__slide:not(:has(img)) .promo__fig:nth-child(3) { right: 2%; }
+/* Before the catalog arrives the panel holds its shape: one skeleton slide with the same text block and art box */
 .promo__slide--skel .promo__text > span { display: block; border-radius: var(--r-s); background: var(--track); animation: pulse 1.2s ease-in-out infinite; }
-.promo__slide--skel .promo__text > span:nth-child(1) { width: 85%; height: 5.5rem; } /* a three-line headline at phone width */
-.promo__slide--skel .promo__text > span:nth-child(2) { width: 95%; height: 6.5rem; } /* a three-line offer plus its tag at phone width */
-.promo__slide--skel .promo__text > span:nth-child(3) { width: 140px; height: 44px; border-radius: var(--pill); margin-top: 6px; }
-.promo__pager { position: absolute; left: 0; right: 0; bottom: 8px; display: flex; align-items: center; justify-content: flex-start; gap: 10px; padding: 0 18px; z-index: 3; }
+.promo__slide--skel .promo__text > span:nth-child(1) { width: 85%; height: 4.2rem; }
+.promo__slide--skel .promo__text > span:nth-child(2) { width: 95%; height: 3rem; }
+.promo__slide--skel .promo__text > span:nth-child(3) { width: 150px; height: 48px; border-radius: var(--pill); margin-top: 6px; }
+.promo__pager { display: flex; align-items: center; justify-content: center; gap: 10px; padding-top: 8px; }
 .promo__btn { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: var(--screen); color: var(--ink); display: grid; place-items: center; cursor: pointer; transition: border-color 0.15s; }
 .promo__btn svg { width: 16px; height: 16px; }
 .promo__btn:first-child svg { transform: rotate(180deg); }
 .promo__btn[aria-disabled="true"] { opacity: 0.4; cursor: default; }
 .promo__dots { display: flex; gap: 6px; }
 .promo__dot { width: 24px; height: 24px; border-radius: 50%; border: 0; background: none; display: grid; place-items: center; cursor: pointer; padding: 0; }
-.promo__dot::before { content: ""; width: 8px; height: 8px; border-radius: var(--pill); background: var(--off); transition: background-color 0.2s; } /* the pill grows without a layout transition */
+.promo__dot::before { content: ""; width: 8px; height: 8px; border-radius: var(--pill); background: var(--off); transition: background-color 0.2s; }
 .promo__dot[aria-current="true"] { width: auto; padding-inline: 2px; }
 .promo__dot[aria-current="true"]::before { width: 26px; background: var(--green); } /* the current slide is the one filled pill, as a charging bar */
 
-/* Before the catalog arrives the bar and the payoff head reserve their lines, so the page does not jump when they fill. */
-.pickbar .families:empty { min-height: 178px; } /* four chip rows at phone width */
-@media (max-width: 719px) { .pickbar__head { min-height: 5.4rem; } }
-#payoff-sub { min-height: 3em; }
-.payoff .section__head > .section__link { flex-basis: 100%; } /* the link takes its own row on phones, before and after the catalog */
-.pickbar { display: grid; gap: 10px; padding: 14px 18px 16px; background: var(--screen); border: 1px solid var(--line); border-radius: var(--r); }
-.pickbar__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; }
-.pickbar h1 { font-size: clamp(1.75rem, 1.2rem + 1.6vw, 2.75rem); font-weight: 700; line-height: 1.1; }
-.pickbar .guess { margin-top: 0; }
+/* Choose your device: the family chips on one line with the heading, the guess or status line beneath, then the device and model rows */
+.pick { display: grid; gap: 10px; }
+.pick__row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.pick h1 { font-size: 1.0625rem; font-weight: 700; line-height: 1.3; margin-inline-end: 2px; } /* the page's one h1: its thesis control */
+.pick .families { display: flex; flex-wrap: wrap; gap: 8px; }
+.pick .families:empty { min-height: 88px; } /* two chip rows at phone width, so the catalog's arrival does not shift the page */
+.guess { color: var(--ink-2); font-size: 0.9375rem; min-height: 1.5em; margin: 0; }
 .guess__pick { font: inherit; font-weight: 600; color: var(--ink); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--green); }
-.pickbar .devchips { margin-top: 2px; }
+.pick .devchips { margin-top: 0; }
 
-.payoff { display: grid; gap: 14px; padding-top: 8px; }
-.payoff .section__head { margin-bottom: 0; }
-.tiles--4 .tile__short { display: none; }
+/* Category circles: one row that scrolls sideways, a photo or the house drawing in each */
+.catrow { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-inline: 4px; padding: 4px 4px 8px; margin-inline: -4px; scrollbar-width: none; position: relative; }
+.catrow::-webkit-scrollbar { display: none; }
+.catrow a { flex: 0 0 auto; width: 88px; display: grid; justify-items: center; gap: 8px; text-decoration: none; font-size: 0.8125rem; font-weight: 600; line-height: 1.2; text-align: center; color: var(--ink); scroll-snap-align: start; }
+.catrow .o { width: 88px; height: 88px; border-radius: 50%; background: var(--screen); border: 1px solid var(--line); position: relative; overflow: hidden; transition: border-color 0.2s, transform 0.3s var(--ease); }
+.catrow .o img { position: absolute; inset: 16%; width: 68%; height: 68%; object-fit: contain; mix-blend-mode: multiply; }
+.catrow .o svg { position: absolute; inset: 20%; width: 60%; height: 60%; color: var(--ink); }
 
-.trust { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-.trust__item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: var(--r-s); background: var(--screen); border: 1px solid var(--line); font-size: 0.875rem; }
+/* Best sellers: the shared tile, two across on phones and five across from 1024px; a chosen device re-sorts them */
+.best { display: grid; gap: 14px; }
+.best .section__head { margin-bottom: 0; }
+#best-sub { min-height: 1.5em; }
+.best__mini { display: inline-block; width: 34px; height: 12px; vertical-align: middle; margin: 0 12px 5px 0; }
+.best__mini i { transition: clip-path 0.8s var(--ease); }
+.tiles--5 .tile__short { display: none; }
+.tiles--5 .tile__facts { height: 0; padding-top: 0; overflow: hidden; } /* the spacer stays so prices align; the facts line is the listing's */
+.tiles--5 .tile--skel { min-height: 420px; }
+
+.trust { list-style: none; margin: 0; padding: 16px 0; display: grid; gap: 14px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.trust__item { display: flex; align-items: center; gap: 12px; font-size: 0.9375rem; }
 .trust__item b { font-weight: 600; }
-.trust__icon { width: 32px; height: 32px; border-radius: var(--r-s); background: var(--ground); display: grid; place-items: center; flex: none; color: var(--ink); }
+.trust__icon { width: 36px; height: 36px; border-radius: 50%; background: var(--screen); border: 1px solid var(--line); display: grid; place-items: center; flex: none; color: var(--ink); }
 .trust__icon svg { width: 18px; height: 18px; }
 
 @media (min-width: 720px) {
-  .tiles--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .pickbar .families:empty { min-height: 86px; }
-  #payoff-sub { min-height: 1.5em; }
-  .payoff .section__head > .section__link { flex-basis: auto; }
-  .promo__slide--skel .promo__text > span:nth-child(1) { height: 3.75rem; }
-  .promo__slide--skel .promo__text > span:nth-child(2) { height: 3rem; }
-  .tiles--4 .tile__short { display: block; }
-  .trust { grid-template-columns: repeat(3, 1fr); }
-  .promo__slide { grid-template-columns: 1fr 1fr; column-gap: 0; min-height: 340px; padding: 0; align-items: stretch; }
-  .promo__art { width: auto; min-height: 0; border-radius: 0; }
-  .promo__fig:nth-child(1) { width: auto; height: 70%; left: 5%; top: auto; bottom: 10%; transform: none; }
-  .promo__fig:nth-child(2) { display: block; width: auto; height: 44%; right: 6%; top: 7%; bottom: auto; transform: none; }
-  .promo__fig:nth-child(3) { display: block; height: 40%; right: 24%; bottom: 7%; }
-  /* A slide of drawings keeps one stroke: three equal figures in a row, since a scaled drawing scales its line. */
-  .promo__slide:not(:has(img)) .promo__fig { width: auto; height: 40%; top: 50%; bottom: auto; transform: translateY(-50%); }
-  /* The per-figure rules repeat the row's vertical placement, because the phone stack's per-figure tops would otherwise outrank it. */
-  .promo__slide:not(:has(img)) .promo__fig:nth-child(1) { left: 6%; top: 50%; bottom: auto; transform: translateY(-50%); }
-  .promo__slide:not(:has(img)) .promo__fig:nth-child(2) { left: 36%; right: auto; top: 50%; bottom: auto; transform: translateY(-50%); }
-  .promo__slide:not(:has(img)) .promo__fig:nth-child(3) { display: block; left: 66%; right: auto; top: 50%; bottom: auto; transform: translateY(-50%); }
-  .promo__text { align-content: center; padding: 28px 32px 64px; }
-  .promo__pager { right: auto; width: 50%; bottom: 18px; padding-inline: 32px; }
+  .tiles--5 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .trust { grid-template-columns: repeat(3, 1fr); padding: 20px 0; }
+  .promo__slide { grid-template-columns: 1.1fr 1fr; grid-template-rows: none; min-height: 380px; padding: 40px 36px; gap: 24px; }
+  .promo__art { min-height: 0; margin-block: -22px; } /* the render runs taller than the text's padding, as the reference's does */
+  .promo__slide--skel .promo__text > span:nth-child(1) { height: 6rem; }
+  .pick .families:empty { min-height: 44px; }
+  .catrow { gap: 22px; }
+  .catrow a, .catrow .o { width: 100px; }
+  .catrow .o { height: 100px; }
 }
 @media (min-width: 1024px) {
-  .hero { padding-block: 24px 56px; }
-  .hero__in { gap: 24px; }
-  .tiles--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
-  .tile--skel { min-height: 608px; }
-  .promo__slide { min-height: 380px; grid-template-columns: 1.05fr 1fr; }
-  .promo__offer { font-size: 1.25rem; }
-  .pickbar { padding: 16px 22px 18px; gap: 10px; }
-  .pickbar .families:empty { min-height: 44px; }
-  .pickbar__head { gap: 4px 16px; }
+  .hero { padding-block: 20px 56px; }
+  .promo__ctas .btn { height: 48px; padding: 0 22px; font-size: 1rem; }
+  .hero__in { gap: 20px; }
+  .promo__slide { min-height: 420px; padding: 48px 56px 44px; grid-template-columns: 1.1fr 1fr; }
+  .promo__art { margin-block: -30px; }
+  .promo__offer { font-size: 1.125rem; }
+  .tiles--5 { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+  .tiles--5 .tile--skel { min-height: 460px; }
+  .catrow { gap: 28px; }
 }
 
 /* Hover is a pointer's affordance: these states apply only where a device can hover, so a tap never leaves a chip or tile stuck in its hover look. */
@@ -1184,9 +1198,7 @@ a.cat .cat__count { color: var(--ink); }
 }
 
 /* ---------- Motion on home ---------- */
-/* The answer charges: a mini battery before "Fits <device>" fills from empty to the share of the store that fits, in the glyph's own 0.8s ease. */
-.payoff__mini { display: inline-block; width: 34px; height: 12px; vertical-align: middle; margin: 0 12px 5px 0; }
-.payoff__mini i { transition: clip-path 0.8s var(--ease); }
+/* The answer charges: the mini battery before "Fits <device>" (see .best__mini) fills from empty to the share of the store that fits, in the glyph's own 0.8s ease. */
 /* The first slide's figures settle once on arrival, one after another, like a lock screen lighting up. The staging transform lives on the figure box, so only its drawing moves. */
 .promo__slide:first-child .promo__fig > * { animation: settle 0.5s var(--ease) both; }
 .promo__slide:first-child .promo__fig:nth-child(2) > * { animation-delay: 80ms; }
@@ -1212,18 +1224,10 @@ a.cat .cat__count { color: var(--ink); }
   .bar__in:has(.bar__search) .brand, .bar__in:has(.bar__search) .cart { margin-bottom: 0; }
   .bar__search { order: 0; flex: 0 1 260px; margin: 0 0 0 8px; }
   .hero { padding-block: 10px 32px; }
-  .promo__slide { grid-template-columns: minmax(0, 1fr) 120px; column-gap: 12px; min-height: 0; padding: 14px 16px 44px 0; align-items: stretch; }
-  .promo__art { width: 120px; min-height: 120px; border-radius: var(--r-s); }
-  .promo__fig:nth-child(1) { width: 82%; height: auto; left: 4%; top: 50%; bottom: auto; transform: translateY(-72%); }
-  .promo__fig:nth-child(2) { width: 54%; height: auto; right: 4%; top: 50%; bottom: auto; transform: translateY(2%); }
-  .promo__fig:nth-child(3) { display: none; }
-  /* The square well has room for two figures, so a drawings slide stages a pair here too. */
-  .promo__slide:not(:has(img)) .promo__fig:nth-child(1) { width: 82%; left: 4%; top: 50%; bottom: auto; transform: translateY(-72%); }
-  .promo__slide:not(:has(img)) .promo__fig:nth-child(2) { width: 54%; left: auto; right: 4%; top: 50%; bottom: auto; transform: translateY(2%); }
-  .promo__slide:not(:has(img)) .promo__fig:nth-child(3) { display: none; }
-  .promo__text { align-content: center; padding: 0 0 0 18px; }
-  .promo__pager { right: auto; width: auto; bottom: 6px; padding-inline: 18px; }
-  .pickbar__head { min-height: 0; }
+  .promo__slide { grid-template-columns: 1.2fr 1fr; grid-template-rows: none; min-height: 0; padding: 20px 24px; gap: 16px; }
+  .promo__art { min-height: 180px; }
+  .promo__title { font-size: 1.75rem; }
+  .promo__pager { padding-top: 8px; }
 }
 
 /* A short desktop window keeps the slide to 300px so the picker still enters the first screen. */

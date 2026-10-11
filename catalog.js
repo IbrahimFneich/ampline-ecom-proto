@@ -655,29 +655,33 @@
 
   /* Product tile, the same component on every page. `base` prefixes relative links. */
   var WATT_CAP = { cables: 'W through the cable', hubs: 'W to the laptop' }; // the product page's captions, in tile form
-  function tile(p, i, base, query) {
-    base = base || '';
+  // `opts.fit` true marks the tile "Fits", false dims it (a device is chosen and this one does not fit); `opts.cat` shows the category line.
+  function tile(p, i, base, query, opts) {
+    base = base || ''; opts = opts || {};
     var w = maxPortWatts(p), st = STOCK[p.stock] || STOCK.in_stock, out = p.stock === 'out_of_stock';
-    var badges = p.badges.map(function (b) {
-      return '<span class="tag' + (HOT_BADGES.indexOf(b) >= 0 ? ' tag--hot' : '') + '">' + esc(b) + '</span>';
-    }).join('');
+    var hotBadge = p.badges.filter(function (b) { return HOT_BADGES.indexOf(b) >= 0; })[0]; // one headline badge rides the well's corner
+    var badges = p.badges.filter(function (b) { return b !== hotBadge; }).map(function (b) { return '<span class="tag">' + esc(b) + '</span>'; }).join('');
+    var c = categoryOf(p, state.categories), saving = p.compare_at && p.compare_at > p.price ? p.compare_at - p.price : 0;
     var href = productHref(p, base, query);
     var inCart = cart.has(p.id), choose = !!href && !out && variantGroups(p).length > 0; // colour, storage, plug or pack: pick it on the product page
-    return '<article class="tile' + (out ? ' tile--out' : '') + '" style="--i:' + i + '">' +
+    return '<article class="tile' + (out ? ' tile--out' : '') + (opts.fit === false ? ' tile--dim' : '') + '" style="--i:' + i + '">' +
       (href ? '<a class="tile__fig" href="' + href + '" aria-label="' + esc(p.name) + '">' : '<div class="tile__fig">') +
+        (hotBadge ? '<span class="tile__badge tile__badge--hot">' + esc(hotBadge) + '</span>' : '') +
+        (opts.fit === true ? '<span class="tile__fit"><svg aria-hidden="true"><use href="#i-check"/></svg>Fits</span>' : '') +
         '<svg aria-hidden="true"><use href="#' + figFor(p) + '"/></svg>' +
         // The catalog's first image path, shown over the drawing when the file exists; a missing file removes itself.
         ((p.images || [])[0] ? '<img class="tile__photo" src="' + esc((base || '') + p.images[0]) + '" alt="" loading="lazy" decoding="async" onerror="this.remove()">' : '') +
         (href ? '</a>' : '</div>') +
-      '<div class="chipsrow">' + badges + '</div>' +
+      (!opts.cat ? '<div class="chipsrow">' + badges + '</div>' : '') + /* the home's category line replaces the tag row */
+      (opts.cat && c ? '<p class="tile__cat">' + esc(c.name) + '</p>' : '') +
       '<h3>' + (href ? '<a href="' + href + '">' + nb(p.name) + '</a>' : nb(p.name)) + '</h3>' +
-      (p.brand ? '<p class="tile__brand">' + esc(p.brand) + '</p>' : '') +
+      (p.brand && !opts.cat ? '<p class="tile__brand">' + esc(p.brand) + '</p>' : '') +
       '<p class="tile__short">' + esc(firstSentence(p.short)) + '</p>' +
       (w !== null
         ? '<div class="watts"><b>' + w + '</b><span>' + (WATT_CAP[p.category] || 'W max per port') + '</span></div>' +
           '<span class="mini" aria-hidden="true"><i style="--pct:' + Math.min(1, w / 100) + '"></i></span>'
         : '<p class="tile__facts">' + nb(facetLine(p) || (p.specs[0] ? p.specs[0].value : '')) + '</p>') +
-      '<div class="price"><b>' + money(p.price) + '</b>' + (p.compare_at ? '<s>' + money(p.compare_at) + '</s>' : '') + '<span class="syn">synthetic</span></div>' +
+      '<div class="price"><b>' + money(p.price) + '</b>' + (p.compare_at ? '<s>' + money(p.compare_at) + '</s>' : '') + (saving ? '<span class="save">Save ' + money(saving).replace(/\.00$/, '') + '</span>' : '') + '<span class="syn">synthetic</span></div>' +
       '<div class="meta"><span class="stock ' + st[0] + '">' + st[1] + '</span>' + (p.rating && p.rating.count ? '<span class="rating"><svg aria-hidden="true"><use href="#i-star"/></svg>' + p.rating.value.toFixed(1) + ' <span>(' + p.rating.count + ')</span></span>' : '') + '</div>' +
       (choose
         ? '<a class="btn' + (inCart ? ' btn--added' : '') + '" href="' + href + '" data-choose="' + p.id + '">' + (inCart ? '<svg aria-hidden="true"><use href="#i-check"/></svg>In cart' : 'Choose options') + '</a>'

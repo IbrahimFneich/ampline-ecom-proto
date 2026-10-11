@@ -1,11 +1,12 @@
 /* Ampline — home page wiring. Shared catalog logic, cart and tiles live in catalog.js.
-   The hero is a retail hero: three live offers from the catalog, the "What do you own?" bar,
-   four tiles that swap from best sellers to what fits the tapped device, and the trust row. */
+   The home follows the category canon: a hero panel with three live slides, "Choose your device" right
+   under it, a row of category circles, ten best sellers that re-sort to what fits the chosen device
+   (the rest dimmed, never hidden), the trust row, then the category grid in three groups and the house strip. */
 (function () {
   'use strict';
 
   var A = window.Ampline, $ = A.$, esc = A.esc, money = A.money;
-  function dollars(n) { return Number.isInteger(n) ? '$' + n.toLocaleString('en-US') : money(n); } // offer copy: "$469", "$12.99"
+  function dollars(n) { return Number.isInteger(n) ? '$' + n.toLocaleString('en-US') : money(n); } // headline prices: "$1,099", "$14.99"
   var HOT = ['Best seller', 'New'];
   var GROUPS = [
     { id: 'devices', name: 'Devices', line: 'Phones, laptops, tablets and the rest, by budget and by the facts each listing carries.' },
@@ -22,6 +23,7 @@
     'switch-steam-deck': ['chargers', 'power-banks', 'cables', 'hubs', 'car', 'wireless', 'cases-and-mounts'],
     'watch-earbuds': ['wireless', 'chargers', 'cables', 'power-banks', 'car', 'hubs', 'cases-and-mounts']
   };
+  var BEST_N = 10;
   var state = { device: null, family: null, suggested: null, suggestedFamily: null, modelAnswered: false };
 
   function products() { return A.state.products; }
@@ -30,18 +32,21 @@
   function device() { return A.deviceById(state.device); }
   function bucketOf(d) { return d && d.parent ? A.deviceById(d.parent) : d; } // the family bucket a model sits in
   function modelsOf(bucket) { return bucket ? A.DEVICES.filter(function (x) { return x.parent === bucket.id; }) : []; }
+  function familyDevices(id) { return A.DEVICES.filter(function (d) { return d.family === id; }); }
   function group(p) { var c = cat(p.category); return c ? c.group : ''; }
   function query() { return state.device ? '?device=' + state.device : ''; }
   function house(p) { return !p.brand || p.brand === 'Ampline'; }
   function byStock(a, b) { return (a.stock === 'out_of_stock') - (b.stock === 'out_of_stock'); } // buyable first
+  function bySlug(slug) { return products().find(function (p) { return p.slug === slug; }) || null; }
+  function byId(id) { return products().find(function (p) { return p.id === id; }) || null; }
   // Best sellers and new arrivals first, then the most reviewed, up to n.
   function hot(list, n) {
     var h = list.filter(function (p) { return p.badges.some(function (b) { return HOT.indexOf(b) >= 0; }); });
     var rest = list.filter(function (p) { return h.indexOf(p) < 0; }).sort(function (a, b) { return b.rating.count - a.rating.count; });
     return h.concat(rest).sort(byStock).slice(0, n);
   }
-  // One product per category first (round robin over each category's hot ranking), so a group's
-  // row maps the group instead of repeating one silhouette; `skip` keeps the hero's tiles out.
+  // One product per category first (round robin over each category's hot ranking), so a row maps the store
+  // instead of repeating one silhouette; `skip` keeps the best sellers out of the group rows.
   function hotAcross(list, n, skip) {
     var pools = {}, order = [];
     hot(list.filter(function (p) { return !skip || skip.indexOf(p.id) < 0; }), list.length).forEach(function (p) {
@@ -60,51 +65,61 @@
     }
     return out;
   }
-  function tiles(list) { return list.map(function (p, i) { return A.tile(p, i, '', query()); }).join(''); }
-  function rowMarkup(id, list) { return A.rowMarkup(id, tiles(list)); }
-  // The hero's four: best sellers across the store, or the first four that fit the tapped device.
-  function bestSellers() { return hot(products().filter(function (p) { return p.badges.indexOf('Best seller') >= 0; }), 4); }
-  function fitList() {
+  function rowMarkup(id, list) { return A.rowMarkup(id, list.map(function (p, i) { return A.tile(p, i, '', query()); }).join('')); }
+
+  /* ---------- The fit answer ---------- */
+
+  // The devices a pick stands for: one device (a bucket or a model), or every device in a family when only the family is chosen.
+  function pickedDevices() {
+    if (state.device) return [device()];
+    if (state.family) return familyDevices(state.family);
+    return null;
+  }
+  function fitsPick(p, devs) { return devs.some(function (d) { return A.fits(p, d); }); }
+  function pickName() { var d = device(); if (d) return d.name; var g = A.deviceGroups().find(function (x) { return x.id === state.family; }); return g ? (/^[aeiou]/i.test(g.name) ? 'an ' : 'a ') + g.name : ''; }
+  // What fits, ordered the way that device's owner shops (chargers first for a phone, a hub early for a laptop).
+  function fitList(devs) {
+    var fam = state.device ? device().family : state.family, order = FIT_ORDERS[fam] || FIT_ORDERS.iphone;
     var d = device();
-    if (!d) return null;
-    var order = FIT_ORDERS[d.family] || FIT_ORDERS.iphone;
-    var direct = function (p) { return (p.compat || []).indexOf(d.id) >= 0 ? 0 : 1; }; // a product made for this exact model leads its category
-    return products().filter(function (p) { return A.fits(p, d); }).sort(function (a, b) {
+    var direct = function (p) { return d && (p.compat || []).indexOf(d.id) >= 0 ? 0 : 1; }; // a product made for this exact model leads its category
+    return products().filter(function (p) { return fitsPick(p, devs); }).sort(function (a, b) {
       var ia = order.indexOf(a.category), ib = order.indexOf(b.category);
       return byStock(a, b) || ia - ib || direct(a) - direct(b) || b.rating.count - a.rating.count;
     });
   }
-  // The four tiles: the top product of each category in turn, so a phone sees a charger, a cable, a power bank and a case.
-  function fitFour(list) {
-    var seen = {}, out = [];
-    list.forEach(function (p) { if (!seen[p.category] && out.length < 4) { seen[p.category] = true; out.push(p); } });
-    list.forEach(function (p) { if (out.length < 4 && out.indexOf(p) < 0) out.push(p); });
-    return out;
+  function bestSellers() { return hotAcross(products(), BEST_N); }
+  // The ten tiles: the store's best sellers, or, once a device is chosen, what fits it first (one per category, then
+  // the rest in fit order) with the best sellers that do not fit filling the row, dimmed.
+  function bestList() {
+    var devs = pickedDevices();
+    if (!devs) return { list: bestSellers(), fit: null, n: 0 };
+    var fits = fitList(devs), seen = {}, lead = [];
+    fits.forEach(function (p) { if (!seen[p.category] && lead.length < BEST_N) { seen[p.category] = true; lead.push(p); } });
+    fits.forEach(function (p) { if (lead.length < BEST_N && lead.indexOf(p) < 0) lead.push(p); });
+    var rest = bestSellers().filter(function (p) { return lead.indexOf(p) < 0 && !fitsPick(p, devs); });
+    return { list: lead.concat(rest).slice(0, BEST_N), fit: devs, n: fits.length };
   }
-  function payoffList() { var list = fitList(); return list ? fitFour(list) : bestSellers(); }
 
-  /* ---------- Promo: three offers computed from the catalog ---------- */
+  /* ---------- Hero: three live slides ---------- */
 
   function fig(p, lazy) { // slides past the first load their photos lazily
     var photo = (p.images || [])[0];
     return '<span class="promo__fig"><svg aria-hidden="true"><use href="#' + A.figFor(p) + '"/></svg>' +
       (photo ? '<img src="' + esc(photo) + '" alt="" decoding="async"' + (lazy ? ' loading="lazy"' : '') + ' onerror="this.remove()">' : '') + '</span>';
   }
+  function firstSentence(t) { return (/^.*?[.!?](?=\s|$)/.exec(t || '') || [t || ''])[0]; }
   function slides() {
-    var all = products(), syn = '\u00a0<span class="syn">synthetic</span>'; // the tag stays with the last word
-    var own = all.filter(house), phones = all.filter(function (p) { return p.category === 'phones'; });
-    var deals = all.filter(function (p) { return p.compare_at && p.compare_at > p.price; }).sort(function (a, b) { return (b.compare_at - b.price) - (a.compare_at - a.price); });
-    var min = function (list) { return dollars(Math.min.apply(null, list.map(function (p) { return p.price; }))); };
-    var pick = function (list, ids) { return ids.map(function (id) { return list.find(function (p) { return p.id === id; }); }).filter(Boolean); };
-    var dealOff = deals.length ? Math.max.apply(null, deals.map(function (p) { return p.compare_at - p.price; })) : 0;
-    return [
-      { title: 'Charge everything you own.', offer: 'Ampline GaN chargers, cables and power banks, from <span class="nb"><b>' + min(own) + '</b>.' + syn + '</span>',
-        href: 'shop/all.html?brand=ampline', cta: 'Shop the range', art: pick(own, ['AMP-GAN-100D', 'AMP-CBL-3IN1', 'AMP-PB-MAG10']) },
-      { title: 'Phones, unlocked.', offer: 'iPhone, Galaxy and Pixel, from <span class="nb"><b>' + min(phones) + '</b>.' + syn + '</span>',
-        href: 'shop/phones.html', cta: 'Shop phones', art: pick(phones, ['APL-IP16-128', 'SAM-S25-256', 'GOO-PIX9-128']) },
-      { title: 'On deal now.', offer: '<b>' + deals.length + ' products</b> below their list price, up to <span class="nb"><b>' + dollars(dealOff) + '\u00a0off</b>.' + syn + '</span>',
-        href: 'shop/all.html?deal=1', cta: 'Shop the deals', art: deals.filter(function (p) { return (p.images || [])[0]; }).slice(0, 3) }
-    ];
+    var syn = '<span class="syn">synthetic</span>';
+    var iphone = bySlug('apple-iphone-16-128gb'), mac = bySlug('apple-macbook-air-13-m3');
+    var own = products().filter(house), ownMin = dollars(Math.min.apply(null, own.map(function (p) { return p.price; })));
+    var out = [];
+    if (iphone) out.push({ title: 'iPhone 16. ' + dollars(iphone.price) + '.' + syn, offer: firstSentence(iphone.short) + ' Pick the colour and storage on its page; pay by card or cash on delivery.',
+      href: A.productHref(iphone, '', query()) || 'shop/phones.html', cta: 'Shop iPhone 16', art: [iphone] });
+    if (mac) out.push({ title: 'MacBook Air M3. ' + dollars(mac.price) + '.' + syn, offer: firstSentence(mac.short) + ' Our chargers and hubs list the watts one port gives it.',
+      href: A.productHref(mac, '', query()) || 'shop/laptops.html', cta: 'Shop MacBook Air', art: [mac] });
+    out.push({ title: 'Ampline charging. From ' + ownMin + '.' + syn, offer: 'Our own GaN chargers, cables and power banks, each with the most watts a port can give, read from its spec sheet.',
+      href: 'shop/all.html?brand=ampline', cta: 'Shop the range', art: ['AMP-GAN-100D', 'AMP-CBL-3IN1', 'AMP-PB-MAG10'].map(byId).filter(Boolean) });
+    return out;
   }
   var track, dots = [];
   function renderPromo() {
@@ -112,12 +127,12 @@
     track = $('#promo-track');
     track.innerHTML = list.map(function (s, i) {
       return '<article class="promo__slide" role="group" aria-roledescription="slide" aria-label="' + (i + 1) + ' of ' + list.length + '">' +
-        '<div class="promo__text"><h2 class="promo__title">' + esc(s.title) + '</h2><p class="promo__offer">' + s.offer + '</p>' +
-        '<a class="btn" href="' + s.href + '">' + esc(s.cta) + '</a></div>' +
+        '<div class="promo__text"><h2 class="promo__title">' + s.title + '</h2><p class="promo__offer">' + esc(s.offer) + '</p>' +
+        '<div class="promo__ctas"><a class="btn" href="' + s.href + '">' + esc(s.cta) + '</a><a class="btn btn--ghost" href="#pick">Choose your device</a></div></div>' +
         '<div class="promo__art" aria-hidden="true">' + s.art.map(function (p) { return fig(p, i > 0); }).join('') + '</div></article>';
     }).join('');
     $('#promo-dots').innerHTML = list.map(function (s, i) {
-      return '<button type="button" class="promo__dot" data-promo-go="' + i + '" aria-label="Slide ' + (i + 1) + ' of ' + list.length + ': ' + esc(s.title) + '" aria-current="' + (i === 0) + '"></button>';
+      return '<button type="button" class="promo__dot" data-promo-go="' + i + '" aria-label="Slide ' + (i + 1) + ' of ' + list.length + ': ' + esc(s.cta) + '" aria-current="' + (i === 0) + '"></button>';
     }).join('');
     dots = Array.prototype.slice.call($('#promo-dots').children);
     syncDots();
@@ -136,7 +151,7 @@
     if (focusDot) dots[i].focus({ preventScroll: true });
   }
 
-  /* ---------- Picker ---------- */
+  /* ---------- Choose your device ---------- */
 
   function renderFamilies() {
     $('#families').innerHTML = A.deviceGroups().map(function (g) {
@@ -163,45 +178,65 @@
       models.map(function (m) { return '<button type="button" class="chip" data-device="' + m.id + '" aria-pressed="' + (state.device === m.id) + '">' + esc(m.name) + '</button>'; }).join('') +
       '<button type="button" class="chip" data-device="' + bucket.id + '" data-not-listed aria-pressed="' + (state.device === bucket.id && state.modelAnswered) + '">Mine isn’t listed</button></div>';
   }
+  // The line under the chips: the browser's guess until a tap, then what the pick means for the tiles.
+  function renderGuessLine() {
+    var el = $('#guess'), devs = pickedDevices();
+    if (devs) {
+      var n = fitList(devs).length, d = device();
+      el.textContent = (n ? n + (n === 1 ? ' product fits' : ' products fit') + ' ' + (d ? 'your ' + d.name : pickName()) : 'The catalog lists nothing for ' + (d ? d.name : pickName()) + ' yet') +
+        (d ? '. Power products show the most watts one port gives.' : '. Name the exact one for cases and folios.');
+      return;
+    }
+    if (state.suggested || state.suggestedFamily) {
+      var gd = A.deviceById(state.suggested), fam = A.deviceGroups().find(function (g) { return g.id === state.suggestedFamily; });
+      var label = gd ? gd.name : fam ? (/^[aeiou]/i.test(fam.name) ? 'an ' : 'a ') + fam.name : '';
+      el.innerHTML = 'Your browser looks like <button type="button" class="guess__pick" ' + (gd ? 'data-device="' + gd.id + '"' : 'data-family="' + state.suggestedFamily + '"') + '>' + esc(label) + '</button>. ' + (gd ? 'Pick it, or choose another.' : 'Pick it to choose which one.');
+      return;
+    }
+    el.textContent = 'Pick what you own and the best sellers re-sort to what fits it.';
+  }
 
-  /* ---------- Payoff: four tiles ---------- */
+  /* ---------- Category circles ---------- */
 
-  function renderPayoff() {
-    var d = device(), list = fitList(), h = $('#h-payoff'), sub = $('#payoff-sub'), link = $('#payoff-link'), box = $('#payoff-tiles');
-    link.hidden = false;
-    if (!list) {
+  function renderCatRow() {
+    var order = cats().filter(function (c) { return c.group === 'Devices'; }).concat(cats().filter(function (c) { return c.group !== 'Devices'; })); // photo categories lead, the house drawings follow
+    $('#catrow').innerHTML = order.map(function (c) {
+      var list = hot(products().filter(function (p) { return p.category === c.slug; }), 20);
+      var photo = list.map(function (p) { return (p.images || [])[0]; }).filter(Boolean)[0];
+      var built = A.ROUTES.shop.indexOf(c.slug) >= 0, lead = list[0];
+      var art = photo ? '<img src="' + esc(photo) + '" alt="" loading="lazy" decoding="async" onerror="this.remove()">' : (lead ? '<svg aria-hidden="true"><use href="#' + A.figFor(lead) + '"/></svg>' : '');
+      return '<a href="' + (built ? 'shop/' + c.slug + '.html' + query() : '#' + c.group.toLowerCase()) + '"><span class="o">' + art + '</span><span>' + esc(c.name) + '</span></a>';
+    }).join('');
+  }
+
+  /* ---------- Best sellers: ten tiles that re-sort to the device ---------- */
+
+  function renderBest() {
+    var r = bestList(), d = device(), h = $('#h-best'), sub = $('#best-sub'), link = $('#best-link'), box = $('#best-tiles');
+    box.innerHTML = r.list.map(function (p, i) { return A.tile(p, i, '', query(), { cat: true, fit: r.fit ? fitsPick(p, r.fit) : undefined }); }).join('');
+    if (!r.fit) {
       h.textContent = 'Best sellers';
-      sub.textContent = 'The store\u2019s best sellers, until you name what you own.';
+      sub.textContent = 'Across the store, one per category first.';
       link.href = 'shop/all.html?sort=rating-desc';
-      link.innerHTML = 'All products <svg aria-hidden="true"><use href="#i-arrow"/></svg>';
-      box.innerHTML = tiles(bestSellers());
+      link.innerHTML = 'See all ' + products().length + ' products <svg aria-hidden="true"><use href="#i-arrow"/></svg>';
       return;
     }
-    var models = modelsOf(bucketOf(d)), n = list.length;
-    h.textContent = 'Fits ' + d.name;
-    link.hidden = !n;
-    if (!n) { // nothing listed yet: say so and keep the best sellers in view
-      h.innerHTML = '<span class="mini payoff__mini" aria-hidden="true"><i style="--pct:0"></i></span>' + esc('Fits ' + d.name);
-      sub.textContent = 'The catalog lists nothing for ' + d.name + ' yet; these are the store\u2019s best sellers.';
-      box.innerHTML = tiles(bestSellers());
-      return;
-    }
-    var pool = products().filter(function (p) { return group(p) !== 'Devices'; }).length; // accessories and power: what "fits" can be drawn from
-    h.innerHTML = '<span class="mini payoff__mini" aria-hidden="true"><i style="--pct:0"></i></span>' + esc('Fits ' + d.name);
-    requestAnimationFrame(function () { var i = h.querySelector('.payoff__mini i'); if (i) i.style.setProperty('--pct', Math.min(1, n / pool)); }); // charges from empty to its share
-    var four = fitFour(list), padded = four.length < 4;
-    if (padded) hot(products().filter(function (p) { return group(p) !== 'Devices'; }), 12).forEach(function (p) { if (four.length < 4 && four.indexOf(p) < 0) four.push(p); }); // accessory and power best sellers only
-    sub.textContent = n + (n === 1 ? ' product' : ' products') + ' the catalog lists for it' + (!d.parent && models.length ? '; name the model above for cases' : '') +
-      (padded ? (n === 1 ? '; the other three are best sellers.' : '; the rest are best sellers.') : '.');
-    link.href = 'shop/all.html?device=' + d.id;
-    link.innerHTML = 'See all that fits <svg aria-hidden="true"><use href="#i-arrow"/></svg>';
-    box.innerHTML = tiles(four);
+    var name = d ? d.name : pickName(), pool = products().filter(function (p) { return group(p) !== 'Devices'; }).length;
+    h.innerHTML = '<span class="mini best__mini" aria-hidden="true"><i style="--pct:0"></i></span>' + esc('Fits ' + name);
+    requestAnimationFrame(function () { var i = h.querySelector('.best__mini i'); if (i) i.style.setProperty('--pct', Math.min(1, r.n / pool)); }); // charges from empty to its share
+    var shown = r.list.filter(function (p) { return fitsPick(p, r.fit); }).length;
+    sub.textContent = !r.n ? 'Nothing listed for it yet; these are the store\u2019s best sellers.'
+      : shown === r.list.length ? 'All ' + (shown === 10 ? 'ten' : shown) + ' fit' + (r.n > shown ? ', and ' + (r.n - shown) + ' more on the full list.' : '.')
+      : shown + ' of these fit; the rest are best sellers, dimmed.';
+    link.hidden = !r.n;
+    link.href = d ? 'shop/all.html?device=' + d.id : 'shop/all.html';
+    link.innerHTML = 'See all ' + r.n + ' that fit <svg aria-hidden="true"><use href="#i-arrow"/></svg>';
   }
 
   /* ---------- Groups: category grid and one featured row each ---------- */
 
   function renderGroups() {
-    var skip = payoffList().slice(0, 4).map(function (p) { return p.id; });
+    var skip = bestList().list.map(function (p) { return p.id; });
     $('#groups').innerHTML = GROUPS.map(function (g) {
       var gcats = cats().filter(function (c) { return c.group === g.name; });
       var grid = gcats.map(function (c) {
@@ -242,7 +277,7 @@
 
   /* ---------- Selection ---------- */
 
-  function render() { renderFamilies(); renderDevices(); renderModels(); renderPayoff(); renderGroups(); requestAnimationFrame(A.syncRows); }
+  function render() { renderFamilies(); renderDevices(); renderModels(); renderGuessLine(); renderCatRow(); renderBest(); renderGroups(); requestAnimationFrame(A.syncRows); }
   function scrollTo(el) {
     var top = el.getBoundingClientRect().top + window.scrollY - document.querySelector('.bar').offsetHeight - 12;
     window.scrollTo({ top: top, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
@@ -254,20 +289,17 @@
     if (d && d.parent) state.modelAnswered = true;
     state.device = d ? d.id : null;
     if (d) state.family = d.family;
-    $('#guess').hidden = !state.suggested || !!state.device || !!state.family;
     if (!opts.silent) history.replaceState(null, '', state.device ? '#device=' + state.device : location.pathname + location.search);
     render();
-    // A tap brings the answer into view at every width: the model question when it is open, else the tiles
-    // (on desktop the bar scrolls under the header so the chips stay in reach above the tiles).
+    // A tap brings the answer into view: on desktop the chips stay in reach above the tiles, on phones the tiles rise into view.
     if (d && !opts.silent) {
       var wide = window.matchMedia('(min-width: 1024px)').matches;
-      scrollTo(wide ? $('#pickbar') : !d.parent && modelsOf(d).length && !state.modelAnswered ? $('#models-chips') : $('#payoff'));
+      scrollTo(wide ? $('#pick') : !d.parent && modelsOf(d).length && !state.modelAnswered ? $('#models-chips') : $('#best'));
     }
   }
   function setFamily(id) {
     state.family = state.family === id ? null : id;
     if (state.device && A.deviceById(state.device).family !== state.family) { state.device = null; state.modelAnswered = false; history.replaceState(null, '', location.pathname + location.search); }
-    $('#guess').hidden = !state.suggested || !!state.device || !!state.family;
     render();
   }
   function deviceFromHash() {
@@ -292,10 +324,12 @@
     if (fam) {
       if (fam.classList.contains('guess__pick')) { // the guess tap opens the device row in view and never toggles it closed
         if (state.family !== fam.dataset.family) setFamily(fam.dataset.family);
-        scrollTo(window.matchMedia('(min-width: 1024px)').matches ? $('#pickbar') : $('#devices-chips'));
+        scrollTo($('#pick'));
         return;
       }
-      setFamily(fam.dataset.family); return;
+      setFamily(fam.dataset.family);
+      if (state.family && !window.matchMedia('(min-width: 1024px)').matches) scrollTo($('#pick'));
+      return;
     }
     var chip = e.target.closest('[data-device]');
     if (chip) {
@@ -309,7 +343,7 @@
     var dot = e.target.closest('[data-promo-go]');
     if (dot) goTo(+dot.dataset.promoGo, true);
   });
-  // Arrow keys move the pager while focus is inside the promo card.
+  // Arrow keys move the pager while focus is inside the hero panel.
   $('#promo').addEventListener('keydown', function (e) {
     if (e.key === 'ArrowRight') { e.preventDefault(); goTo(slideIndex() + 1, true); }
     if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(slideIndex() - 1, true); }
@@ -317,7 +351,16 @@
   var raf;
   $('#promo-track').addEventListener('scroll', function () { cancelAnimationFrame(raf); raf = requestAnimationFrame(syncDots); });
   window.addEventListener('resize', function () { if (track) track.scrollTo({ left: slideIndex() * track.clientWidth }); });
-  document.addEventListener('ampline:cart', function () { renderPayoff(); renderGroups(); });
+  document.addEventListener('ampline:cart', function () {
+    // A cart change touches only the tile buttons whose state is stale, so the grid keeps its place.
+    var check = '<svg aria-hidden="true"><use href="#i-check"/></svg>';
+    document.querySelectorAll('[data-add], [data-choose]').forEach(function (b) {
+      var has = A.cart.has(b.dataset.add || b.dataset.choose);
+      if (has === b.classList.contains('btn--added')) return;
+      b.classList.toggle('btn--added', has);
+      b.innerHTML = has ? check + 'In cart' : b.hasAttribute('data-choose') ? 'Choose options' : 'Add to cart';
+    });
+  });
   window.addEventListener('hashchange', function () { if (/device=/.test(location.hash) || !location.hash) setDevice(deviceFromHash(), { silent: true }); });
 
   /* ---------- Boot ---------- */
@@ -327,20 +370,15 @@
       $('#foot-cats').innerHTML = A.shopLinks(data.categories, '', null);
       renderPromo();
       renderHouse();
-      // The browser's guess rings a chip and names itself in the bar; nothing is chosen until the shopper taps.
+      // The browser's guess rings a chip and names itself in the line; nothing is chosen until the shopper taps.
       var g = guess();
-      state.suggested = g.device; state.suggestedFamily = g.family;
-      var gd = state.suggested ? A.deviceById(state.suggested) : null, gf = A.deviceGroups().find(function (x) { return x.id === g.family; });
-      var gname = gd ? gd.name.replace(/^Other /, '') : gf ? gf.name : null;
-      if (gname) {
-        $('#guess').innerHTML = 'Your browser looks like <button type="button" class="guess__pick" ' + (gd ? 'data-device="' + gd.id + '"' : 'data-family="' + g.family + '"') + '>' +
-          (/^[aeiou]/i.test(gname) ? 'an ' : 'a ') + esc(gname) + '</button>. ' + (gd ? 'Tap it, or pick another.' : 'Tap it to pick which one.');
-        state.suggested = state.suggested || g.family; // keeps the guess line visible until a device is chosen
-      }
-      setDevice(deviceFromHash(), { silent: true });
+      state.suggested = g.device && A.deviceById(g.device) ? g.device : null;
+      state.suggestedFamily = g.family;
+      var fromHash = deviceFromHash();
+      if (fromHash && A.deviceById(fromHash)) setDevice(fromHash, { silent: true }); else render();
     })
     .catch(function () {
-      $('#payoff-tiles').innerHTML = A.loadError();
-      $('#groups').innerHTML = '';
+      $('#promo-track').innerHTML = '<article class="promo__slide"><div class="promo__text">' + A.loadError() + '</div></article>';
+      $('#best-tiles').innerHTML = A.loadError();
     });
 })();

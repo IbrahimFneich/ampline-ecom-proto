@@ -25,10 +25,10 @@ colors:
 typography:
   display:
     fontFamily: "Readex Pro, system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
-    fontSize: "clamp(1.75rem, 1.2rem + 2.4vw, 2.75rem)"
+    fontSize: "clamp(1.75rem, 1.1rem + 3.2vw, 3.5rem)"
     fontWeight: 700
-    lineHeight: 1.05
-    letterSpacing: "-0.02em"
+    lineHeight: 1.04
+    letterSpacing: "-0.03em"
   headline:
     fontFamily: "Readex Pro, system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
     fontSize: "clamp(1.5rem, 1.1rem + 1.8vw, 2.25rem)"
@@ -333,16 +333,23 @@ components:
   buybar:
     textColor: "{colors.lockscreen-ink}"
     padding: "10px 0"
-  promo-card:
-    backgroundColor: "{colors.screen-white}"
-    borderColor: "{colors.hairline}"
+  announcement-bar:
+    backgroundColor: "{colors.sleep-black}"
+    textColor: "{colors.sleep-ink}"
+    padding: "8px 16px"
+  hero-panel:
+    backgroundColor: "{colors.off-grey-soft}"
     textColor: "{colors.lockscreen-ink}"
-    rounded: "{rounded.md}"
-  promo-art:
-    backgroundColor: "{colors.daylight-ground}"
+    rounded: "{rounded.xl}"
+    padding: "48px 56px 44px"
+    height: "420px"
+  hero-panel-phone:
+    backgroundColor: "{colors.off-grey-soft}"
+    textColor: "{colors.lockscreen-ink}"
+    rounded: "{rounded.xl}"
+    padding: "24px 20px 18px"
   promo-button:
     backgroundColor: "{colors.screen-white}"
-    borderColor: "{colors.hairline}"
     textColor: "{colors.lockscreen-ink}"
     rounded: "{rounded.pill}"
     size: "36px"
@@ -355,23 +362,26 @@ components:
     rounded: "{rounded.pill}"
     width: "26px"
     height: "8px"
-  pickbar:
+  category-circle:
     backgroundColor: "{colors.screen-white}"
-    borderColor: "{colors.hairline}"
     textColor: "{colors.lockscreen-ink}"
-    rounded: "{rounded.md}"
-    padding: "14px 18px 16px"
-  trust-item:
-    backgroundColor: "{colors.screen-white}"
-    borderColor: "{colors.hairline}"
-    textColor: "{colors.lockscreen-ink}"
-    rounded: "{rounded.sm}"
-    padding: "10px 14px"
+    rounded: "{rounded.pill}"
+    size: "88px"
+  tile-badge-hot:
+    backgroundColor: "{colors.charge-green-soft}"
+    textColor: "{colors.charge-green-ink}"
+    rounded: "{rounded.pill}"
+    padding: "3px 9px"
+  tile-fit:
+    backgroundColor: "{colors.lockscreen-ink}"
+    textColor: "{colors.daylight-ground}"
+    rounded: "{rounded.pill}"
+    padding: "3px 9px 3px 7px"
   trust-icon-well:
-    backgroundColor: "{colors.daylight-ground}"
+    backgroundColor: "{colors.screen-white}"
     textColor: "{colors.lockscreen-ink}"
-    rounded: "{rounded.sm}"
-    size: "32px"
+    rounded: "{rounded.pill}"
+    size: "36px"
   footer-sleep:
     backgroundColor: "{colors.sleep-black}"
     textColor: "{colors.sleep-ink}"
@@ -505,48 +515,48 @@ components:
 
 Every surface reads as a phone's lock screen in daylight while it charges. The ground is a cool near-white, the figures are near-black and set in one variable family, and a single charging green does the work of filling. Batteries fill, split-output bars fill, the pressed chip's dot fills. Nothing is decorated that is not also a reading of power.
 
-Density is moderate and phone-first. Content sits on hairline-ruled rows and white cards on the grey ground, with pill-shaped controls that echo status chips. Depth is almost entirely tonal. The page ends with the screen asleep: one dark block, the only dark region in a light-only scheme.
+Density is moderate and phone-first. Content sits on hairline-ruled rows and white cards on the grey ground, with pill-shaped controls that echo status chips. Depth is almost entirely tonal. The page ends with the screen asleep: one dark block. On home a thin announcement bar in the same sleep colours sits above the header, the lock screen's status bar. These two are the only dark regions in a light-only scheme.
 
-The store sells devices, accessories and power, and it starts from what the shopper owns. Home opens as a retail hero in the same world: live offers, the "What do you own?" bar, and four tiles that swap from best sellers to what fits the device the shopper names. The battery stays where a figure exists: on power products it reads what a port delivers, the house strip reads the range's top output, and a device's own product page reads the ceiling the catalog lists for that device's family, marked indicative. Products with neither an output spec nor a listed ceiling carry no battery and lead with brand and facets instead.
+The store sells devices, accessories and power, and it starts from what the shopper owns. Home follows the category canon in the same world: the three promises in the announcement bar, a hero panel that names one product and its price in live text, "Choose your device" right under it, the categories as a row of circles, and ten best sellers that re-sort to what fits the device the shopper names, the rest dimmed, never hidden. The battery stays where a figure exists: on power products it reads what a port delivers, the house strip reads the range's top output, and a device's own product page reads the ceiling the catalog lists for that device's family, marked indicative. Products with neither an output spec nor a listed ceiling carry no battery and lead with brand and facets instead.
 
-The world uses drawn stroke icons and line-art product figures. The figures carry green port marks, and third-party devices are drawn in the same grammar with green marks, so even illustration speaks the charging language. Where the catalog has a photo, it sits in the same grey figure well as the drawing it replaces, so a photo and a drawing read as one family. The promo card's art side is the same grey well at a larger scale.
+The world uses drawn stroke icons and line-art product figures. The figures carry green port marks, and third-party devices are drawn in the same grammar with green marks, so even illustration speaks the charging language. Where the catalog has a photo, it sits in the same grey figure well as the drawing it replaces, so a photo and a drawing read as one family. The hero panel is the same idea at full scale: an off-grey-soft field one step below the ground, with the render standing directly on it, multiplied flat.
 
 **Key Characteristics:**
 - One accent, charging green, that means "fills", "fits" and "available".
 - Battery glyphs as the signature component, filled with a clip-path, never a width animation.
 - Pills for every control and status, hairlines for every list.
 - Tabular figures everywhere; wattage is the headline number on power products.
-- Light scheme only; the footer is the screen asleep.
+- Light scheme only; the footer is the screen asleep and the home announcement bar its status bar.
 
 ## Colors
 
 A cool neutral lock screen with one charging green, a caution amber for honesty states, and a dormant grey for what does not fit.
 
 ### Primary
-- **Charging Green** (charge-green): fills battery glyphs and the first split segment. It also marks pressed chip dots, the "added" button, in-stock dots, the brand dot, focus rings and selection. The current promo dot is the one green pill, a charging bar. On the category page it fills the Filters count badge and underlines the Clear all text button.
-- **Charging Green Ink** (charge-green-ink): green text on light grounds, used for in-stock labels and hot tags where the bright green would fail contrast.
-- **Green Tints** (charge-green-mid, charge-green-pale, charge-green-soft): the second, third and fourth segments of a split-output stack, in that order. Soft also backs the hot tag.
+- **Charging Green** (charge-green): fills battery glyphs and the first split segment. It also marks pressed chip dots, the "added" button, in-stock dots, the brand dot, focus rings and selection. The current hero pager dot is the one green pill, a charging bar. On home it draws the check inside the tile's Fits mark and underlines the browser's guess. On the category page it fills the Filters count badge and underlines the Clear all text button.
+- **Charging Green Ink** (charge-green-ink): green text on light grounds, used for in-stock labels, hot tags, the hot badge and the "Save $N" line where the bright green would fail contrast.
+- **Green Tints** (charge-green-mid, charge-green-pale, charge-green-soft): the second, third and fourth segments of a split-output stack, in that order. Soft also backs the hot tag and the hot badge on a tile's well.
 
 ### Secondary
 - **Caution Amber** (caution-amber, caution-amber-ink, caution-amber-soft): low-stock dots, the rating star and the filled share of drawn rating stars, the SYNTHETIC label and the notice block. It marks what is uncertain, scarce or not real yet.
 
 ### Neutral
-- **Daylight Ground** (daylight-ground): page background, the inside of product figure wells, the promo card's art well and the trust row's icon wells. It is also the text color on ink buttons and pressed chips.
-- **Screen White** (screen-white): cards, chips, the cart button, the battery glyph body, the cart drawer and the filter sheet.
-- **Lock-Screen Ink** (lockscreen-ink): all primary text, glyph strokes, buttons, pressed chips, checked filter chips and checked checkboxes.
+- **Daylight Ground** (daylight-ground): page background and the inside of product figure wells. It is also the text color on ink buttons and pressed chips.
+- **Screen White** (screen-white): cards, chips, the cart button, the battery glyph body, the cart drawer and the filter sheet. On home it fills the category circles, the trust band's icon circles and the hero pager buttons.
+- **Lock-Screen Ink** (lockscreen-ink): all primary text, glyph strokes, buttons, pressed chips, checked filter chips, checked checkboxes and the tile's Fits mark.
 - **Muted Slate** (muted-slate): secondary text, sub-lines, counts and strike-through prices. On the product page it outlines the empty mini battery in the no-fit line, draws dimension lines in gallery drawings, and fills a pressed device chip whose device does not fit.
 - **Hairline** (hairline): every 1px border and row divider.
 - **Empty Track** (empty-track): unfilled battery, the split-output remainder, empty cart count, disabled buttons, idle chip dots.
-- **Off Grey** (off-grey, off-grey-soft): the dormant state. It marks out-of-stock, dashes placeholder borders, fills the idle promo dots, and backs tags, icon wells and category icon wells. On the category page it fills filter options that would return nothing and dashes the empty-state box. On the product page it fills the battery glyph and backs the fit line when the chosen device is not listed.
+- **Off Grey** (off-grey, off-grey-soft): the dormant state. It marks out-of-stock, dashes placeholder borders, fills the idle pager dots, and backs tags, icon wells and category icon wells. Its soft step is the hero panel's field. On the category page it fills filter options that would return nothing and dashes the empty-state box. On the product page it fills the battery glyph and backs the fit line when the chosen device is not listed.
 - **Ink scrim** (lockscreen-ink at 45%): the backdrop behind the phone filter sheet.
-- **Sleep** (sleep-black, sleep-ink, sleep-ink-dim, sleep-line): the footer only.
+- **Sleep** (sleep-black, sleep-ink, sleep-ink-dim, sleep-line): the footer and, on home only, the announcement bar above the header.
 
 ### Named Rules
-**The One Charge Rule.** Green means power or fit: filling, pressed, available, added. It is never used as a decorative fill, a heading color or a section background.
+**The One Charge Rule.** Green means power, fit or saving: filling, pressed, available, added, and the "Save $N" figure in green ink. It is never used as a decorative fill, a heading color or a section background.
 
 **The Honest Amber Rule.** Amber marks what is scarce or synthetic. A value that is placeholder or invented gets the amber SYNTHETIC label, never green.
 
-**The Dormant Grey Rule.** What does not fit the chosen device is shown in grey, not hidden and not red. The scheme has no error red. A filter option that would return zero results under the current filters goes dormant the same way: grey and disabled, still listed with its zero count. An option no product in the listing carries is never offered at all. On a product page the whole reading goes dormant together: the glyph fill, the fit line and the chosen chip.
+**The Dormant Grey Rule.** What does not fit the chosen device is shown in grey, not hidden and not red. The scheme has no error red. A filter option that would return zero results under the current filters goes dormant the same way: grey and disabled, still listed with its zero count. An option no product in the listing carries is never offered at all. On a product page the whole reading goes dormant together: the glyph fill, the fit line and the chosen chip. On home, best sellers that do not fit the pick dim to 38% and keep their place in the row.
 
 ## Typography
 
@@ -558,31 +568,34 @@ A cool neutral lock screen with one charging green, a caution amber for honesty 
 **Character:** One geometric, slightly wide family carries everything, like a phone's system clock face. Hierarchy comes from weight and size, never from a second family.
 
 ### Hierarchy
-- **Display** (700, clamp 1.75rem to 2.75rem, 1.05, -0.02em, balanced wrap): the promo slide headlines, an h2 on each slide. One clamp serves every width; at 1440 it sits at 2.75rem. Slide headlines are short and take two lines on desktop, up to three at phone width.
+- **Display** (700, clamp(1.75rem, 1.1rem + 3.2vw, 3.5rem), 1.04, -0.03em, balanced wrap): the hero panel's slide titles, an h2 on each slide that names the product and its price in live text ("iPhone 16. $1,099."). The amber SYNTHETIC tag follows the price inside the title, 8px after it at 0.04em tracking. It sits near 30px on a 390px phone and holds its 3.5rem top from about 1200px. Titles take two lines.
 - **Headline** (700, clamp 1.5rem to 2.25rem, 1.08, -0.02em): section titles, max 22ch, including the group titles and the house strip title. The category page title pins the headline at its 2.25rem top at every width.
 - **Product title** (700, clamp 1.75rem to 2.25rem): the product page h1, the headline style on a smaller ramp.
-- **Picker title** (700, clamp(1.75rem, 1.2rem + 1.6vw, 2.75rem), 1.1): the home h1 "What do you own?" in the picker bar. It matches the slide headline on phones at 28px and reaches 42px at 1440, just under the 44px slide headline and above the 36px section headings, so the store's question outranks every section but the offer.
-- **Title** (600, 1.25rem, 1.35): prices, the cart heading and cart subtotal at 700, and the wordmark at 700. From 1024px the promo offer line takes the title size at weight 400 with weight 600 ink figures. Also the home's "Featured in" subheads, the filter sheet heading, the empty-state title and, from 1024px, the results count line. On the product page it sets the strike-through beside the big price, the buy bar price and the bundle total.
-- **Body** (400, 1rem, 1.5): running text and sub-lines in muted slate, 42 to 54ch.
+- **Picker heading** (700, 1.0625rem, 1.08, -0.02em): "Choose your device", in the same wrapping row as the family chips. When the chips fill the row, as at 1440, it sits on its own line above them.
+- **Title** (600, 1.25rem, 1.35): prices, the cart heading and cart subtotal at 700, and the wordmark at 700. Also the home's "Featured in" subheads, the filter sheet heading, the empty-state title and, from 1024px, the results count line. On the product page it sets the strike-through beside the big price, the buy bar price and the bundle total.
+- **Body** (400, 1rem, 1.5): running text and sub-lines in muted slate, 42 to 54ch. The hero offer line is body at 44ch, 1.125rem from 1024px, with weight 600 ink figures.
+- **Status** (400, 0.9375rem): the guess and status line under the family chips, muted. The trust band promises take it at weight 600 in ink.
+- **Strip** (0.8125rem): the announcement bar at 400, the category circle labels at 600 and the tile's "Save $N" at 600.
+- **Mark** (600, 0.75rem, 1.3): the hot badge and the Fits mark on a tile's well.
 - **Tile figure** (700, 1.75rem, 1, -0.03em): the watt number beside the mini battery on product tiles. It steps down to 1.5rem below 720px.
 - **Product figure** (700, 2.75rem, 1, -0.035em): the watt number inside the battery glyph on the house strip and product pages. The unit sits at 0.375em in weight 500.
 - **Big price** (700, 1.75rem, -0.02em): the product page price, with a 1.25rem muted strike-through. The cart thank-you title uses the same step.
 - **Review count** (700, 2.25rem, 1, -0.03em): the aggregate rating number, the headline top as a figure.
-- **Body small** (400, 0.875rem, 1.3): tile descriptions, tile facet lines, the guess line beside the picker h1, the trust row items at weight 600, cart unit prices and thank-you lines, breadcrumbs, filter chips and applied chips.
-- **Label** (600, 0.8rem): tags, counts, scale marks, meta lines, split segments, the would-be counts on filter options, chip-group labels and category product counts. At weight 400 it sets the tile brand line and category blurbs.
+- **Body small** (400, 0.875rem, 1.3): tile descriptions, tile facet lines, cart unit prices and thank-you lines, breadcrumbs, filter chips and applied chips.
+- **Label** (600, 0.8rem): tags, counts, scale marks, meta lines, split segments, the would-be counts on filter options, chip-group labels and category product counts. At weight 400 it sets the tile brand line, the home tile's category line and category blurbs.
 
 ### Named Rules
 **The Tabular Rule.** The body sets tabular figures, so watts, prices and counts align and count-ups do not jitter.
 
-**The Five Steps Rule.** Text sizes are 0.8, 0.875, 1, 1.25 and 1.75rem, with the tile figure stepping to 1.5rem below 720px. Larger fixed sizes are only the fluid ramps' own tops, 2.25rem and 2.75rem, used for page titles and figures. Only the display, headline, product title and picker title sizes are fluid.
+**The Five Steps Rule.** Listing, product and cart text sizes are 0.8, 0.875, 1, 1.25 and 1.75rem, with the tile figure stepping to 1.5rem below 720px. Larger fixed sizes are only the fluid ramps' own tops, 2.25rem, 2.75rem and the display's 3.5rem. The home rebuild added four in-between steps (recorded 2026-10-11): 0.75rem for a tile's corner marks, 0.8125rem for the strip roles, 0.9375rem for the status line, the trust band and the phone hero buttons, and 1.0625rem for the picker heading, with the offer line at 1.125rem from 1024px. Only the display, headline and product title sizes are fluid.
 
 ## Layout
 
 A centered container of 1200px with a fluid gutter (20px to 48px). Sections breathe at 56px, 72px from 1024px up. Mobile is the primary layout and desktop extends it.
 
-- **Home order:** the hero, the three group sections Devices, Accessories and Power, then the Ampline house strip. The featured rows skip the four products the hero's tiles already show.
-- **Hero:** one column at every width, stacking the promo card, the picker bar, the payoff tiles and the trust row, 16px apart, 24px from 1024px. It pads 16px top and 48px bottom, 24px and 56px from 1024px. The first desktop viewport holds the header, the promo card, the picker bar and the head of the best-seller row. A device tap scrolls at every width. From 1024px the picker bar always lands under the header, so the chips stay above the tiles and a bucket tap followed by a model tap never bounces. Below 1024px the model question lands under the header when it is open, else the tiles.
-- **Payoff tiles:** four product tiles, two columns below 1024px (one under 360px) and four from 1024px with a 16px gap. The short line hides on phones. Before the catalog loads, four skeleton tiles and one skeleton slide hold the hero's shape, and the empty parts reserve their filled heights: the family row, the picker head below 720px, the payoff sub at two lines below 720px and one above, and the payoff link on its own row below 720px. The catalog's arrival moves the tiles by at most 6px at 390, none at 820 and 4px at 1440.
+- **Home order:** the announcement bar above the header, then the hero section: the hero panel and its pager, "Choose your device", the category circles, the best sellers and the trust band. Then the three group sections Devices, Accessories and Power, and the Ampline house strip. The groups' featured rows skip the ten products the best sellers show.
+- **Hero:** one column at every width, its parts 20px apart. It pads 16px top and 40px bottom, 20px and 56px from 1024px. At 1440 by 900 the first viewport holds the announcement bar, the header, the 420px hero panel and its pager, "Choose your device" with the family chips and the guess line, and the category circles; the best sellers head sits just below the fold. On a 390 by 844 phone it holds the bar, the header's two rows and the first slide, text above the render, with the pager and the picker heading at its foot. A family tap below 1024px brings "Choose your device" under the header. A device tap scrolls at every width: from 1024px "Choose your device" lands under the header so the chips stay above the tiles; below 1024px the open model question lands there, else the best sellers.
+- **Best sellers grid:** ten shared tiles, two columns on phones (one under 360px), three from 720px and five from 1024px with a 16px gap. Before the catalog loads, five skeleton tiles and one skeleton slide hold the shape; the empty family row reserves 88px on phones and 44px from 720px, and the sub line reserves one line.
 - **Group sections:** each opens with a headline and a muted sub, then the category grid, then a title-size "Featured in" subhead over a scroll row. They pad 48px top, 64px from 1024px.
 - **Category grid:** hairline-ruled rows below 720px, three tile columns from 720px with a 10px gap, four from 1024px with a 12px gap.
 - **Scroll rows:** tiles run in one snapping row, about three to a row from 720px and 4.4 from 1024px so a fifth tile cuts at the edge and the row reads as scrollable.
@@ -607,7 +620,7 @@ The system is flat and tonal. White cards sit on the grey ground, and borders ar
 
 ## Shapes
 
-Rounded, device-like corners in a small ladder: pill for every control and status, 28px for sheet tops, 22px for the battery glyph, 18px for cards, category tiles and notices, 12px for icon wells and figure wells, 8px for split segments, 6px for checkbox controls. The mini battery runs at 5px with 2px corners on its nub and fill; its enlarged empty-state variant runs at 9px. The battery glyph's fill takes 14px rounding. The filter sheet and the phone cart drawer take 28px on their top corners only. The desktop cart drawer is square, a full-height edge panel. Icon buttons, row scroll buttons, promo prev and next buttons, quantity buttons and remove buttons are full circles. Dots are full circles at 8px, 11px for the brand dot. The current promo dot stretches to a 26px pill. Trust row items and their 32px icon wells take 12px. Fills are cut with `clip-path: inset(... round r)` so the fill keeps its rounding at any level. Placeholder content wears a 1px dashed off-grey border, and the empty state and the product page review placeholder use the same dashed off-grey border on an 18px box.
+Rounded, device-like corners in a small ladder: pill for every control and status, 28px for the hero panel and sheet tops, 22px for the battery glyph, 18px for cards, category tiles and notices, 12px for icon wells and figure wells, 8px for split segments, 6px for checkbox controls. The mini battery runs at 5px with 2px corners on its nub and fill; its enlarged empty-state variant runs at 9px. The battery glyph's fill takes 14px rounding. The filter sheet and the phone cart drawer take 28px on their top corners only. The desktop cart drawer is square, a full-height edge panel. Icon buttons, row scroll buttons, hero pager buttons, quantity buttons and remove buttons are full circles. Dots are full circles at 8px, 11px for the brand dot. The current pager dot stretches to a 26px pill. Category circles and the trust band's 36px icon wells are full circles with a hairline. A tile's hot badge and Fits mark are pills. Fills are cut with `clip-path: inset(... round r)` so the fill keeps its rounding at any level. Placeholder content wears a 1px dashed off-grey border, and the empty state and the product page review placeholder use the same dashed off-grey border on an 18px box.
 
 ## Components
 
@@ -624,19 +637,21 @@ Rounded, device-like corners in a small ladder: pill for every control and statu
 - **Filters button:** a 40px ghost pill with a filter icon and a green count badge (20px pill, label size) that appears when filters are set. Phones only.
 - **Icon button:** a 36px hairline circle holding an 18px stroke icon, used to close the filter sheet and the cart drawer. Gallery arrows are the 40px version, shown on phones only.
 - **Text button:** Clear all is bare ink text at 0.875rem weight 600 with a 2px green underline.
+- **Hero pair:** inside each hero slide, a primary pill to the product or the range and a ghost "Choose your device" pill to the picker, 10px apart. They are 46px tall at 0.9375rem with 18px padding, 48px at 1rem with 22px from 1024px, and stack on a 390px phone.
 
 ### Chips
 - **Style:** the device picker. White pill with a hairline border, 40px tall (42px desktop), weight 500, with an 8px status dot leading.
 - **State:** hover darkens the border to ink. Pressed (aria-pressed) inverts to ink with a green dot. Suggested takes a dashed hairline ink border, so it never reads as a hovered chip's solid ring; no inset ring, no green dot and no inversion; green stays for pressed and fit.
-- **Home picker:** up to three rows inside the picker bar. Seven family chips hold 40px at every width; the row wraps at 1024px and below and sits on one row at wider desktops. Once a family is picked, its bucket chips follow under a hairline rule with 12px of top padding, at the 36px chip-set size. A bucket that holds models (catalog devices with a parent) opens a third row under another hairline, a chip-group label "Which model? Cases and folios fit one model only." over the model chips and a "Mine isn't listed" chip. No model is pressed until the shopper taps one. "Mine isn't listed" presses and keeps the bucket. Re-tapping a pressed model steps back to its bucket, and re-tapping a pressed bucket clears the pick. The browser's guess borders the family chip until it opens, then the device chip, never pressing it. A muted 0.875rem line beside the h1 names only what the user agent can tell, with the right article: "a Mac", "an iPhone", "an Android phone", "a Windows laptop". A guess that names a device ends "Tap it, or pick another." and a tap picks it. A family-only guess ends "Tap it to pick which one." and a tap opens that family's device row in view, never closing it on a repeat tap. The guessed name is a bare button in ink at weight 600 with a green underline offset 3px, thickening to 2px on hover. The guess line hides once a family is picked.
-- **Model fit:** a model fits everything its bucket fits plus the products that name the model. Cases and folios therefore enter the fit answer only once a model is named, and until then the payoff sub ends "name the model above for cases".
+- **Home picker:** under "Choose your device". Seven family chips at 40px share a wrapping row with the heading, 8px apart. Picking a family presses it and already re-sorts the best sellers to everything that family's devices take. Its bucket chips follow under a hairline with 12px of top padding, at the 36px chip-set size. A bucket that holds models (catalog devices with a parent) opens a third row under another hairline, a chip-group label "Which model? Cases and folios fit one model only." over the model chips and a "Mine isn't listed" chip. No model is pressed until the shopper taps one. "Mine isn't listed" presses and keeps the bucket. Re-tapping a pressed model steps back to its bucket, re-tapping a pressed bucket clears the pick, and re-tapping a pressed family closes it. The browser's guess takes the dashed suggested border on the family chip until it opens, then on the device chip, never pressing it.
+- **Guess and status line:** one muted 0.9375rem live line under the family chips. Before a pick it reads "Pick what you own and the best sellers re-sort to what fits it.", or names only what the user agent can tell, with the right article: "Your browser looks like a Mac. Pick it to choose which one." for a family and "… Pick it, or choose another." for a device. The guessed name is a bare button in ink at weight 600 with a green underline offset 3px, thickening to 2px on hover. A family guess opens that family's row in view and never closes it on a repeat tap. Once something is picked the line becomes the status, as in "2 products fit your Steam Deck. Power products show the most watts one port gives."; with a family alone it ends "Name the exact one for cases and folios."
+- **Model fit:** a model fits everything its bucket fits plus the products that name the model. Cases and folios therefore enter the fit answer only once a model is named.
 - **Chip groups:** in the Fits filter group and on product pages the device chips are grouped by family. Each group is a label-size muted weight 600 name over its chip set, 6px apart, groups 10px apart.
 - **Filter chips:** the device Fits group reuses the device chip as a radio, at 36px and 0.875rem, with its would-be count in label-size muted text after the name. Checked inverts to ink with a green dot. A device that would return nothing turns dormant: off-grey-soft fill and border, an off-grey dot, muted text and a not-allowed cursor.
 - **Dormant device chip:** on the product page a device the product does not fit stays pickable. Unpressed it takes the off-grey-soft fill with an off-grey dot and muted text. Pressed it fills muted slate with ground-colored text and keeps the off-grey dot.
 - **Option chips:** the buy box's variant picker reuses the device chip as radio groups, one fieldset per group under a weight 600 legend 8px above its chip set, groups 14px apart. Groups come in a fixed order: Plug region when the Plug spec lists more than one region, then Colour, Storage and Pack from the catalog, each only with two or more options. The preselected option is the one the SKU already is, its tier or pack named in the name or Storage spec, else the first. One muted 0.875rem note under the groups says the options share one price: "Same price in every region; the catalog lists one.", "Storage tiers share one synthetic price here; tier pricing is left to the client." or the pack equivalent.
 - **Compat pills:** a wrapping list of 0.875rem hairline pills on white, padded 4px 10px, naming listed devices.
 - **Applied chips:** 32px white hairline pills at 0.875rem weight 500, each with a 14px muted x icon. Hover darkens the border to ink and a click removes that filter. The last chip and Clear all wrap together as one unit. A search shows as a "Search: q" chip in the same row. Clear all removes the search too, while the sheet's Clear and the Filters badge leave it alone.
-- **Tags:** 22px label pills in off-grey-soft. The hot variant is green-soft with green-ink text.
+- **Tags:** 22px label pills in off-grey-soft. The hot variant is green-soft with green-ink text; on tiles the hot badge leaves the tag row for the well's corner (see Product Tile).
 
 ### Cards / Containers
 - **Corner Style:** 18px.
@@ -652,7 +667,7 @@ Rounded, device-like corners in a small ladder: pill for every control and statu
 - **Groups:** each filter group is a fieldset with a hairline top rule, 14px vertical padding and a weight 600 legend floated to full width above its options.
 
 ### Navigation
-- **Header:** sticky, translucent ground at 88% with a 12px saturating blur and a hairline bottom. The wordmark is weight 700 at 1.25rem with an 11px green dot before it. From 1024px it is one 60px row: wordmark, the group nav, the search field at up to 320px, then the cart at the right. On phones the wordmark and cart share the first row and the search field drops to a full-width second row. The nav is the three groups Devices, Accessories and Power. On home they link to its group sections; on every other page they open the all-products listing filtered to that group. On a category page the link of that category's group is the current one; on the all-products listing it is the link of the one selected group, if exactly one is selected. The current link is set in ink at weight 600 with no pill fill. Nav links are muted pills that go white with ink text on hover, shown from 1024px. Every page carries the same header.
+- **Header:** sticky, translucent ground at 88% with a 12px saturating blur and a hairline bottom. The wordmark is weight 700 at 1.25rem with an 11px green dot before it. From 1024px it is one 60px row: wordmark, the nav, the search field centred in the space between (it grows from 320px to at most 460px on auto margins), then the cart at the right. On phones the wordmark and cart share the first row and the search field drops to a full-width second row. The nav is the three groups Devices, Accessories and Power, then Deals. Deals opens the all-products listing narrowed to products with a compare-at price, on every page, home included; there it shows as an "On deal" applied chip, and the link never takes the current state. On home they link to its group sections; on every other page they open the all-products listing filtered to that group. On a category page the link of that category's group is the current one; on the all-products listing it is the link of the one selected group, if exactly one is selected. The current link is set in ink at weight 600 with no pill fill. Nav links are muted pills that go white with ink text on hover, shown from 1024px. Every page carries the same header.
 - **Cart button:** a white pill with a hairline border and a count badge. The badge is green with a count, empty-track at zero. Its accessible name carries the count. It opens the cart drawer as a modal dialog on every page.
 - **Breadcrumb:** 0.875rem muted links separated by a drawn 14px chevron, with the current page in ink at weight 600. Crumbs do not wrap. A category crumb links only when its category page is built and is plain muted text otherwise. The current crumb shrinks and truncates with an ellipsis.
 
@@ -667,24 +682,33 @@ A mini variant (12px tall, 2px outline, 5px radius, a 3px nub with 2px corners) 
 ### Fit Line
 A 12px-rounded hairline box with a leading 34px mini battery and one sentence that names the matched catalog entry. Fits: green-soft fill, green border, the mini filled to the watt level. Does not fit: off-grey-soft fill and border, muted text with the device name in ink, an empty mini outlined in muted slate. With no device chosen it stays white and hairline. A case or folio made for one model lists no family and says so instead: "Made for iPhone 16 only. Check the model before buying." with an empty mini, and its Fits section shrinks to that sentence and one chip. Device pages and products with no output carry no fit line and no Fits section.
 
-### Promo Card
-An 18px white hairline card holding a scroll-snap track of three slides, one in view at every width. Touch swipes it; prev and next are 36px round hairline buttons with a 16px chevron, aria-disabled at 0.4 opacity at the ends; dots sit between them. ArrowLeft and ArrowRight move it while focus is in the card. It never autoplays, off-screen slides are inert, and a resize snaps back to the current slide.
+### Announcement Bar
+The lock screen's status bar, on home only. A thin strip above the header on sleep-black with sleep-ink text at 0.8125rem, centred, padded 8px 16px, carrying the three trust promises separated by sleep-ink-dim middle dots. "1 to 3 days" is set white at weight 600. It wraps to two lines on a 390px phone. It is a note, not a link, and scrolls away while the header stays.
 
-- **Slide:** a display headline, a one-line muted offer computed live from the catalog with ink weight 600 figures in whole dollars and the amber SYNTHETIC tag, then a primary pill to the listing. Each offer's final figure, its full stop and the SYNTHETIC tag sit in one no-break span, so the tag never wraps alone. The slides are the Ampline range ("from $12.99", the all-products listing filtered to the brand), phones ("iPhone, Galaxy and Pixel, from $469") and deals ("9 products below their list price, up to $100 off", the all-products listing filtered to products with a compare-at price).
-- **Art well:** the daylight-ground well, aria-hidden, with three catalog figures and no text. From 720px it is the slide's right column at a 340px minimum height; from 1024px the slide is 1.05fr text to 1fr art at 380px. The first slide's art is the GaN 100W charger, the 3-in-1 cable and the MagSafe power bank its copy names.
-- **Compact phone slide:** below 720px the text column sits beside a 120px well at 12px rounding, 12px apart with 16px of end padding, the well as tall as the text block. It holds two figures centred as a pair: the lead at 82% of the well's width with the second at 54% overlapping its lower right. The third figure hides. The pager sits beneath, and the slide runs about 320px tall so the picker bar and its first chip rows reach the first viewport.
-- **Photo staging:** from 720px one lead figure, 70% of the well's height, sits bottom-left with two smaller figures stepped top-right and bottom-right. Figures are square boxes; photos are contained and multiplied so a white studio background drops into the well.
-- **Drawing staging:** from 720px a slide of drawings keeps three equal figures in a row at 40% of the well, because a scaled drawing scales its stroke and the line must stay one weight. On phones a slide of drawings stacks three equal figures down the well (58% of its width, left, right, left), so the stroke stays one weight and all three products the copy names appear; photo slides keep the lead-and-second staging.
-- **Pager:** from 720px it sits bottom-left under the text column; on phones it sits beneath the compact slide, left-aligned under the text. The current dot is a 26px charging-green pill; the others are 8px off-grey dots in 24px targets that go ink on hover, while a hovered current dot keeps its green.
+### Hero Panel
+A field that names one product and its price in live text, the render standing beside it. One scroll-snap track of slides on the off-grey-soft field with a 1px hairline and 28px corners, one slide in view at every width. It never autoplays, off-screen slides are inert, ArrowLeft and ArrowRight move it while focus is inside, and a resize snaps back to the current slide.
 
-### Picker Bar
-A white hairline card, 18px, padded 14px 18px 16px and 16px 22px 18px from 1024px. Its head holds the h1 "What do you own?" at the picker title size with the guess line beside it, wrapping under it on phones. The family row follows. The family chips follow, then the device and model rows under hairlines once a family is picked.
+- **Slide grid:** on phones the text sits above a 200px art box, 14px apart, padded 24px 20px 18px. From 720px the text column takes 1.1fr against the render's 1fr, 24px apart, at a 380px minimum height padded 40px 36px. From 1024px the minimum is 420px and the padding 48px 56px 44px. The render runs taller than the padding: its box takes -22px block margins from 720px and -30px from 1024px. The text block centres vertically.
+- **Text:** the display title with the SYNTHETIC tag after the price, then the muted offer line, then the hero pair (see Buttons). Whole-dollar prices drop their cents in the title; others keep them, as in "From $12.99.".
+- **Slides:** three, computed from the catalog. iPhone 16 and MacBook Air M3 each carry the first sentence of the catalog's short line and one photo. The third is the Ampline range, "From <lowest house price>", with three drawings. A photo fills the art box's height, centred, contained and multiplied flat onto the field. A slide of drawings sets three figures in a row at 28% of the box's width, vertically centred, so every stroke stays one weight.
+- **Pager:** centred under the panel, 8px below it: two 36px round white hairline buttons with a 16px chevron, aria-disabled at 0.4 opacity at the ends, around the dots, 10px apart. The current dot is a 26px charging-green pill; the others are 8px off-grey dots in 24px targets that go ink on hover, while a hovered current dot keeps its green.
+- **Skeleton:** before the catalog arrives one skeleton slide holds the panel's shape, two pulsing empty-track text bars and a 150 by 48px pill over an empty art box.
 
-### Payoff
-The four tiles under the picker bar, under a section head row: the h2, a muted sub and a trailing link. With nothing picked they are the store's best sellers, buyable first, under "Best sellers", "The store's best sellers, until you name what you own." and an "All products" link to the listing sorted by rating. A device tap rewrites the head to "Fits <device>" and "N products the catalog lists for it.", with "; name the model above for cases" before the full stop while a bucket's model is unnamed, a "See all that fits" link to the all-products listing filtered to the device, and four that fit. Each device family carries its own category order, the reason an owner of that device comes: phones read chargers, cables, power banks, cases, wireless, car, hubs; tablets chargers, cables, hubs, cases; laptops chargers, hubs, cables; handhelds chargers, power banks; watches and earbuds wireless first. Within that order buyable comes first, a product whose compat names the exact model leads its category, then review count decides. The four tiles take the top product of each category in turn, so an iPhone 16 reads charger, cable, power bank, case. Fewer than four fits are padded with accessory and power best sellers, and the sub ends "; the other three are best sellers." or "; the rest are best sellers.". No device tile ever sits under a "Fits" heading. When the catalog lists nothing for the device, the best sellers stay with "The catalog lists nothing for <device> yet; these are the store's best sellers." and no link. The payoff sub is the live region, not the tile grid. Its "Best sellers" / "Fits …" heading takes the section headline size, clamp 1.5→2.25rem, like every section heading.
+### Choose Your Device
+No card: the picker heading and the family chips, the guess and status line, then the device and model rows, stacked 10px apart directly on the ground between the hero pager and the category circles. Behaviour is under Chips.
 
-### Trust Row
-Three white hairline items, 12px rounded and padded 10px 14px, each a 32px ground-colored icon well at 12px holding an 18px ink stroke icon, then the promise at 0.875rem weight 600. One column on phones, three from 720px. The promises are the pitch's assumptions, not confirmed terms: "Delivery across Lebanon in 1 to 3 days", "1-year warranty" and "Card or cash on delivery". They currently ship as plain copy with no label while the client confirms them.
+### Category Circles
+One row of every category, scrolling sideways at every width with proximity snap and no scrollbar; at 1440 a ninth circle cuts at the edge, so the row reads as scrollable. Each link is an 88px white hairline circle, 100px from 720px, over its name at 0.8125rem weight 600 in ink, 8px below and centred. The circle holds the first photo among the category's best sellers, inset 16%, contained and multiplied; a category without a photo shows its lead product's drawn figure inset 20%. Device categories lead, so the photos come first and the house drawings follow. Circles are 16px apart, 22px from 720px and 28px from 1024px. A link opens the category page with the picked device carried forward.
+
+### Best Sellers
+Ten shared Product Tiles under a section head: the h2, a muted sub and a trailing link. With nothing picked it reads "Best sellers" over "Across the store, one per category first." and "See all N products" to the listing sorted by rating. The ten go one per category in turn, each category's best sellers and new arrivals first, then review count, buyable first.
+
+- **The answer:** a pick, whether a family, a device or a model, rewrites the heading to "Fits <device>", led by a 34px mini battery 12px before it that charges to the share of accessories and power products that fit. What fits comes first, one per category in that family's own order and then the rest in fit order; best sellers that do not fit fill the ten, dimmed. Phones read chargers, cables, power banks, cases, wireless, car, hubs; tablets chargers, cables, hubs, cases; laptops chargers, hubs, cables; handhelds chargers, power banks; watches and earbuds wireless first. Within that order buyable comes first, a product whose compat names the exact model leads its category, then review count decides. Every fitting tile carries the Fits mark.
+- **Sub and link:** "All ten fit, and N more on the full list." or "N of these fit; the rest are best sellers, dimmed.". The link reads "See all N that fit" and opens the all-products listing filtered to the device. When the catalog lists nothing for the pick, the sub reads "Nothing listed for it yet; these are the store's best sellers.", the link hides and every tile dims. The sub is the live region, not the grid.
+- **Tiles here:** the category line replaces the tag row and brand line, the short line hides, and the facts line keeps its slot at zero height so prices align across the row.
+
+### Trust Band
+The three promises between two hairlines, no cards, padded 16px top and bottom, 20px from 720px. Each item is a 36px white hairline circle holding an 18px ink stroke icon, 12px before the promise at 0.9375rem weight 600 in ink. Items stack 14px apart on phones and sit three across from 720px. The promises are the pitch's assumptions, not confirmed terms: "Delivery across Lebanon in 1 to 3 days", "1-year warranty" and "Card or cash on delivery". They ship as plain copy with no label while the client confirms them; the announcement bar repeats them.
 
 ### Gallery
 A scroll-snap track in an 18px hairline white box, each slide 4:3 with its drawing absolutely inset 6% (no percentage padding, for WebKit), holding inline SVG drawings. Photos that exist at the catalog's image paths lead the track as unpadded slides on white with their own image thumbs, labelled Photo; the drawings follow. A photo thumb is contained, never cropped, at 4:3 on white. Catalog photos are trimmed WebP files of at most 1000px. Phones get round 40px hairline arrows over the track, hidden when there is one slide. Thumbs are 12px hairline tiles with a label-size name in a fixed 2.3em two-line box, so tiles stay level, over a figure-only crop; from 1024px they stack as a column beside the track, 84px wide with the label at 0.75rem in a 2.2em box, and the gallery's first grid column is 84px to match; the gallery grid aligns both to the start, so the track keeps its 4:3 height even when four thumbs run taller than it. The current thumb takes an ink border plus a 1px inset ink ring. A muted label-size note closes the gallery, saying the drawings come from the spec sheet.
@@ -704,7 +728,7 @@ Five drawn 16px stars in empty-track with an amber copy laid over them, cut by c
 An 18px hairline white card padded 14px. It holds a checkbox row with a 56px ground-colored figure well, the title "Add the USB-C cable the box lacks" and a muted line carrying the SYNTHETIC pill, then a hairline-topped total line at title size. It appears only on in-stock chargers with no cable in the box; an out-of-stock page offers nothing to pick. The In the box list then carries a muted note, "No USB-C cable in the box", linking back to it.
 
 ### Trust Lines
-The product page's form of the trust row: a list of muted 0.875rem lines, each led by an 18px ink stroke icon, with the same three promises as home. The cart foot repeats the delivery and payment promise in one muted line. PRODUCT.md records all three as pitch assumptions the client confirms before launch.
+The product page's form of the trust band: a list of muted 0.875rem lines, each led by an 18px ink stroke icon, with the same three promises as home. The cart foot repeats the delivery and payment promise in one muted line. PRODUCT.md records all three as pitch assumptions the client confirms before launch.
 
 ### Product Sections
 Specs are a hairline-ruled table with a 34% weight 600 label column and muted values. In the box is a plain list with 18px green-ink check icons. The "One plug, shared fairly" section shows only when the spec sheet states a shared output and is hidden otherwise. Reviews open with an aggregate: the review count number, drawn stars and the SYNTHETIC pill, then the dashed placeholder box. On a device mapped to the catalog's device list the page closes with "Complete your setup": a headline, a muted sub that counts the products ("11 Ampline products the catalog lists for iPhone 15 or newer. Each page answers the fit for it.", or "for USB-C laptops like this one" on a catch-all family), then a scroll row of every house product that fits the device, buyable first and out of stock last, each tile carrying the device forward. Hidden sections take their footer link with them.
@@ -716,7 +740,9 @@ A phone-only bar fixed to the bottom while the main button is out of view. It si
 Lives in the product page's "One plug, shared fairly" section, one row per scenario: a muted label column of 118px, 150px from 1024px, with the scenario name in ink, then a 34px stack of 8px-rounded segments, 3px apart, each as wide as its share of output. Segments step through green, green-mid, green-pale and green-soft with ink labels; the remainder is empty track.
 
 ### Product Tile
-A white card with a square ground-colored figure well holding line-art at 3px stroke with green ports. When a file exists at the catalog's first image path the well shows that photo instead. The photo keeps the grey well: it is inset 12%, contained, and multiplied so a white studio background drops into the ground. The drawing hides while a photo is present and returns when the file is missing. Below it come tags, the name, a muted label-size brand line for third-party products, a short line from 720px, the mini battery with the watt figure, price with a muted strike-through and SYNTHETIC label, a meta line with stock dot and amber star, and the button. A product with no ratings shows no star and no rating figure; its meta line carries the stock alone (recorded 2026-10-11). A product with no output spec carries no battery: a muted 0.875rem facet line, its first two facets, takes the watt figure's place. A yes or no facet reads as its own name, "Noise cancelling" or "No noise cancelling", never a bare Yes. Third-party products with no figure of their own take a category figure (phone, laptop, tablet, headphones, watch, controller, router, plug, stand, folio, mount or case), and every page that renders tiles carries the full figure set. Prices everywhere carry thousands separators, as in $1,399.00. Tiles rise from 0.4 opacity and 8px down over 0.5s, staggered 40ms; on the category page they rise over 0.25s without stagger; in scroll rows they do not rise. Below 720px the watt figure drops to 1.5rem, the struck compare price drops to 0.875rem so it stays beside the price on one line, the SYNTHETIC label wraps to its own line, and hyphenated tokens in names are held together with no-wrap spans. Every SKU now has a product page, so every tile name and figure links to one. The guard stays: a tile links only when its page is built and would otherwise stay unlinked rather than point at a missing page. Links carry the picked device forward as a device query parameter. The button adds a SKU that has no choice to make. A SKU with a colour, storage, plug region or pack choice carries the same pill as a link, "Choose options", to its product page with the chosen device in the URL, and reads "In cart" with the check once any of its variants is in the cart. A cart change updates only the buttons whose state changed; the clicked button holds "Added" for 1.4s and keeps its focus (recorded 2026-10-11). The watt caption follows the product page: "W max per port" on chargers, power banks, car and wireless products, "W through the cable" on cables, "W to the laptop" on hubs. Hyphenated tokens and figure-unit pairs (24 GB, 2 m, 42 mm) never break across lines in names or facts. On touch screens the tile button is 44px tall. Skeleton tiles are 560px tall on phones and 608px from 1024px, the median of real tiles, so the catalog's arrival barely shifts the page (polish, 2026-10-11). The well carries no percentage padding: the drawing and the photo are absolutely inset 12%, because WebKit sizes an aspect-ratio box with percentage padding wrongly (an iPhone drew the well 177px wide in a 145px column, 2026-10-11).
+A white card with a square ground-colored figure well holding line-art at 3px stroke with green ports. When a file exists at the catalog's first image path the well shows that photo instead. The photo keeps the grey well: it is inset 12%, contained, and multiplied so a white studio background drops into the ground. The drawing hides while a photo is present and returns when the file is missing. Below it come the remaining tags, the name, a muted label-size brand line for third-party products, a short line from 720px, the mini battery with the watt figure, price with a muted strike-through and SYNTHETIC label, a meta line with stock dot and amber star, and the button. A product with no ratings shows no star and no rating figure; its meta line carries the stock alone (recorded 2026-10-11). A product with no output spec carries no battery: a muted 0.875rem facet line, its first two facets, takes the watt figure's place. A yes or no facet reads as its own name, "Noise cancelling" or "No noise cancelling", never a bare Yes. Third-party products with no figure of their own take a category figure (phone, laptop, tablet, headphones, watch, controller, router, plug, stand, folio, mount or case), and every page that renders tiles carries the full figure set. Prices everywhere carry thousands separators, as in $1,399.00. Tiles rise from 0.4 opacity and 8px down over 0.5s, staggered 40ms; on the category page they rise over 0.25s without stagger; in scroll rows they do not rise. Below 720px the watt figure drops to 1.5rem, the struck compare price drops to 0.875rem so it stays beside the price on one line, the SYNTHETIC label wraps to its own line, and hyphenated tokens in names are held together with no-wrap spans. Every SKU now has a product page, so every tile name and figure links to one. The guard stays: a tile links only when its page is built and would otherwise stay unlinked rather than point at a missing page. Links carry the picked device forward as a device query parameter. The button adds a SKU that has no choice to make. A SKU with a colour, storage, plug region or pack choice carries the same pill as a link, "Choose options", to its product page with the chosen device in the URL, and reads "In cart" with the check once any of its variants is in the cart. A cart change updates only the buttons whose state changed; the clicked button holds "Added" for 1.4s and keeps its focus (recorded 2026-10-11). The watt caption follows the product page: "W max per port" on chargers, power banks, car and wireless products, "W through the cable" on cables, "W to the laptop" on hubs. Hyphenated tokens and figure-unit pairs (24 GB, 2 m, 42 mm) never break across lines in names or facts. On touch screens the tile button is 44px tall. Skeleton tiles are 560px tall on phones and 608px from 1024px, the median of real tiles, so the catalog's arrival barely shifts the page (polish, 2026-10-11). The well carries no percentage padding: the drawing and the photo are absolutely inset 12%, because WebKit sizes an aspect-ratio box with percentage padding wrongly (an iPhone drew the well 177px wide in a 145px column, 2026-10-11).
+
+**Corner marks and saving (recorded 2026-10-11).** One hot badge, "Best seller" or "New", rides the well's top-left corner 10px in, out of the tag row: a green-soft pill at the mark size in green ink, padded 3px 9px. Where a pick is live on home, a fitting tile carries the Fits mark at the top-right: an ink pill with a 12px green check and "Fits" in ground colour. A non-fitting tile dims to 38% opacity over 0.25s and does not rise. In a phone-width well only the Fits mark shows; the badge hides beside it. A compare-at price is followed by "Save $N" in green ink at 0.8125rem weight 600, whole dollars without cents. On home a 0.8rem muted category line replaces the tag row and the brand line, and the facts line keeps its slot at zero height.
 
 ### Scroll Row
 A horizontal flex row of tiles with mandatory scroll snap, a hidden scrollbar, a 12px gap and 16px from 1024px. Tiles are min(250px, 74vw) on phones, a third of the row from 720px and 4.4 to the row from 1024px. Row tiles hide the short line on phones. From 1024px round 40px white hairline buttons with an 18px chevron sit over the row's two edges, 20px outside it, carrying the floating shadow; hover darkens the border to ink. The same row markup and edge buttons close a device's product page under "Complete your setup".
@@ -760,7 +786,7 @@ A sticky strip at 60px on the translucent ground with a hairline bottom. It hold
 A box padded 40px top and bottom and 20px at the sides, with the dashed off-grey border at 18px, centered. It stacks the enlarged zero-fill mini battery, a title-size line, a muted hint of at most 40ch naming the one filter, or the search, whose removal frees the most results, and a primary button to remove it beside a ghost Clear all filters. The title reads "Nothing matches “q”." when the search alone empties the list and "No <noun> matches all of these." otherwise. The hint reads "Removing “Under $50” shows 1 networking product." or "Clearing the search shows N products.", and the primary button "Remove <option>" or "Clear the search".
 
 ### Skeleton Tiles
-Before data loads, tiles render as borderless blocks in empty-track at the 12px radius, pulsing to half opacity on a 1.2s loop, shaped like the figure, name, line, watt figure and button.
+Before data loads, tiles render as borderless blocks in empty-track at the 12px radius, pulsing to half opacity on a 1.2s loop, shaped like the figure, name, line, watt figure and button. On home five skeletons hold the best sellers at 420px, 460px from 1024px.
 
 ### Placeholders
 The dashed placeholder pill names what is missing. In the footer it counts the unbuilt category pages once, as "N pages not built"; the product page review placeholder is the dashed box. Unbuilt destinations are never linked: their names stay muted text, and category tiles add a muted "· page not built" to their count instead of a pill.
@@ -784,7 +810,7 @@ The single dark block. Sleep-black ground, sleep-ink text, dim links whose under
 ### Don't:
 - **Don't** add a second accent or use green as decoration; amber is for caution and synthetic only.
 - **Don't** cast shadows on cards, tiles or chips; the floating layers are the cart drawer, the phone filter sheet, the row scroll buttons over a row's edge, and in the admin the order and product panel and the toast (extended 2026-10-11).
-- **Don't** add a dark mode or a second dark region; the footer is the screen asleep.
+- **Don't** add a dark mode or another dark region; the footer is the screen asleep and the home announcement bar its status bar, both in the sleep colours.
 - **Don't** fabricate product photography or borrow real brand logos; drawn line-art figures stand in until real photography exists.
 - **Don't** use emoji or glyph characters as icons; every icon is an inline stroke SVG.
 - **Don't** introduce a second typeface; Readex Pro carries display, body and figures, and the platform monospace stack is reserved for code inside notices.
@@ -793,15 +819,15 @@ The single dark block. Sleep-black ground, sleep-ink text, dim links whose under
 
 - **Hover is a pointer's affordance.** Every interactive hover state (chips, tiles, category cards, buttons, pager, dots, the guess link, row arrows, cart controls) lives under `@media (hover: hover)`, so a tap on a touch screen never leaves a control in its hover look.
 - **Touch targets.** On coarse pointers the family, device and fit chips are 44px tall, the pager buttons and dots 44px squares (the dot's drawn pill stays 8 or 26px), and the guess link gains vertical padding.
-- **A phone on its side** (height ≤ 480px, landscape): the header collapses to one 60px row with the search inline, the promo slide takes the compact phone layout (text beside a 120px square well staging two figures, the pager beneath) and the hero padding tightens, so the thesis heading enters the first screen at 342px tall.
+- **A phone on its side** (height ≤ 480px, landscape): the header collapses to one 60px row with the search inline, the hero slide goes two columns, 1.2fr text to 1fr art, padded 20px 24px with no minimum height and a 180px art minimum, the title fixed at 1.75rem, and the hero padding tightens to 10px top and 32px bottom.
 - **A short desktop window** (≥ 1024px wide, ≤ 700px tall): the slide's minimum height drops to 300px.
 - **Safe areas.** The page wrapper pads by the larger of the gutter and the device's safe-area inset; home declares `viewport-fit=cover`.
-- **Images.** Promo photos on slides after the first load lazily; tile photos are lazy already.
+- **Images.** Hero photos on slides after the first, category circle photos and tile photos load lazily.
 
 ## Motion on home (recorded 2026-10-11)
 
-- **The answer charges.** When a device is chosen, a 34px mini battery appears before "Fits <device>" and fills from empty to the share of the store's accessories and power products that fit, in the glyph's own 0.8s house ease, while the four tiles rise with their 40ms stagger. Best sellers carry no battery. Each new device charges it again from empty. Under reduced motion the fill lands at once; the state stays.
-- **The first slide settles.** On arrival the first promo slide's figures fade and settle 6px into place, 0.5s each, 80ms apart, once; the other slides arrive by scrolling and do not animate. The settle rides the drawing or photo inside the figure box, never the box, so the staging transforms stay untouched.
+- **The answer charges.** When a family, device or model is picked, a 34px mini battery appears before "Fits <device>" and fills from empty to the share of the store's accessories and power products that fit, in the glyph's own 0.8s house ease, while the fitting tiles rise with their 40ms stagger and the rest dim over 0.25s without rising. Best sellers carry no battery. Each new pick charges it again from empty. Under reduced motion the fill lands at once; the state stays.
+- **The first slide settles.** On arrival the first hero slide's render fades and settles 6px into place over 0.5s, once, figures 80ms apart on a slide of drawings; the other slides arrive by scrolling and do not animate. The settle rides the drawing or photo inside the figure box, never the box, so the staging transforms stay untouched.
 - **Everything else is feedback at routine speed:** chips change border, fill and colour in 0.2s, the current dot recolours in 0.2s, the pager and the tap-scroll use smooth scrolling that falls back to instant under reduced motion.
 
 ## Admin (recorded 2026-10-11)

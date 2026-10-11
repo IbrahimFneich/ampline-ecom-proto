@@ -12,11 +12,11 @@
 </head>
 <body>
 <!--
-THESIS: Start from what you own. A retail hero: three live offers, the "What do you own?" bar, four tiles that swap from best sellers to what fits the device you tapped, and the three promises the pitch assumes; the watts answer stays on power products.
-OWN-WORLD: The Charging Lock Screen, unchanged: daylight ground, Readex Pro, one charging green, pills, hairline rows, white cards, drawn line art beside catalog photos in the same grey well; no watt chart in the hero.
-STORY: Read an offer and shop it, or name what you own: family, device, model when a case needs it; the four tiles rewrite to what fits and a link opens the full fitting list; the trust row promises delivery, warranty and payment; below, the category grid maps the store.
-FIRST VIEWPORT: Header, then the promo card with one slide and its pager, the picker bar with the family chips, and on desktop the first row of best-seller tiles. On the phone the slide, the chips and the top of the tiles; a device tap scrolls the tiles into view.
-FORM: A rebuilt surface inside the established world, shaped directly from the brief; no direction roll. Inherits The Charging Lock Screen, seed key cbeaa407.
+THESIS: Start from what you own, in the category canon's order: an announcement of the three promises, a hero panel that names one product and its price in live text, "Choose your device" right under it, the categories as a row of circles, and best sellers that re-sort to what fits the device you tapped, with the rest dimmed, never hidden. No watt chart, no mood: offer, device, answer.
+OWN-WORLD: The Charging Lock Screen, unchanged: daylight ground, white panels on hairlines, Readex Pro, one charging green for fit, progress and the saving, black pills for actions, drawn stroke icons, photos on a grey well multiplied flat, the amber SYNTHETIC tag on every price.
+STORY: Read the promise and the offer, name what you own (family, device, model when a case needs it), watch the best sellers re-sort with a Fits mark, shop a circle or a tile, trust the row, sleep in the footer.
+FIRST VIEWPORT: Announcement bar, header with centred search, the hero panel at 420px with headline and price left and the render right, the pager dots, then "Choose your device" with the seven family chips and the guess line; on desktop the category circles and the best sellers head enter the fold. On the phone: one slide with the text above the render, dots, chips under it.
+FORM: A rebuilt surface inside the established world, composed from looks/canon.html (the category canon) as the user pinned; no direction roll. Inherits The Charging Lock Screen, seed key cbeaa407.
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and the DESIGN.md update.
 -->
 
@@ -124,6 +124,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   </defs>
 </svg>
 
+<div class="ann" role="note"><span>Delivery across Lebanon in <b>1 to 3 days</b></span><i aria-hidden="true">·</i><span>1-year warranty</span><i aria-hidden="true">·</i><span>Card or cash on delivery</span></div>
 <header class="bar">
   <div class="wrap bar__in">
     <a class="brand" href="index.html">Ampline</a>
@@ -131,6 +132,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
       <a href="#devices">Devices</a>
       <a href="#accessories">Accessories</a>
       <a href="#power">Power</a>
+      <a href="shop/all.html?deal=1">Deals</a>
     </nav>
     <form class="bar__search" action="shop/all.html" method="get" role="search">
       <svg aria-hidden="true"><use href="#i-search"/></svg>
@@ -144,10 +146,10 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 </header>
 
 <main>
-  <section class="hero" id="own" aria-labelledby="h-own">
+  <section class="hero" id="own" aria-label="Featured, your device and the best sellers">
     <div class="wrap hero__in">
 
-      <div class="promo" id="promo" role="region" aria-roledescription="carousel" aria-label="Offers">
+      <div class="promo" id="promo" role="region" aria-roledescription="carousel" aria-label="Featured">
         <div class="promo__track" id="promo-track">
           <article class="promo__slide promo__slide--skel" aria-hidden="true"><div class="promo__text"><span></span><span></span><span></span></div><div class="promo__art"></div></article>
         </div>
@@ -158,28 +160,31 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
         </div>
       </div>
 
-      <div class="pickbar" id="pickbar">
-        <div class="pickbar__head">
-          <h1 id="h-own">What do you own?</h1>
-          <p class="guess" id="guess" hidden></p>
+      <section class="pick" id="pick" aria-labelledby="h-pick">
+        <div class="pick__row">
+          <h1 id="h-pick">Choose your device</h1>
+          <div class="chips families" id="families" role="group" aria-label="Choose your device"></div>
         </div>
-        <div class="chips families" id="families" role="group" aria-label="What do you own?"></div>
+        <p class="guess" id="guess" aria-live="polite">Pick what you own and the best sellers re-sort to what fits it.</p>
         <div class="devchips" id="devices-chips" role="group" aria-label="Which one?" hidden></div>
         <div class="devchips models" id="models-chips" role="group" aria-label="Which model?" hidden></div>
-      </div>
+      </section>
 
-      <div class="payoff" id="payoff" aria-labelledby="h-payoff">
+      <nav class="catrow" id="catrow" aria-label="Categories"></nav>
+
+      <section class="best" id="best" aria-labelledby="h-best">
         <div class="section__head">
-          <div><h2 id="h-payoff">Best sellers</h2><p class="section__sub" id="payoff-sub" aria-live="polite"></p></div>
-          <a class="section__link" id="payoff-link" href="shop/all.html">All products <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <div><h2 id="h-best">Best sellers</h2><p class="section__sub" id="best-sub" aria-live="polite"></p></div>
+          <a class="section__link" id="best-link" href="shop/all.html?sort=rating-desc">All products <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
-        <div class="tiles tiles--4" id="payoff-tiles">
+        <div class="tiles tiles--5" id="best-tiles">
+          <div class="tile tile--skel" aria-hidden="true"><span style="aspect-ratio:1"></span><span style="height:1.2em;width:70%"></span><span style="height:1em;width:40%"></span></div>
           <div class="tile tile--skel" aria-hidden="true"><span style="aspect-ratio:1"></span><span style="height:1.2em;width:70%"></span><span style="height:1em;width:40%"></span></div>
           <div class="tile tile--skel" aria-hidden="true"><span style="aspect-ratio:1"></span><span style="height:1.2em;width:70%"></span><span style="height:1em;width:40%"></span></div>
           <div class="tile tile--skel" aria-hidden="true"><span style="aspect-ratio:1"></span><span style="height:1.2em;width:70%"></span><span style="height:1em;width:40%"></span></div>
           <div class="tile tile--skel" aria-hidden="true"><span style="aspect-ratio:1"></span><span style="height:1.2em;width:70%"></span><span style="height:1em;width:40%"></span></div>
         </div>
-      </div>
+      </section>
 
       <ul class="trust" aria-label="Delivery, warranty and payment">
         <li class="trust__item"><span class="trust__icon"><svg aria-hidden="true"><use href="#i-truck"/></svg></span><b>Delivery across Lebanon in 1 to 3 days</b></li>
@@ -222,7 +227,8 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
       <div>
         <h2>This page</h2>
         <ul>
-          <li><a href="#own">What you own</a></li>
+          <li><a href="#pick">Choose your device</a></li>
+          <li><a href="#best">Best sellers</a></li>
           <li><a href="#devices">Devices</a></li>
           <li><a href="#accessories">Accessories</a></li>
           <li><a href="#power">Power</a></li>
