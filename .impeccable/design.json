@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-11T22:00:00+00:00",
+  "generatedAt": "2026-10-11T23:30:00+00:00",
   "title": "Design System: Ampline",
   "extensions": {
     "colorMeta": {
@@ -288,7 +288,7 @@
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Promo slide headlines (h2), balanced wrap; clamp 1.75rem to 2.75rem, clamp(2rem, 1.3rem + 2.6vw, 2.75rem) from 1024px; may take two lines at any width."
+        "purpose": "Promo slide headlines (h2), balanced wrap; one clamp(1.75rem, 1.2rem + 2.4vw, 2.75rem) at every width; two lines on desktop, up to three at phone width."
       },
       "headline": {
         "displayName": "Headline",
@@ -296,7 +296,7 @@
       },
       "title": {
         "displayName": "Title",
-        "purpose": "Prices, cart heading, wordmark, the home h1 \"What do you own?\" at 700 in the picker bar, the promo offer line from 1024px at 400, filter sheet heading, empty-state title, desktop results count, home \"Featured in\" subheads."
+        "purpose": "Prices, cart heading, wordmark, the promo offer line from 1024px at 400, filter sheet heading, empty-state title, desktop results count, home \"Featured in\" subheads."
       },
       "body": {
         "displayName": "Body",
@@ -321,6 +321,10 @@
       "price-big": {
         "displayName": "Big Price",
         "purpose": "Product page price, with a 1.25rem muted strike-through."
+      },
+      "picker-title": {
+        "displayName": "Picker Title",
+        "purpose": "The home h1 \"What do you own?\" in the picker bar: 700, clamp(1.75rem, 1.2rem + 1.6vw, 2.75rem), line-height 1.1. 28px on phones (the slide headline's size), 42px at 1440, under the 44px slide headline and above the 36px section headings."
       }
     },
     "shadows": [
@@ -328,11 +332,6 @@
         "name": "floating-layer",
         "value": "0 12px 32px -12px rgba(11,13,16,0.18), 0 2px 6px -2px rgba(11,13,16,0.08)",
         "purpose": "Cart drawer, the phone filter sheet and the row scroll buttons over a row edge; dropped when the filter sheet settles into the desktop rail."
-      },
-      {
-        "name": "suggested-ring",
-        "value": "inset 0 0 0 1px #17b867",
-        "purpose": "Second pixel of the suggested chip's green ring."
       },
       {
         "name": "scrim",
@@ -399,7 +398,7 @@
       {
         "name": "payoff-into-view",
         "value": "window.scrollTo smooth to the element top under the header, 12px clear (auto under reduced motion)",
-        "purpose": "Phones below 1024px: after a device tap on home, the payoff tiles, or the open model question, scroll under the header."
+        "purpose": "After a device tap on home, at every width: from 1024px the picker bar under the header (chips above the tiles, no bounce between bucket and model taps); below 1024px the open model question, else the payoff tiles. A family-only guess tap brings the device row into view."
       }
     ],
     "breakpoints": [
@@ -426,9 +425,9 @@
       "name": "Device Chip",
       "kind": "chip",
       "refersTo": "chip-device",
-      "description": "Device picker pill with a status dot; pressed inverts to ink, suggested gets a green ring. On home up to three rows inside the picker bar, families on one row from 1024px, the browser guess ringed (never pressed) and named in a line whose device name is a green-underlined button: families, the family's buckets, then for a bucket that holds models a \"Which model? Cases and folios fit one model only.\" row with the models and \"Mine isn't listed\"; nothing is pressed until tapped, a model re-tap steps back to its bucket and a bucket re-tap clears; elsewhere grouped by family under a muted label. On the product page the same chip is the variant picker: radio groups for Plug region, Colour, Storage and Pack under weight 600 legends, preselected on the option the SKU already is, with one muted note that options share one price.",
+      "description": "Device picker pill with a status dot; pressed inverts to ink, suggested takes a hairline ink border only (no inset, no green dot). On home up to three rows inside the picker bar, the family row wrapping at 1024px and below, the browser guess bordered (never pressed) and named in a line that names only what the user agent can tell (\"a Mac\", \"an iPhone\", \"an Android phone\", \"a Windows laptop\") as a green-underlined button; a family-only guess tap opens the device row in view with \"Tap it to pick which one.\", and the line hides once a family is picked. Rows: families, the family's buckets, then for a bucket that holds models a \"Which model? Cases and folios fit one model only.\" row with the models and \"Mine isn't listed\"; nothing is pressed until tapped, a model re-tap steps back to its bucket and a bucket re-tap clears; elsewhere grouped by family under a muted label. On the product page the same chip is the variant picker: radio groups for Plug region, Colour, Storage and Pack under weight 600 legends, preselected on the option the SKU already is, with one muted note that options share one price.",
       "html": "<div style=\"display:flex;gap:8px;flex-wrap:wrap\"><button class=\"ds-chip\">iPhone 15</button><button class=\"ds-chip\" aria-pressed=\"true\">MacBook Air</button><button class=\"ds-chip ds-chip--sug\">Pixel 8</button></div>",
-      "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-chip{display:inline-flex;align-items:center;gap:9px;height:40px;padding:0 15px 0 13px;border-radius:999px;border:1px solid var(--line);background:var(--screen);font:500 1rem inherit;font-family:inherit;color:var(--ink);cursor:pointer;transition:border-color .2s,background .25s var(--ease)}.ds-chip::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--track)}.ds-chip:hover{border-color:var(--ink)}.ds-chip:focus-visible{outline:3px solid var(--green);outline-offset:3px}.ds-chip[aria-pressed=true]{background:var(--ink);color:var(--ground);border-color:var(--ink)}.ds-chip[aria-pressed=true]::before,.ds-chip--sug::before{background:var(--green)}.ds-chip--sug{border-color:var(--green);box-shadow:inset 0 0 0 1px var(--green)}"
+      "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-chip{display:inline-flex;align-items:center;gap:9px;height:40px;padding:0 15px 0 13px;border-radius:999px;border:1px solid var(--line);background:var(--screen);font:500 1rem inherit;font-family:inherit;color:var(--ink);cursor:pointer;transition:border-color .2s,background .25s var(--ease)}.ds-chip::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--track)}.ds-chip:hover{border-color:var(--ink)}.ds-chip:focus-visible{outline:3px solid var(--green);outline-offset:3px}.ds-chip[aria-pressed=true]{background:var(--ink);color:var(--ground);border-color:var(--ink)}.ds-chip[aria-pressed=true]::before,.ds-chip--sug{border-color:var(--ink)}"
     },
     {
       "name": "Tags and labels",
@@ -546,7 +545,7 @@
       "name": "Promo Card",
       "kind": "custom",
       "refersTo": "promo-card",
-      "description": "18px white hairline card with a scroll-snap track of three slides, one in view at every width; no autoplay, off-screen slides inert, ArrowLeft/ArrowRight while focus is inside. Each slide: a display h2, a live muted offer line with ink figures in whole dollars and the amber SYNTHETIC tag, an ink pill to its listing. The art side is the daylight-ground well (right column from 720px, 380px min height from 1024px; a 2.1:1 well under the text on phones): photo slides stage one lead figure (70% desktop, 66% phones, bottom-left) with two stepped figures, photos contained and multiplied; drawing slides keep three equal figures in a row (40% / 46%) so the stroke stays one weight. Pager: 36px round hairline prev/next (aria-disabled at 0.4 at the ends) and dots, the current one a 26px green pill, the rest 8px off-grey in 24px targets; bottom-left under the text from 720px, centred on the well's bottom edge on phones.",
+      "description": "18px white hairline card with a scroll-snap track of three slides, one in view at every width; no autoplay, off-screen slides inert, ArrowLeft/ArrowRight while focus is inside. Each slide: a display h2, a live muted offer line with ink figures in whole dollars and the amber SYNTHETIC tag, an ink pill to its listing. Each offer's final figure, full stop and SYNTHETIC tag sit in one no-break span. The art side is the daylight-ground well. From 720px it is the right column (340px min height, 380px from 1024px): photo slides stage one lead figure (70% of the well's height, bottom-left) with two stepped figures, photos contained and multiplied; drawing slides keep three equal figures in a row at 40% so the stroke stays one weight. Below 720px the slide is compact, about 320px tall: the text beside a 120px well at 12px rounding (12px gap, 16px end padding) as tall as the text block, holding the lead figure at 82% of the well's width with the second at 54% overlapping its lower right, centred as a pair, the third hidden; the pager beneath. Slide 1's art is the GaN 100W charger, the 3-in-1 cable and the MagSafe power bank. Pager: 36px round hairline prev/next (aria-disabled at 0.4 at the ends) and dots, the current one a 26px green pill that keeps its green on hover, the rest 8px off-grey in 24px targets going ink on hover; bottom-left under the text from 720px, beneath the compact slide on phones.",
       "html": "<div class=\"ds-promo\"><div class=\"ds-promo__t\"><h2>Charge everything you own.</h2><p>Ampline GaN chargers, cables and power banks, from <b>$12.99</b>. <span class=\"ds-syn\">Synthetic</span></p><a class=\"ds-btn\" href=\"#\">Shop the range</a><div class=\"ds-pager\"><button aria-label=\"Previous slide\" aria-disabled=\"true\"><svg style=\"transform:rotate(180deg)\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m9 6 6 6-6 6\"/></svg></button><span class=\"ds-dot is-on\"></span><span class=\"ds-dot\"></span><span class=\"ds-dot\"></span><button aria-label=\"Next slide\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m9 6 6 6-6 6\"/></svg></button></div></div><div class=\"ds-promo__art\"></div></div>",
       "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)}.ds-promo{display:grid;grid-template-columns:1.05fr 1fr;min-height:300px;background:var(--screen);border:1px solid var(--line);border-radius:18px;overflow:hidden}.ds-promo__t{display:grid;gap:10px;align-content:center;justify-items:start;padding:28px 32px}.ds-promo h2{margin:0;font:700 2.25rem/1.05 \"Readex Pro\",system-ui,sans-serif;letter-spacing:-.02em;text-wrap:balance}.ds-promo p{margin:0;color:var(--ink-2);font-size:1.25rem}.ds-promo p b{color:var(--ink);font-weight:600}.ds-syn{display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;padding:1px 7px;border-radius:999px;color:var(--amber-ink);background:var(--amber-soft)}.ds-btn{background:var(--ink);color:var(--ground);border-radius:999px;height:44px;padding:0 18px;display:inline-flex;align-items:center;font-weight:600;text-decoration:none}.ds-pager{display:flex;align-items:center;gap:10px;margin-top:16px}.ds-pager button{display:grid;place-items:center;padding:0;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--screen);color:var(--ink)}.ds-pager button[aria-disabled=true]{opacity:.4}.ds-dot{width:8px;height:8px;border-radius:999px;background:var(--off)}.ds-dot.is-on{width:26px;background:var(--green)}.ds-promo__art{background:var(--ground)}"
     },
@@ -592,7 +591,7 @@
       },
       {
         "name": "The Five Steps Rule",
-        "body": "Text sizes are 0.8, 0.875, 1, 1.25 and 1.75rem, with the tile figure stepping to 1.5rem below 720px. Larger fixed sizes are only the fluid ramps' own tops, 2.25rem and 2.75rem, used for page titles and figures. Only the display, headline and product title sizes are fluid.",
+        "body": "Text sizes are 0.8, 0.875, 1, 1.25 and 1.75rem, with the tile figure stepping to 1.5rem below 720px. Larger fixed sizes are only the fluid ramps' own tops, 2.25rem and 2.75rem, used for page titles and figures. Only the display, headline, product title and picker title sizes are fluid.",
         "section": "typography"
       },
       {

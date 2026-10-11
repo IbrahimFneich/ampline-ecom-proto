@@ -12,7 +12,16 @@
     { id: 'accessories', name: 'Accessories', line: 'Cables, hubs, car and cases that fit what you own.' },
     { id: 'power', name: 'Power', line: 'Chargers, power banks and wireless stands, each with the watts one port can give.' }
   ];
-  var FIT_ORDER = ['cases-and-mounts', 'cables', 'hubs', 'car', 'chargers', 'power-banks', 'wireless'];
+  // What a shopper with this device comes for, first: a phone owner a charger, a laptop owner a charger then a hub.
+  var FIT_ORDERS = {
+    iphone: ['chargers', 'cables', 'power-banks', 'cases-and-mounts', 'wireless', 'car', 'hubs'],
+    android: ['chargers', 'cables', 'power-banks', 'cases-and-mounts', 'wireless', 'car', 'hubs'],
+    ipad: ['chargers', 'cables', 'hubs', 'cases-and-mounts', 'power-banks', 'wireless', 'car'],
+    mac: ['chargers', 'hubs', 'cables', 'power-banks', 'cases-and-mounts', 'car', 'wireless'],
+    'windows-laptop': ['chargers', 'hubs', 'cables', 'power-banks', 'cases-and-mounts', 'car', 'wireless'],
+    'switch-steam-deck': ['chargers', 'power-banks', 'cables', 'hubs', 'car', 'wireless', 'cases-and-mounts'],
+    'watch-earbuds': ['wireless', 'chargers', 'cables', 'power-banks', 'car', 'hubs', 'cases-and-mounts']
+  };
   var state = { device: null, family: null, suggested: null, suggestedFamily: null, modelAnswered: false };
 
   function products() { return A.state.products; }
@@ -58,12 +67,21 @@
   function fitList() {
     var d = device();
     if (!d) return null;
+    var order = FIT_ORDERS[d.family] || FIT_ORDERS.iphone;
+    var direct = function (p) { return (p.compat || []).indexOf(d.id) >= 0 ? 0 : 1; }; // a product made for this exact model leads its category
     return products().filter(function (p) { return A.fits(p, d); }).sort(function (a, b) {
-      var ia = FIT_ORDER.indexOf(a.category), ib = FIT_ORDER.indexOf(b.category);
-      return byStock(a, b) || ia - ib || b.rating.count - a.rating.count;
+      var ia = order.indexOf(a.category), ib = order.indexOf(b.category);
+      return byStock(a, b) || ia - ib || direct(a) - direct(b) || b.rating.count - a.rating.count;
     });
   }
-  function payoffList() { return fitList() || bestSellers(); }
+  // The four tiles: the top product of each category in turn, so a phone sees a charger, a cable, a power bank and a case.
+  function fitFour(list) {
+    var seen = {}, out = [];
+    list.forEach(function (p) { if (!seen[p.category] && out.length < 4) { seen[p.category] = true; out.push(p); } });
+    list.forEach(function (p) { if (out.length < 4 && out.indexOf(p) < 0) out.push(p); });
+    return out;
+  }
+  function payoffList() { var list = fitList(); return list ? fitFour(list) : bestSellers(); }
 
   /* ---------- Promo: three offers computed from the catalog ---------- */
 
@@ -80,11 +98,11 @@
     var pick = function (list, ids) { return ids.map(function (id) { return list.find(function (p) { return p.id === id; }); }).filter(Boolean); };
     var dealOff = deals.length ? Math.max.apply(null, deals.map(function (p) { return p.compare_at - p.price; })) : 0;
     return [
-      { title: 'Charge everything you own.', offer: 'Ampline GaN chargers, cables and power banks, from <b>' + min(own) + '</b>.' + syn,
-        href: 'shop/all.html?brand=ampline', cta: 'Shop the range', art: pick(own, ['AMP-GAN-100D', 'AMP-WL-3IN1', 'AMP-NANO-20']) },
-      { title: 'Phones, unlocked.', offer: 'iPhone, Galaxy and Pixel, from <b>' + min(phones) + '</b>.' + syn,
+      { title: 'Charge everything you own.', offer: 'Ampline GaN chargers, cables and power banks, from <span class="nb"><b>' + min(own) + '</b>.' + syn + '</span>',
+        href: 'shop/all.html?brand=ampline', cta: 'Shop the range', art: pick(own, ['AMP-GAN-100D', 'AMP-CBL-3IN1', 'AMP-PB-MAG10']) },
+      { title: 'Phones, unlocked.', offer: 'iPhone, Galaxy and Pixel, from <span class="nb"><b>' + min(phones) + '</b>.' + syn + '</span>',
         href: 'shop/phones.html', cta: 'Shop phones', art: pick(phones, ['APL-IP16-128', 'SAM-S25-256', 'GOO-PIX9-128']) },
-      { title: 'On deal now.', offer: '<b>' + deals.length + ' products</b> below their list price, up to <b>' + dollars(dealOff) + '\u00a0off</b>.' + syn,
+      { title: 'On deal now.', offer: '<b>' + deals.length + ' products</b> below their list price, up to <span class="nb"><b>' + dollars(dealOff) + '\u00a0off</b>.' + syn + '</span>',
         href: 'shop/all.html?deal=1', cta: 'Shop the deals', art: deals.filter(function (p) { return (p.images || [])[0]; }).slice(0, 3) }
     ];
   }
@@ -167,10 +185,13 @@
       box.innerHTML = tiles(bestSellers());
       return;
     }
-    sub.textContent = n + (n === 1 ? ' product' : ' products') + ' the catalog lists for it' + (!d.parent && models.length ? '; name the model above for cases' : '') + '.';
+    var four = fitFour(list), padded = four.length < 4;
+    if (padded) hot(products().filter(function (p) { return group(p) !== 'Devices'; }), 12).forEach(function (p) { if (four.length < 4 && four.indexOf(p) < 0) four.push(p); }); // accessory and power best sellers only
+    sub.textContent = n + (n === 1 ? ' product' : ' products') + ' the catalog lists for it' + (!d.parent && models.length ? '; name the model above for cases' : '') +
+      (padded ? (n === 1 ? '; the other three are best sellers.' : '; the rest are best sellers.') : '.');
     link.href = 'shop/all.html?device=' + d.id;
     link.innerHTML = 'See all that fits <svg aria-hidden="true"><use href="#i-arrow"/></svg>';
-    box.innerHTML = tiles(list.slice(0, 4));
+    box.innerHTML = tiles(four);
   }
 
   /* ---------- Groups: category grid and one featured row each ---------- */
@@ -229,18 +250,20 @@
     if (d && d.parent) state.modelAnswered = true;
     state.device = d ? d.id : null;
     if (d) state.family = d.family;
-    $('#guess').hidden = !state.suggested || !!state.device;
+    $('#guess').hidden = !state.suggested || !!state.device || !!state.family;
     if (!opts.silent) history.replaceState(null, '', state.device ? '#device=' + state.device : location.pathname + location.search);
     render();
-    // On a phone the tiles sit below the bar: a tap brings them into view, or the model question when it is open.
-    if (d && !opts.silent && window.matchMedia('(max-width: 1023px)').matches) {
-      scrollTo(!d.parent && modelsOf(d).length && !state.modelAnswered ? $('#models-chips') : $('#payoff'));
+    // A tap brings the answer into view at every width: the model question when it is open, else the tiles
+    // (on desktop the bar scrolls under the header so the chips stay in reach above the tiles).
+    if (d && !opts.silent) {
+      var wide = window.matchMedia('(min-width: 1024px)').matches;
+      scrollTo(wide ? $('#pickbar') : !d.parent && modelsOf(d).length && !state.modelAnswered ? $('#models-chips') : $('#payoff'));
     }
   }
   function setFamily(id) {
     state.family = state.family === id ? null : id;
     if (state.device && A.deviceById(state.device).family !== state.family) { state.device = null; state.modelAnswered = false; history.replaceState(null, '', location.pathname + location.search); }
-    $('#guess').hidden = !state.suggested || !!state.device;
+    $('#guess').hidden = !state.suggested || !!state.device || !!state.family;
     render();
   }
   function deviceFromHash() {
@@ -250,10 +273,10 @@
   // The browser hints at a family and sometimes a device; an iPhone's model is not in the UA.
   function guess() {
     var ua = navigator.userAgent;
-    if (/Android/.test(ua)) return { family: 'android', device: 'android-phone' };
-    if (/iPad/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1)) return { family: 'ipad', device: 'ipad' };
+    if (/Android/.test(ua)) return { family: 'android', device: 'android-phone' }; // the catch-all bucket is all the UA can tell
+    if (/iPad/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1)) return { family: 'ipad', device: null };
     if (/iPhone/.test(ua)) return { family: 'iphone', device: null };
-    if (/Macintosh/.test(ua)) return { family: 'mac', device: 'macbook-air' };
+    if (/Macintosh/.test(ua)) return { family: 'mac', device: null }; // a Mac, not a model
     if (/Windows|Linux|CrOS/.test(ua)) return { family: 'windows-laptop', device: 'windows-laptop' };
     return { family: null, device: null };
   }
@@ -262,7 +285,14 @@
 
   document.addEventListener('click', function (e) {
     var fam = e.target.closest('[data-family]');
-    if (fam) { setFamily(fam.dataset.family); return; }
+    if (fam) {
+      if (fam.classList.contains('guess__pick')) { // the guess tap opens the device row in view and never toggles it closed
+        if (state.family !== fam.dataset.family) setFamily(fam.dataset.family);
+        scrollTo(window.matchMedia('(min-width: 1024px)').matches ? $('#pickbar') : $('#devices-chips'));
+        return;
+      }
+      setFamily(fam.dataset.family); return;
+    }
     var chip = e.target.closest('[data-device]');
     if (chip) {
       var target = A.deviceById(chip.dataset.device), current = device();
@@ -300,7 +330,7 @@
       var gname = gd ? gd.name.replace(/^Other /, '') : gf ? gf.name : null;
       if (gname) {
         $('#guess').innerHTML = 'Your browser looks like <button type="button" class="guess__pick" ' + (gd ? 'data-device="' + gd.id + '"' : 'data-family="' + g.family + '"') + '>' +
-          (/^[aeiou]/i.test(gname) ? 'an ' : 'a ') + esc(gname) + '</button>. Tap it, or pick another.';
+          (/^[aeiou]/i.test(gname) ? 'an ' : 'a ') + esc(gname) + '</button>. ' + (gd ? 'Tap it, or pick another.' : 'Tap it to pick which one.');
         state.suggested = state.suggested || g.family; // keeps the guess line visible until a device is chosen
       }
       setDevice(deviceFromHash(), { silent: true });

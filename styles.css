@@ -345,8 +345,7 @@ svg { display: block; }
 .chip:hover { border-color: var(--ink); }
 .chip[aria-pressed="true"] { background: var(--ink); color: var(--ground); border-color: var(--ink); }
 .chip[aria-pressed="true"]::before { background: var(--green); }
-.chip.is-suggested { border-color: var(--green); box-shadow: inset 0 0 0 1px var(--green); }
-.chip.is-suggested::before { background: var(--green); }
+.chip.is-suggested { border-color: var(--ink); border-style: dashed; } /* a suggestion is a dashed hairline ring, unlike a hovered chip's solid one; green means pressed or fit */
 
 .models { margin-top: 10px; display: grid; gap: 6px; }
 .guess { margin-top: 10px; font-size: 0.875rem; color: var(--ink-2); }
@@ -749,7 +748,7 @@ input:checked + .chip::before { background: var(--green); }
 }
 
 .shop .tile { animation-duration: 0.25s; animation-delay: 0s; }
-.tile--skel { border-color: transparent; }
+.tile--skel { border-color: transparent; min-height: 540px; } /* the height a real tile takes on a phone, so the catalog's arrival does not shift the page */
 .tile--skel > span { display: block; border-radius: var(--r-s); background: var(--track); animation: pulse 1.2s ease-in-out infinite; }
 @keyframes pulse { 50% { opacity: 0.5; } }
 
@@ -1056,32 +1055,33 @@ a.cat .cat__count { color: var(--ink); }
 .promo { position: relative; background: var(--screen); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
 .promo__track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
 .promo__track::-webkit-scrollbar { display: none; }
-.promo__slide { flex: 0 0 100%; min-width: 0; scroll-snap-align: start; display: grid; grid-template-rows: auto auto; }
-.promo__art { position: relative; aspect-ratio: 2.1 / 1; background: var(--ground); color: var(--ink); }
+.promo__slide { flex: 0 0 100%; min-width: 0; scroll-snap-align: start; display: grid; grid-template-columns: minmax(0, 1fr) 120px; column-gap: 12px; align-items: stretch; padding: 18px 16px 48px 0; }
+/* Phones: the text beside one lead figure in a square well, so the card stays short and the picker enters the fold. */
+.promo__art { position: relative; width: 120px; min-height: 120px; border-radius: var(--r-s); background: var(--ground); color: var(--ink); }
 .promo__fig { position: absolute; aspect-ratio: 1; }
-/* On phones the pager rides the well's bottom edge, so every figure keeps clear of the lowest 28%. */
-.promo__fig:nth-child(1) { height: 66%; left: 7%; bottom: 28%; z-index: 2; }
-.promo__fig:nth-child(2) { height: 46%; right: 29%; top: 5%; }
-.promo__fig:nth-child(3) { height: 40%; right: 7%; bottom: 28%; }
-/* A slide of drawings keeps one stroke: three equal figures in a row, since a scaled drawing scales its line. */
-.promo__slide:not(:has(img)) .promo__fig { height: 46%; top: 36%; bottom: auto; transform: translateY(-50%); }
-.promo__slide:not(:has(img)) .promo__fig:nth-child(1) { left: 8%; }
-.promo__slide:not(:has(img)) .promo__fig:nth-child(2) { left: 39%; right: auto; }
-.promo__slide:not(:has(img)) .promo__fig:nth-child(3) { left: 70%; right: auto; }
+/* Staged like the desktop art: the lead figure with the second overlapping its lower right, centred as a pair. */
+.promo__fig:nth-child(1) { width: 82%; left: 4%; top: 50%; transform: translateY(-72%); z-index: 2; }
+.promo__fig:nth-child(2) { width: 54%; right: 4%; top: 50%; transform: translateY(2%); }
+.promo__fig:nth-child(3) { display: none; }
+/* A slide of drawings keeps one stroke on phones too: three equal figures stacked down the well, all three products its copy names. */
+.promo__slide:not(:has(img)) .promo__fig { width: 58%; transform: none; top: auto; }
+.promo__slide:not(:has(img)) .promo__fig:nth-child(1) { left: 6%; top: 5%; }
+.promo__slide:not(:has(img)) .promo__fig:nth-child(2) { right: 6%; top: 36%; }
+.promo__slide:not(:has(img)) .promo__fig:nth-child(3) { display: block; left: 6%; bottom: 5%; }
 .promo__fig svg { width: 100%; height: 100%; }
 .promo__fig img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
 .promo__fig:has(img) > svg { visibility: hidden; }
-.promo__text { display: grid; gap: 10px; justify-items: start; padding: 18px 18px 20px; }
+.promo__text { display: grid; gap: 10px; justify-items: start; align-content: center; padding: 0 0 0 18px; }
 .promo__title { font-size: clamp(1.75rem, 1.2rem + 2.4vw, 2.75rem); line-height: 1.05; letter-spacing: -0.02em; text-wrap: balance; }
 .promo__offer { color: var(--ink-2); font-size: 1rem; max-width: 40ch; }
 .promo__offer b { color: var(--ink); font-weight: 600; }
 .promo__text .btn { margin-top: 6px; }
 /* Before the catalog arrives the card holds its shape: one skeleton slide with the same text block and art well. */
 .promo__slide--skel .promo__text > span { display: block; border-radius: var(--r-s); background: var(--track); animation: pulse 1.2s ease-in-out infinite; }
-.promo__slide--skel .promo__text > span:nth-child(1) { width: 70%; height: 2.2em; }
-.promo__slide--skel .promo__text > span:nth-child(2) { width: 90%; height: 1.2em; }
+.promo__slide--skel .promo__text > span:nth-child(1) { width: 85%; height: 5.5rem; } /* a three-line headline at phone width */
+.promo__slide--skel .promo__text > span:nth-child(2) { width: 95%; height: 6.5rem; } /* a three-line offer plus its tag at phone width */
 .promo__slide--skel .promo__text > span:nth-child(3) { width: 140px; height: 44px; border-radius: var(--pill); margin-top: 6px; }
-.promo__pager { position: absolute; left: 0; right: 0; bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 0 12px; z-index: 3; }
+.promo__pager { position: absolute; left: 0; right: 0; bottom: 8px; display: flex; align-items: center; justify-content: flex-start; gap: 10px; padding: 0 18px; z-index: 3; }
 .promo__btn { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: var(--screen); color: var(--ink); display: grid; place-items: center; cursor: pointer; transition: border-color 0.15s; }
 .promo__btn svg { width: 16px; height: 16px; }
 .promo__btn:first-child svg { transform: rotate(180deg); }
@@ -1093,10 +1093,16 @@ a.cat .cat__count { color: var(--ink); }
 .promo__dot[aria-current="true"] { width: auto; padding-inline: 2px; }
 .promo__dot[aria-current="true"]::before { width: 26px; background: var(--green); } /* the current slide is the one filled pill, as a charging bar */
 .promo__dot:hover::before { background: var(--ink); }
+.promo__dot[aria-current="true"]:hover::before { background: var(--green); }
 
+/* Before the catalog arrives the bar and the payoff head reserve their lines, so the page does not jump when they fill. */
+.pickbar .families:empty { min-height: 178px; } /* four chip rows at phone width */
+@media (max-width: 719px) { .pickbar__head { min-height: 5.4rem; } }
+#payoff-sub { min-height: 3em; }
+.payoff .section__head > .section__link { flex-basis: 100%; } /* the link takes its own row on phones, before and after the catalog */
 .pickbar { display: grid; gap: 10px; padding: 14px 18px 16px; background: var(--screen); border: 1px solid var(--line); border-radius: var(--r); }
 .pickbar__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; }
-.pickbar h1 { font-size: 1.25rem; font-weight: 700; }
+.pickbar h1 { font-size: clamp(1.75rem, 1.2rem + 1.6vw, 2.75rem); font-weight: 700; line-height: 1.1; }
 .pickbar .guess { margin-top: 0; }
 .guess__pick { font: inherit; font-weight: 600; color: var(--ink); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--green); }
 .guess__pick:hover { text-decoration-thickness: 2px; }
@@ -1114,29 +1120,36 @@ a.cat .cat__count { color: var(--ink); }
 
 @media (min-width: 720px) {
   .tiles--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pickbar .families:empty { min-height: 86px; }
+  #payoff-sub { min-height: 1.5em; }
+  .payoff .section__head > .section__link { flex-basis: auto; }
+  .promo__slide--skel .promo__text > span:nth-child(1) { height: 3.75rem; }
+  .promo__slide--skel .promo__text > span:nth-child(2) { height: 3rem; }
   .tiles--4 .tile__short { display: block; }
   .trust { grid-template-columns: repeat(3, 1fr); }
-  .promo__slide { grid-template-columns: 1fr 1fr; grid-template-rows: none; min-height: 340px; }
-  .promo__art { order: 2; aspect-ratio: auto; }
-  .promo__fig:nth-child(1) { height: 70%; left: 5%; bottom: 10%; }
-  .promo__fig:nth-child(2) { height: 44%; right: 6%; top: 7%; }
-  .promo__fig:nth-child(3) { height: 40%; right: 24%; bottom: 7%; }
-  .promo__slide:not(:has(img)) .promo__fig { height: 40%; top: 50%; }
+  .promo__slide { grid-template-columns: 1fr 1fr; column-gap: 0; min-height: 340px; padding: 0; align-items: stretch; }
+  .promo__art { width: auto; min-height: 0; border-radius: 0; }
+  .promo__fig:nth-child(1) { width: auto; height: 70%; left: 5%; top: auto; bottom: 10%; transform: none; }
+  .promo__fig:nth-child(2) { display: block; width: auto; height: 44%; right: 6%; top: 7%; bottom: auto; transform: none; }
+  .promo__fig:nth-child(3) { display: block; height: 40%; right: 24%; bottom: 7%; }
+  /* A slide of drawings keeps one stroke: three equal figures in a row, since a scaled drawing scales its line. */
+  .promo__slide:not(:has(img)) .promo__fig { width: auto; height: 40%; top: 50%; bottom: auto; transform: translateY(-50%); }
   .promo__slide:not(:has(img)) .promo__fig:nth-child(1) { left: 6%; }
-  .promo__slide:not(:has(img)) .promo__fig:nth-child(2) { left: 36%; }
-  .promo__slide:not(:has(img)) .promo__fig:nth-child(3) { left: 66%; }
+  .promo__slide:not(:has(img)) .promo__fig:nth-child(2) { left: 36%; right: auto; }
+  .promo__slide:not(:has(img)) .promo__fig:nth-child(3) { left: 66%; right: auto; }
   .promo__text { align-content: center; padding: 28px 32px 64px; }
-  .promo__pager { right: auto; width: 50%; bottom: 18px; justify-content: flex-start; padding-inline: 32px; }
+  .promo__pager { right: auto; width: 50%; bottom: 18px; padding-inline: 32px; }
 }
 @media (min-width: 1024px) {
   .hero { padding-block: 24px 56px; }
   .hero__in { gap: 24px; }
   .tiles--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+  .tile--skel { min-height: 600px; }
   .promo__slide { min-height: 380px; grid-template-columns: 1.05fr 1fr; }
   .promo__offer { font-size: 1.25rem; }
   .pickbar { padding: 16px 22px 18px; gap: 10px; }
+  .pickbar .families:empty { min-height: 44px; }
   .pickbar__head { gap: 4px 16px; }
-  .pickbar .families { flex-wrap: nowrap; }
 }
 
 @media (prefers-reduced-motion: reduce) {
