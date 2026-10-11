@@ -12,10 +12,10 @@
 </head>
 <body class="shop-page" data-category="laptops" data-base="../">
 <!--
-THESIS: A listing the shopper narrows in two taps: which device it fits first where fit applies, then the facets the catalog names for this category, with the count always in view.
+THESIS: A listing that leads with what you own: families, then the device, as on home, above the grid; the category's own facets follow in the rail, and the count stays in view.
 OWN-WORLD: The established Charging Lock Screen system, unchanged: daylight ground, Readex Pro, one charging green, pills for controls, hairline rows, the same product tile as home.
 STORY: Arrive from the home grid or the search field, see the count, tighten by the category's own facets, read the result, add one to the cart; an empty list names the filter or the search to drop.
-FIRST VIEWPORT: Breadcrumb, title and blurb, then the count with a Filters button and sort on the phone; from 1024px the filter rail sits left and the grid right.
+FIRST VIEWPORT: Breadcrumb, title and blurb, then the "What do you own?" strip (family chips, then that family's devices with would-be counts) where fit applies, then the count with a Filters button and sort on the phone; from 1024px the facet rail sits left, sticky, and the grid right.
 FORM: A surface inside the established world, one scaffold for every category and the all-products listing, every filter group read from the catalog's facets by shop.js. Inherits The Charging Lock Screen, seed key cbeaa407 (index.html).
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review and the verdict.
 -->
@@ -152,8 +152,14 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
       <span aria-current="page" id="crumb-name">Laptops</span>
     </nav>
     <h1 id="page-title">Laptops</h1>
-    <p class="shop__blurb" id="blurb">MacBook, ThinkPad, IdeaPad and Galaxy Book. Prices and ratings are synthetic placeholders.</p>
+    <p class="shop__blurb" id="blurb">MacBook, ThinkPad, IdeaPad and Galaxy Book.</p>
   </div>
+  <section class="own" id="own" aria-labelledby="own-q" hidden>
+    <h2 class="own__q" id="own-q">What do you own?</h2>
+    <div class="chips families" id="families" role="group" aria-label="What do you own?"></div>
+    <div class="devchips" id="devices-chips" role="group" aria-label="Which one?" hidden></div>
+    <div class="devchips models" id="models-chips" role="group" aria-label="Which model?" hidden></div>
+  </section>
 
   <div class="shop__body">
     <dialog class="sheet" id="sheet" aria-labelledby="sheet-title">
@@ -172,14 +178,14 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 
     <section class="results" aria-label="Results">
       <div class="toolbar">
-        <p class="count" id="count" aria-live="polite">Loading…</p>
+        <p class="count" id="count" aria-live="polite"><span class="mini count__mini" aria-hidden="true"><i style="--pct:0"></i></span><span>Loading…</span></p>
         <div class="toolbar__tools">
           <button type="button" class="btn btn--ghost filters-btn" id="open-filters">
             <svg aria-hidden="true"><use href="#i-filter"/></svg>Filters <span class="filters-n" id="filters-n" hidden>0</span>
           </button>
           <label class="select">
             <span class="vh">Sort by</span>
-            <select id="sort"></select>
+            <select id="sort"><option value="featured">Featured</option><option value="price-asc">Price: low to high</option><option value="price-desc">Price: high to low</option><option value="rating-desc">Rating: high to low</option></select>
             <svg aria-hidden="true"><use href="#i-chevron"/></svg>
           </label>
         </div>

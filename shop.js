@@ -9,7 +9,8 @@
   var CAT = document.body.dataset.category, BASE = document.body.dataset.base || '';
   var SORT_ALL = [['featured', 'Featured'], ['price-asc', 'Price: low to high'], ['price-desc', 'Price: high to low'], ['rating-desc', 'Rating: high to low']];
   var SORT_POWER = [['watts-desc', 'Max output: high to low']];
-  var state = { pool: [], category: null, defs: [], fitsGroup: false, f: { device: null, q: '', deal: false, facets: {} }, sort: 'featured' };
+  var state = { pool: [], category: null, defs: [], fitsGroup: false, family: null, f: { device: null, q: '', deal: false, facets: {} }, sort: 'featured' };
+  var baseTitle = '';
   var searchForm = document.querySelector('.bar__search');
 
   function noun(n) { return A.nounFor(CAT, n); }
@@ -17,7 +18,14 @@
   function cats() { return A.state.categories; }
   function paramOf(label) { return A.slugify(label); }
   function results(over) { return state.pool.filter(function (p) { return (!state.f.deal || p.compare_at) && A.passes(p, state.f, state.defs, over, cats()); }); }
-  function sorted(list) { var fn = A.SORTS[state.sort]; return fn ? list.slice().sort(fn) : list; }
+  function sorted(list) {
+    var fn = A.SORTS[state.sort];
+    if (fn) return list.slice().sort(fn);
+    if (!state.f.q) return list;
+    // Featured under a search: name and category hits first, catalog order within a rank.
+    return list.map(function (p, i) { return { p: p, i: i, r: A.searchRank(p, state.f.q, cats()) }; })
+      .sort(function (a, b) { return b.r - a.r || a.i - b.i; }).map(function (x) { return x.p; });
+  }
   function optLabel(label, id) {
     var def = state.defs.find(function (d) { return d.label === label; });
     var o = def && def.opts.find(function (x) { return x.id === id; });
@@ -67,36 +75,42 @@
   /* Rail */
 
   function renderGroups() {
-    var fitsHtml = '';
-    if (state.fitsGroup) {
-      var radio = function (d) {
-        var id = 'dev-' + (d.id || 'any');
-        return '<input type="radio" class="vh" name="device" id="' + id + '" value="' + d.id + '">' +
-          '<label class="chip" for="' + id + '">' + esc(d.name) + '<em></em></label>';
-      };
-      fitsHtml = '<fieldset class="group"><legend>Fits</legend><div class="chipset">' + radio({ id: '', name: 'Any device' }) + '</div>' +
-        A.deviceGroups().map(function (g) {
-          return '<div class="chipgroup"><span class="chipgroup__label">' + esc(g.name) + '</span><div class="chipset">' + g.devices.map(radio).join('') + '</div></div>';
-        }).join('') + '</fieldset>';
-    }
     var facetHtml = state.defs.map(function (d) {
       return '<fieldset class="group" data-group="' + esc(d.label) + '"><legend>' + esc(A.legendFor(d.label)) + (d.label === 'Price' ? ' <span class="syn">synthetic</span>' : '') + '</legend>' +
         d.opts.map(function (o) {
           return '<label class="opt"><input type="checkbox" name="' + esc(d.label) + '" value="' + esc(o.id) + '"><span>' + esc(o.label) + '</span><em></em></label>';
         }).join('') + '</fieldset>';
     }).join('');
-    // Category listings lead with fit; the all-products listing is a search landing, so Group and Brand come first there.
-    $('#groups').innerHTML = CAT === 'all' ? facetHtml + fitsHtml : fitsHtml + facetHtml;
+    $('#groups').innerHTML = facetHtml;
+  }
+
+  /* The "What do you own?" strip above the grid: families, then that family's devices with would-be counts,
+     then the models a bucket holds (cases and folios fit one model). Same steps as home, so the shopper already knows them. */
+  function bucketOf(d) { return d && d.parent ? A.deviceById(d.parent) : d; }
+  function chip(d, pressed) {
+    var n = results({ group: 'device', ids: [d.id] }).length;
+    return '<button type="button" class="chip" data-device="' + d.id + '" aria-pressed="' + pressed + '"' + (!n && !pressed ? ' disabled' : '') + '>' +
+      esc(d.name) + '<em>' + n + '<span class="vh"> results</span></em></button>';
+  }
+  function renderOwn() {
+    var own = $('#own');
+    own.hidden = !state.fitsGroup;
+    if (!state.fitsGroup) return;
+    var d = device(), picked = bucketOf(d), fam = state.family || (d ? d.family : null);
+    $('#families').innerHTML = A.deviceGroups().map(function (g) {
+      return '<button type="button" class="chip" data-family="' + g.id + '" aria-pressed="' + (fam === g.id) + '">' + esc(g.name) + '</button>';
+    }).join('');
+    var g = A.deviceGroups().find(function (x) { return x.id === fam; }), box = $('#devices-chips');
+    box.hidden = !g;
+    if (g) box.innerHTML = '<div class="chipset">' + g.devices.filter(function (x) { return !x.parent; }).map(function (x) { return chip(x, !!picked && picked.id === x.id); }).join('') + '</div>';
+    var models = picked ? A.DEVICES.filter(function (x) { return x.parent === picked.id; }) : [], mbox = $('#models-chips');
+    mbox.hidden = !models.length;
+    if (models.length) mbox.innerHTML = '<span class="chipgroup__label">Which model? Cases and folios fit one model only.</span><div class="chipset">' +
+      models.map(function (m) { return chip(m, state.f.device === m.id); }).join('') + '</div>';
   }
 
   // Controls render once; this keeps them in step with state and shows each option's would-be count.
   function syncGroups() {
-    document.querySelectorAll('input[name="device"]').forEach(function (r) {
-      var n = results({ group: 'device', ids: r.value ? [r.value] : [] }).length;
-      r.checked = (r.value || null) === state.f.device;
-      r.disabled = !n && !r.checked && !!r.value;
-      r.nextElementSibling.querySelector('em').innerHTML = n + '<span class="vh"> results</span>';
-    });
     document.querySelectorAll('.group[data-group] .opt').forEach(function (lab) {
       var inp = lab.querySelector('input'), g = inp.name, id = inp.value;
       var n = results({ group: g, ids: [id] }).length;
@@ -104,8 +118,14 @@
       inp.checked = (state.f.facets[g] || []).indexOf(id) >= 0;
       inp.disabled = !n && !inp.checked;
     });
-    var n = applied().filter(function (a) { return a.g !== 'q'; }).length, badge = $('#filters-n'); // the search is not in the sheet
+    // A group with fewer than two live options cannot narrow anything: it steps aside until the answer widens.
+    document.querySelectorAll('.group[data-group]').forEach(function (fs) {
+      var live = [].filter.call(fs.querySelectorAll('input'), function (i) { return !i.disabled || i.checked; }).length;
+      fs.hidden = live < 2;
+    });
+    var n = applied().filter(function (a) { return a.g !== 'q' && a.g !== 'device'; }).length, badge = $('#filters-n'); // the search and the device are not in the sheet
     badge.textContent = n; badge.hidden = !n;
+    $('#open-filters').hidden = !n && !document.querySelector('.group[data-group]:not([hidden])'); // nothing left to filter by
     var r = results().length;
     $('#apply-sheet').textContent = 'Show ' + r + ' ' + noun(r);
   }
@@ -117,17 +137,16 @@
     var chips = list.map(function (a) {
       return '<button type="button" class="applied__chip" data-clear="' + esc(a.g) + ':' + esc(a.id) + '" aria-label="Remove filter ' + esc(a.label) + '">' + esc(a.label) + '<svg aria-hidden="true"><use href="#i-x"/></svg></button>';
     });
-    var clear = '<button type="button" class="applied__clear" data-clear-all>Clear all</button>';
+    var clear = chips.length > 1 ? '<button type="button" class="applied__clear" data-clear-all>Clear all</button>' : ''; // one chip is its own clear
     $('#applied').innerHTML = chips.length ? chips.slice(0, -1).join('') + '<span class="applied__end">' + chips[chips.length - 1] + clear + '</span>' : '';
   }
 
   function renderCount(n) {
-    var total = state.pool.length, d = device();
+    var total = state.pool.length;
     $('#count').innerHTML = '<span class="mini count__mini" aria-hidden="true"><i style="--pct:' + (total ? n / total : 0) + '"></i></span><span>' +
       (n === total && !state.f.q ? total + ' ' + noun(total) : n + ' of ' + total + ' ' + noun(total)) +
       (state.f.q ? ' <small>for “' + esc(state.f.q) + '”</small>' : '') +
-      (state.f.deal ? ' <small>on deal</small>' : '') +
-      (d ? ' <small>fit ' + esc(d.name) + '</small>' : '') + '</span>';
+      (state.f.deal ? ' <small>on deal</small>' : '') + '</span>'; // the title already names the device
   }
 
   // The empty state names the single filter whose removal frees the most results.
@@ -158,7 +177,7 @@
       : 'No single filter is holding the list back; clear them and start again.';
     $('#empty-actions').innerHTML = (best
       ? '<button type="button" class="btn" data-clear="' + esc(best.g) + '">' + (best.g === 'q' ? 'Clear the search' : 'Remove ' + esc(name)) + '</button>' : '') +
-      '<button type="button" class="btn btn--ghost" data-clear-all>Clear all filters</button>';
+      (groups.length > 1 || !best ? '<button type="button" class="btn btn--ghost" data-clear-all>Clear all filters</button>' : ''); // one filter, one way out
   }
 
   function render() {
@@ -170,6 +189,11 @@
     $('#tiles').hidden = !list.length;
     renderEmpty(!list.length);
     syncGroups();
+    renderOwn();
+    var d = device(), title = d ? (CAT === 'all' ? 'Fits ' + d.name : baseTitle + ' for ' + d.name) : baseTitle;
+    $('#page-title').textContent = title;
+    $('#blurb').hidden = !!d; // the title says it
+    document.title = title + ' \u2014 Ampline';
     var gsel = CAT === 'all' ? (state.f.facets.Group || []) : [];
     var cur = CAT === 'all' ? (gsel.length === 1 ? gsel[0] : null) : A.slugify(state.category.group);
     document.querySelectorAll('.bar__nav a[href*="group="]').forEach(function (a) {
@@ -180,6 +204,8 @@
   }
 
   /* Events */
+
+  function showCount() { $('.toolbar').scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); }
 
   function clear(spec) {
     var i = spec.indexOf(':'), g = i < 0 ? spec : spec.slice(0, i), id = i < 0 ? undefined : spec.slice(i + 1);
@@ -201,6 +227,22 @@
     writeUrl(); render();
   });
   $('#sort').addEventListener('change', function (e) { state.sort = e.target.value; writeUrl(); render(); });
+  $('#own').addEventListener('click', function (e) {
+    var fam = e.target.closest('[data-family]'), dev = e.target.closest('[data-device]');
+    if (fam) {
+      var on = fam.getAttribute('aria-pressed') === 'true';
+      state.family = on ? null : fam.dataset.family;
+      if (on || (state.f.device && device().family !== state.family)) state.f.device = null; // closing or switching the family drops the device
+    } else if (dev && !dev.disabled) {
+      var id = dev.dataset.device, same = state.f.device === id, picked = A.deviceById(id);
+      state.family = picked.family;
+      // Unpressing a model keeps its bucket; unpressing a bucket clears the device.
+      state.f.device = same ? (picked.parent || null) : id;
+    } else return;
+    writeUrl(); render();
+    // On narrow screens the answer sits below the strip: bring the count line up once a device is named.
+    if (dev && state.f.device && !window.matchMedia('(min-width: 1024px)').matches) showCount();
+  });
   document.addEventListener('click', function (e) {
     var el = e.target.closest('[data-clear], [data-clear-all]');
     if (!el) return;
@@ -214,7 +256,7 @@
       state.f.q = searchForm.querySelector('input').value.trim();
       writeUrl(); render();
       if (window.matchMedia('(pointer: coarse)').matches) searchForm.querySelector('input').blur(); // the keyboard would cover the answer
-      $('.toolbar').scrollIntoView({ behavior: 'smooth', block: 'start' }); // the count line reads the answer; scroll-padding keeps it under the header
+      showCount(); // the count line reads the answer; scroll-padding keeps it under the header
     });
   }
   // A cart change updates only the tile buttons whose state is stale; the clicked button keeps its "Added" moment and its focus.
@@ -235,7 +277,7 @@
   $('#open-filters').addEventListener('click', function () { if (!sheet.open) sheet.showModal(); });
   $('#close-filters').addEventListener('click', function () { sheet.close(); });
   $('#apply-sheet').addEventListener('click', function () { sheet.close(); });
-  $('#clear-sheet').addEventListener('click', function () { var q = state.f.q; clearAll(); state.f.q = q; writeUrl(); render(); });
+  $('#clear-sheet').addEventListener('click', function () { state.f.facets = {}; state.f.deal = false; writeUrl(); render(); }); // the sheet holds facets; search and device live outside it
   // The footer's Filters link targets the rail, which is a closed dialog on phones.
   document.querySelectorAll('a[href="#filters"]').forEach(function (a) {
     a.addEventListener('click', function (e) { if (!wide.matches) { e.preventDefault(); sheet.showModal(); } });
@@ -259,7 +301,8 @@
       var all = CAT === 'all';
       state.category = all ? null : data.categories.find(function (c) { return c.slug === CAT; });
       state.pool = all ? data.products : data.products.filter(function (p) { return p.category === CAT; });
-      var labels = all ? ['Group', 'Brand', 'Price'] : state.category.facets;
+      // The all-products page spans phones and cables, so a price band over the whole pool answers nothing: Group is its price divider.
+      var labels = all ? ['Group', 'Brand'] : state.category.facets;
       // Only options that match something in the pool are offered, and a group needs two of them to filter anything.
       state.defs = labels.map(function (label) {
         var opts = A.facetOptions(label, state.pool, data.categories).filter(function (o) { return state.pool.some(o.test); });
@@ -272,10 +315,9 @@
       readUrl();
       $('#sort').value = state.sort;
       if (searchForm) searchForm.querySelector('input').value = state.f.q;
-      $('#page-title').textContent = all ? 'All products' : state.category.name;
-      document.title = (all ? 'All products' : state.category.name) + ' — Ampline';
+      baseTitle = all ? 'All products' : state.category.name;
       $('#crumb-name').textContent = all ? 'All products' : state.category.name;
-      $('#blurb').textContent = (all ? 'Every product in the store, searchable by name, brand and spec' : state.category.blurb) + '. Prices and ratings are synthetic placeholders.';
+      $('#blurb').textContent = (all ? 'Search by name, brand or spec, or start from what you own' : state.category.blurb) + '.'; // every price and rating carries its own SYNTHETIC tag
       $('#foot-cats').innerHTML = A.shopLinks(data.categories, BASE, CAT);
       renderGroups();
       render();

@@ -229,16 +229,85 @@
   function legendFor(label) { return OUTPUT_LABELS.indexOf(label) >= 0 ? 'Max output per port' : label; }
 
   // Search: every token of q must appear in the product's name, brand, category name, badges or spec values.
-  function matchesQuery(p, q, categories) {
-    var tokens = String(q || '').toLowerCase().split(/\s+/).filter(Boolean);
-    if (!tokens.length) return true;
-    var c = categoryOf(p, categories);
-    var hay = [p.name, p.brand || 'Ampline', c ? c.name : '', p.short].concat(p.badges, p.specs.map(function (s) { return s.label + ' ' + s.value; })).join(' ').toLowerCase();
-    // A bare number matches a whole number ("7" finds Wi-Fi 7, not Watch7 or 7,040 mAh); words match anywhere.
-    return tokens.every(function (t) {
-      if (!/^\d+$/.test(t)) return hay.indexOf(t) >= 0;
-      return new RegExp('(^|[^a-z0-9.,])' + t + '($|[^a-z0-9.,])').test(hay);
+  /* Search. The query and the haystack share one normalisation, so "type-c", "usb c", "powerbank" and "65 w"
+     meet "USB-C", "Power Bank" and "65W". A device name, a family word or an in-range model number in the query
+     ("iphone 16", "iphone 13", "macbook", "android") becomes a fit test: the product fits that device, or names it. */
+  var SYNONYMS = [
+    [/\b(?:type|usb)[\s-]?c\b/g, 'usb-c'], [/\bpower\s*banks?\b/g, 'powerbank'], [/\bmag\s+safe\b/g, 'magsafe'],
+    [/(\d),(\d{3})\b/g, '$1$2'], [/\b(\d+)\s+(w|gb|tb|mah|mm|m|hz)\b/g, '$1$2']
+  ];
+  function normalise(s) {
+    s = String(s || '').toLowerCase();
+    SYNONYMS.forEach(function (r) { s = s.replace(r[0], r[1]); });
+    return s;
+  }
+  var FAMILY_WORDS = { iphone: ['iphone'], android: ['android'], ipad: ['ipad'], mac: ['mac', 'macbook'], 'windows-laptop': ['windows laptop'] };
+  var phraseCache = null, parsedCache = { q: null, out: null };
+  function escapeRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+  // Every phrase a shopper might type for a device: the family word, the device name, the name without its
+  // parenthetical or maker prefix, and for "N to M" / "N or newer" buckets a numeric range on the leading word.
+  function devicePhrases() {
+    if (phraseCache && phraseCache.n === DEVICES.length) return phraseCache.list;
+    var list = [];
+    Object.keys(FAMILY_WORDS).forEach(function (fam) {
+      var devs = DEVICES.filter(function (d) { return d.family === fam; });
+      if (devs.length) FAMILY_WORDS[fam].forEach(function (w) { list.push({ phrase: w, devices: devs }); });
     });
+    DEVICES.forEach(function (d) {
+      var full = normalise(d.name), bare = full.replace(/\s*\([^)]*\)\s*/g, ' ').replace(/\s+/g, ' ').trim();
+      var forms = [full, bare, bare.replace(/^(?:samsung|google|dell|nintendo)\s+/, '')];
+      var range = bare.match(/^([a-z]+)\s+(\d+)\s+(?:to\s+(\d+)|or newer)$/);
+      forms.forEach(function (f) {
+        if (f && !list.some(function (x) { return x.phrase === f; })) list.push({ phrase: f, devices: [d] });
+      });
+      if (range) list.push({ phrase: null, word: range[1], lo: +range[2], hi: range[3] ? +range[3] : Infinity, devices: [d] });
+    });
+    phraseCache = { n: DEVICES.length, list: list };
+    return list;
+  }
+  // -> { tokens: [...remaining words], device: { phrase, devices } | null }. The longest device phrase wins; an exact name beats a range.
+  function parseQuery(q) {
+    var s = normalise(String(q || '').slice(0, 120)).replace(/[“”"']/g, ' ').replace(/\s+/g, ' ').trim();
+    if (parsedCache.q === s) return parsedCache.out;
+    var padded = ' ' + s + ' ', best = null;
+    devicePhrases().forEach(function (x) {
+      var m = null;
+      if (x.phrase) { if (padded.indexOf(' ' + x.phrase + ' ') >= 0) m = { text: x.phrase, exact: true }; }
+      else {
+        var r = new RegExp(' ' + escapeRe(x.word) + ' (\\d+) ').exec(padded);
+        if (r && +r[1] >= x.lo && +r[1] <= x.hi) m = { text: x.word + ' ' + r[1], exact: false };
+      }
+      if (m && (!best || m.text.length > best.text.length || (m.text.length === best.text.length && m.exact && !best.exact))) best = { text: m.text, exact: m.exact, devices: x.devices };
+    });
+    var rest = best ? padded.replace(' ' + best.text + ' ', ' ') : padded;
+    var out = { tokens: rest.trim().split(' ').filter(Boolean), device: best ? { phrase: best.text, devices: best.devices } : null };
+    parsedCache = { q: s, out: out };
+    return out;
+  }
+  function hayOf(p, categories) {
+    var c = categoryOf(p, categories);
+    return normalise([p.name, p.brand || 'Ampline', c ? c.name : '', p.short].concat(p.badges, p.specs.map(function (s) { return s.label + ' ' + s.value; })).join(' '));
+  }
+  // A bare number matches a whole number ("7" finds Wi-Fi 7, not Watch7 or 7040 mAh; "16" finds "iPhone 16, 128 GB"); words match anywhere.
+  function tokenIn(hay, t) {
+    if (!/^\d+$/.test(t)) return hay.indexOf(t) >= 0;
+    return new RegExp('(^|[^a-z0-9.,])' + t + '(?=$|[^a-z0-9.,]|,(?!\\d{3}))').test(hay);
+  }
+  function matchesQuery(p, q, categories) {
+    var parsed = parseQuery(q);
+    if (!parsed.tokens.length && !parsed.device) return true;
+    var hay = hayOf(p, categories);
+    if (parsed.device && hay.indexOf(parsed.device.phrase) < 0 && !parsed.device.devices.some(function (d) { return fits(p, d); })) return false;
+    return parsed.tokens.every(function (t) { return tokenIn(hay, t); });
+  }
+  // Featured order under a search: a product named by the query outranks one that only carries it in a spec;
+  // a category hit breaks ties, so "case" lists cases before earbuds whose charging case is in the name.
+  function searchRank(p, q, categories) {
+    var parsed = parseQuery(q), toks = parsed.tokens.concat(parsed.device ? [parsed.device.phrase] : []);
+    if (!toks.length) return 0;
+    var c = categoryOf(p, categories), name = normalise(p.name), cat = normalise(c ? c.name : '');
+    var inName = toks.filter(function (t) { return tokenIn(name, t); }).length, inCat = toks.filter(function (t) { return tokenIn(cat, t); }).length;
+    return inName * 2 + inCat;
   }
 
   // f = { device: id|null, q: '', facets: { <label>: [optionIds] } }; defs = [{ label, opts }].
@@ -328,7 +397,7 @@
     WATT_BANDS: WATT_BANDS, PORT_OPTS: PORT_OPTS, PRICE_BANDS: PRICE_BANDS, TYPE_LABELS: TYPE_LABELS,
     passes: passes, SORTS: SORTS, variants: variants, bundleFor: bundleFor, matchedCompat: matchedCompat,
     dimensions: dimensions, spec: spec, facetValues: facetValues, facetOptions: facetOptions, legendFor: legendFor,
-    matchesQuery: matchesQuery, slugify: slugify, priceBands: priceBands, money: money, variantGroups: variantGroups, setupFor: setupFor, variantName: variantName, defaultVariant: defaultVariant, ceilingNote: ceilingNote, nounFor: nounFor
+    matchesQuery: matchesQuery, parseQuery: parseQuery, searchRank: searchRank, slugify: slugify, priceBands: priceBands, money: money, variantGroups: variantGroups, setupFor: setupFor, variantName: variantName, defaultVariant: defaultVariant, ceilingNote: ceilingNote, nounFor: nounFor
   };
   if (typeof module !== 'undefined' && module.exports) module.exports = Ampline;
   if (typeof document === 'undefined') return;
@@ -416,7 +485,8 @@
   }
   function money(n) { return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
   // Keep hyphenated tokens (USB-C, 3-Port) on one line in tile names.
-  function nb(text) { return esc(text).replace(/\S+-\S+/g, '<span class="nb">$&</span>'); }
+  // Hyphenated tokens and "figure unit" pairs (24 GB, 2 m, 42 mm) never break across lines.
+  function nb(text) { return esc(text).replace(/\S+-\S+/g, '<span class="nb">$&</span>').replace(/\b(\d[\d,.]*) (GB|TB|mAh|mm|m|W|Hz)\b/g, '<span class="nb">$1 $2</span>'); }
   // Pages show one sentence per product: the catalog's second sentences can
   // carry charge-time claims the surface briefs forbid on listing pages.
   function firstSentence(text) { return (/^.*?[.!?](?=\s|$)/.exec(text) || [text])[0]; }
@@ -571,6 +641,7 @@
   }
 
   /* Product tile, the same component on every page. `base` prefixes relative links. */
+  var WATT_CAP = { cables: 'W through the cable', hubs: 'W to the laptop' }; // the product page's captions, in tile form
   function tile(p, i, base, query) {
     base = base || '';
     var w = maxPortWatts(p), st = STOCK[p.stock] || STOCK.in_stock, out = p.stock === 'out_of_stock';
@@ -590,9 +661,9 @@
       (p.brand ? '<p class="tile__brand">' + esc(p.brand) + '</p>' : '') +
       '<p class="tile__short">' + esc(firstSentence(p.short)) + '</p>' +
       (w !== null
-        ? '<div class="watts"><b>' + w + '</b><span>W max per port</span></div>' +
+        ? '<div class="watts"><b>' + w + '</b><span>' + (WATT_CAP[p.category] || 'W max per port') + '</span></div>' +
           '<span class="mini" aria-hidden="true"><i style="--pct:' + Math.min(1, w / 100) + '"></i></span>'
-        : '<p class="tile__facts">' + esc(facetLine(p) || (p.specs[0] ? p.specs[0].value : '')) + '</p>') +
+        : '<p class="tile__facts">' + nb(facetLine(p) || (p.specs[0] ? p.specs[0].value : '')) + '</p>') +
       '<div class="price"><b>' + money(p.price) + '</b>' + (p.compare_at ? '<s>' + money(p.compare_at) + '</s>' : '') + '<span class="syn">synthetic</span></div>' +
       '<div class="meta"><span class="stock ' + st[0] + '">' + st[1] + '</span><span class="rating"><svg aria-hidden="true"><use href="#i-star"/></svg>' + p.rating.value.toFixed(1) + ' <span>(' + p.rating.count + ')</span></span></div>' +
       (choose

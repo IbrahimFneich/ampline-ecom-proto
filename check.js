@@ -100,6 +100,23 @@ assert.deepStrictEqual(q('sony noise'), ['SON-WH1000XM5', 'SON-WF1000XM5', 'SON-
 assert.deepStrictEqual(q('gan 100w'), ['AMP-GAN-100D']);
 assert.deepStrictEqual(q('wi-fi 7'), ['TPL-ARCHER-BE230']);
 assert.deepStrictEqual(q('zzzz'), []);
+// Shopper phrasings: one normalisation on both sides, device terms become fit tests, names outrank specs.
+const qn = s => { const r = data.products.filter(p => A.matchesQuery(p, s, cats)); return r.map((p, i) => ({ p, i, r: A.searchRank(p, s, cats) })).sort((a, b) => b.r - a.r || a.i - b.i).map(x => x.p.name); };
+assert.strictEqual(qn('iphone 16')[0], 'Apple iPhone 16, 128 GB'); // a bare number matches before a comma
+assert.strictEqual(qn('iphone 16')[1], 'Apple iPhone 16 Silicone Case with MagSafe');
+assert.strictEqual(qn('iphone 16').length, 13); // the phone, the case, and the 11 other products that fit it
+assert.deepStrictEqual(qn('iphone charger').slice(0, 3), ['GaN 65W 3-Port Charger', 'GaN 100W Desktop Charger', 'Nano 20W USB-C Charger']);
+assert.ok(qn('iphone charger').every(n => !/iPhone \d+,/.test(n)), 'a charger query never lists the phone');
+assert.deepStrictEqual(qn('iphone 13 charger'), qn('iphone 12 charger')); // an in-range model number resolves to its bucket
+assert.ok(qn('macbook charger').length >= 2 && qn('android').length >= 10 && qn('steam deck').length >= 1);
+assert.deepStrictEqual(qn('type-c cable'), qn('usb c cable')); assert.deepStrictEqual(qn('usb c'), qn('usb-c'));
+assert.ok(qn('usb c').length < 46, 'a lone c no longer matches every product');
+assert.deepStrictEqual(qn('powerbank'), qn('power bank')); assert.strictEqual(qn('powerbank').length, 2);
+assert.deepStrictEqual(qn('65 w'), qn('65w')); assert.strictEqual(qn('65 w')[0], 'GaN 65W 3-Port Charger');
+assert.deepStrictEqual(qn('case').slice(0, 2), ['Apple iPhone 16 Silicone Case with MagSafe', 'Samsung Galaxy S25 Clear Case']); // cases before earbuds with a case in the name
+assert.strictEqual(qn('10000 mah')[0], 'Magnetic 10,000 mAh Power Bank');
+assert.ok(!qn('7').some(n => /7,040|7040/.test(n)), '7 does not match 7,040 mAh');
+assert.deepStrictEqual(A.parseQuery('Samsung Galaxy S25 case').tokens, ['case']);
 assert.strictEqual(A.ROUTES ? A.ROUTES.shop.length : 16, 16);
 
 // Region plug variants from the Plug spec, and the one honest bundle rule.
@@ -165,4 +182,4 @@ const chargers = pool('chargers');
 assert.deepStrictEqual(chargers.slice().sort(A.SORTS['price-asc']).map(p => p.price), [14.99, 34.99, 39.99, 69.99]);
 assert.deepStrictEqual(chargers.slice().sort(A.SORTS['watts-desc']).map(A.maxPortWatts), [100, 65, 65, 20]);
 
-console.log('check.js: ok (' + Object.keys(watts).length + ' watt figures, ' + A.DEVICES.length + ' device lists, 3 split parses, 6 port counts, 15 facet checks and 12 filter runs, 4 search queries, 7 variant and bundle checks, 16 variant-group, name, default and setup checks, 4 dimension parses, 58 pages, 58-SKU catalog integrity, 2 sorts)');
+console.log('check.js: ok (' + Object.keys(watts).length + ' watt figures, ' + A.DEVICES.length + ' device lists, 3 split parses, 6 port counts, 15 facet checks and 12 filter runs, 21 search queries, 7 variant and bundle checks, 16 variant-group, name, default and setup checks, 4 dimension parses, 58 pages, 58-SKU catalog integrity, 2 sorts)');

@@ -628,6 +628,20 @@ svg { display: block; }
 }
 .select svg { position: absolute; inset-inline-end: 12px; width: 16px; height: 16px; pointer-events: none; color: var(--ink-2); transform: rotate(90deg); }
 
+/* "What do you own?" strip on listings: the home picker's steps, above the grid, under the head */
+.own { display: grid; gap: 10px; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
+.own__q { font-size: 1rem; font-weight: 600; }
+.own .devchips { margin-top: 0; }
+.own .chipset .chip { height: 40px; font-size: 0.9375rem; }
+.chipset .chip[aria-pressed="true"] em { color: var(--sleep-ink); } /* a would-be count on a pressed chip reads on ink, as on a checked chip */
+@media (max-width: 719px) {
+  /* Seven families in one swipeable row, so the devices and the count stay near the fold */
+  .own .families { flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-inline: var(--gutter); scrollbar-width: none; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); } /* scroll-padding keeps the first chip on the gutter when it snaps */
+  .own .families::-webkit-scrollbar { display: none; }
+  .own .families .chip { flex: none; scroll-snap-align: start; }
+  .own .families { padding-block: 6px; margin-block: -6px; } /* room for the focus ring inside the scroll row */
+}
+
 /* Filter sheet (phone) and rail (desktop): one dialog, two renderings */
 .sheet {
   position: fixed;
@@ -735,7 +749,7 @@ input:checked + .chip::before { background: var(--green); }
 }
 
 .shop .tile { animation-duration: 0.25s; animation-delay: 0s; }
-.tile--skel { border-color: transparent; min-height: 540px; } /* the height a real tile takes on a phone, so the catalog's arrival does not shift the page */
+.tile--skel { border-color: transparent; min-height: 560px; } /* the height a real tile takes on a phone, so the catalog's arrival does not shift the page */
 .tile--skel > span { display: block; border-radius: var(--r-s); background: var(--track); animation: pulse 1.2s ease-in-out infinite; }
 @keyframes pulse { 50% { opacity: 0.5; } }
 
@@ -756,16 +770,19 @@ input:checked + .chip::before { background: var(--green); }
 
 @media (min-width: 1024px) {
   .shop { padding-block: 28px 80px; }
-  .shop__body { grid-template-columns: 280px 1fr; gap: 40px; align-items: start; margin-top: 28px; }
+  .shop__body { grid-template-columns: 280px 1fr; gap: 40px; align-items: start; margin-top: 24px; }
+  .own { margin-top: 24px; padding-top: 20px; gap: 12px; }
   .sheet {
     display: block;
-    position: static;
+    position: sticky; /* the rail stays reachable deep in the list */
+    top: 74px;
     width: auto;
-    max-height: none;
+    max-height: calc(100dvh - 90px);
     border-radius: 0;
     background: transparent;
     box-shadow: none;
-    overflow: visible;
+    overflow: auto;
+    scrollbar-width: thin;
   }
   .sheet::backdrop { display: none; }
   .sheet[open] { animation: none; }
@@ -1124,7 +1141,7 @@ a.cat .cat__count { color: var(--ink); }
   .hero { padding-block: 24px 56px; }
   .hero__in { gap: 24px; }
   .tiles--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
-  .tile--skel { min-height: 600px; }
+  .tile--skel { min-height: 608px; }
   .promo__slide { min-height: 380px; grid-template-columns: 1.05fr 1fr; }
   .promo__offer { font-size: 1.25rem; }
   .pickbar { padding: 16px 22px 18px; gap: 10px; }
@@ -1169,7 +1186,10 @@ a.cat .cat__count { color: var(--ink); }
 
 /* Touch: 44px targets on the controls a thumb lands on. */
 @media (pointer: coarse) {
-  .families .chip, .devchips .chip, #fit-chips .chip, .rail .chip { height: 44px; }
+  .families .chip, .devchips .chip, #fit-chips .chip, .rail .chip, .own .chipset .chip { height: 44px; }
+  .applied__chip { min-height: 44px; }
+  .applied__clear { min-height: 44px; display: inline-flex; align-items: center; }
+  .tile .btn { height: 44px; }
   .promo__btn { width: 44px; height: 44px; }
   .promo__dot { width: 44px; height: 44px; }
   .promo__dot[aria-current="true"] { width: auto; padding-inline: 12px; }
