@@ -23,3 +23,9 @@ Proof: the catalog itself. The gallery is drawn in the world's stroke grammar: t
 Constraints: no per-device wattage or charge-time claims beyond devices[].max_charge_w marked indicative; prices, ratings and stock synthetic and labeled; third-party names only, no logos; every drawing label comes from a spec or box entry; delivery, warranty and payment rows stay placeholders.
 
 Unresolved: real prices, photography, delivery and warranty terms, reviews, storage-tier pricing.
+
+## Update 2026-10-11 (two reported bugs)
+
+- The sticky gallery rode over every later section on desktop because its containing block was the whole page grid. The head, gallery and buy box now sit in one `.pdp__top` grid (template regenerated for all 58 pages); the gallery sticks only until the buy box ends.
+- Gallery slides and tile wells no longer use percentage padding on an aspect-ratio box: WebKit sized them wrongly on an iPhone (tile well 177px in a 145px column). Drawings and photos are absolutely inset instead. Verified in Playwright WebKit with iPhone emulation and in Chromium at 1990px.
+

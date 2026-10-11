@@ -441,9 +441,8 @@ svg { display: block; }
   border-radius: var(--r-s);
   background: var(--ground);
   color: var(--ink);
-  padding: 12%;
-  transition: background 0.2s; position: relative; }
-.tile__fig svg { width: 100%; height: 100%; }
+  transition: background 0.2s; position: relative; } /* no percentage padding: WebKit sizes an aspect-ratio box with it wrongly; the art is inset instead */
+.tile__fig svg { position: absolute; inset: 12%; width: 76%; height: 76%; }
 .tile__photo { position: absolute; inset: 12%; width: 76%; height: 76%; object-fit: contain; mix-blend-mode: multiply; }
 .tile__fig:has(.tile__photo) > svg { visibility: hidden; } /* the drawing yields to a photo that loaded; a missing file removes its img and the drawing returns */ /* a photo sits in the same grey well as a drawing; multiply drops a white studio background into the well */
 .chipsrow { display: flex; flex-wrap: wrap; gap: 6px; min-height: 22px; }
@@ -801,7 +800,8 @@ input:checked + .chip::before { background: var(--green); }
 /* ---------- Product page (Persuade) ---------- */
 
 svg text { font-family: var(--font); }
-.pdp { padding-block: 20px 64px; display: grid; gap: 24px; grid-template-columns: minmax(0, 1fr); grid-template-areas: "crumbs" "head" "gallery" "buy" "delivers" "fits" "pair" "reviews" "setup"; }
+.pdp { padding-block: 20px 64px; display: grid; gap: 24px; grid-template-columns: minmax(0, 1fr); grid-template-areas: "crumbs" "top" "delivers" "fits" "pair" "reviews" "setup"; }
+.pdp__top { grid-area: top; display: grid; gap: 24px; grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "gallery" "buy"; } /* the sticky gallery's containing block: it stops where the buy box ends */
 .pdp__crumbs { grid-area: crumbs; margin-bottom: 0; }
 .pdp__head { grid-area: head; display: grid; gap: 10px; }
 .pdp__head h1 { font-size: clamp(1.75rem, 1.2rem + 2vw, 2.25rem); }
@@ -819,10 +819,10 @@ svg text { font-family: var(--font); }
 .gallery { grid-area: gallery; position: relative; display: grid; gap: 10px; }
 .gallery__track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; border-radius: var(--r); background: var(--screen); border: 1px solid var(--line); }
 .gallery__track::-webkit-scrollbar { display: none; }
-.slide { flex: 0 0 100%; margin: 0; aspect-ratio: 4 / 3; scroll-snap-align: start; padding: 6%; color: var(--ink); }
-.slide svg { width: 100%; height: 100%; }
-.slide--photo { padding: 0; background: #fff; }
-.slide__photo { width: 100%; height: 100%; object-fit: contain; display: block; }
+.slide { flex: 0 0 100%; margin: 0; aspect-ratio: 4 / 3; scroll-snap-align: start; position: relative; color: var(--ink); } /* same WebKit rule: inset the drawing, no percentage padding */
+.slide svg { position: absolute; inset: 6%; width: 88%; height: 88%; }
+.slide--photo { background: #fff; }
+.slide__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block; }
 .gallery__arrow { position: absolute; top: calc(37.5% - 20px); width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: var(--screen); display: grid; place-items: center; color: var(--ink); }
 .gallery__arrow svg { width: 18px; height: 18px; }
 .gallery__arrow--prev { inset-inline-start: 10px; }
@@ -915,7 +915,8 @@ body.has-buybar { padding-bottom: 72px; }
   .pdp__pair { grid-template-columns: 1fr 1fr; gap: 40px; }
 }
 @media (min-width: 1024px) {
-  .pdp { padding-block: 28px 96px; column-gap: 64px; row-gap: 28px; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); grid-template-areas: "crumbs crumbs" "gallery head" "gallery buy" "delivers delivers" "fits fits" "pair pair" "reviews reviews" "setup setup"; align-items: start; }
+  .pdp { padding-block: 28px 96px; row-gap: 28px; }
+  .pdp__top { column-gap: 64px; row-gap: 28px; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); grid-template-areas: "gallery head" "gallery buy"; align-items: start; }
   .gallery { position: sticky; top: 76px; grid-template-columns: 84px 1fr; grid-template-areas: "thumbs track" "note note"; column-gap: 12px; align-items: start; }
   .gallery__track { grid-area: track; }
   .gallery__thumbs { grid-area: thumbs; flex-direction: column; align-content: start; }
