@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ampline — Look A: the category canon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+  :root{--bg:#fff;--well:#f5f5f7;--ink:#111;--muted:#6e6e73;--line:#e5e5ea;--accent:#00beFA;--pill:#111;--sale:#d6232a;--font:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  *{box-sizing:border-box}html,body{margin:0}
+  body{font-family:var(--font);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:1.45}
+  a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+  .ann{background:var(--ink);color:#fff;font-size:13px;text-align:center;padding:8px 16px}
+  .ann b{font-weight:600}
+  header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:5}
+  .bar{display:flex;align-items:center;gap:28px;height:64px}
+  .logo{font-weight:800;font-size:22px;letter-spacing:-.02em;display:flex;align-items:center;gap:8px}
+  .logo i{width:10px;height:10px;border-radius:50%;background:var(--accent);display:inline-block}
+  nav{display:flex;gap:22px;font-weight:500;font-size:15px}
+  .search{flex:1;display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:999px;padding:9px 16px;color:var(--muted);background:var(--well);max-width:460px}
+  .cart{margin-left:auto;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-weight:600;font-size:14px}
+  /* hero */
+  .hero{background:var(--well);margin-top:16px;border-radius:20px;overflow:hidden;display:grid;grid-template-columns:1.1fr 1fr;min-height:460px}
+  .hero__txt{padding:64px 56px;display:flex;flex-direction:column;justify-content:center;gap:16px}
+  .eyebrow{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  h1{font-size:clamp(34px,4.6vw,58px);line-height:1.04;letter-spacing:-.03em;margin:0;font-weight:800;text-wrap:balance}
+  .hero p{font-size:18px;color:var(--muted);margin:0;max-width:44ch}
+  .ctas{display:flex;gap:12px;margin-top:8px;flex-wrap:wrap}
+  .pill{border-radius:999px;padding:14px 24px;font-weight:600;font-size:15px;border:1.5px solid var(--ink);background:var(--pill);color:#fff}
+  .pill--ghost{background:transparent;color:var(--ink)}
+  .hero__img{position:relative;display:flex;align-items:flex-end;justify-content:center}
+  .hero__img img{max-height:440px;width:auto;max-width:90%;filter:drop-shadow(0 30px 40px rgba(0,0,0,.18))}
+  .dots{display:flex;gap:8px;justify-content:center;padding:14px 0 0}
+  .dots i{width:8px;height:8px;border-radius:50%;background:var(--line)}.dots i.on{background:var(--ink);width:24px;border-radius:4px}
+  /* device picker */
+  .pick{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:26px 0 8px}
+  .pick h2{font-size:16px;margin:0 8px 0 0;font-weight:700}
+  .chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:9px 16px;font-weight:500;font-size:14px}
+  .chip[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .pick__line{width:100%;color:var(--muted);font-size:14px;min-height:20px}
+  /* categories */
+  .cats{display:flex;gap:28px;overflow-x:auto;padding:22px 0 10px;scrollbar-width:none}.cats::-webkit-scrollbar{display:none}
+  .cat{flex:0 0 auto;width:104px;text-align:center;font-size:13px;font-weight:600}
+  .cat .o{width:104px;height:104px;border-radius:50%;background:var(--well);display:grid;place-items:center;margin-bottom:10px;overflow:hidden}
+  .cat img{max-width:70%;max-height:70%;mix-blend-mode:multiply}
+  .cat .o span{font-weight:800;color:var(--accent);font-size:22px}
+  /* products */
+  .sec{display:flex;align-items:baseline;justify-content:space-between;margin:38px 0 16px}
+  .sec h2{font-size:26px;letter-spacing:-.02em;margin:0;font-weight:800}.sec a{font-weight:600;color:var(--muted);font-size:14px}
+  .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+  .card{display:flex;flex-direction:column;gap:8px;transition:opacity .25s}
+  .card.dim{opacity:.38}
+  .card .well{position:relative;background:var(--well);border-radius:16px;aspect-ratio:1;display:grid;place-items:center;overflow:hidden}
+  .card .well img{max-width:78%;max-height:78%;mix-blend-mode:multiply}
+  .card .well .fig{font-size:44px;font-weight:800;color:var(--accent);letter-spacing:-.03em}
+  .badge{position:absolute;top:12px;left:12px;background:#fff;border-radius:999px;padding:4px 10px;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+  .badge.fit{background:var(--ink);color:#fff;left:auto;right:12px}
+  .card .cat{width:auto;text-align:left;font-size:12px;color:var(--muted);font-weight:500}
+  .card h3{font-size:15px;margin:0;font-weight:600;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .price{font-weight:700;font-size:16px}.price s{color:var(--muted);font-weight:400;margin-left:6px}.price .save{color:var(--sale);font-weight:600;font-size:13px;margin-left:6px}
+  .stars{font-size:12px;color:var(--muted)}
+  .add{margin-top:auto;border-radius:999px;border:1.5px solid var(--ink);background:var(--ink);color:#fff;padding:10px;font-weight:600;font-size:14px}
+  /* trust */
+  .trust{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:44px 0 48px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0}
+  .trust div{display:flex;gap:12px;align-items:center;font-size:14px}.trust b{display:block}.trust small{color:var(--muted)}
+  .trust i{width:36px;height:36px;border-radius:50%;background:var(--well);display:grid;place-items:center;font-style:normal;font-weight:800;color:var(--accent)}
+  footer{background:var(--ink);color:#aaa;font-size:13px;padding:34px 0}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  @media(max-width:860px){.grid{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr;min-height:0}.hero__txt{padding:36px 24px 10px}.hero__img img{max-height:300px}nav,.search{display:none}.trust{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="ann">Delivery across Lebanon in <b>1 to 3 days</b> · 1-year warranty · Card or cash on delivery</div>
+<header><div class="wrap bar">
+  <a class="logo" href="#"><i></i>Ampline</a>
+  <nav><a href="#">Devices</a><a href="#">Accessories</a><a href="#">Power</a><a href="#">Deals</a></nav>
+  <div class="search">&#9906; Search products</div>
+  <a class="cart" href="#">Cart · 0</a>
+</div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="hero__txt">
+      <div class="eyebrow">New · Phones</div>
+      <h1>iPhone 16. From $1,099.</h1>
+      <p>Camera Control, the A18 chip and USB-C. Pick your storage and colour, pay by card or cash on delivery.</p>
+      <div class="ctas"><a class="pill" href="#">Shop iPhone 16</a><a class="pill pill--ghost" href="#pick">Choose your device</a></div>
+    </div>
+    <div class="hero__img"><img src="../assets/products/apple-iphone-16-128gb-1.webp" alt="iPhone 16"></div>
+  </section>
+  <div class="dots"><i class="on"></i><i></i><i></i></div>
+
+  <section class="pick" id="pick">
+    <h2>Choose your device</h2>
+    <div id="chips"></div>
+    <p class="pick__line" id="line">Pick what you own and the best sellers re-sort to what fits it.</p>
+  </section>
+
+  <section class="cats" id="cats"></section>
+
+  <div class="sec"><h2>Best sellers</h2><a href="#">See all 58 products →</a></div>
+  <section class="grid" id="grid"></section>
+
+  <section class="trust">
+    <div><i>1–3</i><div><b>Delivery across Lebanon</b><small>1 to 3 days, tracked</small></div></div>
+    <div><i>1y</i><div><b>1-year warranty</b><small>Replacement, not repair, in the first month</small></div></div>
+    <div><i>$</i><div><b>Card or cash on delivery</b><small>Prices in USD, synthetic for this prototype</small></div></div>
+  </section>
+</main>
+<footer><div class="wrap"><span>© Ampline, placeholder name. Prices, ratings and stock are synthetic.</span><span>English · العربية</span></div></footer>
+
+<script>
+const IMG=s=>'../assets/products/'+s+'-1.webp';
+const DEV=[['iphone','iPhone'],['android','Android'],['ipad','iPad'],['mac','Mac'],['windows','Windows laptop'],['switch','Switch & Steam Deck'],['watch','Watch & earbuds']];
+const ALL=['iphone','android','ipad','mac','windows','switch','watch'];
+const P=[
+ {s:'apple-iphone-16-128gb',n:'Apple iPhone 16, 128 GB',p:1099,b:'New',cat:'Phones',fig:'128 GB',fits:[],img:1,r:'4.8 (214)'},
+ {s:'apple-macbook-air-13-m3',n:'Apple MacBook Air 13-inch (M3), 8 GB, 256 GB',p:1249,b:'Best seller',cat:'Laptops',fig:'M3',fits:[],img:1,r:'4.9 (131)'},
+ {s:'apple-iphone-16-silicone-case-magsafe',n:'Apple iPhone 16 Silicone Case with MagSafe',p:54,cat:'Cases & Mounts',fig:'MagSafe',fits:['iphone'],img:1,r:'4.6 (88)'},
+ {s:'gan-65w-3-port-charger',n:'Ampline GaN 65W 3-Port Charger',p:39.99,c:49.99,b:'Best seller',cat:'Chargers',fig:'65W',fits:ALL,img:0,r:'4.7 (312)'},
+ {s:'apple-airpods-pro-2-usb-c',n:'Apple AirPods Pro (2nd generation) with USB-C',p:269,b:'Best seller',cat:'Audio',fig:'USB-C',fits:['iphone','ipad','mac'],img:1,r:'4.8 (402)'},
+ {s:'samsung-galaxy-s25-256gb',n:'Samsung Galaxy S25, 256 GB',p:949,b:'Best seller',cat:'Phones',fig:'256 GB',fits:[],img:1,r:'4.7 (156)'},
+ {s:'samsung-galaxy-s25-clear-case',n:'Samsung Galaxy S25 Clear Case',p:32,cat:'Cases & Mounts',fig:'Clear',fits:['android'],img:1,r:'4.4 (61)'},
+ {s:'apple-watch-series-10-42mm',n:'Apple Watch Series 10, 42 mm, GPS',p:459,b:'New',cat:'Wearables',fig:'42 mm',fits:['iphone'],img:1,r:'4.8 (97)'},
+ {s:'ampline-magnetic-dash-mount',n:'Ampline Magnetic Dash Mount',p:19,c:24,b:'Best seller',cat:'Car',fig:'Mag',fits:['iphone','android'],img:0,r:'4.5 (240)'},
+ {s:'sony-playstation-5-slim-1tb',n:'Sony PlayStation 5 (Slim), 1 TB',p:579,b:'Best seller',cat:'Gaming',fig:'1 TB',fits:[],img:1,r:'4.9 (320)'}
+];
+const CATS=[['Phones','apple-iphone-16-128gb'],['Laptops','apple-macbook-air-13-m3'],['Tablets','apple-ipad-air-11-m2-128gb'],['Audio','apple-airpods-pro-2-usb-c'],['Wearables','apple-watch-series-10-42mm'],['Gaming','sony-playstation-5-slim-1tb'],['Networking','tp-link-archer-ax55'],['Smart Home','apple-homepod-mini'],['Chargers',null,'65W'],['Cables',null,'C'],['Power Banks',null,'20k'],['Cases & Mounts','apple-iphone-16-silicone-case-magsafe']];
+const money=v=>'$'+(Number.isInteger(v)?v.toLocaleString('en-US'):v.toFixed(2));
+let dev=null;
+document.getElementById('chips').innerHTML=DEV.map(d=>`<button class="chip" data-d="${d[0]}" aria-pressed="false">${d[1]}</button>`).join(' ');
+document.getElementById('cats').innerHTML=CATS.map(c=>`<a class="cat" href="#"><div class="o">${c[1]?`<img src="${IMG(c[1])}" alt="">`:`<span>${c[2]}</span>`}</div>${c[0]}</a>`).join('');
+function render(){
+  const list=dev?[...P].sort((a,b)=>b.fits.includes(dev)-a.fits.includes(dev)):P;
+  document.getElementById('grid').innerHTML=list.map(p=>{const fit=dev&&p.fits.includes(dev);return `<article class="card ${dev&&!fit?'dim':''}">
+    <div class="well">${p.b?`<span class="badge">${p.b}</span>`:''}${fit?`<span class="badge fit">Fits</span>`:''}${p.img?`<img src="${IMG(p.s)}" alt="">`:`<span class="fig">${p.fig}</span>`}</div>
+    <span class="cat">${p.cat}</span><h3>${p.n}</h3>
+    <div class="price">${money(p.p)}${p.c?`<s>${money(p.c)}</s><span class="save">Save ${money(p.c-p.p)}</span>`:''}</div>
+    <div class="stars">★★★★★ ${p.r}</div><button class="add">Add to cart</button></article>`}).join('');
+  const n=dev?P.filter(p=>p.fits.includes(dev)).length:0, name=dev?DEV.find(d=>d[0]===dev)[1]:'';
+  document.getElementById('line').textContent=dev?`${n} of these fit your ${name}. Chargers show the watts your ${name} actually takes.`:'Pick what you own and the best sellers re-sort to what fits it.';
+}
+document.getElementById('chips').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;dev=dev===b.dataset.d?null:b.dataset.d;document.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c.dataset.d===dev));render();});
+render();
+</script>
+</body>
+</html>

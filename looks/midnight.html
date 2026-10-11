@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ampline — Look B: Signboard Canyon at Midnight</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap">
+<style>
+  :root{--bg:#0b0c0f;--panel:#15171c;--line:#23262d;--fg:#f2f2f2;--muted:#8d93a0;--red:#e8262b;--orange:#ff5c1a;--white:#fff6e8;--dim:#3a3d42;
+        --display:"Barlow Condensed",Impact,"Arial Narrow",sans-serif;--body:Inter,system-ui,sans-serif}
+  *{box-sizing:border-box}html,body{margin:0}
+  body{background:var(--bg);color:var(--fg);font-family:var(--body);-webkit-font-smoothing:antialiased;line-height:1.45;
+       background-image:radial-gradient(ellipse 60% 40% at 70% 0%,rgba(255,92,26,.10),transparent 60%),radial-gradient(ellipse 40% 30% at 10% 20%,rgba(232,38,43,.08),transparent 60%)}
+  a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+  header{border-bottom:1px solid var(--line);background:rgba(11,12,15,.85);backdrop-filter:blur(10px);position:sticky;top:0;z-index:5}
+  .bar{display:flex;align-items:center;gap:28px;height:64px}
+  .logo{font-family:var(--display);font-weight:800;font-size:30px;letter-spacing:.02em;text-transform:uppercase;color:var(--white);text-shadow:0 0 18px rgba(255,246,232,.55)}
+  .logo i{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--orange);box-shadow:0 0 12px var(--orange);margin-right:10px;vertical-align:middle}
+  nav{display:flex;gap:24px;font-weight:500;font-size:14px;color:var(--muted)}nav a:hover{color:var(--fg)}
+  .search{flex:1;max-width:420px;border:1px solid var(--line);border-radius:6px;padding:9px 14px;color:var(--muted);background:var(--panel);font-size:14px}
+  .cart{margin-left:auto;border:1px solid var(--line);border-radius:6px;padding:8px 14px;font-weight:600;font-size:14px}
+  /* hero: the building */
+  .hero{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;padding:48px 0 24px;align-items:start}
+  .kicker{font-family:var(--display);font-size:16px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+  h1{font-family:var(--display);font-weight:800;font-size:clamp(54px,7vw,96px);line-height:.92;letter-spacing:.005em;text-transform:uppercase;margin:8px 0 18px;color:var(--white);text-shadow:0 0 30px rgba(255,246,232,.25)}
+  .hero p{color:var(--muted);font-size:17px;max-width:46ch;margin:0 0 22px}
+  .chips{display:flex;flex-wrap:wrap;gap:10px}
+  .chip{background:transparent;border:1.5px solid var(--dim);color:var(--fg);border-radius:4px;padding:9px 14px;font-family:var(--display);font-size:18px;letter-spacing:.04em;text-transform:uppercase;transition:.2s}
+  .chip[aria-pressed=true]{border-color:var(--orange);color:var(--white);box-shadow:0 0 0 1px var(--orange),0 0 18px rgba(255,92,26,.55),inset 0 0 12px rgba(255,92,26,.25)}
+  .line{margin-top:16px;color:var(--muted);font-size:14px;min-height:20px}
+  .building{position:relative;padding-bottom:140px}
+  .floors{display:flex;flex-direction:column-reverse;gap:10px}
+  .sign{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:10px 18px;font-family:var(--display);text-transform:uppercase;letter-spacing:.04em;font-weight:700;color:var(--dim);transition:.35s;position:relative}
+  .sign small{font-family:var(--body);font-weight:500;font-size:12px;letter-spacing:0;text-transform:none;color:var(--muted)}
+  .sign.lit{color:var(--white);border-color:rgba(255,246,232,.35);box-shadow:0 0 22px rgba(255,246,232,.28),inset 0 0 20px rgba(255,246,232,.08)}
+  .sign.lit.acc{color:var(--orange);border-color:rgba(255,92,26,.5);box-shadow:0 0 24px rgba(255,92,26,.45),inset 0 0 20px rgba(255,92,26,.12)}
+  .sign.lit.pow{color:var(--red);border-color:rgba(232,38,43,.5);box-shadow:0 0 24px rgba(232,38,43,.45),inset 0 0 20px rgba(232,38,43,.12)}
+  .sign.g{font-size:34px;padding:16px 20px}.sign.m{font-size:24px}.sign.s{font-size:19px}
+  .reflect{position:absolute;left:0;right:0;top:100%;height:140px;transform:scaleY(-1);transform-origin:top;opacity:.35;filter:blur(3px);
+           -webkit-mask-image:linear-gradient(to bottom,#000,transparent 85%);mask-image:linear-gradient(to bottom,#000,transparent 85%);pointer-events:none}
+  .street{position:absolute;left:-24px;right:-24px;top:calc(100% + 2px);height:1px;background:linear-gradient(90deg,transparent,rgba(255,246,232,.35),transparent)}
+  /* products as lit signs */
+  .sec{display:flex;align-items:baseline;justify-content:space-between;margin:40px 0 14px}
+  .sec h2{font-family:var(--display);font-size:34px;letter-spacing:.04em;text-transform:uppercase;margin:0;color:var(--white)}
+  .sec a{color:var(--muted);font-size:14px}
+  .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:14px;display:flex;flex-direction:column;gap:8px;position:relative;transition:.3s}
+  .card .img{height:170px;display:grid;place-items:center}
+  .card img{max-height:150px;max-width:85%;filter:drop-shadow(0 10px 18px rgba(0,0,0,.6))}
+  .card .fig{font-family:var(--display);font-size:64px;font-weight:800;color:var(--red);text-shadow:0 0 22px rgba(232,38,43,.7)}
+  .card .cat{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .card h3{font-family:var(--display);font-weight:600;font-size:21px;line-height:1.05;margin:0;letter-spacing:.01em;text-transform:uppercase}
+  .price{font-family:var(--display);font-size:28px;font-weight:700;color:var(--white)}.price s{color:var(--muted);font-size:18px;font-weight:500;margin-left:8px}
+  .stock{font-size:12px;display:flex;align-items:center;gap:6px;color:var(--muted)}.stock i{width:7px;height:7px;border-radius:50%;background:var(--white);box-shadow:0 0 8px var(--white)}
+  .card.on{box-shadow:0 0 0 1px rgba(255,246,232,.25),0 0 30px rgba(255,246,232,.22)}
+  .card.off{opacity:.45}.card.off img{filter:grayscale(1) brightness(.5)}
+  .card.low{animation:flicker 4s infinite}.card.low .stock i{background:var(--orange);box-shadow:0 0 8px var(--orange)}
+  .card.dark .stock i{background:var(--dim);box-shadow:none}
+  @keyframes flicker{0%,92%,100%{opacity:1}94%{opacity:.55}96%{opacity:1}98%{opacity:.7}}
+  .fit{position:absolute;top:10px;right:10px;font-family:var(--display);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);border:1px solid var(--orange);border-radius:3px;padding:2px 7px;box-shadow:0 0 10px rgba(255,92,26,.5)}
+  .add{margin-top:auto;background:var(--white);color:#111;border:0;border-radius:4px;padding:10px;font-family:var(--display);font-size:18px;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
+  .add[disabled]{background:var(--dim);color:#777}
+  .trust{display:flex;gap:40px;flex-wrap:wrap;margin:40px 0 46px;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14px;color:var(--muted)}
+  .trust b{color:var(--fg);font-weight:600}
+  footer{color:var(--muted);font-size:13px;padding:28px 0 40px}
+  @media(max-width:900px){.hero{grid-template-columns:1fr;gap:28px}.grid{grid-template-columns:repeat(2,1fr)}nav,.search{display:none}h1{font-size:64px}.building{padding-bottom:90px}.reflect{height:90px}}
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+  <a class="logo" href="#"><i></i>Ampline</a>
+  <nav><a href="#">Devices</a><a href="#">Accessories</a><a href="#">Power</a><a href="#">Deals</a></nav>
+  <div class="search">Search the street</div>
+  <a class="cart" href="#">Cart · 0</a>
+</div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <div class="kicker">Beirut · open late</div>
+      <h1>Start from<br>what you own.</h1>
+      <p>Name your phone or laptop and the floors that fit it light up. Fifteen categories, one building. Stock is the light: lit means in stock, dim means a few left, dark means gone.</p>
+      <div class="chips" id="chips"></div>
+      <p class="line" id="line">Nothing picked yet. Every floor is on.</p>
+    </div>
+    <div class="building">
+      <div class="floors" id="floors"></div>
+      <div class="street"></div>
+      <div class="reflect"><div class="floors" id="floors2"></div></div>
+    </div>
+  </section>
+
+  <div class="sec"><h2>Lit tonight</h2><a href="#">All 58 signs →</a></div>
+  <section class="grid" id="grid"></section>
+
+  <section class="trust"><span><b>Delivery across Lebanon</b> in 1 to 3 days</span><span><b>1-year warranty</b></span><span><b>Card or cash on delivery</b>, prices in USD</span></section>
+</main>
+<footer class="wrap">© Ampline, placeholder name. Prices, ratings and stock are synthetic. Product names as a retailer lists them.</footer>
+
+<script>
+const IMG=s=>'../assets/products/'+s+'-1.webp';
+const DEV=[['iphone','iPhone'],['android','Android'],['ipad','iPad'],['mac','Mac'],['windows','Windows laptop'],['switch','Switch & Steam Deck'],['watch','Watch & earbuds']];
+const ALL=['iphone','android','ipad','mac','windows','switch','watch'];
+const FLOORS=[ // bottom first: ground floor loudest
+ {n:'Phones',g:'dev',sz:'g',k:[],c:'6 signs'},{n:'Laptops',g:'dev',sz:'g',k:[],c:'5 signs'},{n:'Chargers & power banks',g:'pow',sz:'m',k:ALL,c:'8 signs'},
+ {n:'Cases & mounts',g:'acc',sz:'m',k:['iphone','android','ipad','mac'],c:'5 signs'},{n:'Cables & hubs',g:'acc',sz:'m',k:ALL,c:'6 signs'},
+ {n:'Audio',g:'dev',sz:'s',k:['iphone','android','ipad','mac','windows'],c:'5 signs'},{n:'Wearables',g:'dev',sz:'s',k:['iphone','android'],c:'5 signs'},
+ {n:'Tablets',g:'dev',sz:'s',k:[],c:'5 signs'},{n:'Gaming',g:'dev',sz:'s',k:['switch'],c:'5 signs'},{n:'Networking · Smart home',g:'dev',sz:'s',k:[],c:'10 signs'}];
+const P=[
+ {s:'apple-iphone-16-128gb',n:'Apple iPhone 16, 128 GB',p:1099,cat:'Phones',fig:'128',fits:[],img:1,st:'in'},
+ {s:'gan-65w-3-port-charger',n:'Ampline GaN 65W 3-Port',p:39.99,c:49.99,cat:'Chargers',fig:'65W',fits:ALL,img:0,st:'in'},
+ {s:'apple-macbook-air-13-m3',n:'MacBook Air 13 (M3)',p:1249,cat:'Laptops',fig:'M3',fits:[],img:1,st:'in'},
+ {s:'apple-airpods-pro-2-usb-c',n:'AirPods Pro 2, USB-C',p:269,cat:'Audio',fig:'C',fits:['iphone','ipad','mac'],img:1,st:'in'},
+ {s:'samsung-galaxy-s25-256gb',n:'Galaxy S25, 256 GB',p:949,cat:'Phones',fig:'256',fits:[],img:1,st:'in'},
+ {s:'apple-iphone-16-silicone-case-magsafe',n:'iPhone 16 Silicone Case',p:54,cat:'Cases',fig:'Mag',fits:['iphone'],img:1,st:'in'},
+ {s:'sony-playstation-5-slim-1tb',n:'PlayStation 5 Slim, 1 TB',p:579,cat:'Gaming',fig:'1TB',fits:[],img:1,st:'in'},
+ {s:'samsung-galaxy-a56-128gb',n:'Galaxy A56, 128 GB',p:469,cat:'Phones',fig:'128',fits:[],img:1,st:'low'},
+ {s:'ampline-magnetic-dash-mount',n:'Ampline Magnetic Dash Mount',p:19,c:24,cat:'Car',fig:'MAG',fits:['iphone','android'],img:0,st:'in'},
+ {s:'nintendo-switch-oled',n:'Nintendo Switch OLED',p:369,cat:'Gaming',fig:'OLED',fits:[],img:0,st:'out'}
+];
+const money=v=>'$'+(Number.isInteger(v)?v.toLocaleString('en-US'):v.toFixed(2));
+let dev=null;
+document.getElementById('chips').innerHTML=DEV.map(d=>`<button class="chip" data-d="${d[0]}" aria-pressed="false">${d[1]}</button>`).join('');
+function floors(){return FLOORS.map(f=>`<div class="sign ${f.sz} ${f.g} ${!dev||f.k.includes(dev)?'lit':''}"><span>${f.n}</span><small>${f.c}</small></div>`).join('')}
+function render(){
+  document.getElementById('floors').innerHTML=floors();document.getElementById('floors2').innerHTML=floors();
+  const list=dev?[...P].sort((a,b)=>b.fits.includes(dev)-a.fits.includes(dev)):P;
+  document.getElementById('grid').innerHTML=list.map(p=>{const fit=dev&&p.fits.includes(dev);const cls=p.st==='out'?'off dark':p.st==='low'?'low':(fit?'on':'');
+   return `<article class="card ${cls} ${dev&&!fit&&p.st!=='out'?'off':''}">${fit?'<span class="fit">Fits</span>':''}
+    <div class="img">${p.img?`<img src="${IMG(p.s)}" alt="">`:`<span class="fig">${p.fig}</span>`}</div>
+    <span class="cat">${p.cat}</span><h3>${p.n}</h3>
+    <div class="price">${money(p.p)}${p.c?`<s>${money(p.c)}</s>`:''}</div>
+    <div class="stock"><i></i>${p.st==='in'?'Lit · in stock':p.st==='low'?'Dimming · a few left':'Dark · out of stock'}</div>
+    <button class="add" ${p.st==='out'?'disabled':''}>${p.st==='out'?'Sold out':'Add to cart'}</button></article>`}).join('');
+  const n=dev?P.filter(p=>p.fits.includes(dev)).length:0,name=dev?DEV.find(d=>d[0]===dev)[1]:'';
+  document.getElementById('line').textContent=dev?`${FLOORS.filter(f=>f.k.includes(dev)).length} floors light up for your ${name}. ${n} signs fit it tonight.`:'Nothing picked yet. Every floor is on.';
+}
+document.getElementById('chips').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;dev=dev===b.dataset.d?null:b.dataset.d;document.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c.dataset.d===dev));render();});
+render();
+</script>
+</body>
+</html>

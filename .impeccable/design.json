@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-11T23:30:00+00:00",
+  "generatedAt": "2026-10-11T23:59:00+00:00",
   "title": "Design System: Ampline",
   "extensions": {
     "colorMeta": {
@@ -337,6 +337,11 @@
         "name": "scrim",
         "value": "rgba(11,13,16,0.45)",
         "purpose": "Dialog backdrop behind the cart drawer and the phone filter sheet."
+      },
+      {
+        "name": "switch-knob",
+        "value": "0 1px 3px rgba(11,13,16,0.2)",
+        "purpose": "The admin settings switch knob only."
       }
     ],
     "motion": [
@@ -399,6 +404,21 @@
         "name": "payoff-into-view",
         "value": "window.scrollTo smooth to the element top under the header, 12px clear (auto under reduced motion)",
         "purpose": "After a device tap on home, at every width: from 1024px the picker bar under the header (chips above the tiles, no bounce between bucket and model taps); below 1024px the open model question, else the payoff tiles. A family-only guess tap brings the device row into view."
+      },
+      {
+        "name": "panel-in",
+        "value": "drawer-in-y / drawer-in-x 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Admin panel: slides up 24px from 0.6 opacity as a bottom sheet below 720px, in from the right as a drawer from 720px."
+      },
+      {
+        "name": "order-charge",
+        "value": "clip-path 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Admin order battery charges to the next status level before the panel re-renders 420ms later; step bars recolor over 0.3s."
+      },
+      {
+        "name": "toast-in",
+        "value": "translate 8px and opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Admin toast rises into place; held 2.6s."
       }
     ],
     "breakpoints": [
@@ -556,6 +576,62 @@
       "description": "Three white hairline items at 12px, padded 10px 14px: a 32px ground icon well with an 18px ink stroke icon, then the promise at 0.875rem weight 600. One column on phones, three from 720px. Copy is the pitch's: delivery across Lebanon in 1 to 3 days, 1-year warranty, card or cash on delivery; product pages carry it as muted trust lines and the cart foot as one muted line. PRODUCT.md records these as assumptions to confirm.",
       "html": "<ul class=\"ds-trust\"><li><span></span><b>Delivery across Lebanon in 1 to 3 days</b></li><li><span></span><b>1-year warranty</b></li><li><span></span><b>Card or cash on delivery</b></li></ul>",
       "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)}.ds-trust{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.ds-trust li{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:12px;background:var(--screen);border:1px solid var(--line);font-size:.875rem}.ds-trust b{font-weight:600}.ds-trust span{width:32px;height:32px;border-radius:12px;background:var(--ground);flex:none}"
+    },
+    {
+      "name": "Status Battery",
+      "kind": "chip",
+      "refersTo": "status-mini",
+      "description": "Admin order and stock status: a 26 by 11px mini battery and its word, always together. New 0, Packed 0.34, Shipped 0.67, Delivered full with green-ink word, Cancelled dormant grey; a late Packed or Shipped order adds an amber Day N pill. Stock: full green, 0.22 amber, dormant empty.",
+      "html": "<div class=\"ds-sts\"><span class=\"ds-st\"><span class=\"ds-mini\"><i style=\"--pct:0\"></i></span>New</span><span class=\"ds-st\"><span class=\"ds-mini\"><i style=\"--pct:0.34\"></i></span>Packed<span class=\"ds-late\">Day 4</span></span><span class=\"ds-st\"><span class=\"ds-mini\"><i style=\"--pct:0.67\"></i></span>Shipped</span><span class=\"ds-st ds-st--del\"><span class=\"ds-mini\"><i style=\"--pct:1\"></i></span>Delivered</span><span class=\"ds-st ds-st--can\"><span class=\"ds-mini\"><i style=\"--pct:0\"></i></span>Cancelled</span></div>",
+      "css": ".ds-sts{display:grid;gap:10px;font-family:\"Readex Pro\",system-ui,sans-serif;font-size:14px}.ds-st{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:#0b0d10;white-space:nowrap}.ds-mini{position:relative;display:inline-block;width:26px;height:11px;border:2px solid #0b0d10;border-radius:5px;margin-inline-end:4px}.ds-mini::after{content:\"\";position:absolute;top:2px;bottom:2px;right:-5px;width:3px;background:#0b0d10;border-radius:0 2px 2px 0}.ds-mini i{position:absolute;inset:1px;background:#17b867;border-radius:2px;clip-path:inset(0 calc((1 - var(--pct)) * 100%) 0 0 round 2px)}.ds-st--del{color:#0e7a47}.ds-st--can{color:#55606e}.ds-st--can .ds-mini{border-color:#8e97a3}.ds-st--can .ds-mini::after{background:#8e97a3}.ds-late{font-size:11.5px;font-weight:700;color:#8a5a00;background:#fff0d2;padding:1px 7px;border-radius:999px;margin-inline-start:6px}"
+    },
+    {
+      "name": "Stat Tile",
+      "kind": "card",
+      "refersTo": "stat-tile",
+      "description": "Dashboard figure card linking to its filtered list; an amber dot leads the label when it needs a hand.",
+      "html": "<a class=\"ds-stat\" href=\"#\"><span class=\"ds-stat__l\"><i></i>Cash to collect</span><b>$1,794.93</b><small>5 cash-on-delivery orders open</small><span class=\"ds-stat__go\">See list <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></span></a>",
+      "css": ".ds-stat{display:grid;gap:1px;width:280px;min-height:92px;padding:12px 18px 10px;background:#fff;border:1px solid #dce2e9;border-radius:18px;color:#0b0d10;text-decoration:none;font-family:\"Readex Pro\",system-ui,sans-serif;transition:border-color .15s}.ds-stat:hover{border-color:#0b0d10}.ds-stat:focus-visible{outline:3px solid #17b867;outline-offset:3px}.ds-stat__l{display:flex;align-items:center;gap:6px;font-size:12.8px;font-weight:600;color:#55606e}.ds-stat__l i{width:8px;height:8px;border-radius:50%;background:#e09a1c}.ds-stat b{font-size:28px;font-weight:700;letter-spacing:-0.02em;line-height:1.1;font-variant-numeric:tabular-nums}.ds-stat small{font-size:12.8px;color:#55606e}.ds-stat__go{display:inline-flex;align-items:center;gap:4px;font-size:12.8px;font-weight:600;padding-top:4px}.ds-stat__go svg{width:14px;height:14px}"
+    },
+    {
+      "name": "Admin Data Table",
+      "kind": "custom",
+      "refersTo": "data-table",
+      "description": "Dense white hairline table at 0.875rem with 0.75rem muted heads, muted sub-lines and tabular numbers; below 720px each row becomes a card with a 6.5em label column and a lead line carrying status and total.",
+      "html": "<div class=\"ds-tw\"><table class=\"ds-tbl\"><thead><tr><th>Order</th><th>Placed</th><th class=\"ds-n\">Total</th></tr></thead><tbody><tr><td><b>A-1040</b></td><td>Sun 11 Oct, 18:41<span>3 h ago</span></td><td class=\"ds-n\"><b>$379.00</b></td></tr><tr><td><b>A-1039</b></td><td>Sun 11 Oct, 17:34<span>4 h ago</span></td><td class=\"ds-n\"><b>$21.99</b></td></tr></tbody></table></div>",
+      "css": ".ds-tw{background:#fff;border:1px solid #dce2e9;border-radius:18px;overflow:auto;font-family:\"Readex Pro\",system-ui,sans-serif;}.ds-tbl{width:100%;border-collapse:collapse;font-size:14px;color:#0b0d10}.ds-tbl th{text-align:start;font-size:12px;font-weight:600;color:#55606e;padding:10px 12px;border-bottom:1px solid #dce2e9}.ds-tbl td{padding:9px 12px;border-bottom:1px solid #dce2e9}.ds-tbl tr:last-child td{border-bottom:0}.ds-tbl td span{display:block;font-size:12px;color:#55606e}.ds-n{text-align:end;font-variant-numeric:tabular-nums}.ds-tbl tbody tr:hover td{background:#f4f6f8;cursor:pointer}"
+    },
+    {
+      "name": "Order Battery and Stepper",
+      "kind": "custom",
+      "refersTo": "order-battery",
+      "description": "The order panel's 76 by 28px battery charging over 0.8s, above a four-step bar: done green, current ink, ahead empty track.",
+      "html": "<div class=\"ds-od\"><span class=\"ds-batt\"><i style=\"--pct:0.34\"></i></span><div class=\"ds-steps\"><div class=\"ds-s ds-done\"><i></i>New</div><div class=\"ds-s ds-now\"><i></i>Packed</div><div class=\"ds-s\"><i></i>Shipped</div><div class=\"ds-s\"><i></i>Delivered</div></div></div>",
+      "css": ".ds-od{display:grid;gap:16px;width:420px;font-family:\"Readex Pro\",system-ui,sans-serif;}.ds-batt{position:relative;display:inline-block;width:76px;height:28px;border:3px solid #0b0d10;border-radius:8px}.ds-batt::after{content:\"\";position:absolute;top:6px;bottom:6px;right:-8px;width:5px;background:#0b0d10;border-radius:0 2px 2px 0}.ds-batt i{position:absolute;inset:3px;background:#17b867;border-radius:3px;clip-path:inset(0 calc((1 - var(--pct)) * 100%) 0 0);transition:clip-path .8s cubic-bezier(0.16,1,0.3,1)}.ds-batt:hover i{--pct:0.67}.ds-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.ds-s{display:grid;gap:6px;font-size:11.5px;font-weight:600;color:#55606e;text-align:center}.ds-s i{height:5px;border-radius:3px;background:#e9edf1}.ds-done{color:#0e7a47}.ds-done i{background:#17b867}.ds-now{color:#0b0d10}.ds-now i{background:#0b0d10}"
+    },
+    {
+      "name": "Admin Field and Cell Input",
+      "kind": "input",
+      "refersTo": "field-input",
+      "description": "40px field input at 10px radius under a 0.8125rem weight 600 label; the table's price cell is the 36px, 6.5em version aligned right.",
+      "html": "<div class=\"ds-form\"><label class=\"ds-field\">Compare-at price<span>Leave empty for no deal</span><input class=\"ds-in\" value=\"49.99\"></label><input class=\"ds-cell\" value=\"42.50\" aria-label=\"Price\"></div>",
+      "css": ".ds-form{display:grid;gap:14px;width:300px;font-family:\"Readex Pro\",system-ui,sans-serif;}.ds-field{display:grid;gap:6px;font-size:13px;font-weight:600;color:#0b0d10}.ds-field span{font-weight:400;font-size:12px;color:#55606e}.ds-in,.ds-cell{height:40px;padding:0 12px;border:1px solid #dce2e9;border-radius:10px;font:inherit;font-size:15px;font-weight:400;background:#fff;color:#0b0d10}.ds-cell{width:6.5em;height:36px;padding:0 10px;font-size:14px;text-align:end;font-variant-numeric:tabular-nums}.ds-in:focus,.ds-cell:focus{border-color:#0b0d10;outline:3px solid #17b867;outline-offset:3px}"
+    },
+    {
+      "name": "Bulk Bar and Toast",
+      "kind": "custom",
+      "refersTo": "bulk-bar",
+      "description": "Ink pills: the selection bar with its action buttons, and the status toast with the floating shadow.",
+      "html": "<div class=\"ds-bt\"><div class=\"ds-bulk\"><span>2 selected</span><button class=\"ds-bb\">Mark out of stock</button><button class=\"ds-bg\">Clear</button></div><p class=\"ds-toast\">2 marked out of stock</p></div>",
+      "css": ".ds-bt{display:grid;gap:16px;justify-items:start;font-family:\"Readex Pro\",system-ui,sans-serif;}.ds-bulk{display:flex;align-items:center;gap:8px 14px;padding:8px 10px 8px 16px;background:#0b0d10;color:#f4f6f8;border-radius:999px;font-size:14px;font-weight:600}.ds-bb,.ds-bg{height:34px;padding:0 14px;border-radius:999px;font:inherit;font-size:13px;border:1px solid transparent;cursor:pointer}.ds-bb{background:#f4f6f8;color:#0b0d10}.ds-bg{background:transparent;color:#f4f6f8;border-color:#1f252d}.ds-bg:hover{border-color:#f4f6f8}.ds-toast{margin:0;padding:10px 18px;background:#0b0d10;color:#f4f6f8;border-radius:999px;font-size:14px;font-weight:600;box-shadow:0 12px 32px -12px rgba(11,13,16,0.18),0 2px 6px -2px rgba(11,13,16,0.08)}"
+    },
+    {
+      "name": "Checkout Form",
+      "kind": "input",
+      "refersTo": "checkout-input",
+      "description": "Cart drawer foot: 44px name and phone inputs at 10px radius, the area pill select, payment as two chips, the amber error line, then the big Checkout button.",
+      "html": "<form class=\"ds-co\"><input placeholder=\"Your name\"><input placeholder=\"Phone, e.g. 03 123 456\"><div class=\"ds-pay\"><span class=\"ds-chip ds-on\">Cash on delivery</span><span class=\"ds-chip\">Card</span></div><p class=\"ds-err\">Add your name, phone so the shop can reach you.</p></form>",
+      "css": ".ds-co{display:grid;gap:8px;width:340px;font-family:\"Readex Pro\",system-ui,sans-serif;}.ds-co input{height:44px;padding:0 14px;border:1px solid #dce2e9;border-radius:10px;font:inherit;background:#fff;color:#0b0d10}.ds-co input:focus{border-color:#0b0d10;outline:3px solid #17b867;outline-offset:3px}.ds-pay{display:flex;gap:6px}.ds-chip{display:inline-flex;align-items:center;gap:9px;height:40px;padding:0 15px 0 13px;border:1px solid #dce2e9;border-radius:999px;background:#fff;font-size:15px;font-weight:500}.ds-chip::before{content:\"\";width:8px;height:8px;border-radius:50%;background:#e9edf1}.ds-on{background:#0b0d10;color:#f4f6f8;border-color:#0b0d10}.ds-on::before{background:#17b867}.ds-err{margin:0;font-size:14px;color:#8a5a00;background:#fff0d2;padding:8px 12px;border-radius:10px}"
     }
   ],
   "narrative": {
@@ -598,6 +674,16 @@
         "name": "The Flat Screen Rule",
         "body": "Cards, chips, tiles and category tiles never cast shadows. Hover answers with a border darkening to ink and, on tiles and linked category tiles, a 2px lift.",
         "section": "elevation"
+      },
+      {
+        "name": "The Word Beside the Glyph Rule",
+        "body": "A status battery never stands alone in a cell; its word sits beside it, and the word carries the color when the state is final (green ink for Delivered, muted for Cancelled).",
+        "section": "components"
+      },
+      {
+        "name": "The Attention Amber Rule",
+        "body": "In the admin, amber also marks what needs a hand: the new-orders dot, cash to collect, a late order, an armed reset and an error. It never marks a finished state.",
+        "section": "colors"
       }
     ],
     "dos": [

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ampline — Look C: The Retail Box</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+  :root{--card:#f7f7f5;--card2:#ecece8;--ink:#121212;--teal:#0e6b5a;--teal-soft:#dcebe6;--grey:#d9d9d4;--muted:#6b6b66;--font:Archivo,system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace}
+  *{box-sizing:border-box}html,body{margin:0}
+  body{background:var(--card);color:var(--ink);font-family:var(--font);-webkit-font-smoothing:antialiased;line-height:1.45}
+  a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+  header{border-bottom:1px solid var(--grey);background:var(--card);position:sticky;top:0;z-index:5}
+  .bar{display:flex;align-items:center;gap:28px;height:64px}
+  .logo{font-weight:800;font-size:22px;letter-spacing:-.02em}.logo b{color:var(--teal)}
+  nav{display:flex;gap:22px;font-weight:600;font-size:14px}
+  .search{flex:1;max-width:420px;border:1.5px solid var(--ink);border-radius:2px;padding:8px 14px;color:var(--muted);font-size:14px;font-family:var(--mono)}
+  .cart{margin-left:auto;border:1.5px solid var(--ink);border-radius:2px;padding:8px 14px;font-weight:700;font-size:13px;font-family:var(--mono)}
+  /* hero */
+  .hero{display:grid;grid-template-columns:.9fr 1.4fr;gap:40px;padding:48px 0 10px;align-items:end}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);font-weight:700}
+  h1{font-size:clamp(40px,5.2vw,68px);line-height:.98;letter-spacing:-.035em;margin:10px 0 16px;font-weight:800;text-wrap:balance}
+  .hero p{color:var(--muted);font-size:17px;max-width:40ch;margin:0 0 20px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{background:var(--card);border:1.5px solid var(--ink);border-radius:2px;padding:8px 13px;font-weight:600;font-size:14px}
+  .chip[aria-pressed=true]{background:var(--ink);color:var(--card)}
+  .line{margin-top:14px;font-family:var(--mono);font-size:13px;color:var(--muted);min-height:20px}
+  /* the shelf */
+  .shelf{position:relative;perspective:1400px;display:grid;grid-template-columns:repeat(5,1fr);gap:18px;align-items:end;padding:30px 0 0}
+  .shelf:after{content:"";position:absolute;left:-24px;right:-24px;bottom:-2px;height:14px;background:linear-gradient(#cfcfca,#b9b9b3);border-top:1px solid #a9a9a3}
+  .box{position:relative;transform-style:preserve-3d;transform:rotateY(-14deg);transition:transform .55s cubic-bezier(.2,.8,.2,1);aspect-ratio:.78;width:100%}
+  .box.turn{transform:rotateY(-46deg)}
+  .box.dim{opacity:.5}
+  .face{position:absolute;inset:0;background:var(--card);border:1px solid var(--grey);display:flex;flex-direction:column;padding:14px;gap:6px;backface-visibility:hidden}
+  .front{box-shadow:0 20px 30px -18px rgba(0,0,0,.45)}
+  .side{width:64px;right:auto;left:100%;transform-origin:left;transform:rotateY(90deg);background:var(--card2);border-left:1px dashed #b5b5af;padding:10px 6px;align-items:center;justify-content:center;gap:6px}
+  .side .lbl{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+  .side .ico{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--ink);display:grid;place-items:center;font-size:10px;font-weight:700}
+  .side .ico.on{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .brand{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between}
+  .brand .badge{color:var(--teal);font-weight:700}
+  .art{flex:1 1 0;display:grid;place-items:center;min-height:0;overflow:hidden}
+  .art img{height:100%;max-width:88%;object-fit:contain;mix-blend-mode:multiply}
+  .fig{font-family:var(--mono);font-weight:700;font-size:clamp(20px,2.1vw,28px);letter-spacing:-.04em;line-height:1;white-space:nowrap;
+       background:linear-gradient(100deg,#2a2a2a 0%,#000 35%,#4a4a4a 50%,#000 65%,#2a2a2a 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .box.turn .fig{font-size:clamp(15px,1.5vw,21px)}
+  .name{font-size:13px;font-weight:600;line-height:1.2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .price{font-family:var(--mono);font-size:14px;font-weight:700;display:flex;gap:8px;align-items:baseline}.price s{color:var(--muted);font-weight:500}
+  .price .tag{margin-left:auto;background:var(--teal);color:#fff;font-size:10px;padding:2px 6px;border-radius:2px;letter-spacing:.08em}
+  .tags{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin:22px 0 34px}
+  .tag2{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--ink);border-radius:2px;padding:6px 8px;background:#fff;display:flex;justify-content:space-between}
+  /* category shelf labels */
+  .cats{display:flex;gap:10px;overflow-x:auto;padding:36px 0 8px;scrollbar-width:none}.cats::-webkit-scrollbar{display:none}
+  .cat{flex:0 0 auto;border:1.5px solid var(--ink);border-radius:2px;padding:10px 14px;font-weight:700;font-size:14px;background:var(--card)}
+  .cat small{display:block;font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.08em;font-weight:500}
+  /* back of the box */
+  .back{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:36px 0 48px;padding:20px;border:1px solid var(--grey);background:#fff;font-family:var(--mono);font-size:12px}
+  .back b{display:block;font-family:var(--font);font-size:14px;margin-bottom:4px}
+  .back span{color:var(--muted)}
+  footer{font-family:var(--mono);font-size:11px;color:var(--muted);padding:20px 0 40px;letter-spacing:.04em}
+  @media(max-width:900px){.hero{grid-template-columns:1fr;gap:26px}.shelf,.tags{grid-template-columns:repeat(2,1fr)}.box{transform:rotateY(-10deg)}nav,.search{display:none}.back{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+  <a class="logo" href="#">Amp<b>line</b></a>
+  <nav><a href="#">Devices</a><a href="#">Accessories</a><a href="#">Power</a><a href="#">Deals</a></nav>
+  <div class="search">search_</div>
+  <a class="cart" href="#">CART · 0</a>
+</div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Ampline · Beirut · every box on the shelf</div>
+      <h1>Start from what you own.</h1>
+      <p>Pick your phone or laptop and the boxes that fit it turn to show the side that names it. The front carries the one figure that matters; the back carries what is inside.</p>
+      <div class="chips" id="chips"></div>
+      <p class="line" id="line">// no device picked. boxes face front.</p>
+    </div>
+    <div id="shelves"></div>
+  </section>
+
+  <section class="cats" id="cats"></section>
+
+  <div class="back">
+    <div><b>Delivery across Lebanon</b><span>1 to 3 days · tracked · pitch assumption</span></div>
+    <div><b>1-year warranty</b><span>replacement in the first month, repair after</span></div>
+    <div><b>Card or cash on delivery</b><span>prices in USD · synthetic for this prototype</span></div>
+  </div>
+</main>
+<footer class="wrap">© AMPLINE · PLACEHOLDER NAME · PRODUCT NAMES AS A RETAILER LISTS THEM · PRICES, RATINGS AND STOCK ARE SYNTHETIC</footer>
+
+<script>
+const IMG=s=>'../assets/products/'+s+'-1.webp';
+const DEV=[['iphone','iPhone'],['android','Android'],['ipad','iPad'],['mac','Mac'],['windows','Windows laptop'],['switch','Switch & Steam Deck'],['watch','Watch & earbuds']];
+const ALL=['iphone','android','ipad','mac','windows','switch','watch'];
+const P=[
+ {s:'apple-iphone-16-128gb',br:'Apple',n:'iPhone 16, 128 GB',p:1099,b:'New',fig:'128 GB',fits:[],img:1},
+ {s:'gan-65w-3-port-charger',br:'Ampline',n:'GaN 65W 3-Port Charger',p:39.99,c:49.99,b:'Best seller',fig:'65 W',fits:ALL,img:0},
+ {s:'apple-macbook-air-13-m3',br:'Apple',n:'MacBook Air 13-inch (M3), 8 GB, 256 GB',p:1249,b:'Best seller',fig:'M3',fits:[],img:1},
+ {s:'apple-iphone-16-silicone-case-magsafe',br:'Apple',n:'iPhone 16 Silicone Case with MagSafe',p:54,fig:'MagSafe',fits:['iphone'],img:1},
+ {s:'apple-airpods-pro-2-usb-c',br:'Apple',n:'AirPods Pro (2nd gen) with USB-C',p:269,b:'Best seller',fig:'USB-C',fits:['iphone','ipad','mac'],img:1},
+ {s:'samsung-galaxy-s25-256gb',br:'Samsung',n:'Galaxy S25, 256 GB',p:949,b:'Best seller',fig:'256 GB',fits:[],img:1},
+ {s:'ampline-magnetic-dash-mount',br:'Ampline',n:'Magnetic Dash Mount',p:19,c:24,b:'Best seller',fig:'MAG',fits:['iphone','android'],img:0},
+ {s:'apple-watch-series-10-42mm',br:'Apple',n:'Watch Series 10, 42 mm, GPS',p:459,b:'New',fig:'42 mm',fits:['iphone'],img:1},
+ {s:'samsung-galaxy-s25-clear-case',br:'Samsung',n:'Galaxy S25 Clear Case',p:32,fig:'Clear',fits:['android'],img:1},
+ {s:'sony-playstation-5-slim-1tb',br:'Sony',n:'PlayStation 5 (Slim), 1 TB',p:579,b:'Best seller',fig:'1 TB',fits:[],img:1}
+];
+const CATS=[['Phones','6 boxes'],['Laptops','5'],['Tablets','5'],['Audio','5'],['Wearables','5'],['Gaming','5'],['Networking','5'],['Smart Home','5'],['Chargers','4'],['Cables','4'],['Power Banks','3'],['Hubs & Docks','2'],['Car','2'],['Wireless','2'],['Cases & Mounts','5']];
+const money=v=>'$'+(Number.isInteger(v)?v.toLocaleString('en-US'):v.toFixed(2));
+const ICO={iphone:'iP',android:'An',ipad:'Pd',mac:'Mc',windows:'Wn',switch:'Sw',watch:'Wt'};
+let dev=null;
+document.getElementById('chips').innerHTML=DEV.map(d=>`<button class="chip" data-d="${d[0]}" aria-pressed="false">${d[1]}</button>`).join('');
+document.getElementById('cats').innerHTML=CATS.map(c=>`<a class="cat" href="#">${c[0]}<small>${c[1]} ON SHELF</small></a>`).join('');
+function render(){
+  const list=dev?[...P].sort((a,b)=>b.fits.includes(dev)-a.fits.includes(dev)):P;
+  const box=p=>{const fit=dev&&p.fits.includes(dev);return `<div class="box ${fit?'turn':''} ${dev&&!fit?'dim':''}">
+    <div class="face front"><div class="brand"><span>${p.br}</span>${p.b?`<span class="badge">${p.b}</span>`:''}</div>
+      <div class="art">${p.img?`<img src="${IMG(p.s)}" alt="">`:''}</div><div class="fig">${p.fig}</div><div class="name">${p.n}</div></div>
+    <div class="face side"><span class="lbl">fits</span>${DEV.map(d=>`<span class="ico ${p.fits.includes(d[0])?'on':''}" title="${d[1]}">${ICO[d[0]]}</span>`).join('')}</div>
+  </div>`};
+  const tag=p=>`<div class="tag2"><span>${money(p.p)}${p.c?` <s>${money(p.c)}</s>`:''}</span><span>${dev&&p.fits.includes(dev)?'FITS':'ADD +'}</span></div>`;
+  document.getElementById('shelves').innerHTML=[list.slice(0,5),list.slice(5)].map(row=>`<div class="shelf">${row.map(box).join('')}</div><div class="tags">${row.map(tag).join('')}</div>`).join('');
+  const n=dev?P.filter(p=>p.fits.includes(dev)).length:0,name=dev?DEV.find(d=>d[0]===dev)[1]:'';
+  document.getElementById('line').textContent=dev?`// ${n} boxes turn for your ${name}. the side strip names it.`:'// no device picked. boxes face front.';
+}
+document.getElementById('chips').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;dev=dev===b.dataset.d?null:b.dataset.d;document.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c.dataset.d===dev));render();});
+render();
+</script>
+</body>
+</html>

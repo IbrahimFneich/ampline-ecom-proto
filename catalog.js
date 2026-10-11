@@ -496,6 +496,7 @@
   /* Cart drawer, shared by every page: a native dialog injected once, lines
      with quantity and remove, a subtotal, an empty state, and a checkout that
      stubs to a thank-you panel. Items live in localStorage under one key. */
+  var AREAS = ['Beirut', 'Jounieh', 'Byblos', 'Tripoli', 'Saida', 'Tyre', 'Zahle', 'Baabda', 'Aley', 'Batroun', 'Jdeideh', 'Dbayeh', 'Nabatieh', 'Broummana', 'Elsewhere in Lebanon'];
   var MINUS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 12h12"/></svg>';
   var PLUS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 12h12M12 6v12"/></svg>';
   var items = (function () { try { return JSON.parse(localStorage.getItem(CART_KEY)) || {}; } catch (e) { return {}; } })();
@@ -523,10 +524,15 @@
     },
     open: function () { done = null; cart.render(); if (dialog && !dialog.open) dialog.showModal(); },
     close: function () { if (dialog && dialog.open) dialog.close(); },
-    checkout: function () {
+    checkout: function (details) {
       var ls = lines();
       if (!ls.length) return;
-      done = { lines: ls, total: ls.reduce(function (a, l) { return a + l.total; }, 0) };
+      var total = ls.reduce(function (a, l) { return a + l.total; }, 0), now = new Date().toISOString(), id = nextOrderId();
+      var order = { id: id, placed_at: now, status: 'new', payment: details.payment, source: 'storefront',
+        customer: { name: details.name, phone: details.phone, city: details.area, area: '', address: '' },
+        lines: ls.map(function (l) { return { id: l.p.id, name: l.name, variant: l.variant || '', qty: l.n, price: l.p.price }; }),
+        subtotal: Math.round(total * 100) / 100, total: Math.round(total * 100) / 100, history: [{ status: 'new', at: now }], cancel_reason: null };
+      done = { id: id, recorded: recordOrder(order), payment: details.payment, lines: ls, total: total };
       Object.keys(items).forEach(function (k) { delete items[k]; });
       cart.save();
     },
@@ -550,7 +556,7 @@
         body.innerHTML = '<div class="thanks">' +
           '<span class="mini thanks__mini" aria-hidden="true"><i style="--pct:0"></i></span>' +
           '<h3 tabindex="-1">Thank you.</h3>' +
-          '<p>This prototype stops before payment: nothing was charged and nothing ships.</p>' +
+          '<p><b>Order ' + esc(done.id) + '</b>' + (done.payment === 'cod' ? ', cash on delivery.' : ', by card.') + ' This prototype stops before payment: nothing was charged and nothing ships.' + (done.recorded ? ' The shop sees it in the admin as New.' : '') + '</p>' +
           '<ul class="thanks__lines">' + done.lines.map(function (l) {
             return '<li><span>' + esc(l.name) + (l.variant ? ' · ' + esc(l.variant) : '') + ' <span class="nb">× ' + l.n + '</span></span><span>' + money(l.total) + '</span></li>';
           }).join('') + '</ul>' +
@@ -590,7 +596,14 @@
       foot.hidden = false;
       foot.innerHTML = '<p class="drawer__sub" aria-live="polite"><span>Subtotal <span class="syn">synthetic</span></span><b>' + money(subtotal) + '</b></p>' +
         '<p class="drawer__note">Delivery across Lebanon in 1 to 3 days · card or cash on delivery</p>' +
-        '<button type="button" class="btn btn--big" data-checkout>Checkout</button>';
+        '<form class="co" id="checkout-form" novalidate>' +
+          '<label class="co__f"><span class="vh">Your name</span><input type="text" name="name" placeholder="Your name" required autocomplete="name" maxlength="60"></label>' +
+          '<label class="co__f"><span class="vh">Phone</span><input type="tel" name="phone" placeholder="Phone, e.g. 03 123 456" required autocomplete="tel" inputmode="tel" maxlength="24"></label>' +
+          '<label class="co__f select"><span class="vh">Area</span><select name="area" required><option value="">Where to deliver</option>' + AREAS.map(function (a) { return '<option>' + esc(a) + '</option>'; }).join('') + '</select><svg aria-hidden="true"><use href="#i-chevron"/></svg></label>' +
+          '<div class="co__pay" role="radiogroup" aria-label="Payment"><input type="radio" class="vh" name="payment" id="pay-cod" value="cod" checked><label class="chip" for="pay-cod">Cash on delivery</label><input type="radio" class="vh" name="payment" id="pay-card" value="card"><label class="chip" for="pay-card">Card</label></div>' +
+          '<p class="co__err" id="co-err" role="alert" hidden></p>' +
+          '<button type="submit" class="btn btn--big" data-checkout>Checkout</button>' +
+        '</form>';
     }
   };
 
@@ -665,7 +678,7 @@
           '<span class="mini" aria-hidden="true"><i style="--pct:' + Math.min(1, w / 100) + '"></i></span>'
         : '<p class="tile__facts">' + nb(facetLine(p) || (p.specs[0] ? p.specs[0].value : '')) + '</p>') +
       '<div class="price"><b>' + money(p.price) + '</b>' + (p.compare_at ? '<s>' + money(p.compare_at) + '</s>' : '') + '<span class="syn">synthetic</span></div>' +
-      '<div class="meta"><span class="stock ' + st[0] + '">' + st[1] + '</span><span class="rating"><svg aria-hidden="true"><use href="#i-star"/></svg>' + p.rating.value.toFixed(1) + ' <span>(' + p.rating.count + ')</span></span></div>' +
+      '<div class="meta"><span class="stock ' + st[0] + '">' + st[1] + '</span>' + (p.rating && p.rating.count ? '<span class="rating"><svg aria-hidden="true"><use href="#i-star"/></svg>' + p.rating.value.toFixed(1) + ' <span>(' + p.rating.count + ')</span></span>' : '') + '</div>' +
       (choose
         ? '<a class="btn' + (inCart ? ' btn--added' : '') + '" href="' + href + '" data-choose="' + p.id + '">' + (inCart ? '<svg aria-hidden="true"><use href="#i-check"/></svg>In cart' : 'Choose options') + '</a>'
         : '<button type="button" class="btn' + (inCart ? ' btn--added' : '') + '" data-add="' + p.id + '"' + (out ? ' disabled' : '') + '>' +
@@ -675,10 +688,32 @@
   }
 
   /* Catalog load; `base` is the page's path back to the project root. */
+  /* The admin (admin/) keeps its edits in one localStorage key; the storefront layers them over the files,
+     so a price, a stock state, a renamed category or an added product shows here on the next load. */
+  var ADMIN_KEY = 'ampline:admin:v1';
+  function adminOverlay() { try { return JSON.parse(localStorage.getItem(ADMIN_KEY)) || null; } catch (e) { return null; } }
+  function applyOverlay(data, ov) {
+    if (!ov) return data;
+    var pp = ov.products || {}, cr = (ov.categories || {}).renamed || {}, dr = (ov.devices || {}).renamed || {};
+    data.products = data.products.map(function (p) { return pp[p.id] ? Object.assign({}, p, pp[p.id]) : p; }).concat(ov.added || []);
+    data.categories = data.categories.map(function (c) { return cr[c.slug] ? Object.assign({}, c, { name: cr[c.slug] }) : c; }).concat((ov.categories || {}).added || []);
+    data.devices = (data.devices || []).map(function (d) { return dr[d.id] ? Object.assign({}, d, { name: dr[d.id] }) : d; }).concat((ov.devices || {}).added || []);
+    return data;
+  }
+  // A storefront checkout becomes an order the admin lists, in the same key, status New.
+  function recordOrder(order) {
+    try {
+      var ov = adminOverlay() || { orders: {}, placed: [], products: {}, added: [], categories: { renamed: {}, added: [] }, devices: { renamed: {}, added: [] }, settings: {} };
+      ov.placed = ov.placed || []; ov.placed.push(order); localStorage.setItem(ADMIN_KEY, JSON.stringify(ov));
+      return true;
+    } catch (e) { return false; }
+  }
+  function nextOrderId() { var ov = adminOverlay(); return 'W-' + (1001 + ((ov && ov.placed) ? ov.placed.length : 0)); }
   function load(base) {
     return fetch((base || '') + 'content/products.json')
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then(function (data) {
+        data = applyOverlay(data, adminOverlay());
         state.products = data.products;
         state.categories = data.categories;
         setDevices(data.devices || []);
@@ -705,7 +740,14 @@
     if (rm) { cart.remove(rm.dataset.remove); return; }
     var qty = e.target.closest('[data-qty]');
     if (qty) { cart.change(qty.dataset.qty, +qty.dataset.delta); return; }
-    if (e.target.closest('[data-checkout]')) { cart.checkout(); return; }
+    if (e.target.closest('[data-checkout]')) {
+      e.preventDefault();
+      var form = $('#checkout-form'), err = $('#co-err');
+      var d = form ? { name: form.name.value.trim(), phone: form.phone.value.trim(), area: form.area.value, payment: (form.querySelector('[name=payment]:checked') || {}).value || 'cod' } : null;
+      var missing = !d ? [] : [!d.name && 'your name', !d.phone && 'a phone number', !d.area && 'an area'].filter(Boolean);
+      if (missing.length) { err.textContent = 'Add ' + missing.join(', ') + ' so the shop can reach you.'; err.hidden = false; form.querySelector(!d.name ? '[name=name]' : !d.phone ? '[name=phone]' : '[name=area]').focus(); return; }
+      cart.checkout(d); return;
+    }
     if (e.target.closest('[data-cart-close]')) cart.close();
   });
   mountDrawer();

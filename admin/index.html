@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Admin — Ampline</title>
+  <meta name="description" content="Ampline admin prototype: orders, products, catalog lists and settings, with demo data held in the browser.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#f4f6f8">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%2712%27 fill=%27%230b0d10%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%275%27 fill=%27%2317b867%27/%3E%3C/svg%3E">
+  <link rel="preload" href="../assets/fonts/readex-pro-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin">
+<!--
+THESIS: The shop's own status language runs the back office: an order is a battery that charges from New to Delivered, a product's stock is a battery too, and the word always sits beside the glyph. It refuses the generic admin of grey badges and spinners.
+OWN-WORLD: The Charging Lock Screen in the Operate register: daylight ground, white panels on hairlines, ink type in one family at a fixed rem scale, one charging green for progress and primary actions, amber for attention and the SYNTHETIC tag, dormant grey for cancelled and out of stock. Dense tables, pills for controls, 18px panels.
+STORY: The owner opens the laptop at the shop or the phone in the evening, sees what needs a hand in one glance, moves an order one step with one tap and watches it charge, fixes a price or a stock state in the row, and trusts that every figure comes from orders.json and the catalog.
+FIRST VIEWPORT: Sidebar left (brand, five sections, reset and sign out at the foot); the dashboard's six stat tiles in two rows, each a link into its filtered list, then the 30-day sparkline card and the latest five orders. On phones the tiles stack two-up, the sidebar becomes a bottom bar.
+FORM: Surface inside the established world; structure 6 of 7 on the grounded list (the charge dashboard), concept-seed key 564b2ed3, mode operate.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+-->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-dash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="5" rx="2"/><rect x="13" y="11" width="8" height="10" rx="2"/><rect x="3" y="14" width="8" height="7" rx="2"/></symbol>
+    <symbol id="i-orders" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></symbol>
+    <symbol id="i-products" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-5 9 5v8l-9 5-9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></symbol>
+    <symbol id="i-catalog" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h7l9 9-7 7-9-9z"/><circle cx="8.5" cy="8.5" r="1.5"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2.5"/><circle cx="10" cy="17" r="2.5"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.3-5.7"/><path d="M4 4v5h5"/></symbol>
+    <symbol id="i-out" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4H5v16h5"/><path d="M14 8l4 4-4 4M9 12h9"/></symbol>
+    <symbol id="i-warn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17.5v.5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-store" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10l1.5-5h13L20 10"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></symbol>
+  </defs>
+</svg>
+
+<section class="signin" id="signin" hidden aria-labelledby="h-signin">
+  <div class="signin__card">
+    <a class="brand" href="../index.html">Ampline</a>
+    <h1 id="h-signin">Admin</h1>
+    <p class="signin__sub">Orders, products, catalog lists and settings for the store, on the laptop at the shop and on the phone in the evening.</p>
+    <button type="button" class="btn btn--big" id="enter-demo">Enter demo</button>
+    <p class="signin__note"><svg aria-hidden="true"><use href="#i-warn"/></svg>There is no authentication in this prototype. Anyone with the link can open the admin, and every edit stays in this browser only.</p>
+  </div>
+</section>
+
+<div class="app" id="app" hidden>
+  <aside class="side" aria-label="Admin">
+    <div class="side__brand">
+      <a class="brand" href="../index.html" title="Open the storefront">Ampline</a>
+      <span class="side__role">Admin</span>
+    </div>
+    <nav class="side__nav" aria-label="Sections" id="side-nav">
+      <a href="#dashboard" data-route="dashboard"><svg aria-hidden="true"><use href="#i-dash"/></svg><span>Dashboard</span></a>
+      <a href="#orders" data-route="orders"><svg aria-hidden="true"><use href="#i-orders"/></svg><span>Orders</span><em id="nav-new" hidden></em></a>
+      <a href="#products" data-route="products"><svg aria-hidden="true"><use href="#i-products"/></svg><span>Products</span></a>
+      <a href="#catalog" data-route="catalog"><svg aria-hidden="true"><use href="#i-catalog"/></svg><span>Categories &amp; devices</span></a>
+      <a href="#settings" data-route="settings"><svg aria-hidden="true"><use href="#i-settings"/></svg><span>Settings</span></a>
+    </nav>
+    <div class="side__foot">
+      <a class="side__link" href="../index.html"><svg aria-hidden="true"><use href="#i-store"/></svg>Open the storefront</a>
+      <button type="button" class="side__link" id="reset-demo"><svg aria-hidden="true"><use href="#i-reset"/></svg><span>Reset demo data</span></button>
+      <button type="button" class="side__link" id="sign-out"><svg aria-hidden="true"><use href="#i-out"/></svg>Sign out</button>
+    </div>
+  </aside>
+
+  <main class="main" id="main">
+    <p class="demo" id="demo-note"><span class="syn">synthetic</span><span id="demo-text">Demo data loading…</span></p>
+    <section class="view" id="view" tabindex="-1" aria-live="polite" aria-busy="true">
+      <div class="skel" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    </section>
+  </main>
+
+  <nav class="tabbar" aria-label="Sections" id="tabbar">
+    <a href="#dashboard" data-route="dashboard"><svg aria-hidden="true"><use href="#i-dash"/></svg><span>Dashboard</span></a>
+    <a href="#orders" data-route="orders"><svg aria-hidden="true"><use href="#i-orders"/></svg><span>Orders</span></a>
+    <a href="#products" data-route="products"><svg aria-hidden="true"><use href="#i-products"/></svg><span>Products</span></a>
+    <a href="#catalog" data-route="catalog"><svg aria-hidden="true"><use href="#i-catalog"/></svg><span>Catalog</span></a>
+    <a href="#settings" data-route="settings"><svg aria-hidden="true"><use href="#i-settings"/></svg><span>Settings</span></a>
+  </nav>
+</div>
+
+<dialog class="panel" id="panel" aria-labelledby="panel-title">
+  <div class="panel__head">
+    <h2 id="panel-title">Order</h2>
+    <button type="button" class="iconbtn" id="panel-close" aria-label="Close"><svg aria-hidden="true"><use href="#i-x"/></svg></button>
+  </div>
+  <div class="panel__body" id="panel-body"></div>
+</dialog>
+
+<p class="toast" id="toast" role="status" aria-live="polite" hidden></p>
+
+<script src="admin.js"></script>
+</body>
+</html>

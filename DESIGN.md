@@ -76,6 +76,21 @@ typography:
     fontSize: "0.8rem"
     fontWeight: 600
     lineHeight: 1.3
+  admin-title:
+    fontFamily: "Readex Pro, system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
+    fontSize: "1.5rem"
+    fontWeight: 700
+    lineHeight: 1.2
+    letterSpacing: "-0.01em"
+  admin-table:
+    fontFamily: "Readex Pro, system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
+    fontSize: "0.875rem"
+    fontWeight: 400
+    fontFeature: "tnum"
+  admin-meta:
+    fontFamily: "Readex Pro, system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
+    fontSize: "0.75rem"
+    fontWeight: 600
 rounded:
   pill: "999px"
   xl: "28px"
@@ -83,6 +98,7 @@ rounded:
   md: "18px"
   sm: "12px"
   seg: "8px"
+  field: "10px"
   control: "6px"
   mini: "5px"
 spacing:
@@ -94,6 +110,7 @@ spacing:
   tile-gap-wide: "16px"
   rail: "280px"
   rail-gap: "40px"
+  admin-sidebar: "236px"
 components:
   button-primary:
     backgroundColor: "{colors.lockscreen-ink}"
@@ -358,6 +375,126 @@ components:
   footer-sleep:
     backgroundColor: "{colors.sleep-black}"
     textColor: "{colors.sleep-ink}"
+  admin-sidebar:
+    backgroundColor: "{colors.screen-white}"
+    textColor: "{colors.muted-slate}"
+    width: "236px"
+    padding: "18px 14px 16px"
+  admin-nav-link-current:
+    backgroundColor: "{colors.daylight-ground}"
+    textColor: "{colors.lockscreen-ink}"
+    rounded: "{rounded.sm}"
+    height: "40px"
+    padding: "0 10px"
+  admin-tabbar:
+    backgroundColor: "{colors.daylight-ground}"
+    textColor: "{colors.muted-slate}"
+    height: "60px"
+  stat-tile:
+    backgroundColor: "{colors.screen-white}"
+    textColor: "{colors.lockscreen-ink}"
+    typography: "{typography.figure-tile}"
+    rounded: "{rounded.md}"
+    padding: "12px 16px 10px"
+  admin-card:
+    backgroundColor: "{colors.screen-white}"
+    textColor: "{colors.lockscreen-ink}"
+    rounded: "{rounded.md}"
+    padding: "16px 18px"
+  data-table:
+    backgroundColor: "{colors.screen-white}"
+    textColor: "{colors.lockscreen-ink}"
+    typography: "{typography.admin-table}"
+    rounded: "{rounded.md}"
+  status-mini:
+    textColor: "{colors.lockscreen-ink}"
+    rounded: "{rounded.mini}"
+    width: "26px"
+    height: "11px"
+  status-delivered:
+    textColor: "{colors.charge-green-ink}"
+  status-cancelled:
+    textColor: "{colors.muted-slate}"
+  late-mark:
+    backgroundColor: "{colors.caution-amber-soft}"
+    textColor: "{colors.caution-amber-ink}"
+    rounded: "{rounded.pill}"
+    padding: "1px 7px"
+  admin-panel:
+    backgroundColor: "{colors.screen-white}"
+    textColor: "{colors.lockscreen-ink}"
+    width: "min(480px, 100vw)"
+  admin-panel-sheet:
+    backgroundColor: "{colors.screen-white}"
+    textColor: "{colors.lockscreen-ink}"
+    rounded: "{rounded.xl}"
+  order-battery:
+    backgroundColor: "{colors.screen-white}"
+    rounded: "{rounded.seg}"
+    width: "76px"
+    height: "28px"
+  cell-input:
+    backgroundColor: "{colors.screen-white}"
+    textColor: "{colors.lockscreen-ink}"
+    typography: "{typography.admin-table}"
+    rounded: "{rounded.field}"
+    width: "6.5em"
+    height: "36px"
+    padding: "0 10px"
+  cell-select:
+    backgroundColor: "{colors.screen-white}"
+    textColor: "{colors.lockscreen-ink}"
+    rounded: "{rounded.pill}"
+    height: "36px"
+    padding: "0 28px 0 11px"
+  bulk-bar:
+    backgroundColor: "{colors.lockscreen-ink}"
+    textColor: "{colors.daylight-ground}"
+    rounded: "{rounded.pill}"
+    padding: "8px 10px 8px 16px"
+  field-input:
+    backgroundColor: "{colors.screen-white}"
+    textColor: "{colors.lockscreen-ink}"
+    rounded: "{rounded.field}"
+    height: "40px"
+    padding: "0 12px"
+  field-input-readonly:
+    backgroundColor: "{colors.daylight-ground}"
+    textColor: "{colors.muted-slate}"
+    rounded: "{rounded.field}"
+  switch:
+    backgroundColor: "{colors.empty-track}"
+    rounded: "{rounded.pill}"
+    width: "44px"
+    height: "26px"
+  signin-card:
+    backgroundColor: "{colors.screen-white}"
+    textColor: "{colors.lockscreen-ink}"
+    rounded: "{rounded.xl}"
+    width: "min(440px, 100%)"
+    padding: "28px"
+  error-box:
+    backgroundColor: "{colors.caution-amber-soft}"
+    textColor: "{colors.caution-amber-ink}"
+    rounded: "{rounded.sm}"
+    padding: "14px 16px"
+  toast:
+    backgroundColor: "{colors.lockscreen-ink}"
+    textColor: "{colors.daylight-ground}"
+    rounded: "{rounded.pill}"
+    padding: "10px 18px"
+  checkout-input:
+    backgroundColor: "{colors.screen-white}"
+    textColor: "{colors.lockscreen-ink}"
+    rounded: "{rounded.field}"
+    height: "44px"
+    padding: "0 14px"
+  checkout-error:
+    backgroundColor: "{colors.caution-amber-soft}"
+    textColor: "{colors.caution-amber-ink}"
+    typography: "{typography.body-small}"
+    rounded: "{rounded.field}"
+    padding: "8px 12px"
 ---
 
 # Design System: Ampline
@@ -459,7 +596,7 @@ A centered container of 1200px with a fluid gutter (20px to 48px). Sections brea
 
 ## Elevation & Depth
 
-The system is flat and tonal. White cards sit on the grey ground, and borders are 1px hairlines. The only cast shadow belongs to floating layers: the cart drawer and, on phones, the filter sheet, each over a 45% ink scrim, and the round scroll buttons that sit over a row's edge. From 1024px the same sheet settles into the page as a static rail and drops its shadow. The sticky header and the sticky results toolbar use a translucent ground with a 12px backdrop blur instead of a shadow, at 88% and 92% respectively. The phone buy bar on the product page uses the same 92% translucent ground and 12px blur with a hairline top, no shadow. The current gallery thumb draws a 1px inset ink ring; that is a border, not a cast shadow.
+The system is flat and tonal. White cards sit on the grey ground, and borders are 1px hairlines. The only cast shadow belongs to floating layers: the cart drawer and, on phones, the filter sheet, each over a 45% ink scrim, and the round scroll buttons that sit over a row's edge. From 1024px the same sheet settles into the page as a static rail and drops its shadow. The sticky header and the sticky results toolbar use a translucent ground with a 12px backdrop blur instead of a shadow, at 88% and 92% respectively. The phone buy bar on the product page uses the same 92% translucent ground and 12px blur with a hairline top, no shadow. The current gallery thumb draws a 1px inset ink ring; that is a border, not a cast shadow. The admin adds two floating layers in the same shadow: its order and product panel over the same scrim, and the toast (recorded 2026-10-11).
 
 ### Shadow Vocabulary
 - **Floating layer** (`box-shadow: 0 12px 32px -12px rgba(11,13,16,0.18), 0 2px 6px -2px rgba(11,13,16,0.08)`): the cart drawer, the phone filter sheet and the row scroll buttons.
@@ -579,7 +716,7 @@ A phone-only bar fixed to the bottom while the main button is out of view. It si
 Lives in the product page's "One plug, shared fairly" section, one row per scenario: a muted label column of 118px, 150px from 1024px, with the scenario name in ink, then a 34px stack of 8px-rounded segments, 3px apart, each as wide as its share of output. Segments step through green, green-mid, green-pale and green-soft with ink labels; the remainder is empty track.
 
 ### Product Tile
-A white card with a square ground-colored figure well holding line-art at 3px stroke with green ports. When a file exists at the catalog's first image path the well shows that photo instead. The photo keeps the grey well: it is inset 12%, contained, and multiplied so a white studio background drops into the ground. The drawing hides while a photo is present and returns when the file is missing. Below it come tags, the name, a muted label-size brand line for third-party products, a short line from 720px, the mini battery with the watt figure, price with a muted strike-through and SYNTHETIC label, a meta line with stock dot and amber star, and the button. A product with no output spec carries no battery: a muted 0.875rem facet line, its first two facets, takes the watt figure's place. A yes or no facet reads as its own name, "Noise cancelling" or "No noise cancelling", never a bare Yes. Third-party products with no figure of their own take a category figure (phone, laptop, tablet, headphones, watch, controller, router, plug, stand, folio, mount or case), and every page that renders tiles carries the full figure set. Prices everywhere carry thousands separators, as in $1,399.00. Tiles rise from 0.4 opacity and 8px down over 0.5s, staggered 40ms; on the category page they rise over 0.25s without stagger; in scroll rows they do not rise. Below 720px the watt figure drops to 1.5rem, the struck compare price drops to 0.875rem so it stays beside the price on one line, the SYNTHETIC label wraps to its own line, and hyphenated tokens in names are held together with no-wrap spans. Every SKU now has a product page, so every tile name and figure links to one. The guard stays: a tile links only when its page is built and would otherwise stay unlinked rather than point at a missing page. Links carry the picked device forward as a device query parameter. The button adds a SKU that has no choice to make. A SKU with a colour, storage, plug region or pack choice carries the same pill as a link, "Choose options", to its product page with the chosen device in the URL, and reads "In cart" with the check once any of its variants is in the cart. A cart change updates only the buttons whose state changed; the clicked button holds "Added" for 1.4s and keeps its focus (recorded 2026-10-11). The watt caption follows the product page: "W max per port" on chargers, power banks, car and wireless products, "W through the cable" on cables, "W to the laptop" on hubs. Hyphenated tokens and figure-unit pairs (24 GB, 2 m, 42 mm) never break across lines in names or facts. On touch screens the tile button is 44px tall. Skeleton tiles are 560px tall on phones and 608px from 1024px, the median of real tiles, so the catalog's arrival barely shifts the page (polish, 2026-10-11). The well carries no percentage padding: the drawing and the photo are absolutely inset 12%, because WebKit sizes an aspect-ratio box with percentage padding wrongly (an iPhone drew the well 177px wide in a 145px column, 2026-10-11).
+A white card with a square ground-colored figure well holding line-art at 3px stroke with green ports. When a file exists at the catalog's first image path the well shows that photo instead. The photo keeps the grey well: it is inset 12%, contained, and multiplied so a white studio background drops into the ground. The drawing hides while a photo is present and returns when the file is missing. Below it come tags, the name, a muted label-size brand line for third-party products, a short line from 720px, the mini battery with the watt figure, price with a muted strike-through and SYNTHETIC label, a meta line with stock dot and amber star, and the button. A product with no ratings shows no star and no rating figure; its meta line carries the stock alone (recorded 2026-10-11). A product with no output spec carries no battery: a muted 0.875rem facet line, its first two facets, takes the watt figure's place. A yes or no facet reads as its own name, "Noise cancelling" or "No noise cancelling", never a bare Yes. Third-party products with no figure of their own take a category figure (phone, laptop, tablet, headphones, watch, controller, router, plug, stand, folio, mount or case), and every page that renders tiles carries the full figure set. Prices everywhere carry thousands separators, as in $1,399.00. Tiles rise from 0.4 opacity and 8px down over 0.5s, staggered 40ms; on the category page they rise over 0.25s without stagger; in scroll rows they do not rise. Below 720px the watt figure drops to 1.5rem, the struck compare price drops to 0.875rem so it stays beside the price on one line, the SYNTHETIC label wraps to its own line, and hyphenated tokens in names are held together with no-wrap spans. Every SKU now has a product page, so every tile name and figure links to one. The guard stays: a tile links only when its page is built and would otherwise stay unlinked rather than point at a missing page. Links carry the picked device forward as a device query parameter. The button adds a SKU that has no choice to make. A SKU with a colour, storage, plug region or pack choice carries the same pill as a link, "Choose options", to its product page with the chosen device in the URL, and reads "In cart" with the check once any of its variants is in the cart. A cart change updates only the buttons whose state changed; the clicked button holds "Added" for 1.4s and keeps its focus (recorded 2026-10-11). The watt caption follows the product page: "W max per port" on chargers, power banks, car and wireless products, "W through the cable" on cables, "W to the laptop" on hubs. Hyphenated tokens and figure-unit pairs (24 GB, 2 m, 42 mm) never break across lines in names or facts. On touch screens the tile button is 44px tall. Skeleton tiles are 560px tall on phones and 608px from 1024px, the median of real tiles, so the catalog's arrival barely shifts the page (polish, 2026-10-11). The well carries no percentage padding: the drawing and the photo are absolutely inset 12%, because WebKit sizes an aspect-ratio box with percentage padding wrongly (an iPhone drew the well 177px wide in a 145px column, 2026-10-11).
 
 ### Scroll Row
 A horizontal flex row of tiles with mandatory scroll snap, a hidden scrollbar, a 12px gap and 16px from 1024px. Tiles are min(250px, 74vw) on phones, a third of the row from 720px and 4.4 to the row from 1024px. Row tiles hide the short line on phones. From 1024px round 40px white hairline buttons with an 18px chevron sit over the row's two edges, 20px outside it, carrying the floating shadow; hover darkens the border to ink. The same row markup and edge buttons close a device's product page under "Complete your setup".
@@ -597,9 +734,10 @@ One native dialog, injected once at the end of the body on every page and opened
 - **Body:** scrolls on its own between head and foot.
 - **Lines:** hairline-divided rows on a 48px / 1fr / auto grid. A 48px ground-colored figure well at 12px rounding holds the product line art. Beside it sit the name at weight 600 with hyphenated tokens held together, following the chosen tier or pack ("Apple iPhone 16, 256 GB"), the variant label as written in label-size muted text ("Teal · 256 GB", "EU plug"), and the unit price in muted body small with the SYNTHETIC pill. The second row holds the quantity stepper at the left and the line total at weight 600 at the right. A round 30px muted remove button with the x icon closes the first row and goes ink on an off-grey-soft hover.
 - **Quantity stepper:** a 36px white hairline pill holding two 30px round buttons with drawn minus and plus strokes and a weight 600 output between them. Buttons take an off-grey-soft hover. Under a coarse pointer the stepper buttons and remove buttons grow to 44px.
-- **Foot:** a hairline top and bottom padding that clears the safe area. A Subtotal row at weight 600 with a 1.25rem figure and the SYNTHETIC pill, a muted body-small line, "Delivery across Lebanon in 1 to 3 days · card or cash on delivery", and the big Checkout button.
+- **Foot:** a hairline top and bottom padding that clears the safe area. A Subtotal row at weight 600 with a 1.25rem figure and the SYNTHETIC pill, a muted body-small line, "Delivery across Lebanon in 1 to 3 days · card or cash on delivery", the checkout form, and the big Checkout button.
+- **Checkout form (recorded 2026-10-11):** four fields stacked 8px apart. Name and phone are 44px white hairline inputs at 10px radius, padded 0 14px, with placeholders for labels ("Your name", "Phone, e.g. 03 123 456"); focus turns the border ink. The area is the storefront's 40px pill select, "Where to deliver". Payment is two chips 6px apart, "Cash on delivery" and "Card", visually hidden radios at 40px and 0.9375rem; the checked one inverts to ink with a green dot, cash checked first. A missing field shows one amber line above the button, 0.875rem amber ink on amber-soft at 10px radius, padded 8px 12px: "Add <missing fields> so the shop can reach you.", and focus moves to the first missing field. The order is recorded for the admin as New.
 - **Empty:** the empty-state box inside the body. It stacks the enlarged zero-fill mini battery, a title-size "Nothing in the cart yet.", one muted line, "Add something and it waits here, on this device.", and a ghost button, "Browse all products" to the all-products listing. On a listing page it reads "Back to the list" and closes the drawer instead.
-- **Thank you:** checkout clears the cart and swaps the body for a left-aligned panel; the foot hides. A 72 by 32 mini battery fills from empty to full once over 0.8s on the house ease. "Thank you." sits at 1.75rem and takes focus. A muted sentence says nothing was charged and nothing ships. The ordered lines follow as hairline-divided muted body-small rows with no-wrap quantities, then a Total row in ink above a 2px ink rule, and a primary "Keep browsing" button that closes the drawer. Closing resets the panel.
+- **Thank you:** checkout clears the cart and swaps the body for a left-aligned panel; the foot hides. A 72 by 32 mini battery fills from empty to full once over 0.8s on the house ease. "Thank you." sits at 1.75rem and takes focus. One sentence names the order first, "Order W-1001" in ink at weight 600, with its payment ("cash on delivery" or "by card"), then says in muted text that nothing was charged and nothing ships, and that the shop sees it in the admin as New when it was recorded. The ordered lines follow as hairline-divided muted body-small rows with no-wrap quantities, then a Total row in ink above a 2px ink rule, and a primary "Keep browsing" button that closes the drawer. Closing resets the panel.
 - **Focus:** the drawer re-renders on every change and keeps keyboard focus on the equivalent control. When that control is gone, focus moves to the next line's remove button, then the heading, or to the thank-you title.
 - **Storage:** items persist in localStorage under one key, `ampline.cart`, keyed by product ID, or product ID and the variant label joined by a pipe ("iphone-16|Teal · 256 GB").
 
@@ -645,7 +783,7 @@ The single dark block. Sleep-black ground, sleep-ink text, dim links whose under
 
 ### Don't:
 - **Don't** add a second accent or use green as decoration; amber is for caution and synthetic only.
-- **Don't** cast shadows on cards, tiles or chips; the cart drawer, the phone filter sheet and the row scroll buttons over a row's edge are the only floating layers.
+- **Don't** cast shadows on cards, tiles or chips; the floating layers are the cart drawer, the phone filter sheet, the row scroll buttons over a row's edge, and in the admin the order and product panel and the toast (extended 2026-10-11).
 - **Don't** add a dark mode or a second dark region; the footer is the screen asleep.
 - **Don't** fabricate product photography or borrow real brand logos; drawn line-art figures stand in until real photography exists.
 - **Don't** use emoji or glyph characters as icons; every icon is an inline stroke SVG.
@@ -665,3 +803,98 @@ The single dark block. Sleep-black ground, sleep-ink text, dim links whose under
 - **The answer charges.** When a device is chosen, a 34px mini battery appears before "Fits <device>" and fills from empty to the share of the store's accessories and power products that fit, in the glyph's own 0.8s house ease, while the four tiles rise with their 40ms stagger. Best sellers carry no battery. Each new device charges it again from empty. Under reduced motion the fill lands at once; the state stays.
 - **The first slide settles.** On arrival the first promo slide's figures fade and settle 6px into place, 0.5s each, 80ms apart, once; the other slides arrive by scrolling and do not animate. The settle rides the drawing or photo inside the figure box, never the box, so the staging transforms stay untouched.
 - **Everything else is feedback at routine speed:** chips change border, fill and colour in 0.2s, the current dot recolours in 0.2s, the pager and the tap-scroll use smooth scrolling that falls back to instant under reduced motion.
+
+## Admin (recorded 2026-10-11)
+
+The back office at admin/ is the Charging Lock Screen in an operating register: the same daylight ground, white hairline panels, one family and pills, run at a fixed rem scale and table density. Its tokens come from the storefront stylesheet; admin.css adds only the shell, tables, panel and form vocabulary. Every order and stock state is a battery with its word beside it.
+
+### Shell
+- **One column below 1024px.** The main area pads 16px with 84px plus the safe area at the bottom, so the last row clears the bottom bar.
+- **Sidebar from 1024px.** The grid becomes a 236px column beside a minmax(0, 1fr) main padded 24px 32px 56px. The sidebar is sticky at the top, the full dynamic viewport tall, screen white with a hairline right edge, padded 18px 14px 16px. It stacks the wordmark with a hairline "Admin" role pill, five section links, and a hairline-topped foot.
+- **Section links.** Each is 40px tall at 12px rounding, 0.9375rem weight 500 in muted slate with a 20px stroke icon, 2px apart. The current link fills with the daylight ground, turns ink at weight 600, and its icon turns green ink. The Orders link carries a 22px green-ink pill with the count of New orders in ground-colored 0.75rem weight 700, hidden at zero.
+- **Sidebar foot.** "Open the storefront", "Reset demo data" and "Sign out" share the link style. Reset takes two taps: the first arms it in amber-soft with amber-ink text reading "Confirm reset" for 4 seconds.
+- **Bottom bar below 1024px.** It is fixed to the bottom, 60px plus the safe area, five equal columns on the 92% translucent ground with a 12px blur and a hairline top. Each item is a 22px icon over a weight 600 label that truncates. The current item is ink with a green-ink icon. The bar names the catalog section "Catalog" where the sidebar says "Categories & devices".
+- **Demo note.** The first line of every view: the amber SYNTHETIC tag, then a 0.8rem muted sentence such as "40 synthetic orders; prices and stock are placeholders." It adds the date shift when the seed's dates were moved to end today, and says when storage is off.
+- **View head.** An h1 at 1.5rem weight 700, line height 1.2, over a 0.875rem muted line. List views lead that line with a 30 by 11px mini battery filled to shown over total, as in "40 of 40. A row opens the order." A primary action sits at the right at 40px. Route changes move focus to the h1 with no ring.
+- **Loading.** Four empty-track blocks at 18px rounding, 96px tall with the fourth at 240px, pulse on the storefront's 1.2s skeleton loop.
+
+### Admin type ramp
+The admin does not use the fluid ramps. Its fixed steps are the view title (1.5rem, 700), the panel title (1.125rem), the card title (1rem, 600, 1.3), panel body text (0.9375rem), meta lines (0.8125rem), table text (0.875rem), and table heads, sub-lines and chart ticks (0.75rem). The stat figure takes the storefront's 1.75rem step at weight 700, -0.02em, line height 1.1, tabular. Admin headings tighten to -0.01em. This ramp is the admin's own; the Five Steps Rule still governs the storefront.
+
+### Stat Tile
+A link card per figure: screen white, 18px, hairline, padded 12px 16px 10px (12px 18px 10px from 720px), at least 92px tall. A 0.8rem weight 600 muted label leads, then the figure, a 0.8rem muted sub-line, and "See list" at 0.8rem weight 600 ink with a 14px arrow. A tile that needs a hand leads its label with an 8px amber dot: Orders today while any order is New, Cash to collect while any cash order is open. The stock tiles lead with a 24 by 10px mini instead, low in amber, out dormant. Hover darkens the border to ink on hover pointers. Six tiles sit two to a row with a 10px gap, three from 720px with a 12px gap: Orders today, This week, Revenue over 30 days, Cash to collect, Low stock and Out of stock, each linking to its filtered list.
+
+### Cards and the Sparkline
+- **Card.** 18px, white, hairline, padded 16px 18px, 14px apart. Its head holds a 1rem weight 600 title and either a 0.8rem muted count or a 0.875rem weight 600 link. From 1024px the dashboard pairs the sparkline and latest-orders cards at 1fr to 1.5fr; catalog and settings pair two cards at 1fr 1fr.
+- **Sparkline.** A full-width inline drawing of orders per day over 30 days: a charging-green-soft area under a 2px charging-green line with round joins, a 2.5px green dot on each day with orders, and a 4px ink dot on today. Five 0.75rem muted tabular date ticks sit under it at days 0, 7, 14, 21 and 29, the end ticks pinned to the edges. A meta row reads "Peak N on <day>" at the left and "Today N" at the right.
+
+### Toolbar
+A wrapping row, 8px by 10px gaps: status or stock chips in the device chip grammar with their counts (pressed inverts to ink with a green dot), an applied chip for a scope set from the dashboard, a 40px category select, and a 40px search pill. The search grows from 220px to at most 360px; while it holds focus its border goes ink and it takes the global 3px green ring. Below 720px the toolbar is one column and the chip row scrolls sideways edge to edge with no scrollbar.
+
+### Data Table
+- **Frame.** A white hairline box at 18px that scrolls sideways when it must. Text is 0.875rem.
+- **Heads.** 0.75rem weight 600 muted, padded 10px 12px, never wrapping, over a hairline.
+- **Cells.** Padded 9px 12px with hairline rows and no rule under the last. Numbers align right in tabular figures and never wrap. A sub-line sits under the value as a 0.75rem muted block. Order ids and dates never wrap; product names may. Links are weight 600 with no underline, underlined on hover.
+- **Rows.** An order row opens its panel on click, and on hover pointers the row fills with the daylight ground. The latest-orders card tightens cells to 7px 12px.
+- **Selection.** Product rows lead with a 36px column holding an 18px checkbox in ink.
+- **Phone cards below 720px.** The head hides and each row becomes a block padded 12px 14px between hairlines. Each cell becomes a two-column grid: a 6.5em label column showing the column name in 0.75rem weight 600 muted, then the value, 12px apart on a shared baseline, with any sub-line beneath the value. The lead cell spans the card with no label: the order id or product name, then a line 6px below with the status battery at the left and the total at 1rem weight 700 at the right. The separate Total and Status cells hide. A product card reserves 48px at the end for its checkbox, pinned 14px from the edge. Under a coarse pointer cells pad 4px.
+
+### Status Battery
+The word always sits beside the glyph. A status is an inline row, 8px apart, weight 600, never wrapping: a 26 by 11px mini battery (2px ink outline, 5px radius, 3px nub) and the word.
+
+- **Orders.** New is empty. Packed fills to 0.34 and Shipped to 0.67. Delivered fills full and its word turns green ink. Cancelled goes dormant: off-grey outline and nub, empty, word muted.
+- **Late.** A Packed or Shipped order at least 3 days old adds a "Day N" mark: an amber-soft pill, 0.72rem weight 700 amber-ink, padded 1px 7px, titled "Past the 1 to 3 day delivery promise". A New order is never marked late.
+- **Stock.** In stock fills full green. Low stock fills to 0.22 in amber. Out of stock goes dormant with an off-grey outline and no fill.
+- **Payment.** The payment line sits at 0.8125rem. An open cash-on-delivery order reads "Cash on delivery, to collect" in amber ink at weight 600.
+
+### Panel
+One native dialog shows an order or a product form. Below 720px it is a bottom sheet: full width, at most 92% of the dynamic viewport tall, 28px top corners, sliding up 24px from 0.6 opacity over 0.25s on the house ease. From 720px it is a full-height right-edge drawer, min(480px, 100vw) wide, square, sliding in from the right. Between 720px and 1024px the drawer opens over the bottom-bar layout. It carries the floating shadow over the 45% ink scrim and clips its overflow. A head row, padded 16px 20px 12px over a hairline, holds the 1.125rem title and the 36px round close button. The body scrolls on its own, padded 10px 20px and 20px plus the safe area at the bottom. When it holds a form, the bottom padding drops to zero so the sticky foot owns the edge.
+
+### Order Detail
+- **Top row.** The status battery and its word over a 0.8125rem muted "Placed <date>, <relative>" line, with the order battery at the right.
+- **Order battery.** 76 by 28px with a 3px ink border at 8px radius and a 5px ink nub set 8px outside, inset 6px top and bottom. A green fill inset 3px at 3px radius is cut by clip-path to the status level and charges over 0.8s on the house ease. Cancelled turns the border and nub off-grey. Advancing an order charges the fill to the next level first, then the panel re-renders 420ms later and a toast confirms it.
+- **Stepper.** Four equal columns, 6px apart, for New, Packed, Shipped and Delivered. Each is a 5px bar at 3px radius over a centered 0.72rem weight 600 word. Done steps are green with green-ink words, the current step is ink, steps ahead are empty track with muted words. Bars recolor over 0.3s. A cancelled order shows no stepper. A reason box replaces it: off-grey-soft at 12px, padded 10px 14px, "Cancelled." in bold then the reason.
+- **Actions.** 44px buttons: a primary "Mark packed", "Mark shipped" or "Mark delivered", and a ghost "Cancel order" while the order is open.
+- **Cancel form.** A dashed off-grey box at 12px, padded 12px 14px. It holds a 0.8125rem weight 600 label, "Why is it cancelled?", over a required select of six reasons. Below it sit a primary "Confirm cancellation" and a ghost "Keep the order".
+- **Facts.** A key-value list with a 7.5em muted weight 600 label column, 6.5em below 720px, at 0.875rem: customer, phone, address, payment.
+- **Lines.** Hairline rows at 0.875rem with the variant as a 0.75rem muted line under the name, quantity times price and the line total right-aligned in tabular figures. A hairline-topped Total row at weight 600 with a 1.25rem figure follows, then a muted note with the SYNTHETIC tag. History closes the panel as 0.8125rem muted rows, each status in ink at weight 600 with its date at the right.
+
+### Inline Edits
+- **Price.** A cell input 6.5em wide and 36px tall at 10px radius with a hairline, 0.875rem tabular figures aligned right. Focus turns the border ink. It saves on change. An invalid price raises a toast and reverts.
+- **Stock.** A 36px pill select at 0.8125rem weight 600 with a 14px muted chevron, led by the 26 by 11px stock mini, which updates as the value changes. Low stock sets the select's text in amber ink, out of stock in muted.
+- **Touch.** Under a coarse pointer the cell input, the cell select, list inputs and list Save buttons grow to 44px.
+
+### Bulk Bar
+It shows once any product row is selected. It is an ink pill padded 8px 10px 8px 16px with "N selected" in ground-colored 0.875rem weight 600. It holds a 34px "Mark out of stock" button in ground color with ink text (not green: green means power or fit), and a ghost Clear with no fill, ground text and a sleep-line border.
+
+### Forms
+- **Field.** A 0.8125rem weight 600 label stacked 6px above its control, with an optional 0.75rem muted hint. Fields sit 14px apart.
+- **Input.** 40px, 10px radius, hairline, 0.9375rem weight 400, padded 0 12px. Focus turns the border ink. Read-only inputs fill with the ground in muted text. A textarea starts at 72px.
+- **Selects** in a field are the storefront's 40px pill select at full width.
+- **Pairs.** Field pairs split two columns 10px apart, one below 720px.
+- **Spec rows.** A 0.8fr / 1.2fr / 36px grid with a round 36px remove button, and a 34px ghost "Add spec" below.
+- **Fits.** Device checkboxes grouped by family under 0.75rem weight 700 muted names, in two columns, one below 720px. Fit written as prose in the catalog shows as 32px applied chips. The price label carries the SYNTHETIC tag.
+- **Sticky foot.** It sticks to the bottom of the panel on white over a hairline, padded 12px 0 and 16px plus the safe area. It right-aligns 44px buttons: a ghost Cancel and the primary "Save product" or "Add product".
+
+### Catalog Lists
+Two cards, Categories and Devices. Rows sit 8px apart between hairlines on a 1fr / auto grid. Each holds a 36px input for the name and a 36px Save button that stays hidden until the row is edited. A 0.75rem muted line spans beneath. Devices group by family under a 0.75rem weight 700 muted heading over a hairline. Model rows indent 18px. An add form closes each card under a hairline: a 0.875rem title, fields, and a 40px button.
+
+### Settings
+One form card holds Store name, a read-only currency field and the three trust lines, which default to "Delivery across Lebanon in 1 to 3 days", "1-year warranty" and "Card or cash on delivery". A toggle row follows: a hairline top, padded 12px 0, the 0.9375rem weight 600 name over a 0.8rem muted sub. "Arabic edition" is marked with the dashed "planned" placeholder pill beside a disabled switch. The switch is a 44 by 26px empty-track pill with a 20px white knob at 0.7 opacity. A second card carries the demo actions as ghost buttons.
+
+### Sign-in
+The stub centers in the viewport with 24px of padding. Its card is min(440px, 100%) wide, white, hairline, 28px rounding, padded 28px with 14px gaps. It stacks the wordmark, the h1 "Admin" at 1.75rem, a muted sub, the big "Enter demo" button, and a 0.8rem muted note led by an 18px amber-ink warning icon. The note says there is no authentication and edits stay in this browser.
+
+### States
+- **Error box.** It replaces a view's content under its h1 when a data file fails to load. It has an amber border on amber-soft with amber-ink text at 12px radius, padded 14px 16px, at 0.9375rem, led by a 20px warning icon. The first line is bold: "content/orders.json could not be loaded". File paths sit in the platform monospace at 0.875em. It is an alert.
+- **Empty.** The storefront's dashed empty box with a zero-fill mini, a 1.125rem title, a 0.875rem muted hint of at most 36ch, and a ghost button: "No orders match." with "Show all orders", or "No products match." with "Show all products".
+- **Toast.** A centered ink pill padded 10px 18px, ground-colored 0.875rem weight 600, with the floating shadow, rising 8px over 0.25s. It sits 76px plus the safe area above the bottom below 1024px, clearing the bar, and 24px from 1024px. It holds for 2.6 seconds and is a status region.
+- **Reduced motion.** The battery and step transitions and the panel, toast and skeleton animations stop.
+
+### Storefront handoff
+Every admin edit lives in one localStorage key, `ampline:admin:v1`. The storefront layers it over the catalog on load: prices, stock, renamed categories and devices, and added products. A storefront checkout writes its order into the same key as New, with ids from W-1001; the seed's ids run A-1001 to A-1040.
+
+### Named Rules
+**The Word Beside the Glyph Rule.** A status battery never stands alone in a cell; its word sits beside it, and the word carries the color when the state is final (green ink for Delivered, muted for Cancelled).
+
+**The Attention Amber Rule.** In the admin, amber also marks what needs a hand: the new-orders dot, cash to collect, a late order, an armed reset and an error. It never marks a finished state.

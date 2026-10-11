@@ -230,6 +230,14 @@ svg { display: block; }
 .drawer__sub { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 600; color: var(--ink); }
 .drawer__sub b { font-size: 1.25rem; }
 .drawer__note { font-size: 0.875rem; color: var(--ink-2); }
+/* Checkout: four fields the shop needs to reach the customer; no payment is taken */
+.co { display: grid; gap: 8px; }
+.co__f input, .co__f select { width: 100%; height: 44px; padding: 0 14px; border: 1px solid var(--line); border-radius: 10px; font: inherit; background: var(--screen); color: var(--ink); }
+.co__f input:focus, .co__f select:focus { border-color: var(--ink); }
+.co__f select { appearance: none; -webkit-appearance: none; padding-inline-end: 36px; border-radius: 10px; font-weight: 400; }
+.co__pay { display: flex; gap: 6px; }
+.co__pay .chip { height: 40px; font-size: 0.9375rem; }
+.co__err { font-size: 0.875rem; color: var(--amber-ink); background: var(--amber-soft); padding: 8px 12px; border-radius: 10px; margin: 0; }
 .drawer__empty { margin: 20px 0; }
 .drawer__empty h3 { font-size: 1.25rem; }
 .thanks { display: grid; gap: 12px; padding: 24px 0; justify-items: start; }
