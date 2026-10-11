@@ -190,6 +190,7 @@
     renderEmpty(!list.length);
     syncGroups();
     renderOwn();
+    $('#catrow').innerHTML = A.catRow(BASE, device() ? '?device=' + encodeURIComponent(device().id) : '', CAT); // the id is the catalog's, never the URL's text // the circles carry the device; this page's circle is marked
     var d = device(), title = d ? (CAT === 'all' ? 'Fits ' + d.name : baseTitle + ' for ' + d.name) : baseTitle;
     $('#page-title').textContent = title;
     $('#blurb').hidden = !!d; // the title says it
@@ -321,6 +322,9 @@
       $('#foot-cats').innerHTML = A.shopLinks(data.categories, BASE, CAT);
       renderGroups();
       render();
+      // The row opens with this page's circle in view: a category page should show where it sits among the others.
+      var row = $('#catrow'), cur = row.querySelector('a[aria-current]');
+      if (cur) row.scrollLeft = Math.max(0, cur.offsetLeft - (row.clientWidth - cur.offsetWidth) / 2);
       restoreScroll();
     })
     .catch(function () {

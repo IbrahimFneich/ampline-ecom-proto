@@ -29,3 +29,7 @@ Unresolved: real prices, photography, delivery and warranty terms, reviews, stor
 - The sticky gallery rode over every later section on desktop because its containing block was the whole page grid. The head, gallery and buy box now sit in one `.pdp__top` grid (template regenerated for all 58 pages); the gallery sticks only until the buy box ends.
 - Gallery slides and tile wells no longer use percentage padding on an aspect-ratio box: WebKit sized them wrongly on an iPhone (tile well 177px in a 145px column). Drawings and photos are absolutely inset instead. Verified in Playwright WebKit with iPhone emulation and in Chromium at 1990px.
 
+## Update 2026-10-11 (category circles)
+
+- Every product page ends with the home's category circles under "Shop by category" (the shared `catRow` in catalog.js: photo categories first, a best seller's photo or the house drawing, one sideways row). Links carry the page's `?device=` query so a shopper who arrived from a fit keeps it. The footer's "This page" list links to it.
+

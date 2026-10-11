@@ -45,3 +45,7 @@ Open for the next rounds: search understanding (harden catalog.js), fit leading 
 
 Open: the orphan last tile on a 3-column desktop row (58 products), and the count battery that drains as the answer narrows (a question from the critique, not a defect).
 
+## Update 2026-10-11 (category circles)
+
+- Every listing page carries the category circles between the page head and the "What do you own?" strip (the shared `catRow` in catalog.js), with this page's circle ringed and every link carrying the chosen device. The row re-renders with each pick.
+

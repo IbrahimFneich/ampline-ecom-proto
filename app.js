@@ -198,16 +198,7 @@
 
   /* ---------- Category circles ---------- */
 
-  function renderCatRow() {
-    var order = cats().filter(function (c) { return c.group === 'Devices'; }).concat(cats().filter(function (c) { return c.group !== 'Devices'; })); // photo categories lead, the house drawings follow
-    $('#catrow').innerHTML = order.map(function (c) {
-      var list = hot(products().filter(function (p) { return p.category === c.slug; }), 20);
-      var photo = list.map(function (p) { return (p.images || [])[0]; }).filter(Boolean)[0];
-      var built = A.ROUTES.shop.indexOf(c.slug) >= 0, lead = list[0];
-      var art = photo ? '<img src="' + esc(photo) + '" alt="" loading="lazy" decoding="async" onerror="this.remove()">' : (lead ? '<svg aria-hidden="true"><use href="#' + A.figFor(lead) + '"/></svg>' : '');
-      return '<a href="' + (built ? 'shop/' + c.slug + '.html' + query() : '#' + c.group.toLowerCase()) + '"><span class="o">' + art + '</span><span>' + esc(c.name) + '</span></a>';
-    }).join('');
-  }
+  function renderCatRow() { $('#catrow').innerHTML = A.catRow('', query()); } // the shared row from catalog.js, with the chosen device
 
   /* ---------- Best sellers: ten tiles that re-sort to the device ---------- */
 

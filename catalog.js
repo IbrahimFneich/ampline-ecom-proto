@@ -789,6 +789,23 @@
   Ampline.ROUTES = ROUTES;
   Ampline.productHref = productHref;
   Ampline.shopLinks = shopLinks;
+  /* The category circles: one sideways row, a photo for a category that has one (its best seller's), the drawn
+     figure for the house categories; photo categories lead. `query` carries the chosen device into each listing. */
+  function catRow(base, query, current) {
+    base = base || ''; query = query || '';
+    var cats = state.categories, order = cats.filter(function (c) { return c.group === 'Devices'; }).concat(cats.filter(function (c) { return c.group !== 'Devices'; }));
+    return order.map(function (c) {
+      var list = state.products.filter(function (p) { return p.category === c.slug; }).sort(function (a, b) {
+        var ha = a.badges.some(function (x) { return HOT_BADGES.indexOf(x) >= 0; }), hb = b.badges.some(function (x) { return HOT_BADGES.indexOf(x) >= 0; });
+        return (hb - ha) || (b.rating.count - a.rating.count);
+      });
+      var photo = list.map(function (p) { return (p.images || [])[0]; }).filter(Boolean)[0], lead = list[0];
+      var built = ROUTES.shop.indexOf(c.slug) >= 0;
+      var art = photo ? '<img src="' + esc(base + photo) + '" alt="" loading="lazy" decoding="async" onerror="this.remove()">' : (lead ? '<svg aria-hidden="true"><use href="#' + figFor(lead) + '"/></svg>' : '');
+      return '<a href="' + esc(built ? base + 'shop/' + c.slug + '.html' + query : base + 'shop/all.html?group=' + c.group.toLowerCase()) + '"' + (current === c.slug ? ' aria-current="page"' : '') + '><span class="o">' + art + '</span><span>' + esc(c.name) + '</span></a>';
+    }).join('');
+  }
+  Ampline.catRow = catRow;
   Ampline.rowMarkup = rowMarkup;
   Ampline.syncRows = syncRows;
   Ampline.variantGroups = variantGroups;

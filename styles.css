@@ -818,7 +818,8 @@ input:checked + .chip::before { background: var(--green); }
 /* ---------- Product page (Persuade) ---------- */
 
 svg text { font-family: var(--font); }
-.pdp { padding-block: 20px 64px; display: grid; gap: 24px; grid-template-columns: minmax(0, 1fr); grid-template-areas: "crumbs" "top" "delivers" "fits" "pair" "reviews" "setup"; }
+.pdp { padding-block: 20px 64px; display: grid; gap: 24px; grid-template-columns: minmax(0, 1fr); grid-template-areas: "crumbs" "top" "delivers" "fits" "pair" "reviews" "setup" "browse"; }
+.pdp__browse { grid-area: browse; }
 .pdp__top { grid-area: top; display: grid; gap: 24px; grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "gallery" "buy"; } /* the sticky gallery's containing block: it stops where the buy box ends */
 .pdp__crumbs { grid-area: crumbs; margin-bottom: 0; }
 .pdp__head { grid-area: head; display: grid; gap: 10px; }
@@ -1132,6 +1133,8 @@ a.cat .cat__count { color: var(--ink); }
 .catrow .o { width: 88px; height: 88px; border-radius: 50%; background: var(--screen); border: 1px solid var(--line); position: relative; overflow: hidden; transition: border-color 0.2s, transform 0.3s var(--ease); }
 .catrow .o img { position: absolute; inset: 16%; width: 68%; height: 68%; object-fit: contain; mix-blend-mode: multiply; }
 .catrow .o svg { position: absolute; inset: 20%; width: 60%; height: 60%; color: var(--ink); }
+.catrow a[aria-current] .o { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); } /* this page's category, ringed like a pressed thumb */
+.catrow--shop { margin-top: 18px; }
 
 /* Best sellers: the shared tile, two across on phones and five across from 1024px; a chosen device re-sorts them */
 .best { display: grid; gap: 14px; }

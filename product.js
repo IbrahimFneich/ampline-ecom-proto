@@ -437,6 +437,8 @@
       readUrl();
       document.title = state.p.name + ' — Ampline';
       $('#foot-cats').innerHTML = A.shopLinks(data.categories, BASE, null);
+      var dv = A.deviceById(new URLSearchParams(location.search).get('device')); // only a catalog device id travels on
+      $('#catrow').innerHTML = A.catRow(BASE, dv ? '?device=' + encodeURIComponent(dv.id) : '');
       renderGallery();
       probe((state.p.images || []).map(function (src) { return BASE + src; })).then(function (photos) {
         if (!photos.length) return;
