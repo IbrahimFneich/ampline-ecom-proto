@@ -27,17 +27,38 @@
     }).filter(function (g) { return g.devices.length; });
   }
 
+  // The sentence under a device's charge figure: a model with its own published figure says so, a model
+  // without one names the bucket it sits in, a catch-all bucket admits it is a typical figure.
+  function ceilingNote(d) {
+    var parent = d.parent ? deviceById(d.parent) : null;
+    if (/^Other\b/.test(d.name)) return 'A typical figure for this group, not a maker\u2019s number.';
+    if (parent && d.max_charge_w !== parent.max_charge_w) return 'The ' + d.name + '\u2019s own ceiling, as its maker publishes it.';
+    return 'The catalog\u2019s ceiling for ' + (parent || d).name + (parent ? ', which this model sits in' : '') + '; your model may take less.';
+  }
+  // Category nouns for counts: "1 case or mount", "3 cables".
+  var NOUNS = {
+    all: ['product', 'products'], chargers: ['charger', 'chargers'], cables: ['cable', 'cables'], 'power-banks': ['power bank', 'power banks'],
+    hubs: ['hub or dock', 'hubs and docks'], car: ['car charger', 'car chargers'], wireless: ['wireless charger', 'wireless chargers'],
+    phones: ['phone', 'phones'], laptops: ['laptop', 'laptops'], tablets: ['tablet', 'tablets'], audio: ['audio product', 'audio products'],
+    wearables: ['wearable', 'wearables'], gaming: ['gaming product', 'gaming products'], networking: ['networking product', 'networking products'],
+    'smart-home': ['smart home device', 'smart home devices'], 'cases-and-mounts': ['case or mount', 'cases and mounts']
+  };
+  function nounFor(slug, n) { var pair = NOUNS[slug] || ['product', 'products']; return n === 1 ? pair[0] : pair[1]; }
+
   // Spec labels that carry an output figure, in priority order.
   var OUTPUT_LABELS = ['Max output', 'Output', 'Phone', 'Wired', 'Wireless', 'Power', 'Tips'];
 
   // A compat entry fits a device when it is that device's id or one of its aliases
   // (the prose strings the original SKUs use, recorded on the device itself).
   function entryFits(c, device) { return c === device.id || device.aliases.indexOf(c) >= 0; }
+  // A model (a device with a parent) fits everything its family bucket fits, plus what names the model itself.
   function fits(product, device) {
-    return (product.compat || []).some(function (c) { return entryFits(c, device); });
+    if (!device) return false;
+    return (product.compat || []).some(function (c) { return entryFits(c, device); }) || (!!device.parent && fits(product, deviceById(device.parent)));
   }
   function matchedCompat(product, device) {
-    return (product.compat || []).filter(function (c) { return entryFits(c, device); });
+    var own = (product.compat || []).filter(function (c) { return entryFits(c, device); });
+    return own.length || !device.parent ? own : matchedCompat(product, deviceById(device.parent));
   }
 
   function spec(product, labels) {
@@ -307,7 +328,7 @@
     WATT_BANDS: WATT_BANDS, PORT_OPTS: PORT_OPTS, PRICE_BANDS: PRICE_BANDS, TYPE_LABELS: TYPE_LABELS,
     passes: passes, SORTS: SORTS, variants: variants, bundleFor: bundleFor, matchedCompat: matchedCompat,
     dimensions: dimensions, spec: spec, facetValues: facetValues, facetOptions: facetOptions, legendFor: legendFor,
-    matchesQuery: matchesQuery, slugify: slugify, priceBands: priceBands, money: money, variantGroups: variantGroups, setupFor: setupFor, variantName: variantName, defaultVariant: defaultVariant
+    matchesQuery: matchesQuery, slugify: slugify, priceBands: priceBands, money: money, variantGroups: variantGroups, setupFor: setupFor, variantName: variantName, defaultVariant: defaultVariant, ceilingNote: ceilingNote, nounFor: nounFor
   };
   if (typeof module !== 'undefined' && module.exports) module.exports = Ampline;
   if (typeof document === 'undefined') return;
@@ -498,7 +519,7 @@
       }).join('') + '</ul>';
       foot.hidden = false;
       foot.innerHTML = '<p class="drawer__sub" aria-live="polite"><span>Subtotal <span class="syn">synthetic</span></span><b>' + money(subtotal) + '</b></p>' +
-        '<p class="drawer__note">Delivery and payment terms <span class="ph">placeholder</span></p>' +
+        '<p class="drawer__note">Delivery across Lebanon in 1 to 3 days · card or cash on delivery</p>' +
         '<button type="button" class="btn btn--big" data-checkout>Checkout</button>';
     }
   };
@@ -655,6 +676,8 @@
   Ampline.setupFor = setupFor;
   Ampline.variantName = variantName;
   Ampline.defaultVariant = defaultVariant;
+  Ampline.ceilingNote = ceilingNote;
+  Ampline.nounFor = nounFor;
   Ampline.state = state;
   Ampline.cart = cart;
   Ampline.tile = tile;

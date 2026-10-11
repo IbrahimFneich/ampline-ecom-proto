@@ -12,10 +12,10 @@
 </head>
 <body>
 <!--
-THESIS: Start from what you own. Name the phone or laptop you have and the whole store answers with what fits it; the watts answer stays on power products. The category row the first contract refused is now the store's map, allowed and built.
-OWN-WORLD: The Charging Lock Screen, unchanged: daylight ground, Readex Pro, one charging green, pills, hairline rows, drawn line art; the glyph now reads the device's own charge ceiling, marked indicative.
-STORY: Pick a family, then the device; the glyph fills to what it takes, the fits row rewrites itself across cases, cables, chargers and hubs; below, the three groups map the store with one featured row each, the house range closes.
-FIRST VIEWPORT: Header with wordmark, search and the three groups. Headline in one line, family chips and the device chips under them; on desktop the glyph and the fit summary take the right half, on the phone they follow the chips.
+THESIS: Start from what you own. A retail hero: three live offers, the "What do you own?" bar, four tiles that swap from best sellers to what fits the device you tapped, and the three promises the pitch assumes; the watts answer stays on power products.
+OWN-WORLD: The Charging Lock Screen, unchanged: daylight ground, Readex Pro, one charging green, pills, hairline rows, white cards, drawn line art beside catalog photos in the same grey well; no watt chart in the hero.
+STORY: Read an offer and shop it, or name what you own: family, device, model when a case needs it; the four tiles rewrite to what fits and a link opens the full fitting list; the trust row promises delivery, warranty and payment; below, the category grid maps the store.
+FIRST VIEWPORT: Header, then the promo card with one slide and its pager, the picker bar with the family chips, and on desktop the first row of best-seller tiles. On the phone the slide, the chips and the top of the tiles; a device tap scrolls the tiles into view.
 FORM: A rebuilt surface inside the established world, shaped directly from the brief; no direction roll. Inherits The Charging Lock Screen, seed key cbeaa407.
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and the DESIGN.md update.
 -->
@@ -144,51 +144,49 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 </header>
 
 <main>
-  <section class="screen" id="own" aria-labelledby="h-own">
-    <div class="wrap screen__in">
-      <div class="screen__head">
-        <h1 id="h-own">Start from what you own.</h1>
-        <p class="screen__sub">Name your phone or laptop and the store shows what fits it: cases, cables, chargers and hubs. Watts stay on the power products.</p>
+  <section class="hero" id="own" aria-labelledby="h-own">
+    <div class="wrap hero__in">
+
+      <div class="promo" id="promo" role="region" aria-roledescription="carousel" aria-label="Offers">
+        <div class="promo__track" id="promo-track">
+          <article class="promo__slide promo__slide--skel" aria-hidden="true"><div class="promo__text"><span></span><span></span><span></span></div><div class="promo__art"></div></article>
+        </div>
+        <div class="promo__pager">
+          <button type="button" class="promo__btn" data-promo-step="-1" aria-label="Previous slide"><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+          <div class="promo__dots" id="promo-dots"></div>
+          <button type="button" class="promo__btn" data-promo-step="1" aria-label="Next slide"><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+        </div>
       </div>
-      <div class="screen__pick">
+
+      <div class="pickbar" id="pickbar">
+        <div class="pickbar__head">
+          <h1 id="h-own">What do you own?</h1>
+          <p class="guess" id="guess" hidden></p>
+        </div>
         <div class="chips families" id="families" role="group" aria-label="What do you own?"></div>
         <div class="devchips" id="devices-chips" role="group" aria-label="Which one?" hidden></div>
-        <p class="guess" id="guess" hidden>Your browser looks like a <b id="guess-name"></b>. Tap it, or pick another.</p>
+        <div class="devchips models" id="models-chips" role="group" aria-label="Which model?" hidden></div>
       </div>
-      <div class="screen__glyph">
-        <div class="wattglyph__glyph">
-          <div class="glyph glyph--pdp" id="glyph">
-            <div class="glyph__fill" id="fill"></div>
-            <div class="glyph__in">
-              <div class="bands" id="prompt" aria-label="Published charge ceilings by device family"></div>
-              <div class="figure figure--pdp" id="figure" hidden><svg class="figure__bolt" aria-hidden="true"><use href="#i-bolt"/></svg><span class="figure__n" id="figure-n">0</span><span class="figure__u">W</span></div>
-            </div>
-          </div>
-          <div class="scale scale--pdp" aria-hidden="true"><span>0</span><span>50</span><span>100W</span></div>
-        </div>
-        <p class="wattglyph__cap"><b id="own-cap">Takes up to</b><small id="own-sub">The device's own charge ceiling, as its maker publishes it. Indicative.</small></p>
-      </div>
-      <div class="screen__result" id="own-result" aria-live="polite">
-        <p class="batt__line" id="own-line">Pick what you own and the store answers.</p>
-        <p class="batt__sub" id="own-counts">Cases, cables, chargers, power banks, hubs, car and wireless, from fifteen categories.</p>
-      </div>
-    </div>
-  </section>
 
-  <section class="section fitsrow" id="fits" aria-labelledby="h-fits">
-    <div class="wrap">
-      <div class="section__head">
-        <div>
-          <h2 id="h-fits">Fits what you own</h2>
-          <p class="section__sub" id="fits-sub">The best sellers across accessories and power, until you pick what you own.</p>
+      <div class="payoff" id="payoff" aria-labelledby="h-payoff">
+        <div class="section__head">
+          <div><h2 id="h-payoff">Best sellers</h2><p class="section__sub" id="payoff-sub"></p></div>
+          <a class="section__link" id="payoff-link" href="shop/all.html">All products <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
-        <span class="section__link" id="fits-count"></span>
+        <div class="tiles tiles--4" id="payoff-tiles" aria-live="polite">
+          <div class="tile tile--skel" aria-hidden="true"><span style="aspect-ratio:1"></span><span style="height:1.2em;width:70%"></span><span style="height:1em;width:40%"></span></div>
+          <div class="tile tile--skel" aria-hidden="true"><span style="aspect-ratio:1"></span><span style="height:1.2em;width:70%"></span><span style="height:1em;width:40%"></span></div>
+          <div class="tile tile--skel" aria-hidden="true"><span style="aspect-ratio:1"></span><span style="height:1.2em;width:70%"></span><span style="height:1em;width:40%"></span></div>
+          <div class="tile tile--skel" aria-hidden="true"><span style="aspect-ratio:1"></span><span style="height:1.2em;width:70%"></span><span style="height:1em;width:40%"></span></div>
+        </div>
       </div>
-      <div class="rowwrap">
-        <button type="button" class="rowbtn rowbtn--prev" data-row-step="-1" aria-label="Scroll back"><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
-        <div class="row" id="fits-row"></div>
-        <button type="button" class="rowbtn rowbtn--next" data-row-step="1" aria-label="Scroll forward"><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
-      </div>
+
+      <ul class="trust" aria-label="Delivery, warranty and payment">
+        <li class="trust__item"><span class="trust__icon"><svg aria-hidden="true"><use href="#i-truck"/></svg></span><b>Delivery across Lebanon in 1 to 3 days</b></li>
+        <li class="trust__item"><span class="trust__icon"><svg aria-hidden="true"><use href="#i-shield"/></svg></span><b>1-year warranty</b></li>
+        <li class="trust__item"><span class="trust__icon"><svg aria-hidden="true"><use href="#i-card"/></svg></span><b>Card or cash on delivery</b></li>
+      </ul>
+
     </div>
   </section>
 
@@ -225,7 +223,6 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
         <h2>This page</h2>
         <ul>
           <li><a href="#own">What you own</a></li>
-          <li><a href="#fits">Fits what you own</a></li>
           <li><a href="#devices">Devices</a></li>
           <li><a href="#accessories">Accessories</a></li>
           <li><a href="#power">Power</a></li>

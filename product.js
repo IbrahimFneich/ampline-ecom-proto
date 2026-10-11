@@ -60,7 +60,7 @@
     var glyph = $('#wattglyph'), cap = $('#watt-cap'), small = cap.nextElementSibling;
     glyph.hidden = !w && !ceiling;
     if (w) { cap.textContent = WATT_CAP[p.category] || 'Max on one port'; small.textContent = 'Of 100W, read from the spec sheet'; }
-    else if (ceiling) { cap.textContent = 'Takes up to'; small.textContent = 'The catalog\u2019s ceiling for ' + own.name + '; this model may take less. Indicative.'; }
+    else if (ceiling) { cap.textContent = 'Takes up to'; small.textContent = A.ceilingNote(own) + ' Indicative.'; }
     $('#fill').style.setProperty('--pct', Math.min(1, (w || ceiling) / max));
     var scale = document.querySelectorAll('#wattglyph .scale span');
     scale[1].textContent = max / 2; scale[2].textContent = max + 'W';

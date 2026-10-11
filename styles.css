@@ -320,25 +320,6 @@ svg { display: block; }
 
 /* ---------- Hero: the lock screen ---------- */
 
-.screen { padding-block: 16px 56px; }
-.screen__in {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: minmax(0, 1fr);
-  grid-template-areas: "head" "pick" "glyph" "result";
-}
-.screen__head { grid-area: head; }
-.screen__glyph { grid-area: glyph; display: grid; gap: 10px; }
-.screen__pick { grid-area: pick; }
-.screen__result { grid-area: result; display: grid; gap: 10px; }
-.screen h1 { font-size: clamp(2rem, 1.3rem + 2.6vw, 2.75rem); }
-.screen__sub {
-  font-size: 1rem;
-  color: var(--ink-2);
-  max-width: 42ch;
-  margin-top: 10px;
-}
-
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .chip {
   display: inline-flex;
@@ -367,6 +348,7 @@ svg { display: block; }
 .chip.is-suggested { border-color: var(--green); box-shadow: inset 0 0 0 1px var(--green); }
 .chip.is-suggested::before { background: var(--green); }
 
+.models { margin-top: 10px; display: grid; gap: 6px; }
 .guess { margin-top: 10px; font-size: 0.875rem; color: var(--ink-2); }
 .guess b { color: var(--ink); font-weight: 600; }
 
@@ -418,26 +400,10 @@ svg { display: block; }
   margin-inline-end: 16px;
   margin-top: -4px;
 }
-.batt__line { font-size: 1.25rem; font-weight: 600; line-height: 1.35; }
-.batt__sub { color: var(--ink-2); font-size: 1rem; }
-.batt__all { font-weight: 600; display: inline-flex; gap: 6px; align-items: center; }
-.batt__all svg { width: 18px; height: 18px; }
 
 @media (min-width: 1024px) {
-  .screen { padding-block: 72px 96px; }
-  .screen h1 { white-space: nowrap; }
-  .screen__sub { font-size: 1.25rem; margin-top: 14px; }
   .chips { gap: 8px; margin-top: 4px; }
   .chip { height: 42px; }
-  .screen__in {
-    grid-template-columns: 1fr 1.1fr;
-    grid-template-areas: "head glyph" "pick glyph" "pick result";
-    grid-template-rows: auto auto 1fr;
-    align-items: start;
-    column-gap: 72px;
-    row-gap: 24px;
-  }
-  .screen__pick { align-self: start; }
 }
 
 /* ---------- Sections ---------- */
@@ -451,7 +417,8 @@ svg { display: block; }
   gap: 12px 24px;
   margin-bottom: 28px;
 }
-.section h2 { font-size: clamp(1.5rem, 1.1rem + 1.8vw, 2.25rem); max-width: 22ch; }
+.section__head > * { min-width: 0; }
+.section h2, .payoff h2 { font-size: clamp(1.5rem, 1.1rem + 1.8vw, 2.25rem); max-width: 22ch; }
 .section__sub { color: var(--ink-2); max-width: 54ch; margin-top: 10px; }
 .section__link { font-weight: 600; display: inline-flex; gap: 6px; align-items: center; white-space: nowrap; }
 .section__link svg { width: 18px; height: 18px; }
@@ -462,7 +429,8 @@ svg { display: block; }
 
 /* ---------- Product tiles ---------- */
 
-.tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } /* minmax(0) so a tile never widens its grid on narrow phones */
+@media (max-width: 359px) { .tiles { grid-template-columns: minmax(0, 1fr); } } /* one column where two tiles cannot hold a price row */
 .tile {
   display: flex;
   flex-direction: column;
@@ -486,7 +454,8 @@ svg { display: block; }
   transition: background 0.2s; position: relative; }
 .tile__fig:hover { background: var(--off-soft); }
 .tile__fig svg { width: 100%; height: 100%; }
-.tile__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; border-radius: inherit; background: #fff; } /* a photo that exists sits over the drawing */
+.tile__photo { position: absolute; inset: 12%; width: 76%; height: 76%; object-fit: contain; mix-blend-mode: multiply; }
+.tile__fig:has(.tile__photo) > svg { visibility: hidden; } /* the drawing yields to a photo that loaded; a missing file removes its img and the drawing returns */ /* a photo sits in the same grey well as a drawing; multiply drops a white studio background into the well */
 .chipsrow { display: flex; flex-wrap: wrap; gap: 6px; min-height: 22px; }
 .tile h3 { font-size: 1rem; line-height: 1.3; letter-spacing: -0.01em; }
 .tile h3 a { text-decoration: none; }
@@ -529,7 +498,7 @@ svg { display: block; }
   .tile .meta { min-height: calc(2.4rem + 4px); align-content: flex-start; } /* two lines of 0.8rem x 1.5 plus the 4px row gap */
 }
 @media (min-width: 720px) {
-  .tiles { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
   .tile { padding: 14px; gap: 10px; }
   .tile__short { display: block; }
 }
@@ -563,34 +532,6 @@ svg { display: block; }
   .scen { grid-template-columns: 150px 1fr; }
 }
 
-/* ---------- Trust row (placeholders) ---------- */
-
-.trust { padding-block: 0 64px; }
-.trust__in { display: grid; gap: 10px; }
-.trust__item {
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-  padding: 16px;
-  border-radius: var(--r);
-  border: 1px dashed var(--off);
-}
-.trust__icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  background: var(--screen);
-  display: grid;
-  place-items: center;
-  flex: none;
-}
-.trust__icon svg { width: 22px; height: 22px; }
-.trust__item b { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.trust__item p { font-size: 1rem; color: var(--ink-2); margin-top: 2px; }
-
-@media (min-width: 720px) {
-  .trust__in { grid-template-columns: repeat(3, 1fr); }
-}
 
 /* ---------- Footer: the screen asleep ---------- */
 
@@ -889,7 +830,7 @@ svg text { font-family: var(--font); }
 .thumb { flex: 1; display: grid; grid-template-rows: 1fr auto; gap: 4px; justify-items: center; padding: 6px 4px 8px; border-radius: var(--r-s); border: 1px solid var(--line); background: var(--screen); color: var(--ink); font-size: 0.8rem; font-weight: 600; transition: border-color 0.15s; }
 .thumb span { display: flex; align-items: center; min-height: 2.3em; line-height: 1.15; text-align: center; }
 .thumb svg { width: 100%; aspect-ratio: 4 / 3; height: auto; }
-.thumb img { width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; border-radius: 6px; background: #fff; }
+.thumb img { width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: contain; border-radius: 6px; background: #fff; }
 .thumb:hover { border-color: var(--ink); }
 .thumb[aria-current="true"] { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
 .gallery__note { font-size: 0.8rem; color: var(--ink-2); }
@@ -1014,16 +955,6 @@ body.has-buybar { padding-bottom: 72px; }
 
 .families .chip { height: 40px; }
 .devchips { margin-top: 10px; padding: 12px 0 0; border-top: 1px solid var(--line); }
-/* Empty glyph: one labelled band per device family, lo to hi of the published ceilings, on the same track */
-.bands { position: absolute; inset: 8px; display: grid; grid-auto-rows: 1fr; gap: 4px; }
-.band { position: relative; min-height: 0; }
-.band__fill { position: absolute; top: 0; bottom: 0; inset-inline-start: calc(var(--lo) * 100%); width: max(6px, calc((var(--hi) - var(--lo)) * 100%)); background: var(--green-3); border-radius: 6px; }
-.band__label { position: absolute; inset-inline-start: calc(var(--hi) * 100% + 10px); top: 50%; transform: translateY(-50%); font-size: 0.8rem; color: var(--ink-2); white-space: nowrap; }
-.band--before .band__label { inset-inline-start: auto; inset-inline-end: calc((1 - var(--lo)) * 100% + 10px); }
-.band__label b { color: var(--ink); font-weight: 600; }
-.glyph--pdp .bands { inset: 6px; gap: 3px; }
-.glyph--pdp .band__label { font-size: 0.75rem; }
-.screen__result .batt__sub { max-width: 44ch; }
 
 .row {
   display: flex;
@@ -1043,7 +974,6 @@ body.has-buybar { padding-bottom: 72px; }
 .rowbtn--prev svg { transform: rotate(180deg); }
 .rowbtn--next { inset-inline-end: -20px; }
 .row .tile__short { display: none; }
-.fitsrow__empty { flex: 1; text-align: left; padding: 24px; }
 .tile__brand { font-size: 0.8rem; color: var(--ink-2); margin-top: -4px; }
 .tile__facts { font-size: 0.875rem; color: var(--ink-2); margin-top: auto; padding-top: 4px; line-height: 1.4; }
 
@@ -1118,6 +1048,96 @@ a.cat .cat__count { color: var(--ink); }
 }
 
 /* ---------- Motion preferences ---------- */
+
+/* ---------- Retail hero: promo card, picker bar, payoff tiles, trust row ---------- */
+.hero { padding-block: 16px 48px; }
+.hero__in { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); } /* children shrink below their max-content width on narrow phones */
+
+.promo { position: relative; background: var(--screen); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+.promo__track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.promo__track::-webkit-scrollbar { display: none; }
+.promo__slide { flex: 0 0 100%; min-width: 0; scroll-snap-align: start; display: grid; grid-template-rows: auto auto; }
+.promo__art { position: relative; aspect-ratio: 2.1 / 1; background: var(--ground); color: var(--ink); }
+.promo__fig { position: absolute; aspect-ratio: 1; }
+/* On phones the pager rides the well's bottom edge, so every figure keeps clear of the lowest 28%. */
+.promo__fig:nth-child(1) { height: 66%; left: 7%; bottom: 28%; z-index: 2; }
+.promo__fig:nth-child(2) { height: 46%; right: 29%; top: 5%; }
+.promo__fig:nth-child(3) { height: 40%; right: 7%; bottom: 28%; }
+/* A slide of drawings keeps one stroke: three equal figures in a row, since a scaled drawing scales its line. */
+.promo__slide:not(:has(img)) .promo__fig { height: 46%; top: 36%; bottom: auto; transform: translateY(-50%); }
+.promo__slide:not(:has(img)) .promo__fig:nth-child(1) { left: 8%; }
+.promo__slide:not(:has(img)) .promo__fig:nth-child(2) { left: 39%; right: auto; }
+.promo__slide:not(:has(img)) .promo__fig:nth-child(3) { left: 70%; right: auto; }
+.promo__fig svg { width: 100%; height: 100%; }
+.promo__fig img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+.promo__fig:has(img) > svg { visibility: hidden; }
+.promo__text { display: grid; gap: 10px; justify-items: start; padding: 18px 18px 20px; }
+.promo__title { font-size: clamp(1.75rem, 1.2rem + 2.4vw, 2.75rem); line-height: 1.05; letter-spacing: -0.02em; text-wrap: balance; }
+.promo__offer { color: var(--ink-2); font-size: 1rem; max-width: 40ch; }
+.promo__offer b { color: var(--ink); font-weight: 600; }
+.promo__text .btn { margin-top: 6px; }
+/* Before the catalog arrives the card holds its shape: one skeleton slide with the same text block and art well. */
+.promo__slide--skel .promo__text > span { display: block; border-radius: var(--r-s); background: var(--track); animation: pulse 1.2s ease-in-out infinite; }
+.promo__slide--skel .promo__text > span:nth-child(1) { width: 70%; height: 2.2em; }
+.promo__slide--skel .promo__text > span:nth-child(2) { width: 90%; height: 1.2em; }
+.promo__slide--skel .promo__text > span:nth-child(3) { width: 140px; height: 44px; border-radius: var(--pill); margin-top: 6px; }
+.promo__pager { position: absolute; left: 0; right: 0; bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 0 12px; z-index: 3; }
+.promo__btn { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: var(--screen); color: var(--ink); display: grid; place-items: center; cursor: pointer; transition: border-color 0.15s; }
+.promo__btn svg { width: 16px; height: 16px; }
+.promo__btn:first-child svg { transform: rotate(180deg); }
+.promo__btn:hover { border-color: var(--ink); }
+.promo__btn[aria-disabled="true"] { opacity: 0.4; cursor: default; }
+.promo__dots { display: flex; gap: 6px; }
+.promo__dot { width: 24px; height: 24px; border-radius: 50%; border: 0; background: none; display: grid; place-items: center; cursor: pointer; padding: 0; }
+.promo__dot::before { content: ""; width: 8px; height: 8px; border-radius: var(--pill); background: var(--off); transition: background-color 0.2s; } /* the pill grows without a layout transition */
+.promo__dot[aria-current="true"] { width: auto; padding-inline: 2px; }
+.promo__dot[aria-current="true"]::before { width: 26px; background: var(--green); } /* the current slide is the one filled pill, as a charging bar */
+.promo__dot:hover::before { background: var(--ink); }
+
+.pickbar { display: grid; gap: 10px; padding: 14px 18px 16px; background: var(--screen); border: 1px solid var(--line); border-radius: var(--r); }
+.pickbar__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; }
+.pickbar h1 { font-size: 1.25rem; font-weight: 700; }
+.pickbar .guess { margin-top: 0; }
+.guess__pick { font: inherit; font-weight: 600; color: var(--ink); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--green); }
+.guess__pick:hover { text-decoration-thickness: 2px; }
+.pickbar .devchips { margin-top: 2px; }
+
+.payoff { display: grid; gap: 14px; padding-top: 8px; }
+.payoff .section__head { margin-bottom: 0; }
+.tiles--4 .tile__short { display: none; }
+
+.trust { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.trust__item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: var(--r-s); background: var(--screen); border: 1px solid var(--line); font-size: 0.875rem; }
+.trust__item b { font-weight: 600; }
+.trust__icon { width: 32px; height: 32px; border-radius: var(--r-s); background: var(--ground); display: grid; place-items: center; flex: none; color: var(--ink); }
+.trust__icon svg { width: 18px; height: 18px; }
+
+@media (min-width: 720px) {
+  .tiles--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tiles--4 .tile__short { display: block; }
+  .trust { grid-template-columns: repeat(3, 1fr); }
+  .promo__slide { grid-template-columns: 1fr 1fr; grid-template-rows: none; min-height: 340px; }
+  .promo__art { order: 2; aspect-ratio: auto; }
+  .promo__fig:nth-child(1) { height: 70%; left: 5%; bottom: 10%; }
+  .promo__fig:nth-child(2) { height: 44%; right: 6%; top: 7%; }
+  .promo__fig:nth-child(3) { height: 40%; right: 24%; bottom: 7%; }
+  .promo__slide:not(:has(img)) .promo__fig { height: 40%; top: 50%; }
+  .promo__slide:not(:has(img)) .promo__fig:nth-child(1) { left: 6%; }
+  .promo__slide:not(:has(img)) .promo__fig:nth-child(2) { left: 36%; }
+  .promo__slide:not(:has(img)) .promo__fig:nth-child(3) { left: 66%; }
+  .promo__text { align-content: center; padding: 28px 32px 64px; }
+  .promo__pager { right: auto; width: 50%; bottom: 18px; justify-content: flex-start; padding-inline: 32px; }
+}
+@media (min-width: 1024px) {
+  .hero { padding-block: 24px 56px; }
+  .hero__in { gap: 24px; }
+  .tiles--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+  .promo__slide { min-height: 380px; grid-template-columns: 1.05fr 1fr; }
+  .promo__offer { font-size: 1.25rem; }
+  .pickbar { padding: 16px 22px 18px; gap: 10px; }
+  .pickbar__head { gap: 4px 16px; }
+  .pickbar .families { flex-wrap: nowrap; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

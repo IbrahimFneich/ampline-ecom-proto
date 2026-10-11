@@ -7,23 +7,16 @@
 
   var A = window.Ampline, $ = A.$, esc = A.esc;
   var CAT = document.body.dataset.category, BASE = document.body.dataset.base || '';
-  var NOUNS = {
-    all: ['product', 'products'], chargers: ['charger', 'chargers'], cables: ['cable', 'cables'], 'power-banks': ['power bank', 'power banks'],
-    hubs: ['hub', 'hubs'], car: ['car charger', 'car chargers'], wireless: ['wireless charger', 'wireless chargers'],
-    phones: ['phone', 'phones'], laptops: ['laptop', 'laptops'], tablets: ['tablet', 'tablets'], audio: ['audio product', 'audio products'],
-    wearables: ['wearable', 'wearables'], gaming: ['gaming product', 'gaming products'], networking: ['networking product', 'networking products'],
-    'smart-home': ['smart home device', 'smart home devices'], 'cases-and-mounts': ['case or mount', 'cases and mounts']
-  };
   var SORT_ALL = [['featured', 'Featured'], ['price-asc', 'Price: low to high'], ['price-desc', 'Price: high to low'], ['rating-desc', 'Rating: high to low']];
   var SORT_POWER = [['watts-desc', 'Max output: high to low']];
-  var state = { pool: [], category: null, defs: [], fitsGroup: false, f: { device: null, q: '', facets: {} }, sort: 'featured' };
+  var state = { pool: [], category: null, defs: [], fitsGroup: false, f: { device: null, q: '', deal: false, facets: {} }, sort: 'featured' };
   var searchForm = document.querySelector('.bar__search');
 
-  function noun(n) { var pair = NOUNS[CAT] || ['product', 'products']; return n === 1 ? pair[0] : pair[1]; }
+  function noun(n) { return A.nounFor(CAT, n); }
   function device() { return A.deviceById(state.f.device); }
   function cats() { return A.state.categories; }
   function paramOf(label) { return A.slugify(label); }
-  function results(over) { return state.pool.filter(function (p) { return A.passes(p, state.f, state.defs, over, cats()); }); }
+  function results(over) { return state.pool.filter(function (p) { return (!state.f.deal || p.compare_at) && A.passes(p, state.f, state.defs, over, cats()); }); }
   function sorted(list) { var fn = A.SORTS[state.sort]; return fn ? list.slice().sort(fn) : list; }
   function optLabel(label, id) {
     var def = state.defs.find(function (d) { return d.label === label; });
@@ -33,6 +26,7 @@
   function applied() {
     var out = [];
     if (state.f.q) out.push({ g: 'q', id: '', label: 'Search: ' + state.f.q });
+    if (state.f.deal) out.push({ g: 'deal', id: '', label: 'On deal' });
     if (state.f.device) out.push({ g: 'device', id: state.f.device, label: 'Fits ' + device().name });
     state.defs.forEach(function (d) {
       (state.f.facets[d.label] || []).forEach(function (id) { out.push({ g: d.label, id: id, label: optLabel(d.label, id) }); });
@@ -46,6 +40,7 @@
     var q = new URLSearchParams(location.search);
     state.f.device = A.deviceById(q.get('device')) ? q.get('device') : null;
     state.f.q = (q.get('q') || '').trim();
+    state.f.deal = q.get('deal') === '1';
     state.f.facets = {};
     state.defs.forEach(function (d) {
       var ids = (q.get(paramOf(d.label)) || '').split(',').filter(function (id) { return d.opts.some(function (o) { return o.id === id; }); });
@@ -57,6 +52,7 @@
   function writeUrl() {
     var q = new URLSearchParams();
     if (state.f.q) q.set('q', state.f.q);
+    if (state.f.deal) q.set('deal', '1');
     if (state.f.device) q.set('device', state.f.device);
     state.defs.forEach(function (d) { var ids = state.f.facets[d.label] || []; if (ids.length) q.set(paramOf(d.label), ids.join(',')); });
     if (state.sort !== 'featured') q.set('sort', state.sort);
@@ -130,6 +126,7 @@
     $('#count').innerHTML = '<span class="mini count__mini" aria-hidden="true"><i style="--pct:' + (total ? n / total : 0) + '"></i></span><span>' +
       (n === total && !state.f.q ? total + ' ' + noun(total) : n + ' of ' + total + ' ' + noun(total)) +
       (state.f.q ? ' <small>for “' + esc(state.f.q) + '”</small>' : '') +
+      (state.f.deal ? ' <small>on deal</small>' : '') +
       (d ? ' <small>fit ' + esc(d.name) + '</small>' : '') + '</span>';
   }
 
@@ -140,15 +137,17 @@
     if (!show) return;
     var groups = [];
     if (state.f.q) groups.push('q');
+    if (state.f.deal) groups.push('deal');
     if (state.f.device) groups.push('device');
     state.defs.forEach(function (d) { if ((state.f.facets[d.label] || []).length) groups.push(d.label); });
     var best = null;
     groups.forEach(function (g) {
-      var n = g === 'q' ? state.pool.filter(function (p) { return A.passes(p, { device: state.f.device, q: '', facets: state.f.facets }, state.defs, null, cats()); }).length
+      var n = g === 'q' ? state.pool.filter(function (p) { return (!state.f.deal || p.compare_at) && A.passes(p, { device: state.f.device, q: '', facets: state.f.facets }, state.defs, null, cats()); }).length
+        : g === 'deal' ? state.pool.filter(function (p) { return A.passes(p, state.f, state.defs, null, cats()); }).length
         : results({ group: g, ids: [] }).length;
       if (n && (!best || n > best.n)) best = { g: g, n: n };
     });
-    var name = best && (best.g === 'q' ? 'the search' : best.g === 'device' ? device().name
+    var name = best && (best.g === 'q' ? 'the search' : best.g === 'deal' ? 'On deal' : best.g === 'device' ? device().name
       : (state.f.facets[best.g].length === 1 ? optLabel(best.g, state.f.facets[best.g][0]) : 'the ' + A.legendFor(best.g).toLowerCase() + ' filter'));
     $('#empty-title').textContent = state.f.q && groups.length === 1 ? 'Nothing matches “' + state.f.q + '”.' : 'No ' + noun(1) + ' matches all of these.';
     $('#empty-hint').textContent = best
@@ -182,11 +181,12 @@
   function clear(spec) {
     var i = spec.indexOf(':'), g = i < 0 ? spec : spec.slice(0, i), id = i < 0 ? undefined : spec.slice(i + 1);
     if (g === 'q') state.f.q = '';
+    else if (g === 'deal') state.f.deal = false;
     else if (g === 'device') state.f.device = null;
     else if (!id) delete state.f.facets[g];
     else state.f.facets[g] = (state.f.facets[g] || []).filter(function (x) { return x !== id; });
   }
-  function clearAll() { state.f = { device: null, q: '', facets: {} }; }
+  function clearAll() { state.f = { device: null, q: '', deal: false, facets: {} }; }
 
   $('#filters').addEventListener('change', function (e) {
     var inp = e.target;

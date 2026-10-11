@@ -7,13 +7,13 @@
     "images_note": "assets/products/<slug>-<n>.jpg|png; every path listed here exists on disk (tools/sync-images.py), a product with no file lists none and draws line art",
     "type_note": "type added 2026-10-11 for the category filter (chargers: wall, desktop, travel)",
     "brands_note": "Third-party product names are used as a retailer lists them; prices, ratings and availability are synthetic.",
-    "devices_note": "devices[].max_charge_w is the peak charge rate the device accepts as commonly published; indicative, verify per model. devices[].aliases are the compat strings the Ampline SKUs use, so every existing compat entry maps to device ids; new accessories list device ids in compat directly.",
+    "devices_note": "devices[].max_charge_w is the peak charge rate the device accepts as commonly published; indicative, verify per model. devices[].aliases are the compat strings the Ampline SKUs use, so every existing compat entry maps to device ids; new accessories list device ids in compat directly. A device with a parent is one model inside that family bucket: it fits everything its bucket fits plus products that name the model itself (cases, folios).",
     "compat_unmapped": [
       "Any car with a 12V socket",
       "Shavers and small AC devices"
     ],
     "facets_note": "Category facets name spec labels to filter on; Brand and Price resolve to the product's brand and price fields.",
-    "compat_models_note": "Model-specific cases and folios carry an empty compat: the devices list is coarse (families such as 'iPhone 15 or newer'), so their fit is stated only in the Fits spec row and they never appear under a device chip."
+    "compat_models_note": "Model-specific cases and folios list a model id (iphone-16, galaxy-s25, ipad-air-11-m2) nested under its family bucket, so they appear only when the shopper names the model."
   },
   "categories": [
     {
@@ -829,7 +829,7 @@
           "512 GB"
         ]
       },
-      "device": "iphone-15",
+      "device": "iphone-16",
       "in_box": [
         "iPhone 16",
         "USB-C to USB-C cable",
@@ -844,7 +844,7 @@
         "count": 212
       },
       "images": [
-        "assets/products/apple-iphone-16-128gb-1.png"
+        "assets/products/apple-iphone-16-128gb-1.webp"
       ]
     },
     {
@@ -912,7 +912,7 @@
         "count": 388
       },
       "images": [
-        "assets/products/apple-iphone-15-128gb-1.png"
+        "assets/products/apple-iphone-15-128gb-1.webp"
       ]
     },
     {
@@ -966,7 +966,7 @@
           "512 GB"
         ]
       },
-      "device": "galaxy-s",
+      "device": "galaxy-s25",
       "in_box": [
         "Galaxy S25",
         "USB-C to USB-C cable",
@@ -981,7 +981,7 @@
         "count": 296
       },
       "images": [
-        "assets/products/samsung-galaxy-s25-256gb-1.png"
+        "assets/products/samsung-galaxy-s25-256gb-1.webp"
       ]
     },
     {
@@ -1051,7 +1051,7 @@
         "count": 141
       },
       "images": [
-        "assets/products/samsung-galaxy-s25-ultra-512gb-1.png"
+        "assets/products/samsung-galaxy-s25-ultra-512gb-1.webp"
       ]
     },
     {
@@ -1118,7 +1118,7 @@
         "count": 174
       },
       "images": [
-        "assets/products/samsung-galaxy-a56-128gb-1.png"
+        "assets/products/samsung-galaxy-a56-128gb-1.webp"
       ]
     },
     {
@@ -1185,7 +1185,7 @@
         "count": 163
       },
       "images": [
-        "assets/products/google-pixel-9-128gb-1.png"
+        "assets/products/google-pixel-9-128gb-1.webp"
       ]
     },
     {
@@ -1258,7 +1258,7 @@
         "count": 201
       },
       "images": [
-        "assets/products/apple-macbook-air-13-m3-1.png"
+        "assets/products/apple-macbook-air-13-m3-1.webp"
       ]
     },
     {
@@ -1328,7 +1328,7 @@
         "count": 88
       },
       "images": [
-        "assets/products/apple-macbook-pro-16-m4-pro-1.png"
+        "assets/products/apple-macbook-pro-16-m4-pro-1.webp"
       ]
     },
     {
@@ -1396,7 +1396,7 @@
         "count": 119
       },
       "images": [
-        "assets/products/lenovo-ideapad-slim-5-15-1.png"
+        "assets/products/lenovo-ideapad-slim-5-15-1.webp"
       ]
     },
     {
@@ -1463,7 +1463,7 @@
         "count": 64
       },
       "images": [
-        "assets/products/lenovo-thinkpad-x1-carbon-gen-12-1.png"
+        "assets/products/lenovo-thinkpad-x1-carbon-gen-12-1.webp"
       ]
     },
     {
@@ -1530,7 +1530,7 @@
         "count": 52
       },
       "images": [
-        "assets/products/samsung-galaxy-book4-15-1.png"
+        "assets/products/samsung-galaxy-book4-15-1.webp"
       ]
     },
     {
@@ -1597,7 +1597,7 @@
         "count": 233
       },
       "images": [
-        "assets/products/apple-ipad-10th-gen-64gb-1.png"
+        "assets/products/apple-ipad-10th-gen-64gb-1.webp"
       ]
     },
     {
@@ -1652,7 +1652,7 @@
           "512 GB"
         ]
       },
-      "device": "ipad-air",
+      "device": "ipad-air-11-m2",
       "in_box": [
         "iPad Air",
         "20W USB-C power adapter",
@@ -1667,7 +1667,7 @@
         "count": 157
       },
       "images": [
-        "assets/products/apple-ipad-air-11-m2-128gb-1.png"
+        "assets/products/apple-ipad-air-11-m2-128gb-1.webp"
       ]
     },
     {
@@ -1735,7 +1735,7 @@
         "count": 91
       },
       "images": [
-        "assets/products/apple-ipad-pro-11-m4-256gb-1.png"
+        "assets/products/apple-ipad-pro-11-m4-256gb-1.webp"
       ]
     },
     {
@@ -1802,7 +1802,7 @@
         "count": 77
       },
       "images": [
-        "assets/products/samsung-galaxy-tab-s9-fe-128gb-1.png"
+        "assets/products/samsung-galaxy-tab-s9-fe-128gb-1.webp"
       ]
     },
     {
@@ -1867,7 +1867,7 @@
         "count": 142
       },
       "images": [
-        "assets/products/samsung-galaxy-tab-a9-plus-64gb-1.png"
+        "assets/products/samsung-galaxy-tab-a9-plus-64gb-1.webp"
       ]
     },
     {
@@ -1927,7 +1927,7 @@
         "count": 418
       },
       "images": [
-        "assets/products/sony-wh-1000xm5-1.jpg"
+        "assets/products/sony-wh-1000xm5-1.webp"
       ]
     },
     {
@@ -1984,7 +1984,7 @@
         "count": 206
       },
       "images": [
-        "assets/products/sony-wf-1000xm5-1.jpg"
+        "assets/products/sony-wf-1000xm5-1.webp"
       ]
     },
     {
@@ -2043,7 +2043,7 @@
         "count": 502
       },
       "images": [
-        "assets/products/apple-airpods-pro-2-usb-c-1.png"
+        "assets/products/apple-airpods-pro-2-usb-c-1.webp"
       ]
     },
     {
@@ -2099,7 +2099,7 @@
         "count": 98
       },
       "images": [
-        "assets/products/samsung-galaxy-buds3-1.png"
+        "assets/products/samsung-galaxy-buds3-1.webp"
       ]
     },
     {
@@ -2157,7 +2157,7 @@
         "count": 311
       },
       "images": [
-        "assets/products/sony-srs-xb100-1.jpg"
+        "assets/products/sony-srs-xb100-1.webp"
       ]
     },
     {
@@ -2217,7 +2217,7 @@
         "count": 166
       },
       "images": [
-        "assets/products/apple-watch-series-10-42mm-1.png"
+        "assets/products/apple-watch-series-10-42mm-1.webp"
       ]
     },
     {
@@ -2275,7 +2275,7 @@
         "count": 243
       },
       "images": [
-        "assets/products/apple-watch-se-2nd-gen-40mm-1.png"
+        "assets/products/apple-watch-se-2nd-gen-40mm-1.webp"
       ]
     },
     {
@@ -2331,7 +2331,7 @@
         "count": 131
       },
       "images": [
-        "assets/products/samsung-galaxy-watch7-40mm-1.png"
+        "assets/products/samsung-galaxy-watch7-40mm-1.webp"
       ]
     },
     {
@@ -2387,7 +2387,7 @@
         "count": 187
       },
       "images": [
-        "assets/products/samsung-galaxy-fit3-1.png"
+        "assets/products/samsung-galaxy-fit3-1.webp"
       ]
     },
     {
@@ -2444,7 +2444,7 @@
         "count": 74
       },
       "images": [
-        "assets/products/google-pixel-watch-3-41mm-1.png"
+        "assets/products/google-pixel-watch-3-41mm-1.webp"
       ]
     },
     {
@@ -2500,7 +2500,7 @@
         "count": 264
       },
       "images": [
-        "assets/products/sony-playstation-5-slim-1tb-1.png"
+        "assets/products/sony-playstation-5-slim-1tb-1.webp"
       ]
     },
     {
@@ -2548,7 +2548,7 @@
         "count": 347
       },
       "images": [
-        "assets/products/sony-dualsense-wireless-controller-1.png"
+        "assets/products/sony-dualsense-wireless-controller-1.webp"
       ]
     },
     {
@@ -2608,7 +2608,7 @@
         "count": 189
       },
       "images": [
-        "assets/products/nintendo-switch-oled-1.jpg"
+        "assets/products/nintendo-switch-oled-1.webp"
       ]
     },
     {
@@ -2661,7 +2661,7 @@
         "count": 156
       },
       "images": [
-        "assets/products/logitech-g435-lightspeed-1.png"
+        "assets/products/logitech-g435-lightspeed-1.webp"
       ]
     },
     {
@@ -2707,7 +2707,7 @@
         "count": 221
       },
       "images": [
-        "assets/products/logitech-g502-x-1.png"
+        "assets/products/logitech-g502-x-1.webp"
       ]
     },
     {
@@ -2760,7 +2760,7 @@
         "count": 138
       },
       "images": [
-        "assets/products/tp-link-deco-x50-3-pack-1.jpg"
+        "assets/products/tp-link-deco-x50-3-pack-1.webp"
       ]
     },
     {
@@ -2808,7 +2808,7 @@
         "count": 276
       },
       "images": [
-        "assets/products/tp-link-archer-ax55-1.jpg"
+        "assets/products/tp-link-archer-ax55-1.webp"
       ]
     },
     {
@@ -2856,7 +2856,7 @@
         "count": 41
       },
       "images": [
-        "assets/products/tp-link-archer-be230-1.jpg"
+        "assets/products/tp-link-archer-be230-1.webp"
       ]
     },
     {
@@ -2900,7 +2900,7 @@
         "count": 167
       },
       "images": [
-        "assets/products/tp-link-re605x-1.jpg"
+        "assets/products/tp-link-re605x-1.webp"
       ]
     },
     {
@@ -2947,7 +2947,7 @@
         "count": 203
       },
       "images": [
-        "assets/products/tp-link-m7350-4g-mobile-wifi-1.jpg"
+        "assets/products/tp-link-m7350-4g-mobile-wifi-1.webp"
       ]
     },
     {
@@ -2997,7 +2997,7 @@
         "count": 389
       },
       "images": [
-        "assets/products/tp-link-tapo-p100-2-pack-1.png"
+        "assets/products/tp-link-tapo-p100-2-pack-1.webp"
       ]
     },
     {
@@ -3044,7 +3044,7 @@
         "count": 224
       },
       "images": [
-        "assets/products/tp-link-tapo-c210-1.jpg"
+        "assets/products/tp-link-tapo-c210-1.webp"
       ]
     },
     {
@@ -3091,7 +3091,7 @@
         "count": 158
       },
       "images": [
-        "assets/products/tp-link-tapo-l530e-1.png"
+        "assets/products/tp-link-tapo-l530e-1.webp"
       ]
     },
     {
@@ -3140,7 +3140,7 @@
         "count": 276
       },
       "images": [
-        "assets/products/google-nest-mini-2nd-gen-1.png"
+        "assets/products/google-nest-mini-2nd-gen-1.webp"
       ]
     },
     {
@@ -3190,7 +3190,7 @@
         "count": 142
       },
       "images": [
-        "assets/products/apple-homepod-mini-1.png"
+        "assets/products/apple-homepod-mini-1.webp"
       ]
     },
     {
@@ -3228,7 +3228,9 @@
           "Ultramarine"
         ]
       },
-      "compat": [],
+      "compat": [
+        "iphone-16"
+      ],
       "in_box": [
         "Case"
       ],
@@ -3239,7 +3241,7 @@
         "count": 96
       },
       "images": [
-        "assets/products/apple-iphone-16-silicone-case-magsafe-1.png"
+        "assets/products/apple-iphone-16-silicone-case-magsafe-1.webp"
       ]
     },
     {
@@ -3274,7 +3276,9 @@
           "Clear"
         ]
       },
-      "compat": [],
+      "compat": [
+        "galaxy-s25"
+      ],
       "in_box": [
         "Case"
       ],
@@ -3285,7 +3289,7 @@
         "count": 58
       },
       "images": [
-        "assets/products/samsung-galaxy-s25-clear-case-1.png"
+        "assets/products/samsung-galaxy-s25-clear-case-1.webp"
       ]
     },
     {
@@ -3432,7 +3436,9 @@
           "Sage"
         ]
       },
-      "compat": [],
+      "compat": [
+        "ipad-air-11-m2"
+      ],
       "in_box": [
         "Smart Folio"
       ],
@@ -3443,7 +3449,7 @@
         "count": 71
       },
       "images": [
-        "assets/products/apple-smart-folio-ipad-air-11-1.png"
+        "assets/products/apple-smart-folio-ipad-air-11-1.webp"
       ]
     }
   ],
@@ -3463,6 +3469,15 @@
         "Phones",
         "Mixed households and travel kits"
       ]
+    },
+    {
+      "id": "iphone-16",
+      "name": "iPhone 16",
+      "family": "iphone",
+      "connector": "usb-c",
+      "max_charge_w": 30,
+      "parent": "iphone-15",
+      "aliases": []
     },
     {
       "id": "iphone-12-14",
@@ -3508,6 +3523,15 @@
         "Phones",
         "Mixed households and travel kits"
       ]
+    },
+    {
+      "id": "galaxy-s25",
+      "name": "Samsung Galaxy S25",
+      "family": "android",
+      "connector": "usb-c",
+      "max_charge_w": 25,
+      "parent": "galaxy-s",
+      "aliases": []
     },
     {
       "id": "galaxy-a",
@@ -3581,6 +3605,15 @@
         "Any USB-C laptop, tablet or phone",
         "Mixed households and travel kits"
       ]
+    },
+    {
+      "id": "ipad-air-11-m2",
+      "name": "iPad Air 11-inch (M2)",
+      "family": "ipad",
+      "connector": "usb-c",
+      "max_charge_w": 30,
+      "parent": "ipad-air",
+      "aliases": []
     },
     {
       "id": "ipad",

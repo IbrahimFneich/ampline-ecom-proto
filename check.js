@@ -27,7 +27,19 @@ assert.deepStrictEqual(ids('steam-deck'), ["AMP-GAN-65", "AMP-HUB-7"]);
 assert.deepStrictEqual(ids('airpods-lightning'), ["AMP-NANO-20", "AMP-CBL-CL-1M", "AMP-WL-3IN1"]);
 // A device-id entry never leaks across buckets: the iPhone 16 case fits no other iPhone bucket.
 assert.ok(!A.fits(byId['APL-CASE-IP16-SIL'], A.deviceById('iphone-12-14')));
-assert.strictEqual(A.DEVICES.length, 21);
+assert.strictEqual(A.DEVICES.length, 24);
+// A model fits everything its bucket fits plus what names it; the bucket never claims the model's case.
+assert.deepStrictEqual(ids('iphone-16').sort(), ids('iphone-15').concat(['APL-CASE-IP16-SIL']).sort());
+assert.deepStrictEqual(ids('galaxy-s25').sort(), ids('galaxy-s').concat(['SAM-CASE-S25-CLEAR']).sort());
+assert.deepStrictEqual(ids('ipad-air-11-m2').sort(), ids('ipad-air').concat(['APL-FOLIO-IPADAIR11']).sort());
+assert.ok(!ids('iphone-15').includes('APL-CASE-IP16-SIL'));
+assert.strictEqual(A.deviceById('galaxy-s25').max_charge_w, 25); // Samsung's figure for the base S25, not the family's 45W
+assert.strictEqual(A.ceilingNote(A.deviceById('galaxy-s25')), 'The Samsung Galaxy S25’s own ceiling, as its maker publishes it.');
+assert.strictEqual(A.ceilingNote(A.deviceById('iphone-16')), 'The catalog’s ceiling for iPhone 15 or newer, which this model sits in; your model may take less.');
+assert.strictEqual(A.ceilingNote(A.deviceById('android-phone')), 'A typical figure for this group, not a maker’s number.');
+assert.strictEqual(A.ceilingNote(A.deviceById('macbook-pro')), 'The catalog’s ceiling for MacBook Pro; your model may take less.');
+assert.strictEqual(A.nounFor('cases-and-mounts', 1) + ' / ' + A.nounFor('hubs', 2), 'case or mount / hubs and docks');
+assert.deepStrictEqual(A.matchedCompat(byId['AMP-GAN-65'], A.deviceById('iphone-16')), A.matchedCompat(byId['AMP-GAN-65'], A.deviceById('iphone-15')));
 for (const d of A.DEVICES) assert.ok(ids(d.id).length > 0, d.id + ' has no matches');
 
 // Split outputs read from the spec sheets.
