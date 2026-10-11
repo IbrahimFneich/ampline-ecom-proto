@@ -522,7 +522,7 @@
       cart.render();
       document.dispatchEvent(new CustomEvent('ampline:cart'));
     },
-    open: function () { done = null; cart.render(); if (dialog && !dialog.open) dialog.showModal(); },
+    open: function () { done = null; cart.render(); if (dialog && !dialog.open) { dialog.showModal(); lockPage(true); } },
     close: function () { if (dialog && dialog.open) dialog.close(); },
     checkout: function (details) {
       var ls = lines();
@@ -644,7 +644,7 @@
       '</dialog>');
     dialog = $('#cart');
     dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
-    dialog.addEventListener('close', function () { done = null; });
+    dialog.addEventListener('close', function () { done = null; lockPage(false); });
     // The thank-you battery fills once, after the panel is painted.
     new MutationObserver(function () {
       var fill = dialog.querySelector('.thanks__mini i[style*="--pct:0"]');
@@ -652,6 +652,62 @@
     }).observe(dialog, { childList: true, subtree: true });
     $('#cart-btn').addEventListener('click', cart.open);
   }
+
+  /* Mobile menu: injected once like the cart, a button before the cart below 1024px and a left drawer
+     with the header's group links, the categories in their groups, the device picker, the three promises
+     and the planned Arabic edition. Same mechanics as the cart: a modal dialog, Escape, backdrop tap, the page locked behind it. */
+  var menu = null;
+  function lockPage(on) { document.documentElement.classList.toggle('is-locked', !!on && !!document.querySelector('dialog[open].drawer')); }
+  function syncMenuBtn() {
+    var btn = $('#menu-btn'); if (!btn) return;
+    var open = !!(menu && menu.open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.querySelector('.menubtn__open').hidden = open;
+    btn.querySelector('.menubtn__close').hidden = !open;
+  }
+  function mountMenu() {
+    var cartBtn = $('#cart-btn');
+    if (menu || !cartBtn) return;
+    cartBtn.insertAdjacentHTML('beforebegin',
+      '<button type="button" class="menubtn" id="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="menu">' +
+        '<svg class="menubtn__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>' +
+        '<svg class="menubtn__close" aria-hidden="true" hidden><use href="#i-x"/></svg></button>');
+    document.body.insertAdjacentHTML('beforeend',
+      '<dialog class="drawer drawer--menu" id="menu" aria-labelledby="menu-title">' +
+        '<div class="drawer__head"><h2 id="menu-title">Menu</h2><button type="button" class="iconbtn" data-menu-close aria-label="Close menu"><svg aria-hidden="true"><use href="#i-x"/></svg></button></div>' +
+        '<nav class="drawer__body menu" id="menu-body" aria-label="Site"></nav>' +
+      '</dialog>');
+    menu = $('#menu');
+    menu.addEventListener('click', function (e) {
+      if (e.target === menu || e.target.closest('[data-menu-close]')) { menu.close(); return; }
+      var a = e.target.closest('a[href]');
+      if (a && /^(index\.html)?#/.test(a.getAttribute('href').replace(/^\.\.\//, '')) && location.pathname.replace(/.*\//, '') === 'index.html') menu.close(); // a same-page anchor closes the drawer
+    });
+    menu.addEventListener('close', function () { lockPage(false); syncMenuBtn(); });
+    $('#menu-btn').addEventListener('click', function () {
+      if (menu.open) { menu.close(); return; }
+      menu.showModal(); lockPage(true); syncMenuBtn();
+      var first = menu.querySelector('.menu a'); if (first) first.focus({ preventScroll: true });
+    });
+  }
+  // The drawer's content needs the catalog: the categories in their groups, and this page's own category marked.
+  function fillMenu(categories) {
+    var body = $('#menu-body'); if (!body) return;
+    var base = document.body.dataset.base || '', ds = document.body.dataset;
+    var current = ds.category || (ds.slug ? (state.products.find(function (p) { return p.slug === ds.slug; }) || {}).category : null);
+    var groups = Array.prototype.map.call(document.querySelectorAll('.bar__nav a'), function (a) {
+      return '<li><a href="' + esc(a.getAttribute('href')) + '"' + (a.hasAttribute('aria-current') ? ' aria-current="page"' : '') + '>' + esc(a.textContent) + '</a></li>';
+    }).join('');
+    var cats = ['Devices', 'Accessories', 'Power'].map(function (g) {
+      var list = categories.filter(function (c) { return c.group === g; });
+      return list.length ? '<h3 class="menu__label">' + g + '</h3><ul class="menu__cats">' + shopLinks(list, base, current) + '</ul>' : '';
+    }).join('');
+    body.innerHTML = '<ul class="menu__groups">' + groups + '</ul>' + cats +
+      '<a class="btn btn--ghost menu__pick" href="' + base + 'index.html#pick">Choose your device<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>' +
+      '<ul class="menu__trust"><li><svg aria-hidden="true"><use href="#i-truck"/></svg>Delivery across Lebanon in 1 to 3 days</li><li><svg aria-hidden="true"><use href="#i-shield"/></svg>1-year warranty</li><li><svg aria-hidden="true"><use href="#i-card"/></svg>Card or cash on delivery</li></ul>' +
+      '<div class="menu__row"><span>Arabic edition<small>Right-to-left pages, planned; timing undecided</small></span><span class="ph">planned</span><button type="button" class="switch" role="switch" aria-checked="false" disabled aria-label="Arabic edition, planned"></button></div>';
+  }
+  Ampline.fillMenu = fillMenu;
 
   /* Product tile, the same component on every page. `base` prefixes relative links. */
   var WATT_CAP = { cables: 'W through the cable', hubs: 'W to the laptop' }; // the product page's captions, in tile form
@@ -722,6 +778,7 @@
         state.categories = data.categories;
         setDevices(data.devices || []);
         cart.render();
+        fillMenu(data.categories);
         return data;
       });
   }
@@ -755,6 +812,7 @@
     if (e.target.closest('[data-cart-close]')) cart.close();
   });
   mountDrawer();
+  mountMenu();
 
   /* Footer "Shop" list: links for built pages, marked placeholders for the rest. */
   function shopLinks(categories, base, current) {

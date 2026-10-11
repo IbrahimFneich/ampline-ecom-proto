@@ -177,6 +177,35 @@ svg { display: block; }
   .bar__nav { display: flex; }
 }
 
+/* ---------- Mobile menu (shared, injected by catalog.js; the button shows below 1024px) ---------- */
+.menubtn { display: inline-grid; place-items: center; width: 40px; height: 40px; margin-inline-start: auto; border-radius: 50%; border: 1px solid var(--line); background: var(--screen); color: var(--ink); transition: border-color 0.2s; }
+.menubtn svg { width: 20px; height: 20px; }
+.menubtn + .cart { margin-inline-start: 0; }
+.drawer.drawer--menu { inset: 0 auto 0 0; width: min(360px, 88vw); height: 100%; max-height: none; border-radius: 0; grid-template-rows: auto 1fr; } /* a left panel at every width, unlike the cart, which is a bottom sheet on phones */
+.drawer.drawer--menu[open] { animation: drawer-in-l 0.25s var(--ease); }
+@keyframes drawer-in-l { from { transform: translateX(-24px); opacity: 0.6; } }
+.menu { padding: 4px 20px calc(20px + env(safe-area-inset-bottom)); }
+.menu ul { list-style: none; margin: 0; padding: 0; }
+.menu a { text-decoration: none; color: var(--ink); }
+.menu__groups a { display: flex; align-items: center; min-height: 48px; font-size: 1.125rem; font-weight: 600; border-bottom: 1px solid var(--line); }
+.menu__label { font-size: 0.8rem; font-weight: 600; color: var(--ink-2); margin: 18px 0 2px; }
+.menu__cats a, .menu__cats .soon { display: flex; align-items: center; min-height: 40px; }
+.menu__cats .soon { color: var(--ink-2); }
+.menu a[aria-current] { font-weight: 600; }
+.menu a[aria-current]::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--green); margin-inline-end: 10px; flex: none; } /* charge-green marks only where you are */
+.menu__pick { margin-top: 18px; width: 100%; height: 48px; }
+.menu__pick svg { width: 18px; height: 18px; }
+.menu__trust { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); display: grid; gap: 10px; font-size: 0.875rem; color: var(--ink-2); }
+.menu__trust li { display: flex; align-items: center; gap: 10px; }
+.menu__trust svg { width: 18px; height: 18px; color: var(--ink); flex: none; }
+.menu__row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); font-weight: 600; font-size: 0.9375rem; }
+.menu__row small { display: block; font-weight: 400; color: var(--ink-2); font-size: 0.8rem; }
+.menu__row .ph { flex: none; }
+.switch { width: 44px; height: 26px; border-radius: var(--pill); background: var(--track); position: relative; flex: none; border: 0; cursor: not-allowed; opacity: 0.7; }
+.switch::after { content: ""; position: absolute; top: 3px; inset-inline-start: 3px; width: 20px; height: 20px; border-radius: 50%; background: var(--screen); box-shadow: 0 1px 3px rgba(11, 13, 16, 0.2); }
+html.is-locked { overflow: hidden; } /* the page holds still behind an open drawer */
+@media (min-width: 1024px) { .menubtn { display: none; } .menubtn + .cart { margin-inline-start: auto; } }
+
 /* ---------- Cart drawer (shared, native dialog) ---------- */
 
 .drawer {
@@ -1242,3 +1271,6 @@ a.cat .cat__count { color: var(--ink); }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0s !important; animation-duration: 0s !important; animation-delay: 0s !important; }
 }
+
+/* The mobile menu stays a left panel on phones; the cart's phone sheet rules above must not reach it. */
+@media (max-width: 719px) { .drawer.drawer--menu { inset: 0 auto 0 0; width: min(360px, 88vw); height: 100%; max-height: none; border-radius: 0; } .drawer.drawer--menu[open] { animation: drawer-in-l 0.25s var(--ease); } }
