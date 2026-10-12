@@ -1,0 +1,453 @@
+{
+ "kept": {
+  "apple-iphone-16-128gb-2.webp": {
+   "slug": "apple-iphone-16-128gb",
+   "n": 2,
+   "page": "https://www.apple.com/shop/buy-iphone/iphone-16",
+   "image": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-finish-select-202409-6-1inch_GEO_US?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=UXp1U3VDY3IyR1hNdHZwdFdOLzg1V0tFK1lhSCtYSGRqMUdhR284NTN4OUh1cU00ZU5qL3V3QjQwYlZSSzMvRzBoUVhuTWlrY2hIK090ZGZZbk9HeEd5aFM4QSthSG1nSUl6WXJQME1SZ2tRWGJsdWFXSEUxVHJQU1Yvbi9pZVR1YmZQMXFXa2w0U3RUanhYSTV4Z29R&traceId=1",
+   "w": 5120,
+   "h": 2880
+  },
+  "apple-iphone-16-128gb-3.webp": {
+   "slug": "apple-iphone-16-128gb",
+   "n": 3,
+   "page": "https://www.apple.com/shop/buy-iphone/iphone-16",
+   "image": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-finish-select-202409-6-1inch_AV1?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=UXp1U3VDY3IyR1hNdHZwdFdOLzg1V0tFK1lhSCtYSGRqMUdhR284NTN4L2RJbmltQWhGZkQyVGNjT3IyemNOZWd2S3NaRzcrU0dmYjNHTUFiMnlsWGEwekI5ZWpRa0o2WWdVYzdzTUdBdFYrZzgzK3BvTTNyTSs2NGJET0s5ZHQ&traceId=1",
+   "w": 5120,
+   "h": 2880
+  },
+  "apple-ipad-air-11-m2-128gb-2.webp": {
+   "slug": "apple-ipad-air-11-m2-128gb",
+   "n": 2,
+   "page": "https://www.apple.com/shop/buy-ipad/ipad-air",
+   "image": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-air-model-unselect-gallery-1-202405?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=azZtTlRzREZ3NzhWaHRDQW5YeUV0UEs0TkxxOFYxN2dtSHJMdW5sNDFVK3MxV2hYTmJkSS9ZdDBsUEkxd0lnTHZIZkplbmJiNHg2c1VDS2NVdjhMUVBXdlJRYjdSZWJHVUh4aFVDb0hhVVhjOG04VWNidngvZmprWTAxVyttRDQ&traceId=1",
+   "w": 5120,
+   "h": 2880
+  },
+  "apple-ipad-air-11-m2-128gb-3.webp": {
+   "slug": "apple-ipad-air-11-m2-128gb",
+   "n": 3,
+   "page": "https://www.apple.com/shop/buy-ipad/ipad-air",
+   "image": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-air-model-unselect-gallery-2-202405?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=azZtTlRzREZ3NzhWaHRDQW5YeUV0UEs0TkxxOFYxN2dtSHJMdW5sNDFVK1p4MGdFOVMzRG8xZXVzVEN1YWdzY3ZIZkplbmJiNHg2c1VDS2NVdjhMUVBXdlJRYjdSZWJHVUh4aFVDb0hhVVVNWGMvLzQrYStPQUR0bS85cnl5dm4&traceId=1",
+   "w": 5120,
+   "h": 2880
+  },
+  "apple-ipad-pro-11-m4-256gb-2.webp": {
+   "slug": "apple-ipad-pro-11-m4-256gb",
+   "n": 2,
+   "page": "https://www.apple.com/shop/buy-ipad/ipad-pro",
+   "image": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-pro-model-select-gallery-1-202405?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=cXN0QTVTNDBtbGIzcy91THBPRThnNE5sSFgwakNWNmlhZ2d5NGpHdllWY09WV3R2ZHdZMXRzTjZIcWdMTlg4eVM1L0VuR3dWZGNjaVhFSWhJU255OFgwS0NUL3lieGZmUG5IUUtTQUVSNDl3SDJoYXNTQWlYYStqYlk3Wjl6eks&traceId=1",
+   "w": 5120,
+   "h": 2880
+  },
+  "sony-dualsense-wireless-controller-2.webp": {
+   "slug": "sony-dualsense-wireless-controller",
+   "n": 2,
+   "page": "https://www.playstation.com/en-us/accessories/dualsense-wireless-controller/",
+   "image": "https://gmedia.playstation.com/is/image/SIEPDC/dualsense-adaptive-triggers-image-block-01-en-30aug23?$1600px--t$",
+   "w": 1600,
+   "h": 1284
+  },
+  "nintendo-switch-oled-2.webp": {
+   "slug": "nintendo-switch-oled",
+   "n": 2,
+   "page": "https://www.nintendo.com/us/store/products/nintendo-switch-oled-model-white-set/",
+   "image": "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_700/ncom/en_US/products/hardware/nintendo-switch-oled-model-white-set/115461-switch-oled-white-console-front-1200x675",
+   "w": 1050,
+   "h": 591
+  },
+  "tp-link-deco-x50-3-pack-2.webp": {
+   "slug": "tp-link-deco-x50-3-pack",
+   "n": 2,
+   "page": "https://www.tp-link.com/ae/home-networking/deco/deco-x50/",
+   "image": "https://static.tp-link.com/upload/image-line/Deco_X50(1-pack)_Overview_01_large_20211225093734f.jpg",
+   "w": 1000,
+   "h": 1000
+  },
+  "tp-link-deco-x50-3-pack-3.webp": {
+   "slug": "tp-link-deco-x50-3-pack",
+   "n": 3,
+   "page": "https://www.tp-link.com/ae/home-networking/deco/deco-x50/",
+   "image": "https://static.tp-link.com/upload/image-line/Deco_X50_Overview_02_large_20211225094042l.jpg",
+   "w": 1000,
+   "h": 1000
+  },
+  "tp-link-archer-ax55-2.webp": {
+   "slug": "tp-link-archer-ax55",
+   "n": 2,
+   "page": "https://www.tp-link.com/ae/home-networking/wifi-router/archer-ax55/",
+   "image": "https://static.tp-link.com/upload/image-line/Overview_Archer_AX55_02_large_20210816012609l.jpg",
+   "w": 1000,
+   "h": 1000
+  },
+  "tp-link-archer-ax55-3.webp": {
+   "slug": "tp-link-archer-ax55",
+   "n": 3,
+   "page": "https://www.tp-link.com/ae/home-networking/wifi-router/archer-ax55/",
+   "image": "https://static.tp-link.com/upload/image-line/Archer_AX55(US)1.0_B_large_20220318035004t.png",
+   "w": 1000,
+   "h": 1000
+  },
+  "tp-link-archer-be230-2.webp": {
+   "slug": "tp-link-archer-be230",
+   "n": 2,
+   "page": "https://www.tp-link.com/ae/home-networking/wifi-router/archer-be230/",
+   "image": "https://static.tp-link.com/upload/image-line/Archer_BE230_US_1.0_02_large_20231212120717w.jpg",
+   "w": 1000,
+   "h": 1000
+  },
+  "tp-link-archer-be230-3.webp": {
+   "slug": "tp-link-archer-be230",
+   "n": 3,
+   "page": "https://www.tp-link.com/ae/home-networking/wifi-router/archer-be230/",
+   "image": "https://static.tp-link.com/upload/image-line/Archer_BE230_US_1.0_03_large_20231212120731l.jpg",
+   "w": 1000,
+   "h": 1000
+  },
+  "tp-link-re605x-2.webp": {
+   "slug": "tp-link-re605x",
+   "n": 2,
+   "page": "https://www.tp-link.com/ae/home-networking/range-extender/re605x/",
+   "image": "https://static.tp-link.com/RE605X-02_large_1597889277472g.jpg",
+   "w": 1000,
+   "h": 1000
+  },
+  "tp-link-re605x-3.webp": {
+   "slug": "tp-link-re605x",
+   "n": 3,
+   "page": "https://www.tp-link.com/ae/home-networking/range-extender/re605x/",
+   "image": "https://static.tp-link.com/RE605X-03_large_1597889286448c.jpg",
+   "w": 1000,
+   "h": 1000
+  },
+  "tp-link-m7350-4g-mobile-wifi-2.webp": {
+   "slug": "tp-link-m7350-4g-mobile-wifi",
+   "n": 2,
+   "page": "https://www.tp-link.com/ae/home-networking/mifi/m7350/",
+   "image": "https://static.tp-link.com/M7350UN4002large_1622770946080l.jpg",
+   "w": 1000,
+   "h": 1000
+  },
+  "tp-link-m7350-4g-mobile-wifi-3.webp": {
+   "slug": "tp-link-m7350-4g-mobile-wifi",
+   "n": 3,
+   "page": "https://www.tp-link.com/ae/home-networking/mifi/m7350/",
+   "image": "https://static.tp-link.com/M7350UN4003large_16227709464844.jpg",
+   "w": 1000,
+   "h": 1000
+  },
+  "apple-homepod-mini-2.webp": {
+   "slug": "apple-homepod-mini",
+   "n": 2,
+   "page": "https://www.apple.com/shop/buy-homepod/homepod-mini",
+   "image": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/homepod-mini-select-202210?wid=1080&hei=880&fmt=jpeg&qlt=90&.v=K2c3bEwyaWVDeDZkdHpLbHkwcGVSam9RVGpuTmx0T1h4bDIxVHQ5RDRIRkJPeDF2ZVVaSE5jWEZxb1JBMHNSQkJkRlpCNVhYU3AwTldRQldlSnpRa0NKOUJGbUVtUkw5S2dEY1BnYXVWR2c",
+   "w": 1080,
+   "h": 880
+  },
+  "logitech-g435-lightspeed-2.webp": {
+   "slug": "logitech-g435-lightspeed",
+   "n": 2,
+   "page": "https://www.logitechg.com/en-us/shop/p/g435-wireless-bluetooth-gaming-headset",
+   "image": "https://resource.logitechg.com/w_1200,h_1200,ar_7:6,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g435/2025/gallery/g435-3qtr-back-left-angle-black-gallery-4.png",
+   "w": 1200,
+   "h": 1200
+  },
+  "logitech-g435-lightspeed-3.webp": {
+   "slug": "logitech-g435-lightspeed",
+   "n": 3,
+   "page": "https://www.logitechg.com/en-us/shop/p/g435-wireless-bluetooth-gaming-headset",
+   "image": "https://resource.logitechg.com/w_1200,h_1200,ar_7:6,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g435/2025/gallery/g435-in-the-box-black-gallery-5.png",
+   "w": 1200,
+   "h": 1200
+  }
+ },
+ "notkept": [
+  {
+   "slug": "samsung-galaxy-s25-256gb",
+   "page": "https://www.samsung.com/us/smartphones/galaxy-s25/buy/",
+   "image": "https://image-us.samsung.com/SamsungUS/home/home-appliances/refrigerators/bespoke/02272025/RF90F29AECR_01_Charcoal_Glass_Stainless_Steel_SCOM.jpg",
+   "why": "wrong product: a Samsung refrigerator"
+  },
+  {
+   "slug": "samsung-galaxy-s25-256gb",
+   "page": "https://www.samsung.com/us/smartphones/galaxy-s25/buy/",
+   "image": "https://image-us.samsung.com/SamsungUS/WD90F53AVB_01_Brushed_Black_SCOM.jpg",
+   "why": "wrong product: a Samsung washing machine"
+  },
+  {
+   "slug": "samsung-galaxy-s25-ultra-512gb",
+   "page": "https://www.samsung.com/us/smartphones/galaxy-s25-ultra/buy/",
+   "image": "https://image-us.samsung.com/SamsungUS/home/home-appliances/refrigerators/bespoke/02272025/RF90F29AECR_01_Charcoal_Glass_Stainless_Steel_SCOM.jpg",
+   "why": "wrong product: a Samsung refrigerator"
+  },
+  {
+   "slug": "samsung-galaxy-s25-ultra-512gb",
+   "page": "https://www.samsung.com/us/smartphones/galaxy-s25-ultra/buy/",
+   "image": "https://image-us.samsung.com/SamsungUS/WD90F53AVB_01_Brushed_Black_SCOM.jpg",
+   "why": "wrong product: a Samsung washing machine"
+  },
+  {
+   "slug": "apple-macbook-air-13-m3",
+   "page": "https://www.apple.com/shop/buy-mac/macbook-air/13-inch",
+   "image": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/macbook-air-size-select-202601-13inch_AV1?wid=5120&hei=3280&fmt=p-jpg&qlt=80&.v=YTFkSnBPS2tMZFdhaFNRRkx6VnJZZ0dOZysray9HQ25xUFBjc1l1SVBQQlYvell3ZGJjVHV0OG1hSUJYd0xqOGZvSGF2dFhlaXl5ZzZDVTRMdEVvNldmalN5dlRpR2R3QUc1RGJwYllnWmhyWjZGS01IMkw1VFRnTHliZzkrSFM&traceId=1",
+   "why": "subject cut off at the frame edge"
+  },
+  {
+   "slug": "apple-macbook-pro-16-m4-pro",
+   "page": "https://www.apple.com/shop/buy-mac/macbook-pro/16-inch",
+   "image": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/mac-macbook-pro-size-select-202601-16inch_AV1?wid=5120&hei=3280&fmt=p-jpg&qlt=80&.v=aXlkdGF0T0RUUVdDckNLaUc0OEE0NGNlZWUwMTIzdTlRMENjTTRINjJoQWdyQzZaKzJpUzZwSXJlNEhnR2Z2L2tXOFZBWlBHUmZ1SFluOWlKMkovNG15aFM4QSthSG1nSUl6WXJQME1SZ2s1bU1QRWlDZjFMOEcxOVFXaFF2Wk5lODBad1VqYUZ3RW54YkRKL2hzbXVR&traceId=1",
+   "why": "subject cut off at the frame edge"
+  },
+  {
+   "slug": "apple-ipad-10th-gen-64gb",
+   "page": "https://www.apple.com/shop/buy-ipad/ipad",
+   "image": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/personal-setup-shop-shared-202511_GEO_US?wid=1416&hei=304&fmt=png-alpha&.v=SHZZMGp3V1JFZENMUXpQQW5mMHBoQUhrY1FTOFM4SUVmVGRiVDNFMFhsejBPd0dXaVg3eVUyTzk3R1plMjBQU2FrTTY1bTJMc0ZnLzh6ZVZEMkplL0RJRXBGODJ3dTV1czBzZTV1OWFTODRLdEllVnZ5NGNEbFFCL21QeGVkc3g",
+   "why": "line-art icon strip, not a product shot"
+  },
+  {
+   "slug": "apple-ipad-pro-11-m4-256gb",
+   "page": "https://www.apple.com/shop/buy-ipad/ipad-pro",
+   "image": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-pro-model-select-gallery-2-202405?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=cXN0QTVTNDBtbGIzcy91THBPRThnMkpvMjZnN3E5aGRZVXJIWmhFMitJSU9WV3R2ZHdZMXRzTjZIcWdMTlg4eVM1L0VuR3dWZGNjaVhFSWhJU255OFgwS0NUL3lieGZmUG5IUUtTQUVSNC9Bd2JXdERWZWxoVEhrM2MzNGxzd0s&traceId=1",
+   "why": "near-duplicate of -2 and cut off at the edge"
+  },
+  {
+   "slug": "apple-watch-series-10-42mm",
+   "page": "https://www.apple.com/shop/buy-watch/apple-watch",
+   "image": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/personal-setup-shop-shared-202511_GEO_US?wid=1416&hei=304&fmt=png-alpha&.v=SHZZMGp3V1JFZENMUXpQQW5mMHBoQUhrY1FTOFM4SUVmVGRiVDNFMFhsejBPd0dXaVg3eVUyTzk3R1plMjBQU2FrTTY1bTJMc0ZnLzh6ZVZEMkplL0RJRXBGODJ3dTV1czBzZTV1OWFTODRLdEllVnZ5NGNEbFFCL21QeGVkc3g",
+   "why": "line-art icon strip, not a product shot"
+  },
+  {
+   "slug": "apple-watch-se-2nd-gen-40mm",
+   "page": "https://www.apple.com/shop/buy-watch/apple-watch-se",
+   "image": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/personal-setup-shop-shared-202511_GEO_US?wid=1416&hei=304&fmt=png-alpha&.v=SHZZMGp3V1JFZENMUXpQQW5mMHBoQUhrY1FTOFM4SUVmVGRiVDNFMFhsejBPd0dXaVg3eVUyTzk3R1plMjBQU2FrTTY1bTJMc0ZnLzh6ZVZEMkplL0RJRXBGODJ3dTV1czBzZTV1OWFTODRLdEllVnZ5NGNEbFFCL21QeGVkc3g",
+   "why": "line-art icon strip, not a product shot"
+  },
+  {
+   "slug": "sony-playstation-5-slim-1tb",
+   "page": "https://www.playstation.com/en-us/ps5/",
+   "image": "https://gmedia.playstation.com/is/image/SIEPDC/ps5-overview-breath-stunning-games-icon-01-en-18jun24?$1200px--t$",
+   "why": "placeholder icon, not a photograph"
+  },
+  {
+   "slug": "sony-playstation-5-slim-1tb",
+   "page": "https://www.playstation.com/en-us/ps5/",
+   "image": "https://gmedia.playstation.com/is/image/SIEPDC/ps5-overview-lightning-speed-icon-01-en-18jun24?$1200px--t$",
+   "why": "placeholder logo, not a photograph"
+  },
+  {
+   "slug": "nintendo-switch-oled",
+   "page": "https://www.nintendo.com/us/store/products/nintendo-switch-oled-model-white-set/",
+   "image": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/ncom/en_US/products/hardware/nintendo-switch-oled-model-white-set/115461-switch-oled-white-boxart-1200x675",
+   "why": "retail box art with text baked in"
+  },
+  {
+   "slug": "apple-homepod-mini",
+   "page": "https://www.apple.com/shop/buy-homepod/homepod-mini",
+   "image": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/homepod-apple-music-202412?wid=2754&hei=970&fmt=png-alpha&.v=SEVtUkNqZkEzeHI0RkNjcm5Uc0srZG5XQXFVU1VIVlM3aHdnc2tGT2FxVGRZNW9RRlErekZpeTl1VnZuUTE0Y0FBdXY2YUtQNTBqTXdOQ1ZyYzhsU1piU1FLeHRobGx3L2lOcWIrUUhhUUU",
+   "why": "music UI collage with album art and text baked in"
+  },
+  {
+   "slug": "apple-macbook-air-13-m3",
+   "page": "https://www.apple.com/shop/buy-mac/macbook-air/13-inch",
+   "image": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/macbook-air-size-select-202601-13inch?wid=5120&hei=3280&fmt=p-jpg&qlt=80&.v=YTFkSnBPS2tMZFdhaFNRRkx6VnJZZ0dOZysray9HQ25xUFBjc1l1SVBQRG5EMTJnc255akxtMmp5bU5mazhOU1N4akdjaWsxOXRHMzdmYXdzRTJINlRhQ0loNHJoVm5vMHJLdkZpN3J3VDdvU0VCeENzQkdKVTNZS1YvZ09DenA&traceId=1",
+   "why": "generic Shop MacBook Air page; asset stamped 202601 and shows a Sky Blue lid the M3 never had"
+  },
+  {
+   "slug": "apple-macbook-pro-16-m4-pro",
+   "page": "https://www.apple.com/shop/buy-mac/macbook-pro/16-inch",
+   "image": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/mac-macbook-pro-size-select-202601-16inch?wid=5120&hei=3280&fmt=p-jpg&qlt=80&.v=aXlkdGF0T0RUUVdDckNLaUc0OEE0NGNlZWUwMTIzdTlRMENjTTRINjJoQ052TVFnbHFVQUp6NzlzQzU5TFl3NGZvSGF2dFhlaXl5ZzZDVTRMdEVvNldmalN5dlRpR2R3QUc1RGJwYllnWmpCdUc2YlZBRVgvNVpXUytaV2hXazg&traceId=1",
+   "why": "generic Shop MacBook Pro page; asset stamped 202601, a later generation"
+  },
+  {
+   "slug": "apple-ipad-10th-gen-64gb",
+   "page": "https://www.apple.com/shop/buy-ipad/ipad",
+   "image": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-model-unselect-gallery-1-202503?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=dktPcGxtcUZybE1aYXJWSm5YZmZNcWpkNHRJWDMzcTg3NWRxV0pydTcvS1pZTFhDUDF5UmZhMm9PVnhwR3ovWlJRdmMybzREcHdJbWdzYU9ydHdKUGppN1NoVUdOZ09aK2hFa0d2dzNEWXN2OXU2M3UrbFdFT1RodXRTbllhaEk&traceId=1",
+   "why": "generic Buy iPad page; asset stamped 202503, the 11th generation"
+  },
+  {
+   "slug": "apple-airpods-pro-2-usb-c",
+   "page": "https://www.apple.com/airpods-pro/",
+   "image": "https://www.apple.com/v/airpods-pro/t/images/meta/og__c0ceegchesom_overview.png?202609132104",
+   "why": "page now sells AirPods Pro 3 (h1 \"AirPods Pro 3\"); asset stamped 202609"
+  },
+  {
+   "slug": "apple-watch-series-10-42mm",
+   "page": "https://www.apple.com/shop/buy-watch/apple-watch",
+   "image": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/s12-case-unselect-gallery-1-202609?wid=5120&hei=3280&fmt=p-jpg&qlt=80&.v=Y1k0bnhVNzRteUVWdkpzbHlQZlRGM254NDR4QWcvRk5LSHlIc282VG82Rks0VDVpelJQc3lnS0NUUk44L0hxRlBPMVJocHRGWWdEaGFBbE5iRklMb1JRVmF3ZnkyYldSamE5Qk9mTks0RXZCa0RacjBMUWtYQmhXRi9zVy9kaGY",
+   "why": "page now sells Series 12 (h1 \"Shop Apple Watch Series 12\"); asset stamped 202609"
+  },
+  {
+   "slug": "apple-watch-se-2nd-gen-40mm",
+   "page": "https://www.apple.com/shop/buy-watch/apple-watch-se",
+   "image": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/se-case-unselect-gallery-1-202609?wid=5120&hei=3280&fmt=p-jpg&qlt=80&.v=Rmt2NDRBcDRCNVhOcFJTSzZLRU92UlorSitpdko4NVJ4eFBzVTc4dXBkRkRKK1M5VWhPZzlPSGZkak9OazNSRlNuK09xL29WL08vZ1AwVG41NEZrbTBXVUkxSkhtOXp0cmxURHNDaGF0Q0UvcldlUlVOa2g0MXZBeDMyeVhnaEg",
+   "why": "page now sells SE 3 (h1 \"Buy Apple Watch SE 3\"); asset stamped 202609"
+  },
+  {
+   "slug": "samsung-galaxy-s25-256gb",
+   "page": "https://www.samsung.com/us/smartphones/galaxy-s25/buy/",
+   "image": "https://image-us.samsung.com/SamsungUS/home/mobile/smartphone/s25-fe/gallery/SDSAC-9641-S25FE_Global_Color_Group_KV_PC-800x600.jpg?$product-details-jpg$",
+   "why": "colour range with the colour names set as text in the image"
+  },
+  {
+   "slug": "samsung-galaxy-s25-ultra-512gb",
+   "page": "https://www.samsung.com/us/smartphones/galaxy-s25-ultra/buy/",
+   "image": "https://image-us.samsung.com/SamsungUS/home/smartphones/galaxy-s25-ultra/02-07-2025/SDSAC-8805-S25Ultra-GalleryUpdate-Group-800x600.jpg?$product-details-jpg$",
+   "why": "colour range with the finish names and a Galaxy AI mark set as text"
+  },
+  {
+   "slug": "sony-playstation-5-slim-1tb",
+   "page": "https://www.playstation.com/en-us/ps5/",
+   "image": "https://gmedia.playstation.com/is/image/SIEPDC/ps5-overview-breath-stunning-games-icon-01-en-18jun24?$1200px--t$",
+   "why": "PlayStation placeholder icon, not a photograph"
+  },
+  {
+   "slug": "sony-playstation-5-slim-1tb",
+   "page": "https://www.playstation.com/en-us/ps5/",
+   "image": "https://gmedia.playstation.com/is/image/SIEPDC/ps5-overview-lightning-speed-icon-01-en-18jun24?$1200px--t$",
+   "why": "PlayStation bolt logo, not a photograph"
+  },
+  {
+   "slug": "samsung-galaxy-s25-256gb",
+   "page": "https://www.samsung.com/us/smartphones/galaxy-s25/buy/",
+   "image": "https://images.samsung.com/is/image/samsung/p6pim/us/sm-s731uzwaxaa/gallery/us-galaxy-s25-fe-sm-s731-sm-s731uzwaxaa-548774453?$product-details-jpg$",
+   "why": "the page sells the Galaxy S25 FE (h1 \"Galaxy S25 FE\") and the asset is us-galaxy-s25-fe-sm-s731: a different model"
+  },
+  {
+   "slug": "sony-dualsense-wireless-controller",
+   "page": "https://www.playstation.com/en-us/accessories/dualsense-wireless-controller/",
+   "image": "https://gmedia.playstation.com/is/image/SIEPDC/dualsense-haptic-feedback-image-block-01-en-30aug23?$1600px--t$",
+   "why": "feature render with the controller set in a blue splash; it reads as a scene, not a product on a clean ground"
+  }
+ ],
+ "fetched": "2026-10-12",
+ "skipped": [
+  {
+   "slug": "apple-iphone-15-128gb",
+   "why": "discontinued; Apple\u2019s buy page 404s and /iphone/ is a category page"
+  },
+  {
+   "slug": "apple-iphone-16-silicone-case-magsafe",
+   "why": "Apple serves a cases category page, not this case\u2019s own page"
+  },
+  {
+   "slug": "apple-smart-folio-ipad-air-11",
+   "why": "Apple serves an iPad accessories category page"
+  },
+  {
+   "slug": "apple-airpods-pro-2-usb-c",
+   "why": "apple.com/airpods-pro now sells AirPods Pro 3"
+  },
+  {
+   "slug": "apple-ipad-10th-gen-64gb",
+   "why": "Apple\u2019s Buy iPad page sells the current generation"
+  },
+  {
+   "slug": "apple-macbook-air-13-m3",
+   "why": "Apple\u2019s Shop MacBook Air page sells the current generation"
+  },
+  {
+   "slug": "apple-macbook-pro-16-m4-pro",
+   "why": "Apple\u2019s Shop MacBook Pro page sells the current generation"
+  },
+  {
+   "slug": "apple-watch-series-10-42mm",
+   "why": "Apple\u2019s watch page now sells Series 12"
+  },
+  {
+   "slug": "apple-watch-se-2nd-gen-40mm",
+   "why": "Apple\u2019s SE page now sells SE 3"
+  },
+  {
+   "slug": "google-pixel-9-128gb",
+   "why": "store.google.com redirects to the region picker, then a category page"
+  },
+  {
+   "slug": "google-pixel-watch-3-41mm",
+   "why": "store.google.com redirects to the Pixel Watch 5 page"
+  },
+  {
+   "slug": "google-nest-mini-2nd-gen",
+   "why": "store.google.com redirects to the store home"
+  },
+  {
+   "slug": "lenovo-ideapad-slim-5-15",
+   "why": "lenovo.com redirects to a different IdeaPad model"
+  },
+  {
+   "slug": "lenovo-thinkpad-x1-carbon-gen-12",
+   "why": "lenovo.com redirects to a ThinkPad L13"
+  },
+  {
+   "slug": "samsung-galaxy-book4-15",
+   "why": "samsung.com redirects to the Galaxy Book5"
+  },
+  {
+   "slug": "samsung-galaxy-tab-s9-fe-128gb",
+   "why": "samsung.com redirects to the Tab S10 FE"
+  },
+  {
+   "slug": "samsung-galaxy-tab-a9-plus-64gb",
+   "why": "samsung.com redirects to the Tab A11+"
+  },
+  {
+   "slug": "samsung-galaxy-buds3",
+   "why": "samsung.com redirects to the Galaxy Buds4"
+  },
+  {
+   "slug": "samsung-galaxy-fit3",
+   "why": "samsung.com redirects to the Galaxy Watch8"
+  },
+  {
+   "slug": "samsung-galaxy-s25-clear-case",
+   "why": "samsung.com redirects to the accessories category"
+  },
+  {
+   "slug": "samsung-galaxy-a56-128gb",
+   "why": "the page served no image at 800 px or more on its long side"
+  },
+  {
+   "slug": "samsung-galaxy-watch7-40mm",
+   "why": "the page served no image at 800 px or more on its long side"
+  },
+  {
+   "slug": "sony-wh-1000xm5",
+   "why": "electronics.sony.com returns 403"
+  },
+  {
+   "slug": "sony-wf-1000xm5",
+   "why": "electronics.sony.com returns 403"
+  },
+  {
+   "slug": "sony-srs-xb100",
+   "why": "electronics.sony.com returns 403"
+  },
+  {
+   "slug": "sony-playstation-5-slim-1tb",
+   "why": "playstation.com served only placeholder and logo art for this model"
+  },
+  {
+   "slug": "logitech-g502-x",
+   "why": "logitechg.com returns 404 for this product"
+  },
+  {
+   "slug": "tp-link-tapo-p100-2-pack",
+   "why": "tapo.com serves its gallery at 590 px, under the 800 px floor"
+  },
+  {
+   "slug": "tp-link-tapo-c210",
+   "why": "tapo.com serves its gallery at 590 px, under the 800 px floor"
+  },
+  {
+   "slug": "tp-link-tapo-l530e",
+   "why": "tapo.com serves its gallery at 590 px, under the 800 px floor"
+  },
+  {
+   "slug": "samsung-galaxy-s25-256gb",
+   "why": "samsung.com\u2019s S25 buy page now sells the S25 FE"
+  },
+  {
+   "slug": "samsung-galaxy-s25-ultra-512gb",
+   "why": "every candidate carrying the model token had its finish names set as text"
+  }
+ ]
+}

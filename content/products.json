@@ -844,7 +844,9 @@
         "count": 212
       },
       "images": [
-        "assets/products/apple-iphone-16-128gb-1.webp"
+        "assets/products/apple-iphone-16-128gb-1.webp",
+        "assets/products/apple-iphone-16-128gb-2.webp",
+        "assets/products/apple-iphone-16-128gb-3.webp"
       ]
     },
     {
@@ -1667,7 +1669,9 @@
         "count": 157
       },
       "images": [
-        "assets/products/apple-ipad-air-11-m2-128gb-1.webp"
+        "assets/products/apple-ipad-air-11-m2-128gb-1.webp",
+        "assets/products/apple-ipad-air-11-m2-128gb-2.webp",
+        "assets/products/apple-ipad-air-11-m2-128gb-3.webp"
       ]
     },
     {
@@ -1735,7 +1739,8 @@
         "count": 91
       },
       "images": [
-        "assets/products/apple-ipad-pro-11-m4-256gb-1.webp"
+        "assets/products/apple-ipad-pro-11-m4-256gb-1.webp",
+        "assets/products/apple-ipad-pro-11-m4-256gb-2.webp"
       ]
     },
     {
@@ -2548,7 +2553,8 @@
         "count": 347
       },
       "images": [
-        "assets/products/sony-dualsense-wireless-controller-1.webp"
+        "assets/products/sony-dualsense-wireless-controller-1.webp",
+        "assets/products/sony-dualsense-wireless-controller-2.webp"
       ]
     },
     {
@@ -2608,7 +2614,8 @@
         "count": 189
       },
       "images": [
-        "assets/products/nintendo-switch-oled-1.webp"
+        "assets/products/nintendo-switch-oled-1.webp",
+        "assets/products/nintendo-switch-oled-2.webp"
       ]
     },
     {
@@ -2661,7 +2668,9 @@
         "count": 156
       },
       "images": [
-        "assets/products/logitech-g435-lightspeed-1.webp"
+        "assets/products/logitech-g435-lightspeed-1.webp",
+        "assets/products/logitech-g435-lightspeed-2.webp",
+        "assets/products/logitech-g435-lightspeed-3.webp"
       ]
     },
     {
@@ -2760,7 +2769,9 @@
         "count": 138
       },
       "images": [
-        "assets/products/tp-link-deco-x50-3-pack-1.webp"
+        "assets/products/tp-link-deco-x50-3-pack-1.webp",
+        "assets/products/tp-link-deco-x50-3-pack-2.webp",
+        "assets/products/tp-link-deco-x50-3-pack-3.webp"
       ]
     },
     {
@@ -2808,7 +2819,9 @@
         "count": 276
       },
       "images": [
-        "assets/products/tp-link-archer-ax55-1.webp"
+        "assets/products/tp-link-archer-ax55-1.webp",
+        "assets/products/tp-link-archer-ax55-2.webp",
+        "assets/products/tp-link-archer-ax55-3.webp"
       ]
     },
     {
@@ -2856,7 +2869,9 @@
         "count": 41
       },
       "images": [
-        "assets/products/tp-link-archer-be230-1.webp"
+        "assets/products/tp-link-archer-be230-1.webp",
+        "assets/products/tp-link-archer-be230-2.webp",
+        "assets/products/tp-link-archer-be230-3.webp"
       ]
     },
     {
@@ -2900,7 +2915,9 @@
         "count": 167
       },
       "images": [
-        "assets/products/tp-link-re605x-1.webp"
+        "assets/products/tp-link-re605x-1.webp",
+        "assets/products/tp-link-re605x-2.webp",
+        "assets/products/tp-link-re605x-3.webp"
       ]
     },
     {
@@ -2947,7 +2964,9 @@
         "count": 203
       },
       "images": [
-        "assets/products/tp-link-m7350-4g-mobile-wifi-1.webp"
+        "assets/products/tp-link-m7350-4g-mobile-wifi-1.webp",
+        "assets/products/tp-link-m7350-4g-mobile-wifi-2.webp",
+        "assets/products/tp-link-m7350-4g-mobile-wifi-3.webp"
       ]
     },
     {
@@ -3190,7 +3209,8 @@
         "count": 142
       },
       "images": [
-        "assets/products/apple-homepod-mini-1.webp"
+        "assets/products/apple-homepod-mini-1.webp",
+        "assets/products/apple-homepod-mini-2.webp"
       ]
     },
     {
