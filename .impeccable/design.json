@@ -1,719 +1,719 @@
 {
-  "schemaVersion": 2,
-  "generatedAt": "2026-10-11T23:59:30+00:00",
-  "title": "Design System: Ampline",
-  "extensions": {
-    "colorMeta": {
-      "charge-green": {
-        "role": "primary",
-        "displayName": "Charging Green",
-        "tonalRamp": [
-          "#0a4d2e",
-          "#0e7a47",
-          "#139a57",
-          "#17b867",
-          "#45c985",
-          "#6fd9a4",
-          "#b6edd0",
-          "#dcf5e7"
-        ]
-      },
-      "charge-green-ink": {
-        "role": "primary",
-        "displayName": "Charging Green Ink",
-        "tonalRamp": [
-          "#0a4d2e",
-          "#0e7a47",
-          "#139a57",
-          "#17b867",
-          "#45c985",
-          "#6fd9a4",
-          "#b6edd0",
-          "#dcf5e7"
-        ]
-      },
-      "charge-green-mid": {
-        "role": "primary",
-        "displayName": "Green Mid Tint",
-        "tonalRamp": [
-          "#0a4d2e",
-          "#0e7a47",
-          "#139a57",
-          "#17b867",
-          "#45c985",
-          "#6fd9a4",
-          "#b6edd0",
-          "#dcf5e7"
-        ]
-      },
-      "charge-green-pale": {
-        "role": "primary",
-        "displayName": "Green Pale Tint",
-        "tonalRamp": [
-          "#0a4d2e",
-          "#0e7a47",
-          "#139a57",
-          "#17b867",
-          "#45c985",
-          "#6fd9a4",
-          "#b6edd0",
-          "#dcf5e7"
-        ]
-      },
-      "charge-green-soft": {
-        "role": "primary",
-        "displayName": "Green Soft Tint",
-        "tonalRamp": [
-          "#0a4d2e",
-          "#0e7a47",
-          "#139a57",
-          "#17b867",
-          "#45c985",
-          "#6fd9a4",
-          "#b6edd0",
-          "#dcf5e7"
-        ]
-      },
-      "caution-amber": {
-        "role": "secondary",
-        "displayName": "Caution Amber",
-        "tonalRamp": [
-          "#4d3200",
-          "#8a5a00",
-          "#b87a0e",
-          "#e09a1c",
-          "#ecb554",
-          "#f5cf88",
-          "#fae2b5",
-          "#fff0d2"
-        ]
-      },
-      "caution-amber-ink": {
-        "role": "secondary",
-        "displayName": "Caution Amber Ink",
-        "tonalRamp": [
-          "#4d3200",
-          "#8a5a00",
-          "#b87a0e",
-          "#e09a1c",
-          "#ecb554",
-          "#f5cf88",
-          "#fae2b5",
-          "#fff0d2"
-        ]
-      },
-      "caution-amber-soft": {
-        "role": "secondary",
-        "displayName": "Caution Amber Soft",
-        "tonalRamp": [
-          "#4d3200",
-          "#8a5a00",
-          "#b87a0e",
-          "#e09a1c",
-          "#ecb554",
-          "#f5cf88",
-          "#fae2b5",
-          "#fff0d2"
-        ]
-      },
-      "daylight-ground": {
-        "role": "neutral",
-        "displayName": "Daylight Ground",
-        "tonalRamp": [
-          "#0b0d10",
-          "#1f252d",
-          "#55606e",
-          "#7d8794",
-          "#8e97a3",
-          "#dce2e9",
-          "#e9edf1",
-          "#f4f6f8"
-        ]
-      },
-      "screen-white": {
-        "role": "neutral",
-        "displayName": "Screen White",
-        "tonalRamp": [
-          "#0b0d10",
-          "#1f252d",
-          "#55606e",
-          "#7d8794",
-          "#8e97a3",
-          "#dce2e9",
-          "#e9edf1",
-          "#f4f6f8"
-        ]
-      },
-      "lockscreen-ink": {
-        "role": "neutral",
-        "displayName": "Lock-Screen Ink",
-        "tonalRamp": [
-          "#0b0d10",
-          "#1f252d",
-          "#55606e",
-          "#7d8794",
-          "#8e97a3",
-          "#dce2e9",
-          "#e9edf1",
-          "#f4f6f8"
-        ]
-      },
-      "muted-slate": {
-        "role": "neutral",
-        "displayName": "Muted Slate",
-        "tonalRamp": [
-          "#0b0d10",
-          "#1f252d",
-          "#55606e",
-          "#7d8794",
-          "#8e97a3",
-          "#dce2e9",
-          "#e9edf1",
-          "#f4f6f8"
-        ]
-      },
-      "hairline": {
-        "role": "neutral",
-        "displayName": "Hairline",
-        "tonalRamp": [
-          "#0b0d10",
-          "#1f252d",
-          "#55606e",
-          "#7d8794",
-          "#8e97a3",
-          "#dce2e9",
-          "#e9edf1",
-          "#f4f6f8"
-        ]
-      },
-      "empty-track": {
-        "role": "neutral",
-        "displayName": "Empty Track",
-        "tonalRamp": [
-          "#0b0d10",
-          "#1f252d",
-          "#55606e",
-          "#7d8794",
-          "#8e97a3",
-          "#dce2e9",
-          "#e9edf1",
-          "#f4f6f8"
-        ]
-      },
-      "off-grey": {
-        "role": "neutral",
-        "displayName": "Off Grey",
-        "tonalRamp": [
-          "#0b0d10",
-          "#1f252d",
-          "#55606e",
-          "#7d8794",
-          "#8e97a3",
-          "#dce2e9",
-          "#e9edf1",
-          "#f4f6f8"
-        ]
-      },
-      "off-grey-soft": {
-        "role": "neutral",
-        "displayName": "Off Grey Soft",
-        "tonalRamp": [
-          "#0b0d10",
-          "#1f252d",
-          "#55606e",
-          "#7d8794",
-          "#8e97a3",
-          "#dce2e9",
-          "#e9edf1",
-          "#f4f6f8"
-        ]
-      },
-      "sleep-black": {
-        "role": "neutral",
-        "displayName": "Sleep Black",
-        "tonalRamp": [
-          "#0b0d10",
-          "#1f252d",
-          "#55606e",
-          "#7d8794",
-          "#8e97a3",
-          "#dce2e9",
-          "#e9edf1",
-          "#f4f6f8"
-        ]
-      },
-      "sleep-ink": {
-        "role": "neutral",
-        "displayName": "Sleep Ink",
-        "tonalRamp": [
-          "#0b0d10",
-          "#1f252d",
-          "#55606e",
-          "#7d8794",
-          "#8e97a3",
-          "#dce2e9",
-          "#e9edf1",
-          "#f4f6f8"
-        ]
-      },
-      "sleep-ink-dim": {
-        "role": "neutral",
-        "displayName": "Sleep Ink Dim",
-        "tonalRamp": [
-          "#0b0d10",
-          "#1f252d",
-          "#55606e",
-          "#7d8794",
-          "#8e97a3",
-          "#dce2e9",
-          "#e9edf1",
-          "#f4f6f8"
-        ]
-      },
-      "sleep-line": {
-        "role": "neutral",
-        "displayName": "Sleep Line",
-        "tonalRamp": [
-          "#0b0d10",
-          "#1f252d",
-          "#55606e",
-          "#7d8794",
-          "#8e97a3",
-          "#dce2e9",
-          "#e9edf1",
-          "#f4f6f8"
-        ]
-      }
-    },
-    "typographyMeta": {
-      "display": {
-        "displayName": "Display",
-        "purpose": "Hero panel slide titles (h2) naming one product and its price, SYNTHETIC tag after the price; clamp(1.75rem, 1.1rem + 3.2vw, 3.5rem), 1.04, -0.03em, two lines."
-      },
-      "headline": {
-        "displayName": "Headline",
-        "purpose": "Section titles, group titles, the house strip title."
-      },
-      "title": {
-        "displayName": "Title",
-        "purpose": "Prices, cart heading, wordmark, the promo offer line from 1024px at 400, filter sheet heading, empty-state title, desktop results count, home \"Featured in\" subheads."
-      },
-      "body": {
-        "displayName": "Body",
-        "purpose": "Running text and sub-lines."
-      },
-      "body-small": {
-        "displayName": "Body small",
-        "purpose": "Tile descriptions, tile facet lines, the picker guess line, trust row items at 600, breadcrumbs, filter and applied chips."
-      },
-      "label": {
-        "displayName": "Label",
-        "purpose": "Tags, counts, scale marks, meta, segments, chip-group labels, category counts; at 400 the tile brand line and category blurbs."
-      },
-      "figure-tile": {
-        "displayName": "Tile Figure",
-        "purpose": "Watt number beside the mini battery on product tiles; 1.5rem below 720px."
-      },
-      "figure-pdp": {
-        "displayName": "Product Figure",
-        "purpose": "Watt number inside the battery glyph on the house strip and product pages."
-      },
-      "price-big": {
-        "displayName": "Big Price",
-        "purpose": "Product page price, with a 1.25rem muted strike-through."
-      },
-      "picker-heading": {
-        "displayName": "Picker heading",
-        "purpose": "\"Choose your device\" at 700, 1.0625rem, in the wrapping row with the family chips."
-      }
-    },
-    "shadows": [
-      {
-        "name": "floating-layer",
-        "value": "0 12px 32px -12px rgba(11,13,16,0.18), 0 2px 6px -2px rgba(11,13,16,0.08)",
-        "purpose": "Cart drawer, the phone filter sheet and the row scroll buttons over a row edge; dropped when the filter sheet settles into the desktop rail."
-      },
-      {
-        "name": "scrim",
-        "value": "rgba(11,13,16,0.45)",
-        "purpose": "Dialog backdrop behind the cart drawer and the phone filter sheet."
-      },
-      {
-        "name": "switch-knob",
-        "value": "0 1px 3px rgba(11,13,16,0.2)",
-        "purpose": "The admin settings switch knob only."
-      }
-    ],
-    "motion": [
-      {
-        "name": "ease-charge",
-        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "House ease for fills, chip state, button press, tile rise."
-      },
-      {
-        "name": "fill-battery",
-        "value": "clip-path 0.8s ease-charge",
-        "purpose": "Battery glyph fill, and the cart thank-you mini battery filling once from 0 to 100%."
-      },
-      {
-        "name": "count-up",
-        "value": "700ms (JS)",
-        "purpose": "Watt figure counting to its value."
-      },
-      {
-        "name": "bolt-in",
-        "value": "opacity/transform 0.4s ease-charge, 0.45s delay",
-        "purpose": "Bolt appears after the fill starts."
-      },
-      {
-        "name": "tile-rise",
-        "value": "0.5s ease-charge from opacity 0.4, translateY 8px; 40ms stagger",
-        "purpose": "Tiles entering grids; scroll-row tiles do not rise, and dimmed best sellers on home do not rise."
-      },
-      {
-        "name": "sheet-up",
-        "value": "0.25s ease-charge from translateY 24px, opacity 0.6",
-        "purpose": "Phone filter sheet and the phone cart drawer opening (drawer-in-y)."
-      },
-      {
-        "name": "drawer-in",
-        "value": "0.25s ease-charge from translateX(24px), opacity 0.6",
-        "purpose": "Cart drawer opening from the right edge, 720px and up (drawer-in-x)."
-      },
-      {
-        "name": "shop-tile-rise",
-        "value": "tile-rise at 0.25s, no stagger",
-        "purpose": "Tiles re-rendering after a filter change on the category page."
-      },
-      {
-        "name": "skeleton-pulse",
-        "value": "opacity to 0.5, 1.2s ease-in-out, infinite",
-        "purpose": "Skeleton tile blocks before data loads."
-      },
-      {
-        "name": "reduced-motion",
-        "value": "all durations and delays 0s",
-        "purpose": "prefers-reduced-motion: reduce."
-      },
-      {
-        "name": "promo-slide",
-        "value": "scroll-snap; scrollTo smooth (auto under reduced motion); dot fill 0.2s",
-        "purpose": "Hero panel paging by swipe, prev/next, dots or arrow keys. No autoplay."
-      },
-      {
-        "name": "payoff-into-view",
-        "value": "window.scrollTo smooth to the element top under the header, 12px clear (auto under reduced motion)",
-        "purpose": "After a device tap on home: from 1024px \"Choose your device\" lands under the header (chips above the tiles); below 1024px the open model question, else the best sellers. A family tap below 1024px, and a family-only guess tap at any width, bring \"Choose your device\" into view."
-      },
-      {
-        "name": "panel-in",
-        "value": "drawer-in-y / drawer-in-x 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Admin panel: slides up 24px from 0.6 opacity as a bottom sheet below 720px, in from the right as a drawer from 720px."
-      },
-      {
-        "name": "order-charge",
-        "value": "clip-path 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Admin order battery charges to the next status level before the panel re-renders 420ms later; step bars recolor over 0.3s."
-      },
-      {
-        "name": "toast-in",
-        "value": "translate 8px and opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Admin toast rises into place; held 2.6s."
-      },
-      {
-        "name": "tile-dim",
-        "value": "opacity to 0.38 over 0.25s, rise animation off",
-        "purpose": "Home best sellers that do not fit the pick."
-      },
-      {
-        "name": "answer-charge",
-        "value": "clip-path 0.8s cubic-bezier(0.16, 1, 0.3, 1) from 0",
-        "purpose": "The 34px mini battery before \"Fits <device>\" charges to the share of accessories and power that fit; again from empty on every new pick."
-      }
-    ],
-    "breakpoints": [
-      {
-        "name": "md",
-        "value": "720px"
-      },
-      {
-        "name": "lg",
-        "value": "1024px"
-      }
+ "schemaVersion": 2,
+ "generatedAt": "2026-10-11T23:59:30+00:00",
+ "title": "Design System: Ampline",
+ "extensions": {
+  "colorMeta": {
+   "charge-green": {
+    "role": "primary",
+    "displayName": "Charging Green",
+    "tonalRamp": [
+     "#0a4d2e",
+     "#0e7a47",
+     "#139a57",
+     "#17b867",
+     "#45c985",
+     "#6fd9a4",
+     "#b6edd0",
+     "#dcf5e7"
     ]
+   },
+   "charge-green-ink": {
+    "role": "primary",
+    "displayName": "Charging Green Ink",
+    "tonalRamp": [
+     "#0a4d2e",
+     "#0e7a47",
+     "#139a57",
+     "#17b867",
+     "#45c985",
+     "#6fd9a4",
+     "#b6edd0",
+     "#dcf5e7"
+    ]
+   },
+   "charge-green-mid": {
+    "role": "primary",
+    "displayName": "Green Mid Tint",
+    "tonalRamp": [
+     "#0a4d2e",
+     "#0e7a47",
+     "#139a57",
+     "#17b867",
+     "#45c985",
+     "#6fd9a4",
+     "#b6edd0",
+     "#dcf5e7"
+    ]
+   },
+   "charge-green-pale": {
+    "role": "primary",
+    "displayName": "Green Pale Tint",
+    "tonalRamp": [
+     "#0a4d2e",
+     "#0e7a47",
+     "#139a57",
+     "#17b867",
+     "#45c985",
+     "#6fd9a4",
+     "#b6edd0",
+     "#dcf5e7"
+    ]
+   },
+   "charge-green-soft": {
+    "role": "primary",
+    "displayName": "Green Soft Tint",
+    "tonalRamp": [
+     "#0a4d2e",
+     "#0e7a47",
+     "#139a57",
+     "#17b867",
+     "#45c985",
+     "#6fd9a4",
+     "#b6edd0",
+     "#dcf5e7"
+    ]
+   },
+   "caution-amber": {
+    "role": "secondary",
+    "displayName": "Caution Amber",
+    "tonalRamp": [
+     "#4d3200",
+     "#8a5a00",
+     "#b87a0e",
+     "#e09a1c",
+     "#ecb554",
+     "#f5cf88",
+     "#fae2b5",
+     "#fff0d2"
+    ]
+   },
+   "caution-amber-ink": {
+    "role": "secondary",
+    "displayName": "Caution Amber Ink",
+    "tonalRamp": [
+     "#4d3200",
+     "#8a5a00",
+     "#b87a0e",
+     "#e09a1c",
+     "#ecb554",
+     "#f5cf88",
+     "#fae2b5",
+     "#fff0d2"
+    ]
+   },
+   "caution-amber-soft": {
+    "role": "secondary",
+    "displayName": "Caution Amber Soft",
+    "tonalRamp": [
+     "#4d3200",
+     "#8a5a00",
+     "#b87a0e",
+     "#e09a1c",
+     "#ecb554",
+     "#f5cf88",
+     "#fae2b5",
+     "#fff0d2"
+    ]
+   },
+   "daylight-ground": {
+    "role": "neutral",
+    "displayName": "Daylight Ground",
+    "tonalRamp": [
+     "#0b0d10",
+     "#1f252d",
+     "#55606e",
+     "#7d8794",
+     "#8e97a3",
+     "#dce2e9",
+     "#e9edf1",
+     "#f4f6f8"
+    ]
+   },
+   "screen-white": {
+    "role": "neutral",
+    "displayName": "Screen White",
+    "tonalRamp": [
+     "#0b0d10",
+     "#1f252d",
+     "#55606e",
+     "#7d8794",
+     "#8e97a3",
+     "#dce2e9",
+     "#e9edf1",
+     "#f4f6f8"
+    ]
+   },
+   "lockscreen-ink": {
+    "role": "neutral",
+    "displayName": "Lock-Screen Ink",
+    "tonalRamp": [
+     "#0b0d10",
+     "#1f252d",
+     "#55606e",
+     "#7d8794",
+     "#8e97a3",
+     "#dce2e9",
+     "#e9edf1",
+     "#f4f6f8"
+    ]
+   },
+   "muted-slate": {
+    "role": "neutral",
+    "displayName": "Muted Slate",
+    "tonalRamp": [
+     "#0b0d10",
+     "#1f252d",
+     "#55606e",
+     "#7d8794",
+     "#8e97a3",
+     "#dce2e9",
+     "#e9edf1",
+     "#f4f6f8"
+    ]
+   },
+   "hairline": {
+    "role": "neutral",
+    "displayName": "Hairline",
+    "tonalRamp": [
+     "#0b0d10",
+     "#1f252d",
+     "#55606e",
+     "#7d8794",
+     "#8e97a3",
+     "#dce2e9",
+     "#e9edf1",
+     "#f4f6f8"
+    ]
+   },
+   "empty-track": {
+    "role": "neutral",
+    "displayName": "Empty Track",
+    "tonalRamp": [
+     "#0b0d10",
+     "#1f252d",
+     "#55606e",
+     "#7d8794",
+     "#8e97a3",
+     "#dce2e9",
+     "#e9edf1",
+     "#f4f6f8"
+    ]
+   },
+   "off-grey": {
+    "role": "neutral",
+    "displayName": "Off Grey",
+    "tonalRamp": [
+     "#0b0d10",
+     "#1f252d",
+     "#55606e",
+     "#7d8794",
+     "#8e97a3",
+     "#dce2e9",
+     "#e9edf1",
+     "#f4f6f8"
+    ]
+   },
+   "off-grey-soft": {
+    "role": "neutral",
+    "displayName": "Off Grey Soft",
+    "tonalRamp": [
+     "#0b0d10",
+     "#1f252d",
+     "#55606e",
+     "#7d8794",
+     "#8e97a3",
+     "#dce2e9",
+     "#e9edf1",
+     "#f4f6f8"
+    ]
+   },
+   "sleep-black": {
+    "role": "neutral",
+    "displayName": "Sleep Black",
+    "tonalRamp": [
+     "#0b0d10",
+     "#1f252d",
+     "#55606e",
+     "#7d8794",
+     "#8e97a3",
+     "#dce2e9",
+     "#e9edf1",
+     "#f4f6f8"
+    ]
+   },
+   "sleep-ink": {
+    "role": "neutral",
+    "displayName": "Sleep Ink",
+    "tonalRamp": [
+     "#0b0d10",
+     "#1f252d",
+     "#55606e",
+     "#7d8794",
+     "#8e97a3",
+     "#dce2e9",
+     "#e9edf1",
+     "#f4f6f8"
+    ]
+   },
+   "sleep-ink-dim": {
+    "role": "neutral",
+    "displayName": "Sleep Ink Dim",
+    "tonalRamp": [
+     "#0b0d10",
+     "#1f252d",
+     "#55606e",
+     "#7d8794",
+     "#8e97a3",
+     "#dce2e9",
+     "#e9edf1",
+     "#f4f6f8"
+    ]
+   },
+   "sleep-line": {
+    "role": "neutral",
+    "displayName": "Sleep Line",
+    "tonalRamp": [
+     "#0b0d10",
+     "#1f252d",
+     "#55606e",
+     "#7d8794",
+     "#8e97a3",
+     "#dce2e9",
+     "#e9edf1",
+     "#f4f6f8"
+    ]
+   }
   },
-  "components": [
-    {
-      "name": "Buttons",
-      "kind": "button",
-      "refersTo": "button-primary",
-      "description": "Ink pill for every primary action, green with a check once added; ghost pill for the secondary action; Filters button with a green count badge.",
-      "html": "<div style=\"display:flex;gap:10px;flex-wrap:wrap;align-items:center\"><button class=\"ds-btn\">Add to cart</button><button class=\"ds-btn ds-btn--added\">Added</button><button class=\"ds-btn\" disabled>Out of stock</button><button class=\"ds-btn ds-btn--ghost\">Clear all filters</button><button class=\"ds-btn ds-btn--ghost ds-fbtn\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 6h16M7 12h10M10 18h4\"/></svg>Filters <span class=\"ds-fn\">2</span></button><button class=\"ds-clear\">Clear all</button></div>",
-      "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-btn{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 18px;border-radius:999px;border:0;background:var(--ink);color:var(--ground);font-weight:600;font-size:1rem;font-family:inherit;cursor:pointer;transition:transform .25s var(--ease),background .2s}.ds-btn:hover{background:#1c2129}.ds-btn:active{transform:scale(.98)}.ds-btn:focus-visible{outline:3px solid var(--green);outline-offset:3px}.ds-btn--added,.ds-btn--added:hover{background:var(--green);color:var(--ink)}.ds-btn:disabled{background:var(--track);color:var(--ink-2);cursor:not-allowed}.ds-btn--ghost,.ds-btn--ghost:hover{background:var(--screen);color:var(--ink);border:1px solid var(--line)}.ds-btn--ghost:hover{border-color:var(--ink)}.ds-fbtn{height:40px;padding:0 14px;gap:8px}.ds-fbtn svg{width:18px;height:18px}.ds-fn{min-width:20px;height:20px;padding:0 6px;border-radius:999px;background:var(--green);color:var(--ink);font-size:.8rem;display:grid;place-items:center}.ds-clear{border:0;background:none;padding:0 6px;font:600 .875rem inherit;font-family:inherit;color:var(--ink);cursor:pointer;text-decoration:underline;text-decoration-color:var(--green);text-decoration-thickness:2px;text-underline-offset:.2em}.ds-clear:focus-visible{outline:3px solid var(--green);outline-offset:3px}"
-    },
-    {
-      "name": "Device Chip",
-      "kind": "chip",
-      "refersTo": "chip-device",
-      "description": "Device picker pill with a status dot; pressed inverts to ink, suggested takes a hairline ink border only (no inset, no green dot). On home up to three rows inside the picker bar, the family row wrapping at 1024px and below, the browser guess bordered (never pressed) and named in a line that names only what the user agent can tell (\"a Mac\", \"an iPhone\", \"an Android phone\", \"a Windows laptop\") as a green-underlined button; a family-only guess tap opens the device row in view with \"Tap it to pick which one.\", and the line hides once a family is picked. Rows: families, the family's buckets, then for a bucket that holds models a \"Which model? Cases and folios fit one model only.\" row with the models and \"Mine isn't listed\"; nothing is pressed until tapped, a model re-tap steps back to its bucket and a bucket re-tap clears; elsewhere grouped by family under a muted label. On the product page the same chip is the variant picker: radio groups for Plug region, Colour, Storage and Pack under weight 600 legends, preselected on the option the SKU already is, with one muted note that options share one price.",
-      "html": "<div style=\"display:flex;gap:8px;flex-wrap:wrap\"><button class=\"ds-chip\">iPhone 15</button><button class=\"ds-chip\" aria-pressed=\"true\">MacBook Air</button><button class=\"ds-chip ds-chip--sug\">Pixel 8</button></div>",
-      "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-chip{display:inline-flex;align-items:center;gap:9px;height:40px;padding:0 15px 0 13px;border-radius:999px;border:1px solid var(--line);background:var(--screen);font:500 1rem inherit;font-family:inherit;color:var(--ink);cursor:pointer;transition:border-color .2s,background .25s var(--ease)}.ds-chip::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--track)}.ds-chip:hover{border-color:var(--ink)}.ds-chip:focus-visible{outline:3px solid var(--green);outline-offset:3px}.ds-chip[aria-pressed=true]{background:var(--ink);color:var(--ground);border-color:var(--ink)}.ds-chip[aria-pressed=true]::before,.ds-chip--sug{border-color:var(--ink)}"
-    },
-    {
-      "name": "Tags and labels",
-      "kind": "chip",
-      "refersTo": "tag",
-      "description": "Label pills: neutral tag, hot tag in green, amber SYNTHETIC label, dashed placeholder label.",
-      "html": "<div style=\"display:flex;gap:6px;flex-wrap:wrap;align-items:center\"><span class=\"ds-tag\">USB-C</span><span class=\"ds-tag ds-tag--hot\">Best seller</span><span class=\"ds-syn\">Synthetic</span><span class=\"ds-ph\">Placeholder</span></div>",
-      "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-tag{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:999px;font-size:.8rem;font-weight:600;background:var(--off-soft);color:var(--ink-2)}.ds-tag--hot{background:var(--green-soft);color:var(--green-ink)}.ds-syn,.ds-ph{font-size:.8rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;padding:1px 7px;border-radius:999px}.ds-syn{color:var(--amber-ink);background:var(--amber-soft)}.ds-ph{color:var(--ink-2);border:1px dashed var(--off)}"
-    },
-    {
-      "name": "Battery Glyph",
-      "kind": "custom",
-      "refersTo": "battery-glyph",
-      "description": "Signature: 2.2:1 battery, 3px outline, 22px radius, green clip-path fill driven by --pct against 100W, watt figure inside. The house strip fills it to the range maximum. On a device's product page it reads the family's charge ceiling, captioned \"Takes up to\" over one shared ceiling sentence that says whose figure it is (the catalog's for the bucket, the bucket's for a model without its own, the model's own, or a typical figure for a catch-all) and marked indicative, on a scale stretched to the larger of 100W and the ceiling; catch-all families show none. Home's hero carries no glyph.",
-      "html": "<div style=\"display:flex;gap:24px;flex-wrap:wrap\"><div class=\"ds-glyph\" style=\"--pct:.3\"><div class=\"ds-glyph__fill\"></div><div class=\"ds-glyph__in\"><span class=\"ds-fig\"><b>30</b><small>W</small></span></div></div><div class=\"ds-glyph\" style=\"--pct:0\"><div class=\"ds-glyph__fill\"></div><div class=\"ds-glyph__in\"><span class=\"ds-read\"><b>What a device takes</b><small>Phones 20 to 45W · Laptops 30 to 140W</small></span></div><div class=\"ds-ticks\"><i style=\"--lo:.2;--hi:.45\"></i><i style=\"--lo:.3;--hi:1\"></i></div></div></div>",
-      "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-glyph{position:relative;aspect-ratio:2.2/1;width:240px;border:3px solid var(--ink);border-radius:22px;background:var(--screen);margin-inline-end:12px}.ds-glyph::after{content:'';position:absolute;top:33%;bottom:33%;right:-12px;width:9px;background:var(--ink);border-radius:0 4px 4px 0}.ds-glyph__fill{position:absolute;inset:5px;border-radius:14px;background:var(--green);clip-path:inset(0 calc((1 - var(--pct,0))*100%) 0 0 round 14px);transition:clip-path .8s var(--ease)}.ds-glyph:hover{--pct:1}.ds-glyph__in{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:12px}.ds-fig{display:inline-flex;align-items:baseline;line-height:1;font-size:2.75rem}.ds-fig b{font-weight:700;letter-spacing:-.035em}.ds-fig small{font-size:.375em;font-weight:500}.ds-read{display:grid;gap:4px;max-width:30ch;position:relative;z-index:1}.ds-read b{font-size:1.25rem;font-weight:600;color:var(--ink-2)}.ds-read small{font-size:.8rem;color:var(--ink-2)}.ds-ticks{position:absolute;inset:auto 5px 5px 5px;height:10px}.ds-ticks i{position:absolute;top:0;bottom:0;left:calc(var(--lo)*100%);width:calc((var(--hi) - var(--lo))*100%);background:var(--green-soft);border-radius:3px}"
-    },
-    {
-      "name": "Split-Output Stack",
-      "kind": "custom",
-      "refersTo": "",
-      "description": "Product page shared-output rows: stacked segments in the green tint ladder showing how a charger splits its output.",
-      "html": "<div class=\"ds-stack\"><span style=\"--w:45\">45W</span><span style=\"--w:20\">20W</span><span style=\"--w:15\">15W</span><i></i></div>",
-      "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-stack{display:flex;gap:3px;height:34px;width:360px}.ds-stack span{flex:0 0 calc(var(--w)*1%);display:grid;place-items:center;font-weight:700;font-size:.8rem;border-radius:8px;background:var(--green);color:var(--ink)}.ds-stack span:nth-child(2){background:var(--green-2)}.ds-stack span:nth-child(3){background:var(--green-3)}.ds-stack i{flex:1;border-radius:8px;background:var(--track)}"
-    },
-    {
-      "name": "Product Tile",
-      "kind": "card",
-      "refersTo": "product-tile",
-      "description": "White 18px card on the grey ground: figure well, name, mini battery with watts or, with no output spec, a brand line and facet line; price, stock. One hot badge (\"Best seller\" or \"New\") rides the well's top-left as a green-soft 0.75rem pill; with a live pick on home a fitting tile carries the ink Fits pill with a 12px green check top-right, and a non-fitting tile dims to 38%. On phone-width wells only the Fits mark shows. A compare-at price is followed by \"Save $N\" in green ink at 0.8125rem weight 600. On home a 0.8rem muted category line replaces the tag row and brand line. Prices carry thousands separators. A photo sits in the same grey well as a drawing, inset 12%, contained and multiplied.",
-      "html": "<article class=\"ds-tile\"><div class=\"ds-tile__fig\"><span class=\"ds-badge\">Best seller</span><span class=\"ds-fit\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12.5l4.5 4.5L19 7.5\"/></svg>Fits</span></div><p class=\"ds-cat\">Chargers</p><h3>GaN 65W 3-Port Charger</h3><div class=\"ds-watts\"><b>65</b><small>W max per port</small></div><span class=\"ds-mini\" style=\"--pct:.65\"><i></i></span><div class=\"ds-price\"><b>$39.99</b><s>$49.99</s><span class=\"ds-save\">Save $10</span></div><span class=\"ds-stock\">In stock</span><button class=\"ds-btn\">Add to cart</button></article>",
-      "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-tile{display:flex;flex-direction:column;gap:8px;width:220px;padding:12px;border-radius:18px;background:var(--screen);border:1px solid var(--line);transition:border-color .2s,transform .3s var(--ease)}.ds-tile:hover{border-color:var(--ink);transform:translateY(-2px)}.ds-tile__fig{position:relative;aspect-ratio:1;border-radius:12px;background:var(--ground)}.ds-badge,.ds-fit{position:absolute;top:10px;font-size:.75rem;font-weight:600;line-height:1.3;border-radius:999px}.ds-badge{left:10px;padding:3px 9px;background:var(--green-soft);color:var(--green-ink)}.ds-fit{right:10px;display:inline-flex;align-items:center;gap:4px;padding:3px 9px 3px 7px;background:var(--ink);color:var(--ground)}.ds-fit svg{width:12px;height:12px;color:var(--green)}.ds-cat{margin:0;font-size:.8rem;color:var(--ink-2)}.ds-tile h3{margin:0;font-size:1rem;line-height:1.3}.ds-watts{display:flex;align-items:baseline;gap:5px}.ds-watts b{font-size:1.75rem;font-weight:700;letter-spacing:-.03em;line-height:1}.ds-watts small{font-size:.8rem;color:var(--ink-2)}.ds-mini{position:relative;display:block;height:12px;border:2px solid var(--ink);border-radius:5px;margin-right:5px}.ds-mini i{position:absolute;inset:1px;background:var(--green);border-radius:2px;clip-path:inset(0 calc((1 - var(--pct))*100%) 0 0 round 2px)}.ds-price{display:flex;flex-wrap:wrap;gap:6px;align-items:baseline}.ds-price b{font-size:1.25rem;font-weight:600}.ds-price s{color:var(--ink-2)}.ds-save{font-size:.8125rem;font-weight:600;color:var(--green-ink)}.ds-stock{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:600;color:var(--green-ink)}.ds-stock::before{content:\"\";width:8px;height:8px;border-radius:50%;background:var(--green)}.ds-btn{height:40px;border-radius:999px;border:0;background:var(--ink);color:var(--ground);font-weight:600;font-family:inherit;cursor:pointer}.ds-btn:hover{background:#1c2129}.ds-btn:focus-visible{outline:3px solid var(--green);outline-offset:3px}"
-    },
-    {
-      "name": "Filter Sheet",
-      "kind": "custom",
-      "refersTo": "filter-sheet",
-      "description": "One dialog: a modal bottom sheet on phones with 28px top corners and the floating shadow, a static 280px rail from 1024px. Holds fieldset groups of radio chips with would-be counts (dormant when zero) and square checkbox rows. The rail is derived from the catalog: one group per category facet, options the listing actually carries (or fixed watt, port, coverage and battery bands), price bands set by the listing's top price, groups pruned below two live options, and the Fits device group only on Accessories, Power and all-products listings.",
-      "html": "<div class=\"ds-sheet\"><div class=\"ds-head\"><h2>Filters</h2><button class=\"ds-iconbtn\" aria-label=\"Close filters\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M6 6l12 12M18 6L6 18\"/></svg></button></div><div class=\"ds-groups\"><fieldset class=\"ds-group\"><legend>Fits</legend><div class=\"ds-chips\"><button class=\"ds-chip ds-chip--on\">Any device <em>4</em></button><button class=\"ds-chip\">iPhone 15 or newer <em>4</em></button><button class=\"ds-chip\" disabled>Watch or AirPods <em>0</em></button></div></fieldset><fieldset class=\"ds-group\"><legend>Type</legend><label class=\"ds-opt\"><input type=\"checkbox\"><span>Wall</span><em>2</em></label><label class=\"ds-opt\"><input type=\"checkbox\" checked><span>Desktop</span><em>1</em></label><label class=\"ds-opt\"><input type=\"checkbox\" disabled><span>Travel adapter</span><em>0</em></label></fieldset></div><div class=\"ds-foot\"><button class=\"ds-btn ds-btn--ghost\">Clear</button><button class=\"ds-btn\">Show 4 chargers</button></div></div>",
-      "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-sheet{max-width:390px;background:var(--screen);color:var(--ink);border-radius:28px 28px 0 0;box-shadow:0 12px 32px -12px rgba(11,13,16,.18),0 2px 6px -2px rgba(11,13,16,.08);overflow:hidden;animation:ds-up .25s var(--ease)}@keyframes ds-up{from{transform:translateY(24px);opacity:.6}}.ds-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px 12px;border-bottom:1px solid var(--line)}.ds-head h2{margin:0;font-size:1.25rem;font-weight:600}.ds-iconbtn{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--screen);color:var(--ink);display:grid;place-items:center;cursor:pointer}.ds-iconbtn svg{width:18px;height:18px}.ds-iconbtn:hover{border-color:var(--ink)}.ds-iconbtn:focus-visible{outline:3px solid var(--green);outline-offset:3px}.ds-groups{padding:4px 20px 12px}.ds-group{border:0;margin:0;padding:14px 0;border-top:1px solid var(--line);min-width:0}.ds-group:first-of-type{border-top:0}.ds-group>legend{float:left;width:100%;font-weight:600;padding:0;margin-bottom:10px}.ds-group>:not(legend){clear:both}.ds-chips{display:flex;flex-wrap:wrap;gap:6px}.ds-chip{display:inline-flex;align-items:center;gap:7px;height:36px;padding:0 11px 0 10px;border-radius:999px;border:1px solid var(--line);background:var(--screen);font:500 .875rem inherit;font-family:inherit;color:var(--ink);cursor:pointer;transition:border-color .2s,background .25s var(--ease)}.ds-chip::before{content:\"\";width:8px;height:8px;border-radius:50%;background:var(--track)}.ds-chip em{font-style:normal;font-size:.8rem;font-weight:600;color:var(--ink-2)}.ds-chip:hover{border-color:var(--ink)}.ds-chip:focus-visible{outline:3px solid var(--green);outline-offset:3px}.ds-chip--on{background:var(--ink);color:var(--ground);border-color:var(--ink)}.ds-chip--on::before{background:var(--green)}.ds-chip--on em{color:#c9d1d9}.ds-chip:disabled{background:var(--off-soft);border-color:var(--off-soft);color:var(--ink-2);cursor:not-allowed}.ds-chip:disabled::before{background:var(--off)}.ds-opt{display:flex;align-items:center;gap:10px;padding:7px 0;cursor:pointer}.ds-opt span{flex:1}.ds-opt em{font-style:normal;font-size:.8rem;font-weight:600;color:var(--ink-2)}.ds-opt input{appearance:none;-webkit-appearance:none;margin:0;width:20px;height:20px;border:2px solid var(--ink);border-radius:6px;background:var(--screen);display:grid;place-items:center;cursor:pointer;transition:background .15s,border-color .15s}.ds-opt input::before{content:\"\";width:9px;height:5px;border:2px solid var(--ground);border-top:0;border-right:0;transform:rotate(-45deg) translate(1px,-1px);opacity:0}.ds-opt input:checked{background:var(--ink)}.ds-opt input:checked::before{opacity:1}.ds-opt input:focus-visible{outline:3px solid var(--green);outline-offset:3px}.ds-opt input:disabled{border-color:var(--off);background:var(--off-soft);cursor:not-allowed}.ds-opt:has(input:disabled){color:var(--ink-2);cursor:not-allowed}.ds-foot{display:flex;gap:8px;padding:12px 20px;border-top:1px solid var(--line)}.ds-btn{flex:1;display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 18px;border-radius:999px;border:0;background:var(--ink);color:var(--ground);font-weight:600;font-size:1rem;font-family:inherit;cursor:pointer}.ds-btn:hover{background:#1c2129}.ds-btn:focus-visible{outline:3px solid var(--green);outline-offset:3px}.ds-btn--ghost,.ds-btn--ghost:hover{background:var(--screen);color:var(--ink);border:1px solid var(--line)}.ds-btn--ghost:hover{border-color:var(--ink)}"
-    },
-    {
-      "name": "Results Toolbar",
-      "kind": "custom",
-      "refersTo": "select",
-      "description": "Sticky strip under the header: count line led by a mini battery filled to results over total, pill sort select with a drawn chevron, then applied-filter chips with Clear all. The count reads \"N of M <noun>\" once narrowed, with muted \"for “q”\" during a search and \"fit <device>\" with a device chosen; a search shows as a \"Search: q\" applied chip.",
-      "html": "<div class=\"ds-bar\"><p class=\"ds-count\"><span class=\"ds-mini\"><i style=\"--pct:.5\"></i></span><span>2 of 4 chargers <small>fit iPhone 15 or newer</small></span></p><label class=\"ds-select\"><select aria-label=\"Sort by\"><option>Featured</option><option>Price, low to high</option></select><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 6l6 6-6 6\"/></svg></label></div><div class=\"ds-applied\"><button class=\"ds-ac\">Fits iPhone 15 or newer<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M6 6l12 12M18 6L6 18\"/></svg></button><span class=\"ds-end\"><button class=\"ds-ac\">Desktop<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M6 6l12 12M18 6L6 18\"/></svg></button><button class=\"ds-clear\">Clear all</button></span></div>",
-      "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(12px)}.ds-count{margin:0;display:flex;align-items:center;gap:10px;font-weight:600;font-size:1.25rem}.ds-count small{font-size:1rem;font-weight:400;color:var(--ink-2)}.ds-mini{position:relative;display:block;width:34px;height:12px;border:2px solid var(--ink);border-radius:5px;margin-inline-end:5px;flex:none}.ds-mini::after{content:\"\";position:absolute;top:2px;bottom:2px;inset-inline-end:-5px;width:3px;background:var(--ink);border-radius:0 2px 2px 0}.ds-mini i{position:absolute;inset:1px;background:var(--green);border-radius:2px;clip-path:inset(0 calc((1 - var(--pct)) * 100%) 0 0 round 2px)}.ds-select{position:relative;display:inline-flex;align-items:center}.ds-select select{appearance:none;-webkit-appearance:none;height:40px;padding:0 36px 0 14px;border-radius:999px;border:1px solid var(--line);background:var(--screen);color:var(--ink);font-family:inherit;font-weight:600;font-size:1rem;cursor:pointer}.ds-select select:hover{border-color:var(--ink)}.ds-select select:focus-visible{outline:3px solid var(--green);outline-offset:3px}.ds-select svg{position:absolute;inset-inline-end:12px;width:16px;height:16px;pointer-events:none;color:var(--ink-2);transform:rotate(90deg)}.ds-applied{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:14px}.ds-end{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}.ds-ac{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 10px 0 12px;border-radius:999px;border:1px solid var(--line);background:var(--screen);color:var(--ink);font:500 .875rem inherit;font-family:inherit;cursor:pointer;transition:border-color .15s}.ds-ac svg{width:14px;height:14px;color:var(--ink-2)}.ds-ac:hover{border-color:var(--ink)}.ds-ac:focus-visible,.ds-clear:focus-visible{outline:3px solid var(--green);outline-offset:3px}.ds-clear{border:0;background:none;padding:0 6px;font:600 .875rem inherit;font-family:inherit;color:var(--ink);cursor:pointer;text-decoration:underline;text-decoration-color:var(--green);text-decoration-thickness:2px;text-underline-offset:.2em}"
-    },
-    {
-      "name": "Empty State",
-      "kind": "card",
-      "refersTo": "empty-state",
-      "description": "Dashed off-grey 18px box with an enlarged zero-fill mini battery, a title, a hint naming the filter or search whose removal frees the most results, and primary plus ghost buttons.",
-      "html": "<div class=\"ds-empty\"><span class=\"ds-mini\"><i style=\"--pct:0\"></i></span><h2>No charger matches all of these.</h2><p>Removing “Switch or Steam Deck” shows 1 charger.</p><div class=\"ds-acts\"><button class=\"ds-btn\">Remove Switch or Steam Deck</button><button class=\"ds-btn ds-btn--ghost\">Clear all filters</button></div></div>",
-      "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-empty{padding:40px 20px;text-align:center;border:1px dashed var(--off);border-radius:18px;display:grid;justify-items:center;gap:10px}.ds-empty h2{margin:0;font-size:1.25rem;font-weight:600}.ds-empty p{margin:0;color:var(--ink-2);max-width:40ch}.ds-mini{position:relative;display:block;width:72px;height:32px;border:3px solid var(--ink);border-radius:9px;margin:0 8px 6px 0}.ds-mini::after{content:\"\";position:absolute;top:8px;bottom:8px;inset-inline-end:-8px;width:5px;background:var(--ink);border-radius:0 2px 2px 0}.ds-mini i{position:absolute;inset:1px;background:var(--green);border-radius:2px;clip-path:inset(0 calc((1 - var(--pct)) * 100%) 0 0 round 2px)}.ds-acts{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:6px}.ds-btn{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 18px;border-radius:999px;border:0;background:var(--ink);color:var(--ground);font-weight:600;font-size:1rem;font-family:inherit;cursor:pointer;transition:transform .25s var(--ease)}.ds-btn:hover{background:#1c2129}.ds-btn:active{transform:scale(.98)}.ds-btn:focus-visible{outline:3px solid var(--green);outline-offset:3px}.ds-btn--ghost,.ds-btn--ghost:hover{background:var(--screen);color:var(--ink);border:1px solid var(--line)}.ds-btn--ghost:hover{border-color:var(--ink)}"
-    },
-    {
-      "name": "Header Bar",
-      "kind": "nav",
-      "refersTo": "search-field",
-      "description": "Sticky translucent bar: green-dot wordmark, the group links Devices, Accessories and Power, then Deals (all-products narrowed to compare-at prices), a white pill search field centred in the space between (flex 1 1 320px, max 460px, auto margins from 1024px), the pill cart button with count badge. On phones the search drops to a second row. On home a sleep-black announcement bar with the three promises at 0.8125rem sits above it.",
-      "html": "<div class=\"ds-ann\">Delivery across Lebanon in <b>1 to 3 days</b> <i>·</i> 1-year warranty <i>·</i> Card or cash on delivery</div><header class=\"ds-bar\"><a class=\"ds-brand\" href=\"#\">Ampline</a><nav class=\"ds-nav\"><a href=\"#\">Devices</a><a href=\"#\">Accessories</a><a href=\"#\">Power</a><a href=\"#\">Deals</a></nav><form class=\"ds-search\" role=\"search\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><circle cx=\"11\" cy=\"11\" r=\"6.5\"/><path d=\"M16 16l4.5 4.5\"/></svg><input type=\"search\" placeholder=\"Search products\" aria-label=\"Search products\"></form><button class=\"ds-cart\">Cart <span class=\"ds-cart__n\">2</span></button></header>",
-      "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-bar{display:flex;align-items:center;gap:20px;height:60px;padding:0 20px;background:color-mix(in srgb,var(--ground) 88%,transparent);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid var(--line)}.ds-brand{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:1.25rem;letter-spacing:-.02em;text-decoration:none;color:var(--ink)}.ds-brand::before{content:'';width:11px;height:11px;border-radius:50%;background:var(--green)}.ds-nav{display:flex;gap:2px}.ds-nav a{text-decoration:none;padding:8px 12px;border-radius:999px;color:var(--ink-2);font-weight:500}.ds-nav a:hover{background:var(--screen);color:var(--ink)}.ds-search{display:flex;align-items:center;gap:8px;flex:1 1 320px;max-width:460px;margin:0 auto;height:40px;padding:0 14px;border:1px solid var(--line);border-radius:999px;background:var(--screen)}.ds-search svg{width:18px;height:18px;color:var(--ink-2);flex:none}.ds-search input{flex:1;min-width:0;border:0;background:none;font:inherit;color:var(--ink)}.ds-search input::placeholder{color:var(--ink-2)}.ds-cart{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 12px 0 14px;border:1px solid var(--line);background:var(--screen);border-radius:999px;font-weight:600;font-family:inherit;cursor:pointer}.ds-cart:hover{border-color:var(--ink)}.ds-cart:focus-visible{outline:3px solid var(--green);outline-offset:3px}.ds-cart__n{min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:var(--green);font-size:.8rem;display:grid;place-items:center}.ds-ann{background:#0b0d10;color:#c9d1d9;font-size:.8125rem;text-align:center;padding:8px 16px}.ds-ann b{color:#fff;font-weight:600}.ds-ann i{font-style:normal;color:#7d8794;margin:0 6px}.ds-search:focus-within{border-color:var(--ink);outline:3px solid var(--green);outline-offset:3px}"
-    },
-    {
-      "name": "Cart Drawer",
-      "kind": "custom",
-      "refersTo": "cart-drawer",
-      "description": "Shared native dialog opened from the header cart button. A 420px right-edge panel with the floating shadow from 720px, a 28px-topped bottom sheet below. Hairline lines with a 48px figure well, pill quantity stepper and round remove button; a foot with the synthetic subtotal, the delivery and payment line and the big Checkout button. Lines carry the variant label as written and a name that follows the chosen tier or pack; the empty state reads \"Add something and it waits here, on this device.\" over a ghost \"Browse all products\" button, \"Back to the list\" on listing pages.",
-      "html": "<div class=\"ds-drawer\"><div class=\"ds-dh\"><h2>Cart <small>2 items</small></h2><button class=\"ds-iconbtn\" aria-label=\"Close cart\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M6 6l12 12M18 6L6 18\"/></svg></button></div><div class=\"ds-db\"><div class=\"ds-line\"><span class=\"ds-fig\"></span><div class=\"ds-main\"><b>GaN 65W 3-Port Charger</b><small>UK plug</small><span>$39.00 each <span class=\"ds-syn\">synthetic</span></span></div><div class=\"ds-qty\"><button class=\"ds-q\" aria-label=\"One fewer\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M6 12h12\"/></svg></button><output>2</output><button class=\"ds-q\" aria-label=\"One more\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M12 6v12M6 12h12\"/></svg></button></div><b class=\"ds-tot\">$78.00</b><button class=\"ds-rm\" aria-label=\"Remove\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M6 6l12 12M18 6L6 18\"/></svg></button></div></div><div class=\"ds-df\"><p class=\"ds-sub\"><span>Subtotal <span class=\"ds-syn\">synthetic</span></span><b>$78.00</b></p><p class=\"ds-note\">Delivery and payment terms <span class=\"ds-ph\">placeholder</span></p><button class=\"ds-big\">Checkout</button></div></div>",
-      "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-drawer{max-width:420px;background:var(--screen);color:var(--ink);box-shadow:0 12px 32px -12px rgba(11,13,16,.18),0 2px 6px -2px rgba(11,13,16,.08);display:grid}.ds-dh{display:flex;align-items:center;justify-content:space-between;padding:16px 20px 12px;border-bottom:1px solid var(--line)}.ds-dh h2{margin:0;font-size:1.25rem;font-weight:700;letter-spacing:-.02em;display:flex;align-items:center;gap:8px}.ds-dh small{font-size:.8rem;font-weight:600;color:var(--ink-2)}.ds-iconbtn{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--screen);color:var(--ink);display:grid;place-items:center;cursor:pointer}.ds-iconbtn svg,.ds-q svg,.ds-rm svg{width:16px;height:16px}.ds-db{padding:6px 20px}.ds-line{display:grid;grid-template-columns:48px 1fr auto;grid-template-areas:'fig main rm' 'fig qty total';gap:8px 12px;align-items:center;padding:14px 0}.ds-fig{grid-area:fig;align-self:start;width:48px;height:48px;border-radius:12px;background:var(--ground)}.ds-main{grid-area:main;display:grid;gap:2px}.ds-main b{font-weight:600;line-height:1.3}.ds-main small{font-size:.8rem;color:var(--ink-2)}.ds-main span{font-size:.875rem;color:var(--ink-2)}.ds-syn{display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;padding:1px 7px;border-radius:999px;color:var(--amber-ink);background:var(--amber-soft)}.ds-ph{display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;padding:1px 7px;border-radius:999px;color:var(--ink-2);border:1px dashed var(--off)}.ds-qty{grid-area:qty;justify-self:start;display:inline-flex;align-items:center;gap:2px;height:36px;padding:0 3px;border:1px solid var(--line);border-radius:999px;background:var(--screen)}.ds-qty output{min-width:26px;text-align:center;font-weight:600}.ds-q,.ds-rm{width:30px;height:30px;border-radius:50%;border:0;background:none;color:var(--ink);display:grid;place-items:center;cursor:pointer}.ds-q:hover,.ds-rm:hover{background:var(--off-soft)}.ds-rm{grid-area:rm;justify-self:end;color:var(--ink-2)}.ds-tot{grid-area:total;justify-self:end;font-weight:600}.ds-df{display:grid;gap:10px;padding:12px 20px 16px;border-top:1px solid var(--line)}.ds-sub{display:flex;justify-content:space-between;align-items:baseline;font-weight:600;margin:0}.ds-sub b{font-size:1.25rem}.ds-note{font-size:.875rem;color:var(--ink-2);margin:0}.ds-big{height:52px;width:100%;border:0;border-radius:999px;background:var(--ink);color:var(--ground);font-family:inherit;font-weight:600;font-size:1rem;cursor:pointer}"
-    },
-    {
-      "name": "Fit Line",
-      "kind": "custom",
-      "refersTo": "fitline-ok",
-      "description": "Product page fit sentence led by a mini battery: green-soft when listed, dormant grey when not. A case made for one model says \"Made for iPhone 16 only. Check the model before buying.\" Device pages carry no fit line.",
-      "html": "<p class=\"ds-fit ds-fit--ok\"><span class=\"ds-mini\" style=\"--pct:.65\"></span><span><b>Fits Pixel 8.</b> The catalog lists Pixel 8.</span></p><p class=\"ds-fit ds-fit--no\"><span class=\"ds-mini\" style=\"--pct:0\"></span><span><b>Not listed for Kindle.</b> The catalog does not list it.</span></p>",
-      "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-fit{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border-radius:12px;background:var(--screen);border:1px solid var(--line);line-height:1.45;margin:0 0 8px;max-width:420px}.ds-fit--ok{border-color:var(--green);background:var(--green-soft)}.ds-fit--no{background:var(--off-soft);border-color:var(--off-soft);color:var(--ink-2)}.ds-fit--no b{color:var(--ink)}.ds-mini{position:relative;flex:0 0 34px;height:12px;margin:6px 4px 0 0;border:2px solid var(--ink);border-radius:5px;background:var(--screen)}.ds-mini::before{content:'';position:absolute;inset:1px;border-radius:2px;background:var(--green);clip-path:inset(0 calc((1 - var(--pct,0))*100%) 0 0 round 2px);transition:clip-path .6s var(--ease)}.ds-mini::after{content:'';position:absolute;top:2px;bottom:2px;right:-5px;width:3px;border-radius:0 2px 2px 0;background:var(--ink)}.ds-fit--no .ds-mini{border-color:var(--ink-2)}.ds-fit--no .ds-mini::after{background:var(--ink-2)}.ds-fit:hover .ds-mini{--pct:1}"
-    },
-    {
-      "name": "Big Button and Rating Stars",
-      "kind": "button",
-      "refersTo": "button-big",
-      "description": "52px full-width primary naming the live total, with amber stars clipped to the rating fraction.",
-      "html": "<div class=\"ds-stars\" style=\"--r:.84\"><span class=\"ds-off\"><svg viewBox=\"0 0 120 24\"><g fill=\"currentColor\"><path id=\"s\" d=\"M12 2.8l2.8 5.9 6.4.8-4.7 4.5 1.2 6.4L12 17.3l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8z\"/><use href=\"#s\" x=\"24\"/><use href=\"#s\" x=\"48\"/><use href=\"#s\" x=\"72\"/><use href=\"#s\" x=\"96\"/></g></svg></span><span class=\"ds-on\"><svg viewBox=\"0 0 120 24\"><g fill=\"currentColor\"><use href=\"#s\"/><use href=\"#s\" x=\"24\"/><use href=\"#s\" x=\"48\"/><use href=\"#s\" x=\"72\"/><use href=\"#s\" x=\"96\"/></g></svg></span></div><button class=\"ds-big\">Add to cart · $39.00</button>",
-      "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-stars{position:relative;width:84px;height:16px;margin-bottom:14px}.ds-stars span{position:absolute;inset:0}.ds-stars svg{width:84px;height:16px;display:block}.ds-off{color:var(--track)}.ds-on{color:var(--amber);clip-path:inset(0 calc((1 - var(--r,0))*100%) 0 0)}.ds-big{height:52px;width:100%;max-width:420px;border:0;border-radius:999px;background:var(--ink);color:var(--ground);font-weight:600;font-size:1rem;font-family:inherit;cursor:pointer;transition:background .15s,transform .15s var(--ease)}.ds-big:hover{background:#1c2129}.ds-big:active{transform:scale(.98)}.ds-big:focus-visible{outline:3px solid var(--green);outline-offset:3px}"
-    },
-    {
-      "name": "Phone Buy Bar",
-      "kind": "custom",
-      "refersTo": "buybar",
-      "description": "Fixed bottom bar on phones while the main button is out of view; translucent ground, blur, hairline top. The muted line leads with the chosen variant so truncation hides the name's tail, never the choice.",
-      "html": "<div class=\"ds-bar\"><div class=\"ds-bar__info\"><b>$1,099.00</b><span>Teal · 256 GB · Apple iPhone 16, 256 GB</span></div><button class=\"ds-pill\">Add to cart</button></div>",
-      "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-bar{display:flex;align-items:center;gap:12px;padding:10px 20px;max-width:390px;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(12px);border-top:1px solid var(--line)}.ds-bar__info{display:grid;min-width:0;flex:1}.ds-bar__info b{font-size:1.25rem;line-height:1.2}.ds-bar__info span{font-size:.8rem;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ds-pill{flex:none;height:44px;padding:0 18px;border:0;border-radius:999px;background:var(--ink);color:var(--ground);font-weight:600;font-family:inherit;cursor:pointer}.ds-pill:hover{background:#1c2129}.ds-pill:focus-visible{outline:3px solid var(--green);outline-offset:3px}"
-    },
-    {
-      "name": "Category Tile",
-      "kind": "card",
-      "refersTo": "category-tile",
-      "description": "Group-section category link: 40px off-grey-soft icon well, name, muted blurb, product count; unbuilt categories are a plain block with a muted '· page not built'. Hairline rows below 720px.",
-      "html": "<div style=\"display:grid;grid-template-columns:repeat(2,220px);gap:12px\"><a class=\"ds-cat\" href=\"#\"><span class=\"ds-cat__i\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"7\" y=\"3\" width=\"10\" height=\"18\" rx=\"2.5\"/><path d=\"M11 17.5h2\"/></svg></span><span class=\"ds-cat__t\"><b>Phones</b><small>Budget to flagship</small></span><span class=\"ds-cat__n\">12 products</span></a><div class=\"ds-cat ds-cat--soon\"><span class=\"ds-cat__i\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"4\" y=\"5\" width=\"16\" height=\"11\" rx=\"2\"/><path d=\"M2 19h20\"/></svg></span><span class=\"ds-cat__t\"><b>Laptops</b><small>Work and study</small></span><span class=\"ds-cat__n\">8 products<span class=\"ds-soon\">· page not built</span></span></div></div>",
-      "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-cat{display:grid;grid-template-columns:40px 1fr;gap:2px 10px;padding:12px;border-radius:18px;background:var(--screen);border:1px solid var(--line);text-decoration:none;color:var(--ink);transition:border-color .2s,transform .3s var(--ease)}a.ds-cat:hover{border-color:var(--ink);transform:translateY(-2px)}.ds-cat__i{grid-row:span 2;width:40px;height:40px;border-radius:12px;background:var(--off-soft);display:grid;place-items:center}.ds-cat__i svg{width:22px;height:22px}.ds-cat__t{display:grid;gap:2px}.ds-cat__t b{font-weight:600}.ds-cat__t small{font-size:.8rem;color:var(--ink-2)}.ds-cat__n{grid-column:2;font-size:.8rem;font-weight:600;color:var(--ink-2);margin-top:4px;display:flex;gap:6px;flex-wrap:wrap}.ds-soon{font-weight:400}"
-    },
-    {
-      "name": "Scroll Row",
-      "kind": "custom",
-      "refersTo": "row-button",
-      "description": "Snapping horizontal row of product tiles, 4.4 per desktop row so a fifth cuts at the edge; round 40px floating prev/next buttons over the edges from 1024px. The same row closes a device's product page as \"Complete your setup\": the house products that fit it, buyable first.",
-      "html": "<div class=\"ds-wrap\"><button class=\"ds-rb ds-rb--n\" aria-label=\"Scroll forward\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 6l6 6-6 6\"/></svg></button><div class=\"ds-row\"><div class=\"ds-t\"></div><div class=\"ds-t\"></div><div class=\"ds-t\"></div><div class=\"ds-t\"></div><div class=\"ds-t\"></div></div></div>",
-      "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-wrap{position:relative;width:560px}.ds-row{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.ds-t{flex:0 0 calc((100% - 64px)/4.4);aspect-ratio:3/4;border-radius:18px;background:var(--screen);border:1px solid var(--line);scroll-snap-align:start}.ds-rb{position:absolute;top:40%;right:-20px;z-index:2;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--screen);display:grid;place-items:center;box-shadow:0 12px 32px -12px rgba(11,13,16,.18),0 2px 6px -2px rgba(11,13,16,.08);cursor:pointer}.ds-rb:hover{border-color:var(--ink)}.ds-rb svg{width:18px;height:18px}"
-    },
-    {
-      "name": "Hero Panel",
-      "kind": "custom",
-      "refersTo": "hero-panel",
-      "description": "Off-grey-soft field, 1px hairline, 28px corners: one scroll-snap track of three slides, one in view, no autoplay, off-screen slides inert, arrow keys while focus is inside. Each slide: a display h2 naming one product and its price in live text with the amber SYNTHETIC tag after the price, a muted offer line (44ch, 1.125rem from 1024px), a primary pill and a ghost \"Choose your device\" pill. Phones stack the text above a 200px art box, padded 24px 20px 18px. From 720px text 1.1fr against the render 1fr at 380px min, padded 40px 36px; from 1024px 420px min, padded 48px 56px 44px. The render runs taller than the padding (-22px block margins from 720px, -30px from 1024px). A product photo fills the art box height, centred, multiplied flat; a slide of drawings sets three figures in a row at 28% width. Pager centred under the panel: 36px round white hairline prev/next (0.4 at the ends) around dots, the current one a 26px green pill, the rest 8px off-grey in 24px targets.",
-      "html": "<div class=\"ds-hero\"><div class=\"ds-hero__slide\"><div class=\"ds-hero__t\"><h2>iPhone 16. $1,099. <span class=\"ds-syn\">Synthetic</span></h2><p>6.1-inch OLED, A18 chip, USB-C, 48 MP main camera. Pay by card or <b>cash on delivery</b>.</p><div class=\"ds-ctas\"><a class=\"ds-btn\" href=\"#\">Shop iPhone 16</a><a class=\"ds-btn ds-btn--ghost\" href=\"#\">Choose your device</a></div></div><div class=\"ds-hero__art\"></div></div></div><div class=\"ds-pager\"><button aria-label=\"Previous slide\" aria-disabled=\"true\"><svg style=\"transform:rotate(180deg)\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m9 6 6 6-6 6\"/></svg></button><span class=\"ds-dot is-on\"></span><span class=\"ds-dot\"></span><span class=\"ds-dot\"></span><button aria-label=\"Next slide\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m9 6 6 6-6 6\"/></svg></button></div>",
-      "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)}.ds-hero__slide{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;min-height:420px;padding:48px 56px 44px;background:var(--off-soft);border:1px solid var(--line);border-radius:28px}.ds-hero__t{display:grid;gap:12px;align-content:center;justify-items:start}.ds-hero h2{margin:0;font:700 clamp(1.75rem,1.1rem + 3.2vw,3.5rem)/1.04 \"Readex Pro\",system-ui,sans-serif;letter-spacing:-.03em;text-wrap:balance}.ds-syn{display:inline-block;vertical-align:middle;font-size:.8rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:1px 7px;border-radius:999px;color:var(--amber-ink);background:var(--amber-soft)}.ds-hero p{margin:0;max-width:44ch;color:var(--ink-2);font-size:1.125rem}.ds-hero p b{color:var(--ink);font-weight:600}.ds-ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}.ds-btn{display:inline-flex;align-items:center;height:48px;padding:0 22px;border-radius:999px;background:var(--ink);color:var(--ground);font-weight:600;text-decoration:none;border:1px solid transparent}.ds-btn:hover{background:#1c2129}.ds-btn--ghost{background:var(--screen);color:var(--ink);border-color:var(--line)}.ds-btn--ghost:hover{background:var(--screen);border-color:var(--ink)}.ds-btn:focus-visible{outline:3px solid var(--green);outline-offset:3px}.ds-hero__art{margin-block:-30px}.ds-pager{display:flex;justify-content:center;align-items:center;gap:10px;padding-top:8px}.ds-pager button{display:grid;place-items:center;padding:0;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--screen);color:var(--ink)}.ds-pager button:hover{border-color:var(--ink)}.ds-pager button[aria-disabled=true]{opacity:.4}.ds-dot{width:8px;height:8px;margin:8px;border-radius:999px;background:var(--off)}.ds-dot.is-on{width:26px;background:var(--green)}"
-    },
-    {
-      "name": "Trust Band",
-      "kind": "custom",
-      "refersTo": "trust-icon-well",
-      "description": "The three promises between two hairlines, no cards: 16px vertical padding (20px from 720px), each a 36px white hairline circle with an 18px ink stroke icon, 12px before the promise at 0.9375rem weight 600. Stacked 14px apart on phones, three across from 720px. Copy is the pitch's: delivery across Lebanon in 1 to 3 days, 1-year warranty, card or cash on delivery; the home announcement bar repeats it, product pages carry it as muted trust lines and the cart foot as one muted line. PRODUCT.md records these as assumptions to confirm.",
-      "html": "<ul class=\"ds-trust\"><li><span><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 6h10v9H3zM13 9h4l3 3v3h-7z\"/><circle cx=\"7\" cy=\"17\" r=\"1.7\"/><circle cx=\"17\" cy=\"17\" r=\"1.7\"/></svg></span><b>Delivery across Lebanon in 1 to 3 days</b></li><li><span><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3l7 3v5c0 4.5-3 8.2-7 9.5C8 19.2 5 15.5 5 11V6z\"/><path d=\"M9 12l2 2 4-4\"/></svg></span><b>1-year warranty</b></li><li><span><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"6\" width=\"18\" height=\"12\" rx=\"2.5\"/><path d=\"M3 10h18M7 14.5h3\"/></svg></span><b>Card or cash on delivery</b></li></ul>",
-      "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)}.ds-trust{list-style:none;margin:0;padding:20px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.ds-trust li{display:flex;align-items:center;gap:12px;font-size:.9375rem}.ds-trust b{font-weight:600}.ds-trust span{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--screen);border:1px solid var(--line);flex:none}.ds-trust svg{width:18px;height:18px}"
-    },
-    {
-      "name": "Status Battery",
-      "kind": "chip",
-      "refersTo": "status-mini",
-      "description": "Admin order and stock status: a 26 by 11px mini battery and its word, always together. New 0, Packed 0.34, Shipped 0.67, Delivered full with green-ink word, Cancelled dormant grey; a late Packed or Shipped order adds an amber Day N pill. Stock: full green, 0.22 amber, dormant empty.",
-      "html": "<div class=\"ds-sts\"><span class=\"ds-st\"><span class=\"ds-mini\"><i style=\"--pct:0\"></i></span>New</span><span class=\"ds-st\"><span class=\"ds-mini\"><i style=\"--pct:0.34\"></i></span>Packed<span class=\"ds-late\">Day 4</span></span><span class=\"ds-st\"><span class=\"ds-mini\"><i style=\"--pct:0.67\"></i></span>Shipped</span><span class=\"ds-st ds-st--del\"><span class=\"ds-mini\"><i style=\"--pct:1\"></i></span>Delivered</span><span class=\"ds-st ds-st--can\"><span class=\"ds-mini\"><i style=\"--pct:0\"></i></span>Cancelled</span></div>",
-      "css": ".ds-sts{display:grid;gap:10px;font-family:\"Readex Pro\",system-ui,sans-serif;font-size:14px}.ds-st{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:#0b0d10;white-space:nowrap}.ds-mini{position:relative;display:inline-block;width:26px;height:11px;border:2px solid #0b0d10;border-radius:5px;margin-inline-end:4px}.ds-mini::after{content:\"\";position:absolute;top:2px;bottom:2px;right:-5px;width:3px;background:#0b0d10;border-radius:0 2px 2px 0}.ds-mini i{position:absolute;inset:1px;background:#17b867;border-radius:2px;clip-path:inset(0 calc((1 - var(--pct)) * 100%) 0 0 round 2px)}.ds-st--del{color:#0e7a47}.ds-st--can{color:#55606e}.ds-st--can .ds-mini{border-color:#8e97a3}.ds-st--can .ds-mini::after{background:#8e97a3}.ds-late{font-size:11.5px;font-weight:700;color:#8a5a00;background:#fff0d2;padding:1px 7px;border-radius:999px;margin-inline-start:6px}"
-    },
-    {
-      "name": "Stat Tile",
-      "kind": "card",
-      "refersTo": "stat-tile",
-      "description": "Dashboard figure card linking to its filtered list; an amber dot leads the label when it needs a hand.",
-      "html": "<a class=\"ds-stat\" href=\"#\"><span class=\"ds-stat__l\"><i></i>Cash to collect</span><b>$1,794.93</b><small>5 cash-on-delivery orders open</small><span class=\"ds-stat__go\">See list <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></span></a>",
-      "css": ".ds-stat{display:grid;gap:1px;width:280px;min-height:92px;padding:12px 18px 10px;background:#fff;border:1px solid #dce2e9;border-radius:18px;color:#0b0d10;text-decoration:none;font-family:\"Readex Pro\",system-ui,sans-serif;transition:border-color .15s}.ds-stat:hover{border-color:#0b0d10}.ds-stat:focus-visible{outline:3px solid #17b867;outline-offset:3px}.ds-stat__l{display:flex;align-items:center;gap:6px;font-size:12.8px;font-weight:600;color:#55606e}.ds-stat__l i{width:8px;height:8px;border-radius:50%;background:#e09a1c}.ds-stat b{font-size:28px;font-weight:700;letter-spacing:-0.02em;line-height:1.1;font-variant-numeric:tabular-nums}.ds-stat small{font-size:12.8px;color:#55606e}.ds-stat__go{display:inline-flex;align-items:center;gap:4px;font-size:12.8px;font-weight:600;padding-top:4px}.ds-stat__go svg{width:14px;height:14px}"
-    },
-    {
-      "name": "Admin Data Table",
-      "kind": "custom",
-      "refersTo": "data-table",
-      "description": "Dense white hairline table at 0.875rem with 0.75rem muted heads, muted sub-lines and tabular numbers; below 720px each row becomes a card with a 6.5em label column and a lead line carrying status and total.",
-      "html": "<div class=\"ds-tw\"><table class=\"ds-tbl\"><thead><tr><th>Order</th><th>Placed</th><th class=\"ds-n\">Total</th></tr></thead><tbody><tr><td><b>A-1040</b></td><td>Sun 11 Oct, 18:41<span>3 h ago</span></td><td class=\"ds-n\"><b>$379.00</b></td></tr><tr><td><b>A-1039</b></td><td>Sun 11 Oct, 17:34<span>4 h ago</span></td><td class=\"ds-n\"><b>$21.99</b></td></tr></tbody></table></div>",
-      "css": ".ds-tw{background:#fff;border:1px solid #dce2e9;border-radius:18px;overflow:auto;font-family:\"Readex Pro\",system-ui,sans-serif;}.ds-tbl{width:100%;border-collapse:collapse;font-size:14px;color:#0b0d10}.ds-tbl th{text-align:start;font-size:12px;font-weight:600;color:#55606e;padding:10px 12px;border-bottom:1px solid #dce2e9}.ds-tbl td{padding:9px 12px;border-bottom:1px solid #dce2e9}.ds-tbl tr:last-child td{border-bottom:0}.ds-tbl td span{display:block;font-size:12px;color:#55606e}.ds-n{text-align:end;font-variant-numeric:tabular-nums}.ds-tbl tbody tr:hover td{background:#f4f6f8;cursor:pointer}"
-    },
-    {
-      "name": "Order Battery and Stepper",
-      "kind": "custom",
-      "refersTo": "order-battery",
-      "description": "The order panel's 76 by 28px battery charging over 0.8s, above a four-step bar: done green, current ink, ahead empty track.",
-      "html": "<div class=\"ds-od\"><span class=\"ds-batt\"><i style=\"--pct:0.34\"></i></span><div class=\"ds-steps\"><div class=\"ds-s ds-done\"><i></i>New</div><div class=\"ds-s ds-now\"><i></i>Packed</div><div class=\"ds-s\"><i></i>Shipped</div><div class=\"ds-s\"><i></i>Delivered</div></div></div>",
-      "css": ".ds-od{display:grid;gap:16px;width:420px;font-family:\"Readex Pro\",system-ui,sans-serif;}.ds-batt{position:relative;display:inline-block;width:76px;height:28px;border:3px solid #0b0d10;border-radius:8px}.ds-batt::after{content:\"\";position:absolute;top:6px;bottom:6px;right:-8px;width:5px;background:#0b0d10;border-radius:0 2px 2px 0}.ds-batt i{position:absolute;inset:3px;background:#17b867;border-radius:3px;clip-path:inset(0 calc((1 - var(--pct)) * 100%) 0 0);transition:clip-path .8s cubic-bezier(0.16,1,0.3,1)}.ds-batt:hover i{--pct:0.67}.ds-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.ds-s{display:grid;gap:6px;font-size:11.5px;font-weight:600;color:#55606e;text-align:center}.ds-s i{height:5px;border-radius:3px;background:#e9edf1}.ds-done{color:#0e7a47}.ds-done i{background:#17b867}.ds-now{color:#0b0d10}.ds-now i{background:#0b0d10}"
-    },
-    {
-      "name": "Admin Field and Cell Input",
-      "kind": "input",
-      "refersTo": "field-input",
-      "description": "40px field input at 10px radius under a 0.8125rem weight 600 label; the table's price cell is the 36px, 6.5em version aligned right.",
-      "html": "<div class=\"ds-form\"><label class=\"ds-field\">Compare-at price<span>Leave empty for no deal</span><input class=\"ds-in\" value=\"49.99\"></label><input class=\"ds-cell\" value=\"42.50\" aria-label=\"Price\"></div>",
-      "css": ".ds-form{display:grid;gap:14px;width:300px;font-family:\"Readex Pro\",system-ui,sans-serif;}.ds-field{display:grid;gap:6px;font-size:13px;font-weight:600;color:#0b0d10}.ds-field span{font-weight:400;font-size:12px;color:#55606e}.ds-in,.ds-cell{height:40px;padding:0 12px;border:1px solid #dce2e9;border-radius:10px;font:inherit;font-size:15px;font-weight:400;background:#fff;color:#0b0d10}.ds-cell{width:6.5em;height:36px;padding:0 10px;font-size:14px;text-align:end;font-variant-numeric:tabular-nums}.ds-in:focus,.ds-cell:focus{border-color:#0b0d10;outline:3px solid #17b867;outline-offset:3px}"
-    },
-    {
-      "name": "Bulk Bar and Toast",
-      "kind": "custom",
-      "refersTo": "bulk-bar",
-      "description": "Ink pills: the selection bar with its action buttons, and the status toast with the floating shadow.",
-      "html": "<div class=\"ds-bt\"><div class=\"ds-bulk\"><span>2 selected</span><button class=\"ds-bb\">Mark out of stock</button><button class=\"ds-bg\">Clear</button></div><p class=\"ds-toast\">2 marked out of stock</p></div>",
-      "css": ".ds-bt{display:grid;gap:16px;justify-items:start;font-family:\"Readex Pro\",system-ui,sans-serif;}.ds-bulk{display:flex;align-items:center;gap:8px 14px;padding:8px 10px 8px 16px;background:#0b0d10;color:#f4f6f8;border-radius:999px;font-size:14px;font-weight:600}.ds-bb,.ds-bg{height:34px;padding:0 14px;border-radius:999px;font:inherit;font-size:13px;border:1px solid transparent;cursor:pointer}.ds-bb{background:#f4f6f8;color:#0b0d10}.ds-bg{background:transparent;color:#f4f6f8;border-color:#1f252d}.ds-bg:hover{border-color:#f4f6f8}.ds-toast{margin:0;padding:10px 18px;background:#0b0d10;color:#f4f6f8;border-radius:999px;font-size:14px;font-weight:600;box-shadow:0 12px 32px -12px rgba(11,13,16,0.18),0 2px 6px -2px rgba(11,13,16,0.08)}"
-    },
-    {
-      "name": "Checkout Form",
-      "kind": "input",
-      "refersTo": "checkout-input",
-      "description": "Cart drawer foot: 44px name and phone inputs at 10px radius, the area pill select, payment as two chips, the amber error line, then the big Checkout button.",
-      "html": "<form class=\"ds-co\"><input placeholder=\"Your name\"><input placeholder=\"Phone, e.g. 03 123 456\"><div class=\"ds-pay\"><span class=\"ds-chip ds-on\">Cash on delivery</span><span class=\"ds-chip\">Card</span></div><p class=\"ds-err\">Add your name, phone so the shop can reach you.</p></form>",
-      "css": ".ds-co{display:grid;gap:8px;width:340px;font-family:\"Readex Pro\",system-ui,sans-serif;}.ds-co input{height:44px;padding:0 14px;border:1px solid #dce2e9;border-radius:10px;font:inherit;background:#fff;color:#0b0d10}.ds-co input:focus{border-color:#0b0d10;outline:3px solid #17b867;outline-offset:3px}.ds-pay{display:flex;gap:6px}.ds-chip{display:inline-flex;align-items:center;gap:9px;height:40px;padding:0 15px 0 13px;border:1px solid #dce2e9;border-radius:999px;background:#fff;font-size:15px;font-weight:500}.ds-chip::before{content:\"\";width:8px;height:8px;border-radius:50%;background:#e9edf1}.ds-on{background:#0b0d10;color:#f4f6f8;border-color:#0b0d10}.ds-on::before{background:#17b867}.ds-err{margin:0;font-size:14px;color:#8a5a00;background:#fff0d2;padding:8px 12px;border-radius:10px}"
-    }
+  "typographyMeta": {
+   "display": {
+    "displayName": "Display",
+    "purpose": "Hero panel slide titles (h2) naming one product and its price, placeholder tag after the price; clamp(1.75rem, 1.1rem + 3.2vw, 3.5rem), 1.04, -0.03em, two lines."
+   },
+   "headline": {
+    "displayName": "Headline",
+    "purpose": "Section titles, group titles, the house strip title."
+   },
+   "title": {
+    "displayName": "Title",
+    "purpose": "Prices, cart heading, wordmark, the promo offer line from 1024px at 400, filter sheet heading, empty-state title, desktop results count, home \"Featured in\" subheads."
+   },
+   "body": {
+    "displayName": "Body",
+    "purpose": "Running text and sub-lines."
+   },
+   "body-small": {
+    "displayName": "Body small",
+    "purpose": "Tile descriptions, tile facet lines, the picker guess line, trust row items at 600, breadcrumbs, filter and applied chips."
+   },
+   "label": {
+    "displayName": "Label",
+    "purpose": "Tags, counts, scale marks, meta, segments, chip-group labels, category counts; at 400 the tile brand line and category blurbs."
+   },
+   "figure-tile": {
+    "displayName": "Tile Figure",
+    "purpose": "Watt number beside the mini battery on product tiles; 1.5rem below 720px."
+   },
+   "figure-pdp": {
+    "displayName": "Product Figure",
+    "purpose": "Watt number inside the battery glyph on the house strip and product pages."
+   },
+   "price-big": {
+    "displayName": "Big Price",
+    "purpose": "Product page price, with a 1.25rem muted strike-through."
+   },
+   "picker-heading": {
+    "displayName": "Picker heading",
+    "purpose": "\"Choose your device\" at 700, 1.0625rem, in the wrapping row with the family chips."
+   }
+  },
+  "shadows": [
+   {
+    "name": "floating-layer",
+    "value": "0 12px 32px -12px rgba(11,13,16,0.18), 0 2px 6px -2px rgba(11,13,16,0.08)",
+    "purpose": "Cart drawer, the phone filter sheet and the row scroll buttons over a row edge; dropped when the filter sheet settles into the desktop rail."
+   },
+   {
+    "name": "scrim",
+    "value": "rgba(11,13,16,0.45)",
+    "purpose": "Dialog backdrop behind the cart drawer and the phone filter sheet."
+   },
+   {
+    "name": "switch-knob",
+    "value": "0 1px 3px rgba(11,13,16,0.2)",
+    "purpose": "The admin settings switch knob only."
+   }
   ],
-  "narrative": {
-    "northStar": "The Charging Lock Screen",
-    "overview": "Every surface reads as a phone's lock screen in daylight while it charges. The ground is a cool near-white, the figures are near-black and set in one variable family, and a single charging green does the work of filling. Batteries fill, split-output bars fill, the pressed chip's dot fills. Nothing is decorated that is not also a reading of power.\n\nDensity is moderate and phone-first. Content sits on hairline-ruled rows and white cards on the grey ground, with pill-shaped controls that echo status chips. Depth is almost entirely tonal. The page ends with the screen asleep: one dark block. On home a thin announcement bar in the same sleep colours sits above the header, the lock screen's status bar. These two are the only dark regions in a light-only scheme.\n\nThe store sells devices, accessories and power, and it starts from what the shopper owns. Home follows the category canon in the same world: the three promises in the announcement bar, a hero panel that names one product and its price in live text, \"Choose your device\" right under it, the categories as a row of circles, and ten best sellers that re-sort to what fits the device the shopper names, the rest dimmed, never hidden. The battery stays where a figure exists: on power products it reads what a port delivers, the house strip reads the range's top output, and a device's own product page reads the ceiling the catalog lists for that device's family, marked indicative. Products with neither an output spec nor a listed ceiling carry no battery and lead with brand and facets instead.\n\nThe world uses drawn stroke icons and line-art product figures. The figures carry green port marks, and third-party devices are drawn in the same grammar with green marks, so even illustration speaks the charging language. Where the catalog has a photo, it sits in the same grey figure well as the drawing it replaces, so a photo and a drawing read as one family. The hero panel is the same idea at full scale: an off-grey-soft field one step below the ground, with the render standing directly on it, multiplied flat.",
-    "keyCharacteristics": [
-      "One accent, charging green, that means \"fills\", \"fits\" and \"available\".",
-      "Battery glyphs as the signature component, filled with a clip-path, never a width animation.",
-      "Pills for every control and status, hairlines for every list.",
-      "Tabular figures everywhere; wattage is the headline number on power products.",
-      "Light scheme only; the footer is the screen asleep and the home announcement bar its status bar."
-    ],
-    "rules": [
-      {
-        "name": "The One Charge Rule",
-        "body": "Green means power, fit or saving: filling, pressed, available, added, and the \"Save $N\" figure in green ink. It is never used as a decorative fill, a heading color or a section background.",
-        "section": "colors"
-      },
-      {
-        "name": "The Honest Amber Rule",
-        "body": "Amber marks what is scarce or synthetic. A value that is placeholder or invented gets the amber SYNTHETIC label, never green.",
-        "section": "colors"
-      },
-      {
-        "name": "The Dormant Grey Rule",
-        "body": "What does not fit the chosen device is shown in grey, not hidden and not red. The scheme has no error red. A filter option that would return zero results under the current filters goes dormant the same way: grey and disabled, still listed with its zero count. An option no product in the listing carries is never offered at all. On a product page the whole reading goes dormant together: the glyph fill, the fit line and the chosen chip. On home, best sellers that do not fit the pick dim to 38% and keep their place in the row.",
-        "section": "colors"
-      },
-      {
-        "name": "The Tabular Rule",
-        "body": "The body sets tabular figures, so watts, prices and counts align and count-ups do not jitter.",
-        "section": "typography"
-      },
-      {
-        "name": "The Five Steps Rule",
-        "body": "Listing, product and cart text sizes are 0.8, 0.875, 1, 1.25 and 1.75rem, with the tile figure stepping to 1.5rem below 720px. Larger fixed sizes are only the fluid ramps' own tops, 2.25rem, 2.75rem and the display's 3.5rem. The home rebuild added four in-between steps (recorded 2026-10-11): 0.75rem for a tile's corner marks, 0.8125rem for the strip roles, 0.9375rem for the status line, the trust band and the phone hero buttons, and 1.0625rem for the picker heading, with the offer line at 1.125rem from 1024px. Only the display, headline and product title sizes are fluid.",
-        "section": "typography"
-      },
-      {
-        "name": "The Flat Screen Rule",
-        "body": "Cards, chips, tiles and category tiles never cast shadows. Hover answers with a border darkening to ink and, on tiles and linked category tiles, a 2px lift.",
-        "section": "elevation"
-      },
-      {
-        "name": "The Word Beside the Glyph Rule",
-        "body": "A status battery never stands alone in a cell; its word sits beside it, and the word carries the color when the state is final (green ink for Delivered, muted for Cancelled).",
-        "section": "components"
-      },
-      {
-        "name": "The Attention Amber Rule",
-        "body": "In the admin, amber also marks what needs a hand: the new-orders dot, cash to collect, a late order, an armed reset and an error. It never marks a finished state.",
-        "section": "colors"
-      }
-    ],
-    "dos": [
-      "**Do** express any level of power or fit as a fill inside a rounded track or battery, cut with clip-path and eased on cubic-bezier(0.16, 1, 0.3, 1).",
-      "**Do** draw icons as 24-grid strokes at 2px with round caps, and product figures as 120-grid strokes at 3px with green ports. Third-party devices without a figure of their own are drawn the same way, with green marks at their port or face.",
-      "**Do** use pills for controls and status, hairlines for lists, and 18px cards on the grey ground.",
-      "**Do** generate gallery drawings from the catalog on a 400 by 300 grid with 3px strokes, green ports, Readex Pro labels at 12 to 15 units and 1.5 unit muted dimension lines. Draw only what the spec sheet states; a slide whose spec is missing is left out, never filled in. Thumb crops drop the labels and thicken strokes to 7 to 10 units.",
-      "**Do** label every synthetic value with the amber SYNTHETIC pill and every missing asset with the dashed placeholder pill. Never link an unbuilt page: name it in muted text and count it.",
-      "**Do** show every filter option the listing's products carry with the count it would return, and grey out options that would return nothing instead of hiding them.",
-      "**Do** show a battery only where an output or a published charge ceiling exists, and mark a device's ceiling indicative.",
-      "**Do** let a chosen variant rename the product wherever it is bought (the h1, the Storage spec row, the phone buy bar, the cart line) while the page title and breadcrumb keep the SKU name, and say plainly when variants share one synthetic price.",
-      "**Do** zero all transition and animation durations under prefers-reduced-motion."
-    ],
-    "donts": [
-      "**Don't** add a second accent or use green as decoration; amber is for caution and synthetic only.",
-      "**Don't** cast shadows on cards, tiles or chips; the floating layers are the cart drawer, the phone filter sheet, the row scroll buttons over a row's edge, and in the admin the order and product panel and the toast (extended 2026-10-11).",
-      "**Don't** add a dark mode or another dark region; the footer is the screen asleep and the home announcement bar its status bar, both in the sleep colours.",
-      "**Don't** fabricate product photography or borrow real brand logos; drawn line-art figures stand in until real photography exists.",
-      "**Don't** use emoji or glyph characters as icons; every icon is an inline stroke SVG.",
-      "**Don't** introduce a second typeface; Readex Pro carries display, body and figures, and the platform monospace stack is reserved for code inside notices."
-    ]
+  "motion": [
+   {
+    "name": "ease-charge",
+    "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+    "purpose": "House ease for fills, chip state, button press, tile rise."
+   },
+   {
+    "name": "fill-battery",
+    "value": "clip-path 0.8s ease-charge",
+    "purpose": "Battery glyph fill, and the cart thank-you mini battery filling once from 0 to 100%."
+   },
+   {
+    "name": "count-up",
+    "value": "700ms (JS)",
+    "purpose": "Watt figure counting to its value."
+   },
+   {
+    "name": "bolt-in",
+    "value": "opacity/transform 0.4s ease-charge, 0.45s delay",
+    "purpose": "Bolt appears after the fill starts."
+   },
+   {
+    "name": "tile-rise",
+    "value": "0.5s ease-charge from opacity 0.4, translateY 8px; 40ms stagger",
+    "purpose": "Tiles entering grids; scroll-row tiles do not rise, and dimmed best sellers on home do not rise."
+   },
+   {
+    "name": "sheet-up",
+    "value": "0.25s ease-charge from translateY 24px, opacity 0.6",
+    "purpose": "Phone filter sheet and the phone cart drawer opening (drawer-in-y)."
+   },
+   {
+    "name": "drawer-in",
+    "value": "0.25s ease-charge from translateX(24px), opacity 0.6",
+    "purpose": "Cart drawer opening from the right edge, 720px and up (drawer-in-x)."
+   },
+   {
+    "name": "shop-tile-rise",
+    "value": "tile-rise at 0.25s, no stagger",
+    "purpose": "Tiles re-rendering after a filter change on the category page."
+   },
+   {
+    "name": "skeleton-pulse",
+    "value": "opacity to 0.5, 1.2s ease-in-out, infinite",
+    "purpose": "Skeleton tile blocks before data loads."
+   },
+   {
+    "name": "reduced-motion",
+    "value": "all durations and delays 0s",
+    "purpose": "prefers-reduced-motion: reduce."
+   },
+   {
+    "name": "promo-slide",
+    "value": "scroll-snap; scrollTo smooth (auto under reduced motion); dot fill 0.2s",
+    "purpose": "Hero panel paging by swipe, prev/next, dots or arrow keys. No autoplay."
+   },
+   {
+    "name": "payoff-into-view",
+    "value": "window.scrollTo smooth to the element top under the header, 12px clear (auto under reduced motion)",
+    "purpose": "After a device tap on home: from 1024px \"Choose your device\" lands under the header (chips above the tiles); below 1024px the open model question, else the best sellers. A family tap below 1024px, and a family-only guess tap at any width, bring \"Choose your device\" into view."
+   },
+   {
+    "name": "panel-in",
+    "value": "drawer-in-y / drawer-in-x 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
+    "purpose": "Admin panel: slides up 24px from 0.6 opacity as a bottom sheet below 720px, in from the right as a drawer from 720px."
+   },
+   {
+    "name": "order-charge",
+    "value": "clip-path 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
+    "purpose": "Admin order battery charges to the next status level before the panel re-renders 420ms later; step bars recolor over 0.3s."
+   },
+   {
+    "name": "toast-in",
+    "value": "translate 8px and opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
+    "purpose": "Admin toast rises into place; held 2.6s."
+   },
+   {
+    "name": "tile-dim",
+    "value": "opacity to 0.38 over 0.25s, rise animation off",
+    "purpose": "Home best sellers that do not fit the pick."
+   },
+   {
+    "name": "answer-charge",
+    "value": "clip-path 0.8s cubic-bezier(0.16, 1, 0.3, 1) from 0",
+    "purpose": "The 34px mini battery before \"Fits <device>\" charges to the share of accessories and power that fit; again from empty on every new pick."
+   }
+  ],
+  "breakpoints": [
+   {
+    "name": "md",
+    "value": "720px"
+   },
+   {
+    "name": "lg",
+    "value": "1024px"
+   }
+  ]
+ },
+ "components": [
+  {
+   "name": "Buttons",
+   "kind": "button",
+   "refersTo": "button-primary",
+   "description": "Ink pill for every primary action, green with a check once added; ghost pill for the secondary action; Filters button with a green count badge.",
+   "html": "<div style=\"display:flex;gap:10px;flex-wrap:wrap;align-items:center\"><button class=\"ds-btn\">Add to cart</button><button class=\"ds-btn ds-btn--added\">Added</button><button class=\"ds-btn\" disabled>Out of stock</button><button class=\"ds-btn ds-btn--ghost\">Clear all filters</button><button class=\"ds-btn ds-btn--ghost ds-fbtn\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 6h16M7 12h10M10 18h4\"/></svg>Filters <span class=\"ds-fn\">2</span></button><button class=\"ds-clear\">Clear all</button></div>",
+   "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-btn{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 18px;border-radius:999px;border:0;background:var(--ink);color:var(--ground);font-weight:600;font-size:1rem;font-family:inherit;cursor:pointer;transition:transform .25s var(--ease),background .2s}.ds-btn:hover{background:#1c2129}.ds-btn:active{transform:scale(.98)}.ds-btn:focus-visible{outline:3px solid var(--green);outline-offset:3px}.ds-btn--added,.ds-btn--added:hover{background:var(--green);color:var(--ink)}.ds-btn:disabled{background:var(--track);color:var(--ink-2);cursor:not-allowed}.ds-btn--ghost,.ds-btn--ghost:hover{background:var(--screen);color:var(--ink);border:1px solid var(--line)}.ds-btn--ghost:hover{border-color:var(--ink)}.ds-fbtn{height:40px;padding:0 14px;gap:8px}.ds-fbtn svg{width:18px;height:18px}.ds-fn{min-width:20px;height:20px;padding:0 6px;border-radius:999px;background:var(--green);color:var(--ink);font-size:.8rem;display:grid;place-items:center}.ds-clear{border:0;background:none;padding:0 6px;font:600 .875rem inherit;font-family:inherit;color:var(--ink);cursor:pointer;text-decoration:underline;text-decoration-color:var(--green);text-decoration-thickness:2px;text-underline-offset:.2em}.ds-clear:focus-visible{outline:3px solid var(--green);outline-offset:3px}"
+  },
+  {
+   "name": "Device Chip",
+   "kind": "chip",
+   "refersTo": "chip-device",
+   "description": "Device picker pill with a status dot; pressed inverts to ink, suggested takes a hairline ink border only (no inset, no green dot). On home up to three rows inside the picker bar, the family row wrapping at 1024px and below, the browser guess bordered (never pressed) and named in a line that names only what the user agent can tell (\"a Mac\", \"an iPhone\", \"an Android phone\", \"a Windows laptop\") as a green-underlined button; a family-only guess tap opens the device row in view with \"Tap it to pick which one.\", and the line hides once a family is picked. Rows: families, the family's buckets, then for a bucket that holds models a \"Which model? Cases and folios fit one model only.\" row with the models and \"Mine isn't listed\"; nothing is pressed until tapped, a model re-tap steps back to its bucket and a bucket re-tap clears; elsewhere grouped by family under a muted label. On the product page the same chip is the variant picker: radio groups for Plug region, Colour, Storage and Pack under weight 600 legends, preselected on the option the SKU already is, with one muted note that options share one price.",
+   "html": "<div style=\"display:flex;gap:8px;flex-wrap:wrap\"><button class=\"ds-chip\">iPhone 15</button><button class=\"ds-chip\" aria-pressed=\"true\">MacBook Air</button><button class=\"ds-chip ds-chip--sug\">Pixel 8</button></div>",
+   "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-chip{display:inline-flex;align-items:center;gap:9px;height:40px;padding:0 15px 0 13px;border-radius:999px;border:1px solid var(--line);background:var(--screen);font:500 1rem inherit;font-family:inherit;color:var(--ink);cursor:pointer;transition:border-color .2s,background .25s var(--ease)}.ds-chip::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--track)}.ds-chip:hover{border-color:var(--ink)}.ds-chip:focus-visible{outline:3px solid var(--green);outline-offset:3px}.ds-chip[aria-pressed=true]{background:var(--ink);color:var(--ground);border-color:var(--ink)}.ds-chip[aria-pressed=true]::before,.ds-chip--sug{border-color:var(--ink)}"
+  },
+  {
+   "name": "Tags and labels",
+   "kind": "chip",
+   "refersTo": "tag",
+   "description": "Label pills: neutral tag, hot tag in green, amber placeholder label, dashed placeholder label.",
+   "html": "<div style=\"display:flex;gap:6px;flex-wrap:wrap;align-items:center\"><span class=\"ds-tag\">USB-C</span><span class=\"ds-tag ds-tag--hot\">Best seller</span><span class=\"ds-syn\">placeholder</span><span class=\"ds-ph\">Placeholder</span></div>",
+   "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-tag{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:999px;font-size:.8rem;font-weight:600;background:var(--off-soft);color:var(--ink-2)}.ds-tag--hot{background:var(--green-soft);color:var(--green-ink)}.ds-syn,.ds-ph{font-size:.8rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;padding:1px 7px;border-radius:999px}.ds-syn{color:var(--amber-ink);background:var(--amber-soft)}.ds-ph{color:var(--ink-2);border:1px dashed var(--off)}"
+  },
+  {
+   "name": "Battery Glyph",
+   "kind": "custom",
+   "refersTo": "battery-glyph",
+   "description": "Signature: 2.2:1 battery, 3px outline, 22px radius, green clip-path fill driven by --pct against 100W, watt figure inside. The house strip fills it to the range maximum. On a device's product page it reads the family's charge ceiling, captioned \"Takes up to\" over one shared ceiling sentence that says whose figure it is (the catalog's for the bucket, the bucket's for a model without its own, the model's own, or a typical figure for a catch-all) and marked indicative, on a scale stretched to the larger of 100W and the ceiling; catch-all families show none. Home's hero carries no glyph.",
+   "html": "<div style=\"display:flex;gap:24px;flex-wrap:wrap\"><div class=\"ds-glyph\" style=\"--pct:.3\"><div class=\"ds-glyph__fill\"></div><div class=\"ds-glyph__in\"><span class=\"ds-fig\"><b>30</b><small>W</small></span></div></div><div class=\"ds-glyph\" style=\"--pct:0\"><div class=\"ds-glyph__fill\"></div><div class=\"ds-glyph__in\"><span class=\"ds-read\"><b>What a device takes</b><small>Phones 20 to 45W · Laptops 30 to 140W</small></span></div><div class=\"ds-ticks\"><i style=\"--lo:.2;--hi:.45\"></i><i style=\"--lo:.3;--hi:1\"></i></div></div></div>",
+   "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-glyph{position:relative;aspect-ratio:2.2/1;width:240px;border:3px solid var(--ink);border-radius:22px;background:var(--screen);margin-inline-end:12px}.ds-glyph::after{content:'';position:absolute;top:33%;bottom:33%;right:-12px;width:9px;background:var(--ink);border-radius:0 4px 4px 0}.ds-glyph__fill{position:absolute;inset:5px;border-radius:14px;background:var(--green);clip-path:inset(0 calc((1 - var(--pct,0))*100%) 0 0 round 14px);transition:clip-path .8s var(--ease)}.ds-glyph:hover{--pct:1}.ds-glyph__in{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:12px}.ds-fig{display:inline-flex;align-items:baseline;line-height:1;font-size:2.75rem}.ds-fig b{font-weight:700;letter-spacing:-.035em}.ds-fig small{font-size:.375em;font-weight:500}.ds-read{display:grid;gap:4px;max-width:30ch;position:relative;z-index:1}.ds-read b{font-size:1.25rem;font-weight:600;color:var(--ink-2)}.ds-read small{font-size:.8rem;color:var(--ink-2)}.ds-ticks{position:absolute;inset:auto 5px 5px 5px;height:10px}.ds-ticks i{position:absolute;top:0;bottom:0;left:calc(var(--lo)*100%);width:calc((var(--hi) - var(--lo))*100%);background:var(--green-soft);border-radius:3px}"
+  },
+  {
+   "name": "Split-Output Stack",
+   "kind": "custom",
+   "refersTo": "",
+   "description": "Product page shared-output rows: stacked segments in the green tint ladder showing how a charger splits its output.",
+   "html": "<div class=\"ds-stack\"><span style=\"--w:45\">45W</span><span style=\"--w:20\">20W</span><span style=\"--w:15\">15W</span><i></i></div>",
+   "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-stack{display:flex;gap:3px;height:34px;width:360px}.ds-stack span{flex:0 0 calc(var(--w)*1%);display:grid;place-items:center;font-weight:700;font-size:.8rem;border-radius:8px;background:var(--green);color:var(--ink)}.ds-stack span:nth-child(2){background:var(--green-2)}.ds-stack span:nth-child(3){background:var(--green-3)}.ds-stack i{flex:1;border-radius:8px;background:var(--track)}"
+  },
+  {
+   "name": "Product Tile",
+   "kind": "card",
+   "refersTo": "product-tile",
+   "description": "White 18px card on the grey ground: figure well, name, mini battery with watts or, with no output spec, a brand line and facet line; price, stock. One hot badge (\"Best seller\" or \"New\") rides the well's top-left as a green-soft 0.75rem pill; with a live pick on home a fitting tile carries the ink Fits pill with a 12px green check top-right, and a non-fitting tile dims to 38%. On phone-width wells only the Fits mark shows. A compare-at price is followed by \"Save $N\" in green ink at 0.8125rem weight 600. On home a 0.8rem muted category line replaces the tag row and brand line. Prices carry thousands separators. A photo sits in the same grey well as a drawing, inset 12%, contained and multiplied.",
+   "html": "<article class=\"ds-tile\"><div class=\"ds-tile__fig\"><span class=\"ds-badge\">Best seller</span><span class=\"ds-fit\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12.5l4.5 4.5L19 7.5\"/></svg>Fits</span></div><p class=\"ds-cat\">Chargers</p><h3>GaN 65W 3-Port Charger</h3><div class=\"ds-watts\"><b>65</b><small>W max per port</small></div><span class=\"ds-mini\" style=\"--pct:.65\"><i></i></span><div class=\"ds-price\"><b>$39.99</b><s>$49.99</s><span class=\"ds-save\">Save $10</span></div><span class=\"ds-stock\">In stock</span><button class=\"ds-btn\">Add to cart</button></article>",
+   "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-tile{display:flex;flex-direction:column;gap:8px;width:220px;padding:12px;border-radius:18px;background:var(--screen);border:1px solid var(--line);transition:border-color .2s,transform .3s var(--ease)}.ds-tile:hover{border-color:var(--ink);transform:translateY(-2px)}.ds-tile__fig{position:relative;aspect-ratio:1;border-radius:12px;background:var(--ground)}.ds-badge,.ds-fit{position:absolute;top:10px;font-size:.75rem;font-weight:600;line-height:1.3;border-radius:999px}.ds-badge{left:10px;padding:3px 9px;background:var(--green-soft);color:var(--green-ink)}.ds-fit{right:10px;display:inline-flex;align-items:center;gap:4px;padding:3px 9px 3px 7px;background:var(--ink);color:var(--ground)}.ds-fit svg{width:12px;height:12px;color:var(--green)}.ds-cat{margin:0;font-size:.8rem;color:var(--ink-2)}.ds-tile h3{margin:0;font-size:1rem;line-height:1.3}.ds-watts{display:flex;align-items:baseline;gap:5px}.ds-watts b{font-size:1.75rem;font-weight:700;letter-spacing:-.03em;line-height:1}.ds-watts small{font-size:.8rem;color:var(--ink-2)}.ds-mini{position:relative;display:block;height:12px;border:2px solid var(--ink);border-radius:5px;margin-right:5px}.ds-mini i{position:absolute;inset:1px;background:var(--green);border-radius:2px;clip-path:inset(0 calc((1 - var(--pct))*100%) 0 0 round 2px)}.ds-price{display:flex;flex-wrap:wrap;gap:6px;align-items:baseline}.ds-price b{font-size:1.25rem;font-weight:600}.ds-price s{color:var(--ink-2)}.ds-save{font-size:.8125rem;font-weight:600;color:var(--green-ink)}.ds-stock{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:600;color:var(--green-ink)}.ds-stock::before{content:\"\";width:8px;height:8px;border-radius:50%;background:var(--green)}.ds-btn{height:40px;border-radius:999px;border:0;background:var(--ink);color:var(--ground);font-weight:600;font-family:inherit;cursor:pointer}.ds-btn:hover{background:#1c2129}.ds-btn:focus-visible{outline:3px solid var(--green);outline-offset:3px}"
+  },
+  {
+   "name": "Filter Sheet",
+   "kind": "custom",
+   "refersTo": "filter-sheet",
+   "description": "One dialog: a modal bottom sheet on phones with 28px top corners and the floating shadow, a static 280px rail from 1024px. Holds fieldset groups of radio chips with would-be counts (dormant when zero) and square checkbox rows. The rail is derived from the catalog: one group per category facet, options the listing actually carries (or fixed watt, port, coverage and battery bands), price bands set by the listing's top price, groups pruned below two live options, and the Fits device group only on Accessories, Power and all-products listings.",
+   "html": "<div class=\"ds-sheet\"><div class=\"ds-head\"><h2>Filters</h2><button class=\"ds-iconbtn\" aria-label=\"Close filters\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M6 6l12 12M18 6L6 18\"/></svg></button></div><div class=\"ds-groups\"><fieldset class=\"ds-group\"><legend>Fits</legend><div class=\"ds-chips\"><button class=\"ds-chip ds-chip--on\">Any device <em>4</em></button><button class=\"ds-chip\">iPhone 15 or newer <em>4</em></button><button class=\"ds-chip\" disabled>Watch or AirPods <em>0</em></button></div></fieldset><fieldset class=\"ds-group\"><legend>Type</legend><label class=\"ds-opt\"><input type=\"checkbox\"><span>Wall</span><em>2</em></label><label class=\"ds-opt\"><input type=\"checkbox\" checked><span>Desktop</span><em>1</em></label><label class=\"ds-opt\"><input type=\"checkbox\" disabled><span>Travel adapter</span><em>0</em></label></fieldset></div><div class=\"ds-foot\"><button class=\"ds-btn ds-btn--ghost\">Clear</button><button class=\"ds-btn\">Show 4 chargers</button></div></div>",
+   "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-sheet{max-width:390px;background:var(--screen);color:var(--ink);border-radius:28px 28px 0 0;box-shadow:0 12px 32px -12px rgba(11,13,16,.18),0 2px 6px -2px rgba(11,13,16,.08);overflow:hidden;animation:ds-up .25s var(--ease)}@keyframes ds-up{from{transform:translateY(24px);opacity:.6}}.ds-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px 12px;border-bottom:1px solid var(--line)}.ds-head h2{margin:0;font-size:1.25rem;font-weight:600}.ds-iconbtn{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--screen);color:var(--ink);display:grid;place-items:center;cursor:pointer}.ds-iconbtn svg{width:18px;height:18px}.ds-iconbtn:hover{border-color:var(--ink)}.ds-iconbtn:focus-visible{outline:3px solid var(--green);outline-offset:3px}.ds-groups{padding:4px 20px 12px}.ds-group{border:0;margin:0;padding:14px 0;border-top:1px solid var(--line);min-width:0}.ds-group:first-of-type{border-top:0}.ds-group>legend{float:left;width:100%;font-weight:600;padding:0;margin-bottom:10px}.ds-group>:not(legend){clear:both}.ds-chips{display:flex;flex-wrap:wrap;gap:6px}.ds-chip{display:inline-flex;align-items:center;gap:7px;height:36px;padding:0 11px 0 10px;border-radius:999px;border:1px solid var(--line);background:var(--screen);font:500 .875rem inherit;font-family:inherit;color:var(--ink);cursor:pointer;transition:border-color .2s,background .25s var(--ease)}.ds-chip::before{content:\"\";width:8px;height:8px;border-radius:50%;background:var(--track)}.ds-chip em{font-style:normal;font-size:.8rem;font-weight:600;color:var(--ink-2)}.ds-chip:hover{border-color:var(--ink)}.ds-chip:focus-visible{outline:3px solid var(--green);outline-offset:3px}.ds-chip--on{background:var(--ink);color:var(--ground);border-color:var(--ink)}.ds-chip--on::before{background:var(--green)}.ds-chip--on em{color:#c9d1d9}.ds-chip:disabled{background:var(--off-soft);border-color:var(--off-soft);color:var(--ink-2);cursor:not-allowed}.ds-chip:disabled::before{background:var(--off)}.ds-opt{display:flex;align-items:center;gap:10px;padding:7px 0;cursor:pointer}.ds-opt span{flex:1}.ds-opt em{font-style:normal;font-size:.8rem;font-weight:600;color:var(--ink-2)}.ds-opt input{appearance:none;-webkit-appearance:none;margin:0;width:20px;height:20px;border:2px solid var(--ink);border-radius:6px;background:var(--screen);display:grid;place-items:center;cursor:pointer;transition:background .15s,border-color .15s}.ds-opt input::before{content:\"\";width:9px;height:5px;border:2px solid var(--ground);border-top:0;border-right:0;transform:rotate(-45deg) translate(1px,-1px);opacity:0}.ds-opt input:checked{background:var(--ink)}.ds-opt input:checked::before{opacity:1}.ds-opt input:focus-visible{outline:3px solid var(--green);outline-offset:3px}.ds-opt input:disabled{border-color:var(--off);background:var(--off-soft);cursor:not-allowed}.ds-opt:has(input:disabled){color:var(--ink-2);cursor:not-allowed}.ds-foot{display:flex;gap:8px;padding:12px 20px;border-top:1px solid var(--line)}.ds-btn{flex:1;display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 18px;border-radius:999px;border:0;background:var(--ink);color:var(--ground);font-weight:600;font-size:1rem;font-family:inherit;cursor:pointer}.ds-btn:hover{background:#1c2129}.ds-btn:focus-visible{outline:3px solid var(--green);outline-offset:3px}.ds-btn--ghost,.ds-btn--ghost:hover{background:var(--screen);color:var(--ink);border:1px solid var(--line)}.ds-btn--ghost:hover{border-color:var(--ink)}"
+  },
+  {
+   "name": "Results Toolbar",
+   "kind": "custom",
+   "refersTo": "select",
+   "description": "Sticky strip under the header: count line led by a mini battery filled to results over total, pill sort select with a drawn chevron, then applied-filter chips with Clear all. The count reads \"N of M <noun>\" once narrowed, with muted \"for “q”\" during a search and \"fit <device>\" with a device chosen; a search shows as a \"Search: q\" applied chip.",
+   "html": "<div class=\"ds-bar\"><p class=\"ds-count\"><span class=\"ds-mini\"><i style=\"--pct:.5\"></i></span><span>2 of 4 chargers <small>fit iPhone 15 or newer</small></span></p><label class=\"ds-select\"><select aria-label=\"Sort by\"><option>Featured</option><option>Price, low to high</option></select><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 6l6 6-6 6\"/></svg></label></div><div class=\"ds-applied\"><button class=\"ds-ac\">Fits iPhone 15 or newer<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M6 6l12 12M18 6L6 18\"/></svg></button><span class=\"ds-end\"><button class=\"ds-ac\">Desktop<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M6 6l12 12M18 6L6 18\"/></svg></button><button class=\"ds-clear\">Clear all</button></span></div>",
+   "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(12px)}.ds-count{margin:0;display:flex;align-items:center;gap:10px;font-weight:600;font-size:1.25rem}.ds-count small{font-size:1rem;font-weight:400;color:var(--ink-2)}.ds-mini{position:relative;display:block;width:34px;height:12px;border:2px solid var(--ink);border-radius:5px;margin-inline-end:5px;flex:none}.ds-mini::after{content:\"\";position:absolute;top:2px;bottom:2px;inset-inline-end:-5px;width:3px;background:var(--ink);border-radius:0 2px 2px 0}.ds-mini i{position:absolute;inset:1px;background:var(--green);border-radius:2px;clip-path:inset(0 calc((1 - var(--pct)) * 100%) 0 0 round 2px)}.ds-select{position:relative;display:inline-flex;align-items:center}.ds-select select{appearance:none;-webkit-appearance:none;height:40px;padding:0 36px 0 14px;border-radius:999px;border:1px solid var(--line);background:var(--screen);color:var(--ink);font-family:inherit;font-weight:600;font-size:1rem;cursor:pointer}.ds-select select:hover{border-color:var(--ink)}.ds-select select:focus-visible{outline:3px solid var(--green);outline-offset:3px}.ds-select svg{position:absolute;inset-inline-end:12px;width:16px;height:16px;pointer-events:none;color:var(--ink-2);transform:rotate(90deg)}.ds-applied{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:14px}.ds-end{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}.ds-ac{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 10px 0 12px;border-radius:999px;border:1px solid var(--line);background:var(--screen);color:var(--ink);font:500 .875rem inherit;font-family:inherit;cursor:pointer;transition:border-color .15s}.ds-ac svg{width:14px;height:14px;color:var(--ink-2)}.ds-ac:hover{border-color:var(--ink)}.ds-ac:focus-visible,.ds-clear:focus-visible{outline:3px solid var(--green);outline-offset:3px}.ds-clear{border:0;background:none;padding:0 6px;font:600 .875rem inherit;font-family:inherit;color:var(--ink);cursor:pointer;text-decoration:underline;text-decoration-color:var(--green);text-decoration-thickness:2px;text-underline-offset:.2em}"
+  },
+  {
+   "name": "Empty State",
+   "kind": "card",
+   "refersTo": "empty-state",
+   "description": "Dashed off-grey 18px box with an enlarged zero-fill mini battery, a title, a hint naming the filter or search whose removal frees the most results, and primary plus ghost buttons.",
+   "html": "<div class=\"ds-empty\"><span class=\"ds-mini\"><i style=\"--pct:0\"></i></span><h2>No charger matches all of these.</h2><p>Removing “Switch or Steam Deck” shows 1 charger.</p><div class=\"ds-acts\"><button class=\"ds-btn\">Remove Switch or Steam Deck</button><button class=\"ds-btn ds-btn--ghost\">Clear all filters</button></div></div>",
+   "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-empty{padding:40px 20px;text-align:center;border:1px dashed var(--off);border-radius:18px;display:grid;justify-items:center;gap:10px}.ds-empty h2{margin:0;font-size:1.25rem;font-weight:600}.ds-empty p{margin:0;color:var(--ink-2);max-width:40ch}.ds-mini{position:relative;display:block;width:72px;height:32px;border:3px solid var(--ink);border-radius:9px;margin:0 8px 6px 0}.ds-mini::after{content:\"\";position:absolute;top:8px;bottom:8px;inset-inline-end:-8px;width:5px;background:var(--ink);border-radius:0 2px 2px 0}.ds-mini i{position:absolute;inset:1px;background:var(--green);border-radius:2px;clip-path:inset(0 calc((1 - var(--pct)) * 100%) 0 0 round 2px)}.ds-acts{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:6px}.ds-btn{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 18px;border-radius:999px;border:0;background:var(--ink);color:var(--ground);font-weight:600;font-size:1rem;font-family:inherit;cursor:pointer;transition:transform .25s var(--ease)}.ds-btn:hover{background:#1c2129}.ds-btn:active{transform:scale(.98)}.ds-btn:focus-visible{outline:3px solid var(--green);outline-offset:3px}.ds-btn--ghost,.ds-btn--ghost:hover{background:var(--screen);color:var(--ink);border:1px solid var(--line)}.ds-btn--ghost:hover{border-color:var(--ink)}"
+  },
+  {
+   "name": "Header Bar",
+   "kind": "nav",
+   "refersTo": "search-field",
+   "description": "Sticky translucent bar: green-dot wordmark, the group links Devices, Accessories and Power, then Deals (all-products narrowed to compare-at prices), a white pill search field centred in the space between (flex 1 1 320px, max 460px, auto margins from 1024px), the pill cart button with count badge. On phones the search drops to a second row. On home a sleep-black announcement bar with the three promises at 0.8125rem sits above it.",
+   "html": "<div class=\"ds-ann\">Delivery across Lebanon in <b>1 to 3 days</b> <i>·</i> 1-year warranty <i>·</i> Card or cash on delivery</div><header class=\"ds-bar\"><a class=\"ds-brand\" href=\"#\">Ampline</a><nav class=\"ds-nav\"><a href=\"#\">Devices</a><a href=\"#\">Accessories</a><a href=\"#\">Power</a><a href=\"#\">Deals</a></nav><form class=\"ds-search\" role=\"search\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><circle cx=\"11\" cy=\"11\" r=\"6.5\"/><path d=\"M16 16l4.5 4.5\"/></svg><input type=\"search\" placeholder=\"Search products\" aria-label=\"Search products\"></form><button class=\"ds-cart\">Cart <span class=\"ds-cart__n\">2</span></button></header>",
+   "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-bar{display:flex;align-items:center;gap:20px;height:60px;padding:0 20px;background:color-mix(in srgb,var(--ground) 88%,transparent);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid var(--line)}.ds-brand{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:1.25rem;letter-spacing:-.02em;text-decoration:none;color:var(--ink)}.ds-brand::before{content:'';width:11px;height:11px;border-radius:50%;background:var(--green)}.ds-nav{display:flex;gap:2px}.ds-nav a{text-decoration:none;padding:8px 12px;border-radius:999px;color:var(--ink-2);font-weight:500}.ds-nav a:hover{background:var(--screen);color:var(--ink)}.ds-search{display:flex;align-items:center;gap:8px;flex:1 1 320px;max-width:460px;margin:0 auto;height:40px;padding:0 14px;border:1px solid var(--line);border-radius:999px;background:var(--screen)}.ds-search svg{width:18px;height:18px;color:var(--ink-2);flex:none}.ds-search input{flex:1;min-width:0;border:0;background:none;font:inherit;color:var(--ink)}.ds-search input::placeholder{color:var(--ink-2)}.ds-cart{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 12px 0 14px;border:1px solid var(--line);background:var(--screen);border-radius:999px;font-weight:600;font-family:inherit;cursor:pointer}.ds-cart:hover{border-color:var(--ink)}.ds-cart:focus-visible{outline:3px solid var(--green);outline-offset:3px}.ds-cart__n{min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:var(--green);font-size:.8rem;display:grid;place-items:center}.ds-ann{background:#0b0d10;color:#c9d1d9;font-size:.8125rem;text-align:center;padding:8px 16px}.ds-ann b{color:#fff;font-weight:600}.ds-ann i{font-style:normal;color:#7d8794;margin:0 6px}.ds-search:focus-within{border-color:var(--ink);outline:3px solid var(--green);outline-offset:3px}"
+  },
+  {
+   "name": "Cart Drawer",
+   "kind": "custom",
+   "refersTo": "cart-drawer",
+   "description": "Shared native dialog opened from the header cart button. A 420px right-edge panel with the floating shadow from 720px, a 28px-topped bottom sheet below. Hairline lines with a 48px figure well, pill quantity stepper and round remove button; a foot with the placeholder subtotal, the delivery and payment line and the big Checkout button. Lines carry the variant label as written and a name that follows the chosen tier or pack; the empty state reads \"Add something and it waits here, on this device.\" over a ghost \"Browse all products\" button, \"Back to the list\" on listing pages.",
+   "html": "<div class=\"ds-drawer\"><div class=\"ds-dh\"><h2>Cart <small>2 items</small></h2><button class=\"ds-iconbtn\" aria-label=\"Close cart\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M6 6l12 12M18 6L6 18\"/></svg></button></div><div class=\"ds-db\"><div class=\"ds-line\"><span class=\"ds-fig\"></span><div class=\"ds-main\"><b>GaN 65W 3-Port Charger</b><small>UK plug</small><span>$39.00 each <span class=\"ds-syn\">placeholder</span></span></div><div class=\"ds-qty\"><button class=\"ds-q\" aria-label=\"One fewer\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M6 12h12\"/></svg></button><output>2</output><button class=\"ds-q\" aria-label=\"One more\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M12 6v12M6 12h12\"/></svg></button></div><b class=\"ds-tot\">$78.00</b><button class=\"ds-rm\" aria-label=\"Remove\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M6 6l12 12M18 6L6 18\"/></svg></button></div></div><div class=\"ds-df\"><p class=\"ds-sub\"><span>Subtotal <span class=\"ds-syn\">placeholder</span></span><b>$78.00</b></p><p class=\"ds-note\">Delivery and payment terms <span class=\"ds-ph\">placeholder</span></p><button class=\"ds-big\">Checkout</button></div></div>",
+   "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-drawer{max-width:420px;background:var(--screen);color:var(--ink);box-shadow:0 12px 32px -12px rgba(11,13,16,.18),0 2px 6px -2px rgba(11,13,16,.08);display:grid}.ds-dh{display:flex;align-items:center;justify-content:space-between;padding:16px 20px 12px;border-bottom:1px solid var(--line)}.ds-dh h2{margin:0;font-size:1.25rem;font-weight:700;letter-spacing:-.02em;display:flex;align-items:center;gap:8px}.ds-dh small{font-size:.8rem;font-weight:600;color:var(--ink-2)}.ds-iconbtn{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--screen);color:var(--ink);display:grid;place-items:center;cursor:pointer}.ds-iconbtn svg,.ds-q svg,.ds-rm svg{width:16px;height:16px}.ds-db{padding:6px 20px}.ds-line{display:grid;grid-template-columns:48px 1fr auto;grid-template-areas:'fig main rm' 'fig qty total';gap:8px 12px;align-items:center;padding:14px 0}.ds-fig{grid-area:fig;align-self:start;width:48px;height:48px;border-radius:12px;background:var(--ground)}.ds-main{grid-area:main;display:grid;gap:2px}.ds-main b{font-weight:600;line-height:1.3}.ds-main small{font-size:.8rem;color:var(--ink-2)}.ds-main span{font-size:.875rem;color:var(--ink-2)}.ds-syn{display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;padding:1px 7px;border-radius:999px;color:var(--amber-ink);background:var(--amber-soft)}.ds-ph{display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;padding:1px 7px;border-radius:999px;color:var(--ink-2);border:1px dashed var(--off)}.ds-qty{grid-area:qty;justify-self:start;display:inline-flex;align-items:center;gap:2px;height:36px;padding:0 3px;border:1px solid var(--line);border-radius:999px;background:var(--screen)}.ds-qty output{min-width:26px;text-align:center;font-weight:600}.ds-q,.ds-rm{width:30px;height:30px;border-radius:50%;border:0;background:none;color:var(--ink);display:grid;place-items:center;cursor:pointer}.ds-q:hover,.ds-rm:hover{background:var(--off-soft)}.ds-rm{grid-area:rm;justify-self:end;color:var(--ink-2)}.ds-tot{grid-area:total;justify-self:end;font-weight:600}.ds-df{display:grid;gap:10px;padding:12px 20px 16px;border-top:1px solid var(--line)}.ds-sub{display:flex;justify-content:space-between;align-items:baseline;font-weight:600;margin:0}.ds-sub b{font-size:1.25rem}.ds-note{font-size:.875rem;color:var(--ink-2);margin:0}.ds-big{height:52px;width:100%;border:0;border-radius:999px;background:var(--ink);color:var(--ground);font-family:inherit;font-weight:600;font-size:1rem;cursor:pointer}"
+  },
+  {
+   "name": "Fit Line",
+   "kind": "custom",
+   "refersTo": "fitline-ok",
+   "description": "Product page fit sentence led by a mini battery: green-soft when listed, dormant grey when not. A case made for one model says \"Made for iPhone 16 only. Check the model before buying.\" Device pages carry no fit line.",
+   "html": "<p class=\"ds-fit ds-fit--ok\"><span class=\"ds-mini\" style=\"--pct:.65\"></span><span><b>Fits Pixel 8.</b> The catalog lists Pixel 8.</span></p><p class=\"ds-fit ds-fit--no\"><span class=\"ds-mini\" style=\"--pct:0\"></span><span><b>Not listed for Kindle.</b> The catalog does not list it.</span></p>",
+   "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-fit{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border-radius:12px;background:var(--screen);border:1px solid var(--line);line-height:1.45;margin:0 0 8px;max-width:420px}.ds-fit--ok{border-color:var(--green);background:var(--green-soft)}.ds-fit--no{background:var(--off-soft);border-color:var(--off-soft);color:var(--ink-2)}.ds-fit--no b{color:var(--ink)}.ds-mini{position:relative;flex:0 0 34px;height:12px;margin:6px 4px 0 0;border:2px solid var(--ink);border-radius:5px;background:var(--screen)}.ds-mini::before{content:'';position:absolute;inset:1px;border-radius:2px;background:var(--green);clip-path:inset(0 calc((1 - var(--pct,0))*100%) 0 0 round 2px);transition:clip-path .6s var(--ease)}.ds-mini::after{content:'';position:absolute;top:2px;bottom:2px;right:-5px;width:3px;border-radius:0 2px 2px 0;background:var(--ink)}.ds-fit--no .ds-mini{border-color:var(--ink-2)}.ds-fit--no .ds-mini::after{background:var(--ink-2)}.ds-fit:hover .ds-mini{--pct:1}"
+  },
+  {
+   "name": "Big Button and Rating Stars",
+   "kind": "button",
+   "refersTo": "button-big",
+   "description": "52px full-width primary naming the live total, with amber stars clipped to the rating fraction.",
+   "html": "<div class=\"ds-stars\" style=\"--r:.84\"><span class=\"ds-off\"><svg viewBox=\"0 0 120 24\"><g fill=\"currentColor\"><path id=\"s\" d=\"M12 2.8l2.8 5.9 6.4.8-4.7 4.5 1.2 6.4L12 17.3l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8z\"/><use href=\"#s\" x=\"24\"/><use href=\"#s\" x=\"48\"/><use href=\"#s\" x=\"72\"/><use href=\"#s\" x=\"96\"/></g></svg></span><span class=\"ds-on\"><svg viewBox=\"0 0 120 24\"><g fill=\"currentColor\"><use href=\"#s\"/><use href=\"#s\" x=\"24\"/><use href=\"#s\" x=\"48\"/><use href=\"#s\" x=\"72\"/><use href=\"#s\" x=\"96\"/></g></svg></span></div><button class=\"ds-big\">Add to cart · $39.00</button>",
+   "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-stars{position:relative;width:84px;height:16px;margin-bottom:14px}.ds-stars span{position:absolute;inset:0}.ds-stars svg{width:84px;height:16px;display:block}.ds-off{color:var(--track)}.ds-on{color:var(--amber);clip-path:inset(0 calc((1 - var(--r,0))*100%) 0 0)}.ds-big{height:52px;width:100%;max-width:420px;border:0;border-radius:999px;background:var(--ink);color:var(--ground);font-weight:600;font-size:1rem;font-family:inherit;cursor:pointer;transition:background .15s,transform .15s var(--ease)}.ds-big:hover{background:#1c2129}.ds-big:active{transform:scale(.98)}.ds-big:focus-visible{outline:3px solid var(--green);outline-offset:3px}"
+  },
+  {
+   "name": "Phone Buy Bar",
+   "kind": "custom",
+   "refersTo": "buybar",
+   "description": "Fixed bottom bar on phones while the main button is out of view; translucent ground, blur, hairline top. The muted line leads with the chosen variant so truncation hides the name's tail, never the choice.",
+   "html": "<div class=\"ds-bar\"><div class=\"ds-bar__info\"><b>$1,099.00</b><span>Teal · 256 GB · Apple iPhone 16, 256 GB</span></div><button class=\"ds-pill\">Add to cart</button></div>",
+   "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-bar{display:flex;align-items:center;gap:12px;padding:10px 20px;max-width:390px;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(12px);border-top:1px solid var(--line)}.ds-bar__info{display:grid;min-width:0;flex:1}.ds-bar__info b{font-size:1.25rem;line-height:1.2}.ds-bar__info span{font-size:.8rem;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ds-pill{flex:none;height:44px;padding:0 18px;border:0;border-radius:999px;background:var(--ink);color:var(--ground);font-weight:600;font-family:inherit;cursor:pointer}.ds-pill:hover{background:#1c2129}.ds-pill:focus-visible{outline:3px solid var(--green);outline-offset:3px}"
+  },
+  {
+   "name": "Category Tile",
+   "kind": "card",
+   "refersTo": "category-tile",
+   "description": "Group-section category link: 40px off-grey-soft icon well, name, muted blurb, product count; unbuilt categories are a plain block with a muted '· page not built'. Hairline rows below 720px.",
+   "html": "<div style=\"display:grid;grid-template-columns:repeat(2,220px);gap:12px\"><a class=\"ds-cat\" href=\"#\"><span class=\"ds-cat__i\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"7\" y=\"3\" width=\"10\" height=\"18\" rx=\"2.5\"/><path d=\"M11 17.5h2\"/></svg></span><span class=\"ds-cat__t\"><b>Phones</b><small>Budget to flagship</small></span><span class=\"ds-cat__n\">12 products</span></a><div class=\"ds-cat ds-cat--soon\"><span class=\"ds-cat__i\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"4\" y=\"5\" width=\"16\" height=\"11\" rx=\"2\"/><path d=\"M2 19h20\"/></svg></span><span class=\"ds-cat__t\"><b>Laptops</b><small>Work and study</small></span><span class=\"ds-cat__n\">8 products<span class=\"ds-soon\">· page not built</span></span></div></div>",
+   "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-cat{display:grid;grid-template-columns:40px 1fr;gap:2px 10px;padding:12px;border-radius:18px;background:var(--screen);border:1px solid var(--line);text-decoration:none;color:var(--ink);transition:border-color .2s,transform .3s var(--ease)}a.ds-cat:hover{border-color:var(--ink);transform:translateY(-2px)}.ds-cat__i{grid-row:span 2;width:40px;height:40px;border-radius:12px;background:var(--off-soft);display:grid;place-items:center}.ds-cat__i svg{width:22px;height:22px}.ds-cat__t{display:grid;gap:2px}.ds-cat__t b{font-weight:600}.ds-cat__t small{font-size:.8rem;color:var(--ink-2)}.ds-cat__n{grid-column:2;font-size:.8rem;font-weight:600;color:var(--ink-2);margin-top:4px;display:flex;gap:6px;flex-wrap:wrap}.ds-soon{font-weight:400}"
+  },
+  {
+   "name": "Scroll Row",
+   "kind": "custom",
+   "refersTo": "row-button",
+   "description": "Snapping horizontal row of product tiles, 4.4 per desktop row so a fifth cuts at the edge; round 40px floating prev/next buttons over the edges from 1024px. The same row closes a device's product page as \"Complete your setup\": the house products that fit it, buyable first.",
+   "html": "<div class=\"ds-wrap\"><button class=\"ds-rb ds-rb--n\" aria-label=\"Scroll forward\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 6l6 6-6 6\"/></svg></button><div class=\"ds-row\"><div class=\"ds-t\"></div><div class=\"ds-t\"></div><div class=\"ds-t\"></div><div class=\"ds-t\"></div><div class=\"ds-t\"></div></div></div>",
+   "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)} .ds-wrap{position:relative;width:560px}.ds-row{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.ds-t{flex:0 0 calc((100% - 64px)/4.4);aspect-ratio:3/4;border-radius:18px;background:var(--screen);border:1px solid var(--line);scroll-snap-align:start}.ds-rb{position:absolute;top:40%;right:-20px;z-index:2;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--screen);display:grid;place-items:center;box-shadow:0 12px 32px -12px rgba(11,13,16,.18),0 2px 6px -2px rgba(11,13,16,.08);cursor:pointer}.ds-rb:hover{border-color:var(--ink)}.ds-rb svg{width:18px;height:18px}"
+  },
+  {
+   "name": "Hero Panel",
+   "kind": "custom",
+   "refersTo": "hero-panel",
+   "description": "Off-grey-soft field, 1px hairline, 28px corners: one scroll-snap track of three slides, one in view, no autoplay, off-screen slides inert, arrow keys while focus is inside. Each slide: a display h2 naming one product and its price in live text with the amber placeholder tag after the price, a muted offer line (44ch, 1.125rem from 1024px), a primary pill and a ghost \"Choose your device\" pill. Phones stack the text above a 200px art box, padded 24px 20px 18px. From 720px text 1.1fr against the render 1fr at 380px min, padded 40px 36px; from 1024px 420px min, padded 48px 56px 44px. The render runs taller than the padding (-22px block margins from 720px, -30px from 1024px). A product photo fills the art box height, centred, multiplied flat; a slide of drawings sets three figures in a row at 28% width. Pager centred under the panel: 36px round white hairline prev/next (0.4 at the ends) around dots, the current one a 26px green pill, the rest 8px off-grey in 24px targets.",
+   "html": "<div class=\"ds-hero\"><div class=\"ds-hero__slide\"><div class=\"ds-hero__t\"><h2>iPhone 16. $1,099. <span class=\"ds-syn\">placeholder</span></h2><p>6.1-inch OLED, A18 chip, USB-C, 48 MP main camera. Pay by card or <b>cash on delivery</b>.</p><div class=\"ds-ctas\"><a class=\"ds-btn\" href=\"#\">Shop iPhone 16</a><a class=\"ds-btn ds-btn--ghost\" href=\"#\">Choose your device</a></div></div><div class=\"ds-hero__art\"></div></div></div><div class=\"ds-pager\"><button aria-label=\"Previous slide\" aria-disabled=\"true\"><svg style=\"transform:rotate(180deg)\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m9 6 6 6-6 6\"/></svg></button><span class=\"ds-dot is-on\"></span><span class=\"ds-dot\"></span><span class=\"ds-dot\"></span><button aria-label=\"Next slide\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m9 6 6 6-6 6\"/></svg></button></div>",
+   "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)}.ds-hero__slide{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;min-height:420px;padding:48px 56px 44px;background:var(--off-soft);border:1px solid var(--line);border-radius:28px}.ds-hero__t{display:grid;gap:12px;align-content:center;justify-items:start}.ds-hero h2{margin:0;font:700 clamp(1.75rem,1.1rem + 3.2vw,3.5rem)/1.04 \"Readex Pro\",system-ui,sans-serif;letter-spacing:-.03em;text-wrap:balance}.ds-syn{display:inline-block;vertical-align:middle;font-size:.8rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:1px 7px;border-radius:999px;color:var(--amber-ink);background:var(--amber-soft)}.ds-hero p{margin:0;max-width:44ch;color:var(--ink-2);font-size:1.125rem}.ds-hero p b{color:var(--ink);font-weight:600}.ds-ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}.ds-btn{display:inline-flex;align-items:center;height:48px;padding:0 22px;border-radius:999px;background:var(--ink);color:var(--ground);font-weight:600;text-decoration:none;border:1px solid transparent}.ds-btn:hover{background:#1c2129}.ds-btn--ghost{background:var(--screen);color:var(--ink);border-color:var(--line)}.ds-btn--ghost:hover{background:var(--screen);border-color:var(--ink)}.ds-btn:focus-visible{outline:3px solid var(--green);outline-offset:3px}.ds-hero__art{margin-block:-30px}.ds-pager{display:flex;justify-content:center;align-items:center;gap:10px;padding-top:8px}.ds-pager button{display:grid;place-items:center;padding:0;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--screen);color:var(--ink)}.ds-pager button:hover{border-color:var(--ink)}.ds-pager button[aria-disabled=true]{opacity:.4}.ds-dot{width:8px;height:8px;margin:8px;border-radius:999px;background:var(--off)}.ds-dot.is-on{width:26px;background:var(--green)}"
+  },
+  {
+   "name": "Trust Band",
+   "kind": "custom",
+   "refersTo": "trust-icon-well",
+   "description": "The three promises between two hairlines, no cards: 16px vertical padding (20px from 720px), each a 36px white hairline circle with an 18px ink stroke icon, 12px before the promise at 0.9375rem weight 600. Stacked 14px apart on phones, three across from 720px. Copy is the pitch's: delivery across Lebanon in 1 to 3 days, 1-year warranty, card or cash on delivery; the home announcement bar repeats it, product pages carry it as muted trust lines and the cart foot as one muted line. PRODUCT.md records these as assumptions to confirm.",
+   "html": "<ul class=\"ds-trust\"><li><span><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 6h10v9H3zM13 9h4l3 3v3h-7z\"/><circle cx=\"7\" cy=\"17\" r=\"1.7\"/><circle cx=\"17\" cy=\"17\" r=\"1.7\"/></svg></span><b>Delivery across Lebanon in 1 to 3 days</b></li><li><span><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3l7 3v5c0 4.5-3 8.2-7 9.5C8 19.2 5 15.5 5 11V6z\"/><path d=\"M9 12l2 2 4-4\"/></svg></span><b>1-year warranty</b></li><li><span><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"6\" width=\"18\" height=\"12\" rx=\"2.5\"/><path d=\"M3 10h18M7 14.5h3\"/></svg></span><b>Card or cash on delivery</b></li></ul>",
+   "css": ":host{--ground:#f4f6f8;--screen:#fff;--ink:#0b0d10;--ink-2:#55606e;--line:#dce2e9;--track:#e9edf1;--green:#17b867;--green-2:#6fd9a4;--green-3:#b6edd0;--green-ink:#0e7a47;--green-soft:#dcf5e7;--amber:#e09a1c;--amber-ink:#8a5a00;--amber-soft:#fff0d2;--off:#8e97a3;--off-soft:#eef1f4;--ease:cubic-bezier(0.16,1,0.3,1);font-family:\"Readex Pro\",system-ui,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)}.ds-trust{list-style:none;margin:0;padding:20px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.ds-trust li{display:flex;align-items:center;gap:12px;font-size:.9375rem}.ds-trust b{font-weight:600}.ds-trust span{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--screen);border:1px solid var(--line);flex:none}.ds-trust svg{width:18px;height:18px}"
+  },
+  {
+   "name": "Status Battery",
+   "kind": "chip",
+   "refersTo": "status-mini",
+   "description": "Admin order and stock status: a 26 by 11px mini battery and its word, always together. New 0, Packed 0.34, Shipped 0.67, Delivered full with green-ink word, Cancelled dormant grey; a late Packed or Shipped order adds an amber Day N pill. Stock: full green, 0.22 amber, dormant empty.",
+   "html": "<div class=\"ds-sts\"><span class=\"ds-st\"><span class=\"ds-mini\"><i style=\"--pct:0\"></i></span>New</span><span class=\"ds-st\"><span class=\"ds-mini\"><i style=\"--pct:0.34\"></i></span>Packed<span class=\"ds-late\">Day 4</span></span><span class=\"ds-st\"><span class=\"ds-mini\"><i style=\"--pct:0.67\"></i></span>Shipped</span><span class=\"ds-st ds-st--del\"><span class=\"ds-mini\"><i style=\"--pct:1\"></i></span>Delivered</span><span class=\"ds-st ds-st--can\"><span class=\"ds-mini\"><i style=\"--pct:0\"></i></span>Cancelled</span></div>",
+   "css": ".ds-sts{display:grid;gap:10px;font-family:\"Readex Pro\",system-ui,sans-serif;font-size:14px}.ds-st{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:#0b0d10;white-space:nowrap}.ds-mini{position:relative;display:inline-block;width:26px;height:11px;border:2px solid #0b0d10;border-radius:5px;margin-inline-end:4px}.ds-mini::after{content:\"\";position:absolute;top:2px;bottom:2px;right:-5px;width:3px;background:#0b0d10;border-radius:0 2px 2px 0}.ds-mini i{position:absolute;inset:1px;background:#17b867;border-radius:2px;clip-path:inset(0 calc((1 - var(--pct)) * 100%) 0 0 round 2px)}.ds-st--del{color:#0e7a47}.ds-st--can{color:#55606e}.ds-st--can .ds-mini{border-color:#8e97a3}.ds-st--can .ds-mini::after{background:#8e97a3}.ds-late{font-size:11.5px;font-weight:700;color:#8a5a00;background:#fff0d2;padding:1px 7px;border-radius:999px;margin-inline-start:6px}"
+  },
+  {
+   "name": "Stat Tile",
+   "kind": "card",
+   "refersTo": "stat-tile",
+   "description": "Dashboard figure card linking to its filtered list; an amber dot leads the label when it needs a hand.",
+   "html": "<a class=\"ds-stat\" href=\"#\"><span class=\"ds-stat__l\"><i></i>Cash to collect</span><b>$1,794.93</b><small>5 cash-on-delivery orders open</small><span class=\"ds-stat__go\">See list <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></span></a>",
+   "css": ".ds-stat{display:grid;gap:1px;width:280px;min-height:92px;padding:12px 18px 10px;background:#fff;border:1px solid #dce2e9;border-radius:18px;color:#0b0d10;text-decoration:none;font-family:\"Readex Pro\",system-ui,sans-serif;transition:border-color .15s}.ds-stat:hover{border-color:#0b0d10}.ds-stat:focus-visible{outline:3px solid #17b867;outline-offset:3px}.ds-stat__l{display:flex;align-items:center;gap:6px;font-size:12.8px;font-weight:600;color:#55606e}.ds-stat__l i{width:8px;height:8px;border-radius:50%;background:#e09a1c}.ds-stat b{font-size:28px;font-weight:700;letter-spacing:-0.02em;line-height:1.1;font-variant-numeric:tabular-nums}.ds-stat small{font-size:12.8px;color:#55606e}.ds-stat__go{display:inline-flex;align-items:center;gap:4px;font-size:12.8px;font-weight:600;padding-top:4px}.ds-stat__go svg{width:14px;height:14px}"
+  },
+  {
+   "name": "Admin Data Table",
+   "kind": "custom",
+   "refersTo": "data-table",
+   "description": "Dense white hairline table at 0.875rem with 0.75rem muted heads, muted sub-lines and tabular numbers; below 720px each row becomes a card with a 6.5em label column and a lead line carrying status and total.",
+   "html": "<div class=\"ds-tw\"><table class=\"ds-tbl\"><thead><tr><th>Order</th><th>Placed</th><th class=\"ds-n\">Total</th></tr></thead><tbody><tr><td><b>A-1040</b></td><td>Sun 11 Oct, 18:41<span>3 h ago</span></td><td class=\"ds-n\"><b>$379.00</b></td></tr><tr><td><b>A-1039</b></td><td>Sun 11 Oct, 17:34<span>4 h ago</span></td><td class=\"ds-n\"><b>$21.99</b></td></tr></tbody></table></div>",
+   "css": ".ds-tw{background:#fff;border:1px solid #dce2e9;border-radius:18px;overflow:auto;font-family:\"Readex Pro\",system-ui,sans-serif;}.ds-tbl{width:100%;border-collapse:collapse;font-size:14px;color:#0b0d10}.ds-tbl th{text-align:start;font-size:12px;font-weight:600;color:#55606e;padding:10px 12px;border-bottom:1px solid #dce2e9}.ds-tbl td{padding:9px 12px;border-bottom:1px solid #dce2e9}.ds-tbl tr:last-child td{border-bottom:0}.ds-tbl td span{display:block;font-size:12px;color:#55606e}.ds-n{text-align:end;font-variant-numeric:tabular-nums}.ds-tbl tbody tr:hover td{background:#f4f6f8;cursor:pointer}"
+  },
+  {
+   "name": "Order Battery and Stepper",
+   "kind": "custom",
+   "refersTo": "order-battery",
+   "description": "The order panel's 76 by 28px battery charging over 0.8s, above a four-step bar: done green, current ink, ahead empty track.",
+   "html": "<div class=\"ds-od\"><span class=\"ds-batt\"><i style=\"--pct:0.34\"></i></span><div class=\"ds-steps\"><div class=\"ds-s ds-done\"><i></i>New</div><div class=\"ds-s ds-now\"><i></i>Packed</div><div class=\"ds-s\"><i></i>Shipped</div><div class=\"ds-s\"><i></i>Delivered</div></div></div>",
+   "css": ".ds-od{display:grid;gap:16px;width:420px;font-family:\"Readex Pro\",system-ui,sans-serif;}.ds-batt{position:relative;display:inline-block;width:76px;height:28px;border:3px solid #0b0d10;border-radius:8px}.ds-batt::after{content:\"\";position:absolute;top:6px;bottom:6px;right:-8px;width:5px;background:#0b0d10;border-radius:0 2px 2px 0}.ds-batt i{position:absolute;inset:3px;background:#17b867;border-radius:3px;clip-path:inset(0 calc((1 - var(--pct)) * 100%) 0 0);transition:clip-path .8s cubic-bezier(0.16,1,0.3,1)}.ds-batt:hover i{--pct:0.67}.ds-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.ds-s{display:grid;gap:6px;font-size:11.5px;font-weight:600;color:#55606e;text-align:center}.ds-s i{height:5px;border-radius:3px;background:#e9edf1}.ds-done{color:#0e7a47}.ds-done i{background:#17b867}.ds-now{color:#0b0d10}.ds-now i{background:#0b0d10}"
+  },
+  {
+   "name": "Admin Field and Cell Input",
+   "kind": "input",
+   "refersTo": "field-input",
+   "description": "40px field input at 10px radius under a 0.8125rem weight 600 label; the table's price cell is the 36px, 6.5em version aligned right.",
+   "html": "<div class=\"ds-form\"><label class=\"ds-field\">Compare-at price<span>Leave empty for no deal</span><input class=\"ds-in\" value=\"49.99\"></label><input class=\"ds-cell\" value=\"42.50\" aria-label=\"Price\"></div>",
+   "css": ".ds-form{display:grid;gap:14px;width:300px;font-family:\"Readex Pro\",system-ui,sans-serif;}.ds-field{display:grid;gap:6px;font-size:13px;font-weight:600;color:#0b0d10}.ds-field span{font-weight:400;font-size:12px;color:#55606e}.ds-in,.ds-cell{height:40px;padding:0 12px;border:1px solid #dce2e9;border-radius:10px;font:inherit;font-size:15px;font-weight:400;background:#fff;color:#0b0d10}.ds-cell{width:6.5em;height:36px;padding:0 10px;font-size:14px;text-align:end;font-variant-numeric:tabular-nums}.ds-in:focus,.ds-cell:focus{border-color:#0b0d10;outline:3px solid #17b867;outline-offset:3px}"
+  },
+  {
+   "name": "Bulk Bar and Toast",
+   "kind": "custom",
+   "refersTo": "bulk-bar",
+   "description": "Ink pills: the selection bar with its action buttons, and the status toast with the floating shadow.",
+   "html": "<div class=\"ds-bt\"><div class=\"ds-bulk\"><span>2 selected</span><button class=\"ds-bb\">Mark out of stock</button><button class=\"ds-bg\">Clear</button></div><p class=\"ds-toast\">2 marked out of stock</p></div>",
+   "css": ".ds-bt{display:grid;gap:16px;justify-items:start;font-family:\"Readex Pro\",system-ui,sans-serif;}.ds-bulk{display:flex;align-items:center;gap:8px 14px;padding:8px 10px 8px 16px;background:#0b0d10;color:#f4f6f8;border-radius:999px;font-size:14px;font-weight:600}.ds-bb,.ds-bg{height:34px;padding:0 14px;border-radius:999px;font:inherit;font-size:13px;border:1px solid transparent;cursor:pointer}.ds-bb{background:#f4f6f8;color:#0b0d10}.ds-bg{background:transparent;color:#f4f6f8;border-color:#1f252d}.ds-bg:hover{border-color:#f4f6f8}.ds-toast{margin:0;padding:10px 18px;background:#0b0d10;color:#f4f6f8;border-radius:999px;font-size:14px;font-weight:600;box-shadow:0 12px 32px -12px rgba(11,13,16,0.18),0 2px 6px -2px rgba(11,13,16,0.08)}"
+  },
+  {
+   "name": "Checkout Form",
+   "kind": "input",
+   "refersTo": "checkout-input",
+   "description": "Cart drawer foot: 44px name and phone inputs at 10px radius, the area pill select, payment as two chips, the amber error line, then the big Checkout button.",
+   "html": "<form class=\"ds-co\"><input placeholder=\"Your name\"><input placeholder=\"Phone, e.g. 03 123 456\"><div class=\"ds-pay\"><span class=\"ds-chip ds-on\">Cash on delivery</span><span class=\"ds-chip\">Card</span></div><p class=\"ds-err\">Add your name, phone so the shop can reach you.</p></form>",
+   "css": ".ds-co{display:grid;gap:8px;width:340px;font-family:\"Readex Pro\",system-ui,sans-serif;}.ds-co input{height:44px;padding:0 14px;border:1px solid #dce2e9;border-radius:10px;font:inherit;background:#fff;color:#0b0d10}.ds-co input:focus{border-color:#0b0d10;outline:3px solid #17b867;outline-offset:3px}.ds-pay{display:flex;gap:6px}.ds-chip{display:inline-flex;align-items:center;gap:9px;height:40px;padding:0 15px 0 13px;border:1px solid #dce2e9;border-radius:999px;background:#fff;font-size:15px;font-weight:500}.ds-chip::before{content:\"\";width:8px;height:8px;border-radius:50%;background:#e9edf1}.ds-on{background:#0b0d10;color:#f4f6f8;border-color:#0b0d10}.ds-on::before{background:#17b867}.ds-err{margin:0;font-size:14px;color:#8a5a00;background:#fff0d2;padding:8px 12px;border-radius:10px}"
   }
+ ],
+ "narrative": {
+  "northStar": "The Charging Lock Screen",
+  "overview": "Every surface reads as a phone's lock screen in daylight while it charges. The ground is a cool near-white, the figures are near-black and set in one variable family, and a single charging green does the work of filling. Batteries fill, split-output bars fill, the pressed chip's dot fills. Nothing is decorated that is not also a reading of power.\n\nDensity is moderate and phone-first. Content sits on hairline-ruled rows and white cards on the grey ground, with pill-shaped controls that echo status chips. Depth is almost entirely tonal. The page ends with the screen asleep: one dark block. On home a thin announcement bar in the same sleep colours sits above the header, the lock screen's status bar. These two are the only dark regions in a light-only scheme.\n\nThe store sells devices, accessories and power, and it starts from what the shopper owns. Home follows the category canon in the same world: the three promises in the announcement bar, a hero panel that names one product and its price in live text, \"Choose your device\" right under it, the categories as a row of circles, and ten best sellers that re-sort to what fits the device the shopper names, the rest dimmed, never hidden. The battery stays where a figure exists: on power products it reads what a port delivers, the house strip reads the range's top output, and a device's own product page reads the ceiling the catalog lists for that device's family, marked indicative. Products with neither an output spec nor a listed ceiling carry no battery and lead with brand and facets instead.\n\nThe world uses drawn stroke icons and line-art product figures. The figures carry green port marks, and third-party devices are drawn in the same grammar with green marks, so even illustration speaks the charging language. Where the catalog has a photo, it sits in the same grey figure well as the drawing it replaces, so a photo and a drawing read as one family. The hero panel is the same idea at full scale: an off-grey-soft field one step below the ground, with the render standing directly on it, multiplied flat.",
+  "keyCharacteristics": [
+   "One accent, charging green, that means \"fills\", \"fits\" and \"available\".",
+   "Battery glyphs as the signature component, filled with a clip-path, never a width animation.",
+   "Pills for every control and status, hairlines for every list.",
+   "Tabular figures everywhere; wattage is the headline number on power products.",
+   "Light scheme only; the footer is the screen asleep and the home announcement bar its status bar."
+  ],
+  "rules": [
+   {
+    "name": "The One Charge Rule",
+    "body": "Green means power, fit or saving: filling, pressed, available, added, and the \"Save $N\" figure in green ink. It is never used as a decorative fill, a heading color or a section background.",
+    "section": "colors"
+   },
+   {
+    "name": "The Honest Amber Rule",
+    "body": "Amber marks what is scarce or needs a hand: low stock, an order past its promise, an armed reset, an error. Prices and ratings are placeholders but carry no label of their own.",
+    "section": "colors"
+   },
+   {
+    "name": "The Dormant Grey Rule",
+    "body": "What does not fit the chosen device is shown in grey, not hidden and not red. The scheme has no error red. A filter option that would return zero results under the current filters goes dormant the same way: grey and disabled, still listed with its zero count. An option no product in the listing carries is never offered at all. On a product page the whole reading goes dormant together: the glyph fill, the fit line and the chosen chip. On home, best sellers that do not fit the pick dim to 38% and keep their place in the row.",
+    "section": "colors"
+   },
+   {
+    "name": "The Tabular Rule",
+    "body": "The body sets tabular figures, so watts, prices and counts align and count-ups do not jitter.",
+    "section": "typography"
+   },
+   {
+    "name": "The Five Steps Rule",
+    "body": "Listing, product and cart text sizes are 0.8, 0.875, 1, 1.25 and 1.75rem, with the tile figure stepping to 1.5rem below 720px. Larger fixed sizes are only the fluid ramps' own tops, 2.25rem, 2.75rem and the display's 3.5rem. The home rebuild added four in-between steps (recorded 2026-10-11): 0.75rem for a tile's corner marks, 0.8125rem for the strip roles, 0.9375rem for the status line, the trust band and the phone hero buttons, and 1.0625rem for the picker heading, with the offer line at 1.125rem from 1024px. Only the display, headline and product title sizes are fluid.",
+    "section": "typography"
+   },
+   {
+    "name": "The Flat Screen Rule",
+    "body": "Cards, chips, tiles and category tiles never cast shadows. Hover answers with a border darkening to ink and, on tiles and linked category tiles, a 2px lift.",
+    "section": "elevation"
+   },
+   {
+    "name": "The Word Beside the Glyph Rule",
+    "body": "A status battery never stands alone in a cell; its word sits beside it, and the word carries the color when the state is final (green ink for Delivered, muted for Cancelled).",
+    "section": "components"
+   },
+   {
+    "name": "The Attention Amber Rule",
+    "body": "In the admin, amber also marks what needs a hand: the new-orders dot, cash to collect, a late order, an armed reset and an error. It never marks a finished state.",
+    "section": "colors"
+   }
+  ],
+  "dos": [
+   "**Do** express any level of power or fit as a fill inside a rounded track or battery, cut with clip-path and eased on cubic-bezier(0.16, 1, 0.3, 1).",
+   "**Do** draw icons as 24-grid strokes at 2px with round caps, and product figures as 120-grid strokes at 3px with green ports. Third-party devices without a figure of their own are drawn the same way, with green marks at their port or face.",
+   "**Do** use pills for controls and status, hairlines for lists, and 18px cards on the grey ground.",
+   "**Do** generate gallery drawings from the catalog on a 400 by 300 grid with 3px strokes, green ports, Readex Pro labels at 12 to 15 units and 1.5 unit muted dimension lines. Draw only what the spec sheet states; a slide whose spec is missing is left out, never filled in. Thumb crops drop the labels and thicken strokes to 7 to 10 units.",
+   "**Do** label every missing asset with the dashed placeholder pill. Never link an unbuilt page: name it in muted text and count it.",
+   "**Do** show every filter option the listing's products carry with the count it would return, and grey out options that would return nothing instead of hiding them.",
+   "**Do** show a battery only where an output or a published charge ceiling exists, and mark a device's ceiling indicative.",
+   "**Do** let a chosen variant rename the product wherever it is bought (the h1, the Storage spec row, the phone buy bar, the cart line) while the page title and breadcrumb keep the SKU name, and say plainly when variants share one placeholder price.",
+   "**Do** zero all transition and animation durations under prefers-reduced-motion."
+  ],
+  "donts": [
+   "**Don't** add a second accent or use green as decoration; amber is for caution only.",
+   "**Don't** cast shadows on cards, tiles or chips; the floating layers are the cart drawer, the phone filter sheet, the row scroll buttons over a row's edge, and in the admin the order and product panel and the toast (extended 2026-10-11).",
+   "**Don't** add a dark mode or another dark region; the footer is the screen asleep and the home announcement bar its status bar, both in the sleep colours.",
+   "**Don't** fabricate product photography or borrow real brand logos; drawn line-art figures stand in until real photography exists.",
+   "**Don't** use emoji or glyph characters as icons; every icon is an inline stroke SVG.",
+   "**Don't** introduce a second typeface; Readex Pro carries display, body and figures, and the platform monospace stack is reserved for code inside notices."
+  ]
+ }
 }

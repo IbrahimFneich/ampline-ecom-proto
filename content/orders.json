@@ -1,6 +1,6 @@
 {
  "_meta": {
-  "note": "SYNTHETIC orders authored 2026-10-11 for the admin prototype. No real customers, payments or deliveries; names, phones, addresses and amounts are invented. Replace with real order data before any real use.",
+  "note": "Sample orders authored 2026-10-11 for the admin prototype. No real customers, payments or deliveries; names, phones, addresses and amounts are invented. Replace with real order data before any real use.",
   "currency": "USD",
   "count": 40,
   "span_days": 30,

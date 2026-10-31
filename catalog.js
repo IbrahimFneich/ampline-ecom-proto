@@ -350,7 +350,7 @@
   }
 
   // Variant groups the buy box offers: the plug region from the Plug spec, then the catalog's
-  // variants object (color, storage, pack). Every option shares the SKU's one synthetic price.
+  // variants object (color, storage, pack). Every option shares the SKU's one price.
   var VARIANT_LEGENDS = { plug: 'Plug region', color: 'Colour', storage: 'Storage', pack: 'Pack' };
   function variantGroups(product) {
     var groups = [], regions = variants(product);
@@ -560,7 +560,7 @@
           '<ul class="thanks__lines">' + done.lines.map(function (l) {
             return '<li><span>' + esc(l.name) + (l.variant ? ' · ' + esc(l.variant) : '') + ' <span class="nb">× ' + l.n + '</span></span><span>' + money(l.total) + '</span></li>';
           }).join('') + '</ul>' +
-          '<p class="drawer__sub"><span>Total <span class="syn">synthetic</span></span><b>' + money(done.total) + '</b></p>' +
+          '<p class="drawer__sub"><span>Total</span><b>' + money(done.total) + '</b></p>' +
           '<button type="button" class="btn" data-cart-close>Keep browsing</button>' +
         '</div>';
         foot.hidden = true;
@@ -583,7 +583,7 @@
           '<span class="line__fig" aria-hidden="true"><svg><use href="#' + figFor(l.p) + '"/></svg></span>' +
           '<div class="line__main"><b class="line__name">' + nb(l.name) + '</b>' +
             (l.variant ? '<small>' + esc(l.variant) + '</small>' : '') +
-            '<span class="line__price">' + money(l.p.price) + ' each <span class="syn">synthetic</span></span></div>' +
+            '<span class="line__price">' + money(l.p.price) + ' each</span></div>' +
           '<div class="line__qty" role="group" aria-label="Quantity of ' + esc(l.name + (l.variant ? ', ' + l.variant : '')) + '">' +
             '<button type="button" class="qty" data-qty="' + esc(l.key) + '" data-delta="-1" aria-label="One fewer">' + MINUS + '</button>' +
             '<output>' + l.n + '</output>' +
@@ -594,7 +594,7 @@
         '</li>';
       }).join('') + '</ul>';
       foot.hidden = false;
-      foot.innerHTML = '<p class="drawer__sub" aria-live="polite"><span>Subtotal <span class="syn">synthetic</span></span><b>' + money(subtotal) + '</b></p>' +
+      foot.innerHTML = '<p class="drawer__sub" aria-live="polite"><span>Subtotal</span><b>' + money(subtotal) + '</b></p>' +
         '<p class="drawer__note">Delivery across Lebanon in 1 to 3 days · card or cash on delivery</p>' +
         '<form class="co" id="checkout-form" novalidate>' +
           '<label class="co__f"><span class="vh">Your name</span><input type="text" name="name" placeholder="Your name" required autocomplete="name" maxlength="60"></label>' +
@@ -737,7 +737,7 @@
         ? '<div class="watts"><b>' + w + '</b><span>' + (WATT_CAP[p.category] || 'W max per port') + '</span></div>' +
           '<span class="mini" aria-hidden="true"><i style="--pct:' + Math.min(1, w / 100) + '"></i></span>'
         : '<p class="tile__facts">' + nb(facetLine(p) || (p.specs[0] ? p.specs[0].value : '')) + '</p>') +
-      '<div class="price"><b>' + money(p.price) + '</b>' + (p.compare_at ? '<s>' + money(p.compare_at) + '</s>' : '') + (saving ? '<span class="save">Save ' + money(saving).replace(/\.00$/, '') + '</span>' : '') + '<span class="syn">synthetic</span></div>' +
+      '<div class="price"><b>' + money(p.price) + '</b>' + (p.compare_at ? '<s>' + money(p.compare_at) + '</s>' : '') + (saving ? '<span class="save">Save ' + money(saving).replace(/\.00$/, '') + '</span>' : '') + '</div>' +
       '<div class="meta"><span class="stock ' + st[0] + '">' + st[1] + '</span>' + (p.rating && p.rating.count ? '<span class="rating"><svg aria-hidden="true"><use href="#i-star"/></svg>' + p.rating.value.toFixed(1) + ' <span>(' + p.rating.count + ')</span></span>' : '') + '</div>' +
       (choose
         ? '<a class="btn' + (inCart ? ' btn--added' : '') + '" href="' + href + '" data-choose="' + p.id + '">' + (inCart ? '<svg aria-hidden="true"><use href="#i-check"/></svg>In cart' : 'Choose options') + '</a>'
