@@ -327,7 +327,7 @@ html.is-locked { overflow: hidden; } /* the page holds still behind an open draw
 }
 .tag--hot { background: var(--green-soft); color: var(--green-ink); }
 
-.syn, .ph {
+.ph {
   display: inline-block;
   font-size: 0.8rem;
   font-weight: 600;
@@ -337,7 +337,6 @@ html.is-locked { overflow: hidden; } /* the page holds still behind an open draw
   border-radius: var(--pill);
   vertical-align: middle;
 }
-.syn { color: var(--amber-ink); background: var(--amber-soft); }
 .ph { color: var(--ink-2); border: 1px dashed var(--off); }
 
 .notice {
@@ -529,8 +528,11 @@ html.is-locked { overflow: hidden; } /* the page holds still behind an open draw
   /* Narrow tiles: a two-line price block and a two-line meta box on every tile, so
      figures, mini batteries and prices align across a row; the label keeps its pill width. */
   .tile .price::before { content: ""; flex-basis: 100%; height: 0; order: 2; }
+  .tile .price .save { order: 3; }
+  /* The saving sits on its own line and the row reserves it whether or not there is one,
+     so prices and the watt bar above them align across a row of tiles. */
+  .tile .price { min-height: 3.875rem; align-content: flex-start; }
   .tile .price s { font-size: 0.875rem; } /* keeps price and strike on one line in a 143px block */
-  .tile .price .syn { order: 3; }
   .tile .meta { min-height: calc(2.4rem + 4px); align-content: flex-start; } /* two lines of 0.8rem x 1.5 plus the 4px row gap */
 }
 @media (min-width: 720px) {
@@ -795,7 +797,7 @@ input:checked + .chip::before { background: var(--green); }
 }
 
 .shop .tile { animation-duration: 0.25s; animation-delay: 0s; }
-.tile--skel { border-color: transparent; min-height: 560px; } /* the height a real tile takes on a phone, so the catalog's arrival does not shift the page */
+.tile--skel { border-color: transparent; min-height: 520px; } /* the height a real tile takes on a phone, so the catalog's arrival does not shift the page */
 .tile--skel > span { display: block; border-radius: var(--r-s); background: var(--track); animation: pulse 1.2s ease-in-out infinite; }
 @keyframes pulse { 50% { opacity: 0.5; } }
 
@@ -1112,7 +1114,6 @@ a.cat .cat__count { color: var(--ink); }
 .promo__slide { flex: 0 0 100%; min-width: 0; scroll-snap-align: start; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 200px; gap: 14px; padding: 24px 20px 18px; }
 .promo__text { display: grid; gap: 12px; justify-items: start; align-content: center; }
 .promo__title { font-size: clamp(1.75rem, 1.1rem + 3.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.03em; text-wrap: balance; font-weight: 700; }
-.promo__title .syn { vertical-align: middle; margin-inline-start: 8px; letter-spacing: 0.04em; }
 .promo__offer { color: var(--ink-2); font-size: 1rem; max-width: 44ch; }
 .promo__offer b { color: var(--ink); font-weight: 600; }
 .promo__ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
@@ -1173,7 +1174,7 @@ a.cat .cat__count { color: var(--ink); }
 .best__mini i { transition: clip-path 0.8s var(--ease); }
 .tiles--5 .tile__short { display: none; }
 .tiles--5 .tile__facts { height: 0; padding-top: 0; overflow: hidden; } /* the spacer stays so prices align; the facts line is the listing's */
-.tiles--5 .tile--skel { min-height: 420px; }
+.tiles--5 .tile--skel { min-height: 470px; }
 
 .trust { list-style: none; margin: 0; padding: 16px 0; display: grid; gap: 14px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .trust__item { display: flex; align-items: center; gap: 12px; font-size: 0.9375rem; }
@@ -1200,7 +1201,7 @@ a.cat .cat__count { color: var(--ink); }
   .promo__art { margin-block: -30px; }
   .promo__offer { font-size: 1.125rem; }
   .tiles--5 { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
-  .tiles--5 .tile--skel { min-height: 460px; }
+  .tiles--5 .tile--skel { min-height: 500px; }
   .catrow { gap: 28px; }
 }
 

@@ -53,8 +53,8 @@
       ? '<a href="' + BASE + 'shop/' + p.category + '.html">' + esc(cat.name) + '</a>'
       : esc(cat.name);
     $('#short').textContent = p.short;
-    $('#rating').innerHTML = stars(p.rating.value) + '<a href="#reviews">' + p.rating.value.toFixed(1) + ' · ' + p.rating.count + ' ratings</a> <span class="syn">synthetic</span>';
-    $('#price').innerHTML = '<b>' + money(p.price) + '</b>' + (p.compare_at ? '<s>' + money(p.compare_at) + '</s>' : '') + '<span class="syn">synthetic</span>';
+    $('#rating').innerHTML = stars(p.rating.value) + '<a href="#reviews">' + p.rating.value.toFixed(1) + ' · ' + p.rating.count + ' ratings</a>';
+    $('#price').innerHTML = '<b>' + money(p.price) + '</b>' + (p.compare_at ? '<s>' + money(p.compare_at) + '</s>' : '') + '';
     // The glyph reads a port's max output on power products and accessories that carry one; on a device it
     // reads the device's own published charge ceiling, marked indicative; anything else has no glyph.
     var glyph = $('#wattglyph'), cap = $('#watt-cap'), small = cap.nextElementSibling;
@@ -92,8 +92,8 @@
 
   var VARIANT_NOTES = {
     plug: 'Same price in every region; the catalog lists one.',
-    storage: 'Storage tiers share one synthetic price here; tier pricing is left to the client.',
-    pack: 'Pack sizes share one synthetic price here; pack pricing is left to the client.'
+    storage: 'Storage tiers share one price here; tier pricing is left to the client.',
+    pack: 'Pack sizes share one price here; pack pricing is left to the client.'
   };
   function renderVariants() {
     var box = $('#variants');
@@ -202,7 +202,7 @@
 
   function renderReviews() {
     var r = state.p.rating;
-    $('#reviews-agg').innerHTML = '<b class="reviews__n">' + r.value.toFixed(1) + '</b><div>' + stars(r.value) + '<p>' + r.count + ' ratings <span class="syn">synthetic</span></p></div>';
+    $('#reviews-agg').innerHTML = '<b class="reviews__n">' + r.value.toFixed(1) + '</b><div>' + stars(r.value) + '<p>' + r.count + ' ratings</p></div>';
   }
 
   /* ---------- Gallery, drawn from the catalog ---------- */

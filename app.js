@@ -109,7 +109,7 @@
   }
   function firstSentence(t) { return (/^.*?[.!?](?=\s|$)/.exec(t || '') || [t || ''])[0]; }
   function slides() {
-    var syn = '<span class="syn">synthetic</span>';
+    var syn = '';
     var iphone = bySlug('apple-iphone-16-128gb'), mac = bySlug('apple-macbook-air-13-m3');
     var own = products().filter(house), ownMin = dollars(Math.min.apply(null, own.map(function (p) { return p.price; })));
     var out = [];

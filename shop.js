@@ -76,7 +76,7 @@
 
   function renderGroups() {
     var facetHtml = state.defs.map(function (d) {
-      return '<fieldset class="group" data-group="' + esc(d.label) + '"><legend>' + esc(A.legendFor(d.label)) + (d.label === 'Price' ? ' <span class="syn">synthetic</span>' : '') + '</legend>' +
+      return '<fieldset class="group" data-group="' + esc(d.label) + '"><legend>' + esc(A.legendFor(d.label)) + '' + '</legend>' +
         d.opts.map(function (o) {
           return '<label class="opt"><input type="checkbox" name="' + esc(d.label) + '" value="' + esc(o.id) + '"><span>' + esc(o.label) + '</span><em></em></label>';
         }).join('') + '</fieldset>';
@@ -318,7 +318,7 @@
       if (searchForm) searchForm.querySelector('input').value = state.f.q;
       baseTitle = all ? 'All products' : state.category.name;
       $('#crumb-name').textContent = all ? 'All products' : state.category.name;
-      $('#blurb').textContent = (all ? 'Search by name, brand or spec, or start from what you own' : state.category.blurb) + '.'; // every price and rating carries its own SYNTHETIC tag
+      $('#blurb').textContent = (all ? 'Search by name, brand or spec, or start from what you own' : state.category.blurb) + '.'; // prices, ratings and stock are placeholders; the footer says so once
       $('#foot-cats').innerHTML = A.shopLinks(data.categories, BASE, CAT);
       renderGroups();
       render();

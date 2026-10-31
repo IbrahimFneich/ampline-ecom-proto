@@ -3,10 +3,10 @@
     "brand": "Ampline",
     "brand_note": "PLACEHOLDER working name, rename later with a find-and-replace",
     "currency": "USD",
-    "prices_note": "SYNTHETIC prices and ratings, authored 2026-10-10 for the prototype; replace before any real use",
+    "prices_note": "Placeholder prices and ratings, authored 2026-10-10 for the prototype; replace before any real use",
     "images_note": "assets/products/<slug>-<n>.jpg|png; every path listed here exists on disk (tools/sync-images.py), a product with no file lists none and draws line art",
     "type_note": "type added 2026-10-11 for the category filter (chargers: wall, desktop, travel)",
-    "brands_note": "Third-party product names are used as a retailer lists them; prices, ratings and availability are synthetic.",
+    "brands_note": "Third-party product names are used as a retailer lists them; prices, ratings and availability are placeholders.",
     "devices_note": "devices[].max_charge_w is the peak charge rate the device accepts as commonly published; indicative, verify per model. devices[].aliases are the compat strings the Ampline SKUs use, so every existing compat entry maps to device ids; new accessories list device ids in compat directly. A device with a parent is one model inside that family bucket: it fits everything its bucket fits plus products that name the model itself (cases, folios).",
     "compat_unmapped": [
       "Any car with a 12V socket",

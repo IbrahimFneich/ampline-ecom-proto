@@ -7,7 +7,7 @@ related_targets: ["app.js","catalog.js","styles.css"]
 
 ## Surface: the home page (index.html)
 
-Mode: Persuade. Rebuilt 2026-10-11 inside The Charging Lock Screen with looks/canon.html (the category canon) as the pinned composition reference, translated into the world's materials: daylight ground, one charging green where the reference used cyan, black pills, Readex Pro, hairlines, drawn stroke icons, the amber SYNTHETIC tag on every price.
+Mode: Persuade. Rebuilt 2026-10-11 inside The Charging Lock Screen with looks/canon.html (the category canon) as the pinned composition reference, translated into the world's materials: daylight ground, one charging green where the reference used cyan, black pills, Readex Pro, hairlines, drawn stroke icons, the amber placeholder tag on every price.
 
 Thesis: start from what you own, in the canon's order. Announcement of the three promises; header with the group links, Deals, a centred search and the cart; a light-grey hero panel with three live slides (iPhone 16, MacBook Air M3, the Ampline charging range: headline with the catalog price and its tag, one sentence from the catalog, two actions); "Choose your device" right under it with the browser's guess line, then the family's devices and models; the fifteen categories as a row of circles (a photo where the category has one, the drawn figure for the house categories); ten best sellers five across that re-sort to the chosen device with a Fits mark, the rest dimmed and never removed; the trust row; the category grid in three groups with featured rows; the house strip; the dark footer.
 

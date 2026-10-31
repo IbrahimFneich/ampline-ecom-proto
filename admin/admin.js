@@ -152,8 +152,8 @@
   function demoNote() {
     var n = state.seed ? state.seed.orders.length : 0, days = Math.round(state.shift / DAY);
     var el = $('#demo-text');
-    el.textContent = state.seed ? n + ' synthetic orders' + (days ? ', dates shifted ' + days + 'd to end today' : '') + '; prices and stock are placeholders.' + (storageOk ? '' : ' Storage is off: edits last until the tab closes.') : 'Prototype catalog; orders are missing.';
-    el.title = state.seed ? 'content/orders.json holds ' + n + ' synthetic orders authored for the prototype' + (days ? '; every date is shifted by ' + days + ' days so the newest order lands today' : '') + '. Prices, stock and ratings are placeholders from content/products.json.' : '';
+    el.textContent = state.seed ? n + ' sample orders' + (days ? ', dates shifted ' + days + 'd to end today' : '') + '; prices and stock are placeholders.' + (storageOk ? '' : ' Storage is off: edits last until the tab closes.') : 'Prototype catalog; orders are missing.';
+    el.title = state.seed ? 'content/orders.json holds ' + n + ' sample orders authored for the prototype' + (days ? '; every date is shifted by ' + days + ' days so the newest order lands today' : '') + '. Prices, stock and ratings are placeholders from content/products.json.' : '';
   }
 
   /* ---------- Dashboard ---------- */
@@ -252,7 +252,7 @@
       CANCEL_REASONS.map(function (r) { return '<option>' + esc(r) + '</option>'; }).join('') + '</select>' + icon('i-chevron') + '</div><div class="actions"><button type="submit" class="btn" data-cancel-confirm="' + esc(o.id) + '">Confirm cancellation</button><button type="button" class="btn btn--ghost" data-cancel-stop>Keep the order</button></div></form>';
     var lines = '<table class="lines"><tbody>' + o.lines.map(function (l) {
       return '<tr><td>' + esc(l.name) + (l.variant ? '<small>' + esc(l.variant) + '</small>' : '') + '</td><td class="num">' + l.qty + ' × ' + money(l.price) + '</td><td class="num"><b>' + money(l.qty * l.price) + '</b></td></tr>';
-    }).join('') + '</tbody></table><div class="totals"><span>Total</span><b>' + money(o.total) + '</b></div><p class="od__meta">' + (o.seed ? 'Lines and total come from content/orders.json; no delivery fee, tax or discount is recorded.' : 'Placed on the storefront in this browser.') + ' <span class="syn">synthetic</span></p>';
+    }).join('') + '</tbody></table><div class="totals"><span>Total</span><b>' + money(o.total) + '</b></div><p class="od__meta">' + (o.seed ? 'Lines and total come from content/orders.json; no delivery fee, tax or discount is recorded.': 'Placed on the storefront in this browser.') + '</p>';
     var html = '<div class="od">' +
       '<div class="od__top"><div>' + statusHtml(o) + '<div class="od__meta">Placed ' + esc(fmtDate(o.at)) + ', ' + esc(rel(o.at)) + '</div></div><span class="batt' + (o.status === 'cancelled' ? ' batt--off' : '') + '" aria-hidden="true"><i id="batt-fill" style="--pct:' + PCT[o.status] + '"></i></span></div>' +
       stepper + (o.status === 'cancelled' ? '<div class="reason"><b>Cancelled.</b> ' + esc(o.cancel_reason || 'No reason recorded') + '</div>' : '') +
@@ -304,7 +304,7 @@
           '<td data-h="Stock"><span class="stockcell">' + stockMini(p.stock) + '<span class="cell-select cell-select--' + st[2] + '"><select data-stock-of="' + esc(p.id) + '" aria-label="Stock of ' + esc(p.name) + '">' + Object.keys(STOCK).map(function (k) { return '<option value="' + k + '"' + (p.stock === k ? ' selected' : '') + '>' + STOCK[k][0] + '</option>'; }).join('') + '</select>' + icon('i-chevron') + '</span></span></td></tr>';
       }).join('') + '</tbody></table></div>'
       : emptyBox('No products match.', 'Clear the filter or the search.', '<a class="btn btn--ghost" href="#products">Show all products</a>');
-    return '<div class="view__head"><div><h1>Products</h1><p><span class="mini count__mini" aria-hidden="true"><i style="--pct:' + (all.length ? list.length / all.length : 0) + '"></i></span>' + list.length + ' of ' + all.length + '. Price and stock save as you change them; the name opens the full form. <span class="syn">synthetic prices</span></p></div><a class="btn" href="#products/new">' + icon('i-plus') + 'Add product</a></div>' +
+    return '<div class="view__head"><div><h1>Products</h1><p><span class="mini count__mini" aria-hidden="true"><i style="--pct:' + (all.length ? list.length / all.length : 0) + '"></i></span>' + list.length + ' of ' + all.length + '. Price and stock save as you change them; the name opens the full form.</p></div><a class="btn" href="#products/new">' + icon('i-plus') + 'Add product</a></div>' +
       '<div class="tools">' + chips + catSel + '<label class="search"><span class="vh">Search products</span>' + icon('i-search') + '<input type="search" id="product-search" placeholder="Name, brand or SKU" value="' + esc(q.q || '') + '" autocomplete="off"></label></div>' + bulk + rows;
   }
   function patchProduct(id, patch) {
@@ -332,7 +332,7 @@
       '<label class="field">Name<input class="input" name="name" required maxlength="120" value="' + esc(p.name) + '"></label>' +
       '<div class="fieldrow"><label class="field">Category<span class="select"><select name="category" required><option value="">Choose</option>' + categories().map(function (c) { return '<option value="' + esc(c.slug) + '"' + (p.category === c.slug ? ' selected' : '') + '>' + esc(c.name) + '</option>'; }).join('') + '</select>' + icon('i-chevron') + '</span></label>' +
       '<label class="field">Stock<span class="select"><select name="stock">' + Object.keys(STOCK).map(function (k) { return '<option value="' + k + '"' + (p.stock === k ? ' selected' : '') + '>' + STOCK[k][0] + '</option>'; }).join('') + '</select>' + icon('i-chevron') + '</span></label></div>' +
-      '<div class="fieldrow"><label class="field">Price, USD <span class="syn">synthetic</span><input class="input" name="price" type="number" min="0" step="0.01" inputmode="decimal" required value="' + (p.price === '' ? '' : Number(p.price).toFixed(2)) + '"></label>' +
+      '<div class="fieldrow"><label class="field">Price, USD<input class="input" name="price" type="number" min="0" step="0.01" inputmode="decimal" required value="' + (p.price === '' ? '' : Number(p.price).toFixed(2)) + '"></label>' +
       '<label class="field">Compare-at price<span class="field__hint">Leave empty for no deal</span><input class="input" name="compare_at" type="number" min="0" step="0.01" inputmode="decimal" value="' + (p.compare_at ? Number(p.compare_at).toFixed(2) : '') + '"></label></div>' +
       '<label class="field">Badges<span class="field__hint">Comma separated, as the tile shows them</span><input class="input" name="badges" value="' + esc((p.badges || []).join(', ')) + '"></label>' +
       '<div class="field"><span>Specs<span class="field__hint">Label and value rows, in the order the product page lists them</span></span><div class="rows" id="spec-rows">' + specRows + '</div><button type="button" class="btn btn--ghost btn--small rows__add" data-add-spec>' + icon('i-plus') + 'Add spec</button></div>' +
@@ -396,7 +396,7 @@
     var s = settings();
     return '<div class="view__head"><div><h1>Settings</h1><p>Store facts the pages show. Saved in this browser; applied to the storefront at launch.</p></div></div>' +
       '<div class="grid2 grid2--even"><form class="card form" id="settings-form"><label class="field">Store name<span class="field__hint">"Ampline" is a placeholder working name</span><input class="input" name="store_name" required maxlength="40" value="' + esc(s.store_name) + '"></label>' +
-      '<label class="field">Currency<input class="input" value="USD, prices are synthetic placeholders" readonly aria-readonly="true"></label>' +
+      '<label class="field">Currency<input class="input" value="USD, prices are placeholders" readonly aria-readonly="true"></label>' +
       '<div class="field"><span>Trust lines<span class="field__hint">The three promises on the home page, product pages and the cart. Pitch assumptions until the client confirms them.</span></span><div class="rows">' + s.trust.map(function (t, i) { return '<input class="input" name="trust" value="' + esc(t) + '" maxlength="60" aria-label="Trust line ' + (i + 1) + '">'; }).join('') + '</div></div>' +
       '<div class="toggle"><span>Arabic edition<small>Right-to-left pages, planned; timing undecided</small></span><span class="ph">planned</span><button type="button" class="switch" role="switch" aria-checked="false" disabled aria-label="Arabic edition, planned"></button></div>' +
       '<div class="form__foot"><button type="submit" class="btn">Save settings</button></div></form>' +
